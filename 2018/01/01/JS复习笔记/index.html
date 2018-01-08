@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="大力挥拍">
 <meta property="og:description" content="有两种比较运算符：==，自动转换数据类型再比较，会得到非常诡异的结果===，如果数据类型不一致，返回false，如果一致，再比较 NaN === NaN; // false唯一能判断NaN的方法是通过isNaN()函数isNaN(NaN); // true 浮点数比较要这样Math.abs(1 / 3 - (1 - 2 / 3)) &amp;lt; 0.0000001; // true 并如果一个变量没">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:updated_time" content="2018-01-01T11:05:28.000Z">
+<meta property="og:updated_time" content="2018-01-08T08:35:51.876Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS复习笔记">
 <meta name="twitter:description" content="有两种比较运算符：==，自动转换数据类型再比较，会得到非常诡异的结果===，如果数据类型不一致，返回false，如果一致，再比较 NaN === NaN; // false唯一能判断NaN的方法是通过isNaN()函数isNaN(NaN); // true 浮点数比较要这样Math.abs(1 / 3 - (1 - 2 / 3)) &amp;lt; 0.0000001; // true 并如果一个变量没">
@@ -390,7 +390,9 @@
 </li>
 <li><p>这是因为浏览器的同源策略导致的。默认情况下，JavaScript在发送AJAX请求时，URL的域名必须和当前页面完全一致。<br>完全一致的意思是，域名要相同（www.example.com和example.com不同），协议要相同（http和https不同），端口号要相同（默认是:80端口，它和:8080就不同）。有的浏览器口子松一点，允许端口不同，大多数浏览器都会严格遵守这个限制。</p>
 </li>
-<li>解决跨域请求的几种方法：Flash、同源服务器转发、JSONP、CORS<br>跨域能否成功，取决于对方服务器是否愿意给你设置一个正确的Access-Control-Allow-Origin，决定权始终在对方手中<br>上面这种跨域请求，称之为“简单请求”。简单请求包括GET、HEAD和POST（POST的Content-Type类型<br>仅限application/x-www-form-urlencoded、multipart/form-data和text/plain），并且不能出现任何自定义头（例如，X-Custom: 12345），通常能满足90%的需求。<br>对于PUT、DELETE以及其他类型如application/json的POST请求，在发送AJAX请求之前，浏览器会先发送一个OPTIONS请求（称为preflighted请求）到这个URL上，询问目标服务器是否接受：</li>
+<li>解决跨域请求的几种方法：Flash、同源服务器转发、JSONP、CORS<br>下面谈的都是CORS。跨域能否成功，取决于对方服务器是否愿意给你设置一个正确的Access-Control-Allow-Origin，决定权始终在对方手中<br>上面这种跨域请求，称之为“简单请求”。简单请求包括GET、HEAD和POST（POST的Content-Type类型<br>仅限application/x-www-form-urlencoded、multipart/form-data和text/plain），并且不能出现任何自定义头（例如，X-Custom: 12345），通常能满足90%的需求。<br>对于PUT、DELETE以及其他类型如application/json的POST请求，在发送AJAX请求之前，浏览器会先发送一个OPTIONS请求（称为preflighted请求）到这个URL上，询问目标服务器是否接受。</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">getElementById</span><br><span class="line">getElementsByTagName</span><br><span class="line">getElementsByClassName</span><br><span class="line"></span><br><span class="line">innerHTML //可以插入DOM</span><br><span class="line">innerText //会HTML编码</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 
       
@@ -420,6 +422,22 @@
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/08/Flask-migrate-No-support-for-ALTER-of-constraints-in-SQLite-dialect/" rel="prev" title="Flask-migrate No support for ALTER of constraints in SQLite dialect">
+                Flask-migrate No support for ALTER of constraints in SQLite dialect <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -484,7 +502,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -506,7 +524,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
