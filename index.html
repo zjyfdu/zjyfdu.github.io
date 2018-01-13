@@ -80,12 +80,12 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="大力挥拍">
+<meta property="og:title" content="努力！奋斗！">
 <meta property="og:url" content="https://zjyfdu.github.io/index.html">
-<meta property="og:site_name" content="大力挥拍">
+<meta property="og:site_name" content="努力！奋斗！">
 <meta property="og:locale" content="zh-CH">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大力挥拍">
+<meta name="twitter:title" content="努力！奋斗！">
 
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <title>大力挥拍</title>
+  <title>努力！奋斗！</title>
   
 
 
@@ -152,7 +152,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">大力挥拍</span>
+        <span class="site-title">努力！奋斗！</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -252,13 +252,13 @@
     <link itemprop="mainEntityOfPage" href="https://zjyfdu.github.io/2018/01/11/caffe-学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="翟大宅">
+      <meta itemprop="name" content="翟小翟">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大力挥拍">
+      <meta itemprop="name" content="努力！奋斗！">
     </span>
 
     
@@ -342,9 +342,18 @@
       
         
           
-            <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>直接看官网的安装有点抓不住要点，有一篇博客介绍得很详细，<a href="http://akmetiuk.com/posts/2016-03-29-compiling-caffe.html" target="_blank" rel="noopener">点这里</a>。是针对MAC下caffe及其python模块的安装，包括有哪些依赖、怎么编译，会遇到哪些坑，以及怎么解决坑等等。感谢作者！ </p>
-<p>但是安装完之后，python没有<code>caffe.draw</code>，没发现有其他模块缺失的，不知道对后面有啥影响。</p>
-<h2 id="MNIS"><a href="#MNIS" class="headerlink" title="MNIS"></a>MNIS</h2><p>未完待续</p>
+            <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h3><p>直接看官网的安装有点抓不住要点，有一篇博客介绍得很详细，<a href="http://akmetiuk.com/posts/2016-03-29-compiling-caffe.html" target="_blank" rel="noopener">点这里</a>。是针对MAC下caffe及其python模块的安装，包括有哪些依赖、怎么编译，会遇到哪些坑，以及怎么解决坑等等。感谢作者！ </p>
+<h3 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h3><p>docker就方便多了，需要先安装docker，centos照着<a href="https://www.liquidweb.com/kb/how-to-install-docker-on-centos-6/" target="_blank" rel="noopener">这一篇</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm</span><br><span class="line">yum update -y</span><br><span class="line">yum -y install docker-io</span><br><span class="line">service docker start</span><br><span class="line">chkconfig docker on</span><br></pre></td></tr></table></figure>
+<p>至此docker安装完毕，然后搜索caffe的镜像。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search caffe</span><br></pre></td></tr></table></figure></p>
+<p>然后会搜到一堆镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">NAME                                DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED</span><br><span class="line">tleyden5iwx/caffe-cpu-master                                                        48                   [OK]</span><br><span class="line">bvlc/caffe                          Official Caffe images                           42                   [OK]</span><br><span class="line">kaixhin/caffe                       Ubuntu Core 14.04 + Caffe.                      38                   [OK]</span><br><span class="line">kaixhin/cuda-caffe                  Ubuntu Core 14.04 + CUDA + Caffe.               38                   [OK]</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>其中就有官方的docker，也不知道为什么，我就用了<code>kaixhin/caffe</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull kaixhin/caffe</span><br></pre></td></tr></table></figure></p>
+<p>这个名字太丑了，我们改为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag kaixhin/caffe caffe</span><br></pre></td></tr></table></figure></p>
+<p>然后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -i -t caffe /bin/bash</span><br></pre></td></tr></table></figure></p>
+<p>然后就你直接用现成的caffe了。<code>exit</code>退出后，需要保存容器，不然下次还是会打开全新的容器。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker ps -l</span><br><span class="line"><span class="comment"># CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                     PORTS               NAMES</span></span><br><span class="line"><span class="comment"># c8f1d7bcb4f2        caffe               "/bin/bash"         8 minutes ago       Exited (0) 7 minutes ago                       boring_turing</span></span><br><span class="line">docker commit c8f caffe</span><br></pre></td></tr></table></figure></p>
+<p>还有其余一些docker命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker stop $(docker ps -a -q) #停用所有容器</span><br><span class="line">docker rm $(docker ps -a -q) #删除所有容器</span><br><span class="line">docker rmi &lt;image id&gt; #删除image</span><br></pre></td></tr></table></figure></p>
+<h2 id="MNIS"><a href="#MNIS" class="headerlink" title="MNIS"></a>MNIS</h2><p>基本全是照着<a href="https://zhuanlan.zhihu.com/p/24110318" target="_blank" rel="noopener">这里</a>，一知半解地做</p>
+<p>训练时，报错<code>Unknown database backend</code>，需要在<code>Makefile.config</code>中，修改<code>USE_LMDB := 1</code>，然后重新<code>make clean</code>，<code>make all -j4</code>等等</p>
 
           
         
@@ -396,13 +405,13 @@
     <link itemprop="mainEntityOfPage" href="https://zjyfdu.github.io/2018/01/09/nginx-开启gzip/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="翟大宅">
+      <meta itemprop="name" content="翟小翟">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大力挥拍">
+      <meta itemprop="name" content="努力！奋斗！">
     </span>
 
     
@@ -540,13 +549,13 @@
     <link itemprop="mainEntityOfPage" href="https://zjyfdu.github.io/2018/01/08/Flask-migrate-No-support-for-ALTER-of-constraints-in-SQLite-dialect/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="翟大宅">
+      <meta itemprop="name" content="翟小翟">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大力挥拍">
+      <meta itemprop="name" content="努力！奋斗！">
     </span>
 
     
@@ -687,13 +696,13 @@
     <link itemprop="mainEntityOfPage" href="https://zjyfdu.github.io/2018/01/01/JS复习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="翟大宅">
+      <meta itemprop="name" content="翟小翟">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="大力挥拍">
+      <meta itemprop="name" content="努力！奋斗！">
     </span>
 
     
@@ -899,7 +908,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">翟大宅</p>
+              <p class="site-author-name" itemprop="name">翟小翟</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -932,7 +941,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -973,7 +982,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">翟大宅</span>
+  <span class="author" itemprop="copyrightHolder">翟小翟</span>
 
   
 </div>
