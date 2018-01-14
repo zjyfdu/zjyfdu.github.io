@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="caffe,学习笔记,docker," />
+  <meta name="keywords" content="flask," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="安装mac直接看官网的安装有点抓不住要点，有一篇博客介绍得很详细，点这里。是针对MAC下caffe及其python模块的安装，包括有哪些依赖、怎么编译，会遇到哪些坑，以及怎么解决坑等等。感谢作者！  dockerdocker就方便多了，需要先安装docker，centos照着这一篇 12345rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x8">
-<meta name="keywords" content="caffe,学习笔记,docker">
+<meta name="description" content="1. gunicornpython用的是anaconda 2.7，首先安装虚拟环境好像是anaconda下用virtualenv会有点问题gunicorn的w表示开启进程数PS: nohup的详细解释1234conda create -n newenv python=2.7 source activate newenv //启用python 虚拟环境pip install gunicorn //安">
+<meta name="keywords" content="flask">
 <meta property="og:type" content="article">
-<meta property="og:title" content="caffe 学习笔记">
-<meta property="og:url" content="https://zjyfdu.github.io/2018/01/11/caffe-学习笔记/index.html">
+<meta property="og:title" content="flask部署：gunicorn和nginx安装记录">
+<meta property="og:url" content="https://zjyfdu.github.io/2018/01/14/flask部署：gunicorn和nginx安装记录/index.html">
 <meta property="og:site_name" content="努力～奋斗～">
-<meta property="og:description" content="安装mac直接看官网的安装有点抓不住要点，有一篇博客介绍得很详细，点这里。是针对MAC下caffe及其python模块的安装，包括有哪些依赖、怎么编译，会遇到哪些坑，以及怎么解决坑等等。感谢作者！  dockerdocker就方便多了，需要先安装docker，centos照着这一篇 12345rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x8">
+<meta property="og:description" content="1. gunicornpython用的是anaconda 2.7，首先安装虚拟环境好像是anaconda下用virtualenv会有点问题gunicorn的w表示开启进程数PS: nohup的详细解释1234conda create -n newenv python=2.7 source activate newenv //启用python 虚拟环境pip install gunicorn //安">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:updated_time" content="2018-01-13T12:33:09.000Z">
+<meta property="og:updated_time" content="2018-01-14T06:25:09.003Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="caffe 学习笔记">
-<meta name="twitter:description" content="安装mac直接看官网的安装有点抓不住要点，有一篇博客介绍得很详细，点这里。是针对MAC下caffe及其python模块的安装，包括有哪些依赖、怎么编译，会遇到哪些坑，以及怎么解决坑等等。感谢作者！  dockerdocker就方便多了，需要先安装docker，centos照着这一篇 12345rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x8">
+<meta name="twitter:title" content="flask部署：gunicorn和nginx安装记录">
+<meta name="twitter:description" content="1. gunicornpython用的是anaconda 2.7，首先安装虚拟环境好像是anaconda下用virtualenv会有点问题gunicorn的w表示开启进程数PS: nohup的详细解释1234conda create -n newenv python=2.7 source activate newenv //启用python 虚拟环境pip install gunicorn //安">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://zjyfdu.github.io/2018/01/11/caffe-学习笔记/"/>
+  <link rel="canonical" href="https://zjyfdu.github.io/2018/01/14/flask部署：gunicorn和nginx安装记录/"/>
 
 
 
 
 
-  <title>caffe 学习笔记 | 努力～奋斗～</title>
+  <title>flask部署：gunicorn和nginx安装记录 | 努力～奋斗～</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjyfdu.github.io/2018/01/11/caffe-学习笔记/">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.github.io/2018/01/14/flask部署：gunicorn和nginx安装记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="翟小翟">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">caffe 学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">flask部署：gunicorn和nginx安装记录</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-11T01:46:30+08:00">
-                2018-01-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-14T14:14:42+08:00">
+                2018-01-14
               </time>
             
 
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/caffe/" itemprop="url" rel="index">
-                    <span itemprop="name">caffe</span>
+                  <a href="/categories/flask网站总结/" itemprop="url" rel="index">
+                    <span itemprop="name">flask网站总结</span>
                   </a>
                 </span>
 
@@ -342,18 +342,37 @@
       
 
       
-        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h3><p>直接看官网的安装有点抓不住要点，有一篇博客介绍得很详细，<a href="http://akmetiuk.com/posts/2016-03-29-compiling-caffe.html" target="_blank" rel="noopener">点这里</a>。是针对MAC下caffe及其python模块的安装，包括有哪些依赖、怎么编译，会遇到哪些坑，以及怎么解决坑等等。感谢作者！ </p>
-<h3 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h3><p>docker就方便多了，需要先安装docker，centos照着<a href="https://www.liquidweb.com/kb/how-to-install-docker-on-centos-6/" target="_blank" rel="noopener">这一篇</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm</span><br><span class="line">yum update -y</span><br><span class="line">yum -y install docker-io</span><br><span class="line">service docker start</span><br><span class="line">chkconfig docker on</span><br></pre></td></tr></table></figure>
-<p>至此docker安装完毕，然后搜索caffe的镜像。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search caffe</span><br></pre></td></tr></table></figure></p>
-<p>然后会搜到一堆镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">NAME                                DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED</span><br><span class="line">tleyden5iwx/caffe-cpu-master                                                        48                   [OK]</span><br><span class="line">bvlc/caffe                          Official Caffe images                           42                   [OK]</span><br><span class="line">kaixhin/caffe                       Ubuntu Core 14.04 + Caffe.                      38                   [OK]</span><br><span class="line">kaixhin/cuda-caffe                  Ubuntu Core 14.04 + CUDA + Caffe.               38                   [OK]</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-<p>其中就有官方的docker，也不知道为什么，我就用了<code>kaixhin/caffe</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull kaixhin/caffe</span><br></pre></td></tr></table></figure></p>
-<p>这个名字太丑了，我们改为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag kaixhin/caffe caffe</span><br></pre></td></tr></table></figure></p>
-<p>然后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -i -t caffe /bin/bash</span><br></pre></td></tr></table></figure></p>
-<p>然后就你直接用现成的caffe了。<code>exit</code>退出后，需要保存容器，不然下次还是会打开全新的容器。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker ps -l</span><br><span class="line"><span class="comment"># CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                     PORTS               NAMES</span></span><br><span class="line"><span class="comment"># c8f1d7bcb4f2        caffe               "/bin/bash"         8 minutes ago       Exited (0) 7 minutes ago                       boring_turing</span></span><br><span class="line">docker commit c8f caffe</span><br></pre></td></tr></table></figure></p>
-<p>还有其余一些docker命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker stop $(docker ps -a -q) #停用所有容器</span><br><span class="line">docker rm $(docker ps -a -q) #删除所有容器</span><br><span class="line">docker rmi &lt;image id&gt; #删除image</span><br></pre></td></tr></table></figure></p>
-<h2 id="MNIS"><a href="#MNIS" class="headerlink" title="MNIS"></a>MNIS</h2><p>基本全是照着<a href="https://zhuanlan.zhihu.com/p/24110318" target="_blank" rel="noopener">这里</a>，一知半解地做</p>
-<p>训练时，报错<code>Unknown database backend</code>，需要在<code>Makefile.config</code>中，修改<code>USE_LMDB := 1</code>，然后重新<code>make clean</code>，<code>make all -j4</code>等等</p>
+        <h3 id="1-gunicorn"><a href="#1-gunicorn" class="headerlink" title="1. gunicorn"></a>1. gunicorn</h3><p>python用的是anaconda 2.7，首先安装虚拟环境<br>好像是anaconda下用virtualenv会有点问题<br>gunicorn的w表示开启进程数<br>PS: <a href="http://www.ruanyifeng.com/blog/2016/02/linux-daemon.html" target="_blank" rel="noopener">nohup的详细解释</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda create -n newenv python=2.7 </span><br><span class="line">source activate newenv //启用python 虚拟环境</span><br><span class="line">pip install gunicorn //安装gunicorn</span><br><span class="line">nohup gunicorn -w 4 -b 127.0.0.1:8080 app_file_name:app_name &amp;</span><br></pre></td></tr></table></figure></p>
+<p>gunicorn更改log的输出，<a href="http://docs.gunicorn.org/en/latest/settings.html#logging" target="_blank" rel="noopener">详细说明</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--access-logfile FILE</span><br><span class="line">--error-logfile FILE, --log-file FILE</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-nginx"><a href="#2-nginx" class="headerlink" title="2. nginx"></a>2. nginx</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install nginx</span><br></pre></td></tr></table></figure>
+<p>然后修改nginx配置，转发至localhost的端口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       80 default_server;</span><br><span class="line">    server_name  _;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass http://127.0.0.1:8080;</span><br><span class="line">        proxy_set_header Host $host;</span><br><span class="line">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>检查nginx config，重启nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -t</span><br><span class="line">service naginx restart</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-nginx反向代理和防盗链"><a href="#3-nginx反向代理和防盗链" class="headerlink" title="3.nginx反向代理和防盗链"></a>3.nginx反向代理和防盗链</h3><p>为了防止静态资源被其他站点请求，改为<figure class="highlight plain"><figcaption><span>403```。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">但这样一来，本站请求的静态资源在经过static后，不再做转发，所以又把转发重复了一遍。</span><br><span class="line">不知道有没有更优雅的写法。</span><br></pre></td></tr></table></figure></p>
+<p>server {<br>    listen       80 default_server;<br>    server<em>name  </em>;</p>
+<pre><code>location /static/ {
+    valid_referers 47.95.193.53;
+    if ($invalid_referer) {
+        return 403;
+    }
+    proxy_pass http://127.0.0.1:8080;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+}
+location / {
+    proxy_pass http://127.0.0.1:8080;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+}
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">反爬虫</span><br></pre></td></tr></table></figure></p>
+<p> location / {<br>        if ($http_user_agent ~* “python|curl|java|wget|httpclient|okhttp”) {<br>            return 503; #service unavaiable<br>        }</p>
+<pre><code>    # 正常处理
+    ...
+}
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 4.坑比阿里云的smtp端口</span><br><span class="line">阿里云默默地把smtp的25端口禁掉了，要使用ssl的465端口</span><br><span class="line">使用`flask-mail`需要在`config.py `中配置</span><br></pre></td></tr></table></figure>
+<pre><code>MAIL_SERVER = &apos;smtp.163.com&apos;
+MAIL_PORT = 465
+MAIL_USE_SSL = True
+</code></pre><p>```</p>
 
       
     </div>
@@ -371,11 +390,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/caffe/" rel="tag"># caffe</a>
-          
-            <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
-          
-            <a href="/tags/docker/" rel="tag"># docker</a>
+            <a href="/tags/flask/" rel="tag"># flask</a>
           
         </div>
       
@@ -388,8 +403,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/09/nginx-开启gzip/" rel="next" title="nginx 开启gzip">
-                <i class="fa fa-chevron-left"></i> nginx 开启gzip
+              <a href="/2018/01/14/https原理和使用流程/" rel="next" title="https原理和使用流程">
+                <i class="fa fa-chevron-left"></i> https原理和使用流程
               </a>
             
           </div>
@@ -397,10 +412,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/14/https原理和使用流程/" rel="prev" title="https原理和使用流程">
-                https原理和使用流程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -532,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mac"><span class="nav-number">1.1.</span> <span class="nav-text">mac</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker"><span class="nav-number">1.2.</span> <span class="nav-text">docker</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MNIS"><span class="nav-number">2.</span> <span class="nav-text">MNIS</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-gunicorn"><span class="nav-number">1.</span> <span class="nav-text">1. gunicorn</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-nginx"><span class="nav-number">2.</span> <span class="nav-text">2. nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-nginx反向代理和防盗链"><span class="nav-number">3.</span> <span class="nav-text">3.nginx反向代理和防盗链</span></a></li></ol></div>
             
 
           </div>
