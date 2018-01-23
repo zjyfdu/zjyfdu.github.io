@@ -79,18 +79,29 @@
 
 
 
-<meta name="description" content="1. 前言">
+<meta name="description" content="0. 前言作业在这里 视频可以直接在网易上看 1. 神经网络前馈和后馈如果没有激活函数的话，多层的神经网络仍然是个线性的模型。 2. 超参数、正则化、优化算法等L2正则化相当于是w权重减小， weight decay后面等这些是用在mini-batch中的，当训练数据量太大，需要对训练数据分割为mini-batch。但这样会造成收敛方向波动，为了减小这种波动，引入Adam优化算法。batch">
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="吴恩达deeplearning.ai课程学习笔记">
 <meta property="og:url" content="https://zjyfdu.github.io/2018/01/16/吴恩达deeplearning-ai课程学习笔记/index.html">
 <meta property="og:site_name" content="努力～奋斗～">
-<meta property="og:description" content="1. 前言">
+<meta property="og:description" content="0. 前言作业在这里 视频可以直接在网易上看 1. 神经网络前馈和后馈如果没有激活函数的话，多层的神经网络仍然是个线性的模型。 2. 超参数、正则化、优化算法等L2正则化相当于是w权重减小， weight decay后面等这些是用在mini-batch中的，当训练数据量太大，需要对训练数据分割为mini-batch。但这样会造成收敛方向波动，为了减小这种波动，引入Adam优化算法。batch">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:updated_time" content="2018-01-23T01:08:02.635Z">
+<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-1-23/89948814.jpg">
+<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-1-23/41005456.jpg">
+<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-1-23/73637538.jpg">
+<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-1-23/69146591.jpg">
+<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-1-23/27110293.jpg">
+<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-1-23/27110293.jpg">
+<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-1-23/47657351.jpg">
+<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-1-23/306118.jpg">
+<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-1-23/49641113.jpg">
+<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-1-23/54964765.jpg">
+<meta property="og:updated_time" content="2018-01-23T10:52:53.415Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="吴恩达deeplearning.ai课程学习笔记">
-<meta name="twitter:description" content="1. 前言">
+<meta name="twitter:description" content="0. 前言作业在这里 视频可以直接在网易上看 1. 神经网络前馈和后馈如果没有激活函数的话，多层的神经网络仍然是个线性的模型。 2. 超参数、正则化、优化算法等L2正则化相当于是w权重减小， weight decay后面等这些是用在mini-batch中的，当训练数据量太大，需要对训练数据分割为mini-batch。但这样会造成收敛方向波动，为了减小这种波动，引入Adam优化算法。batch">
+<meta name="twitter:image" content="http://ot0uaqt93.bkt.clouddn.com/18-1-23/89948814.jpg">
 
 
 
@@ -293,6 +304,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/caffe/" itemprop="url" rel="index">
+                    <span itemprop="name">caffe</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -320,7 +353,12 @@
       
 
       
-        <h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h3>
+        <h3 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h3><p><a href="https://github.com/zjyfdu/deeplearning.ai" target="_blank" rel="noopener">作业在这里</a></p>
+<p><a href="https://mooc.study.163.com/smartSpec/detail/1001319001.htm" target="_blank" rel="noopener">视频可以直接在网易上看</a></p>
+<h3 id="1-神经网络前馈和后馈"><a href="#1-神经网络前馈和后馈" class="headerlink" title="1. 神经网络前馈和后馈"></a>1. 神经网络前馈和后馈</h3><p><img src="http://ot0uaqt93.bkt.clouddn.com/18-1-23/89948814.jpg" alt="" title="前馈"><br><img src="http://ot0uaqt93.bkt.clouddn.com/18-1-23/41005456.jpg" alt="" title="后馈"><br>如果没有激活函数的话，多层的神经网络仍然是个线性的模型。<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-1-23/73637538.jpg" alt="" title="激活函数"></p>
+<h3 id="2-超参数、正则化、优化算法等"><a href="#2-超参数、正则化、优化算法等" class="headerlink" title="2. 超参数、正则化、优化算法等"></a>2. 超参数、正则化、优化算法等</h3><p>L2正则化相当于是w权重减小， weight decay<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-1-23/69146591.jpg" alt=""><br>后面等这些是用在mini-batch中的，当训练数据量太大，需要对训练数据分割为mini-batch。但这样会造成收敛方向波动，为了减小这种波动，引入Adam优化算法。<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-1-23/27110293.jpg" alt="" title="指数加权平均"><br><img src="http://ot0uaqt93.bkt.clouddn.com/18-1-23/27110293.jpg" alt=""><br><img src="http://ot0uaqt93.bkt.clouddn.com/18-1-23/47657351.jpg" alt=""><br><img src="http://ot0uaqt93.bkt.clouddn.com/18-1-23/306118.jpg" alt=""><br>batch norm<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-1-23/49641113.jpg" alt=""><br><img src="http://ot0uaqt93.bkt.clouddn.com/18-1-23/54964765.jpg" alt=""></p>
+<h3 id="3-CNN"><a href="#3-CNN" class="headerlink" title="3. CNN"></a>3. CNN</h3><p>待续</p>
+
       
     </div>
     
@@ -494,7 +532,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-前言"><span class="nav-number">1.</span> <span class="nav-text">1. 前言</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-前言"><span class="nav-number">1.</span> <span class="nav-text">0. 前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-神经网络前馈和后馈"><span class="nav-number">2.</span> <span class="nav-text">1. 神经网络前馈和后馈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-超参数、正则化、优化算法等"><span class="nav-number">3.</span> <span class="nav-text">2. 超参数、正则化、优化算法等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-CNN"><span class="nav-number">4.</span> <span class="nav-text">3. CNN</span></a></li></ol></div>
             
 
           </div>
