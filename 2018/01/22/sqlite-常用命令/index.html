@@ -79,15 +79,18 @@
 
 
 
+<meta name="description" content="dump database1234sqlite3 &amp;lt;database_file&amp;gt;.output &amp;lt;dump_text_file&amp;gt;.dump.exit dump table123.output &amp;lt;dump_text_file&amp;gt;.dump &amp;lt;table_name&amp;gt;.exit dump table structure123.output &amp;lt;dump_">
 <meta name="keywords" content="sqlite">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sqlite 常用命令">
 <meta property="og:url" content="https://zjyfdu.github.io/2018/01/22/sqlite-常用命令/index.html">
 <meta property="og:site_name" content="努力～奋斗～">
+<meta property="og:description" content="dump database1234sqlite3 &amp;lt;database_file&amp;gt;.output &amp;lt;dump_text_file&amp;gt;.dump.exit dump table123.output &amp;lt;dump_text_file&amp;gt;.dump &amp;lt;table_name&amp;gt;.exit dump table structure123.output &amp;lt;dump_">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:updated_time" content="2018-01-23T01:27:05.844Z">
+<meta property="og:updated_time" content="2018-01-23T01:57:17.106Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sqlite 常用命令">
+<meta name="twitter:description" content="dump database1234sqlite3 &amp;lt;database_file&amp;gt;.output &amp;lt;dump_text_file&amp;gt;.dump.exit dump table123.output &amp;lt;dump_text_file&amp;gt;.dump &amp;lt;table_name&amp;gt;.exit dump table structure123.output &amp;lt;dump_">
 
 
 
@@ -339,7 +342,12 @@
       
 
       
-        
+        <h3 id="dump-database"><a href="#dump-database" class="headerlink" title="dump database"></a>dump database</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqlite3 &lt;database_file&gt;</span><br><span class="line">.output &lt;dump_text_file&gt;</span><br><span class="line">.dump</span><br><span class="line">.exit</span><br></pre></td></tr></table></figure>
+<h3 id="dump-table"><a href="#dump-table" class="headerlink" title="dump table"></a>dump table</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.output &lt;dump_text_file&gt;</span><br><span class="line">.dump &lt;table_name&gt;</span><br><span class="line">.exit</span><br></pre></td></tr></table></figure>
+<h3 id="dump-table-structure"><a href="#dump-table-structure" class="headerlink" title="dump table structure"></a>dump table structure</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.output &lt;dump_text_file&gt;</span><br><span class="line">.schema</span><br><span class="line">.exit</span><br></pre></td></tr></table></figure>
+<h3 id="dump-data-of-a-table-into-a-text"><a href="#dump-data-of-a-table-into-a-text" class="headerlink" title="dump data of a table into a text"></a>dump data of a table into a text</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.mode insert</span><br><span class="line">.output &lt;dump_text_file&gt;</span><br><span class="line">.dump &lt;table_name&gt;</span><br><span class="line">.exit</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.read &lt;dump_text_file&gt;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -429,8 +437,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -490,6 +507,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#dump-database"><span class="nav-number">1.</span> <span class="nav-text">dump database</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dump-table"><span class="nav-number">2.</span> <span class="nav-text">dump table</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dump-table-structure"><span class="nav-number">3.</span> <span class="nav-text">dump table structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dump-data-of-a-table-into-a-text"><span class="nav-number">4.</span> <span class="nav-text">dump data of a table into a text</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
