@@ -79,14 +79,17 @@
 
 
 
+<meta name="description" content="前言好烦啊，一直搞不定下面只是记录我踩过的一些坑，大家不要看了 背景默认的video标签会有下载按钮，而且不能倍速播放，于是使用了video.js为防止下载video禁止掉了右键菜单目前存在的问题  打开调试或者查看原网页可以直接看到视频链接 手机端会之间显示浏览器的播放界面，都有直接下载的按钮  途径坑1 修改referrer想通过referrer判断是否是播放还是直接下载（先假设下载都是空re">
 <meta property="og:type" content="article">
 <meta property="og:title" content="视频防盗啊啊">
 <meta property="og:url" content="https://zjyfdu.github.io/2018/02/12/视频防盗啊啊/index.html">
 <meta property="og:site_name" content="努力～奋斗～">
+<meta property="og:description" content="前言好烦啊，一直搞不定下面只是记录我踩过的一些坑，大家不要看了 背景默认的video标签会有下载按钮，而且不能倍速播放，于是使用了video.js为防止下载video禁止掉了右键菜单目前存在的问题  打开调试或者查看原网页可以直接看到视频链接 手机端会之间显示浏览器的播放界面，都有直接下载的按钮  途径坑1 修改referrer想通过referrer判断是否是播放还是直接下载（先假设下载都是空re">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:updated_time" content="2018-02-12T03:59:48.849Z">
+<meta property="og:updated_time" content="2018-02-12T04:23:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="视频防盗啊啊">
+<meta name="twitter:description" content="前言好烦啊，一直搞不定下面只是记录我踩过的一些坑，大家不要看了 背景默认的video标签会有下载按钮，而且不能倍速播放，于是使用了video.js为防止下载video禁止掉了右键菜单目前存在的问题  打开调试或者查看原网页可以直接看到视频链接 手机端会之间显示浏览器的播放界面，都有直接下载的按钮  途径坑1 修改referrer想通过referrer判断是否是播放还是直接下载（先假设下载都是空re">
 
 
 
@@ -289,6 +292,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/flask网站总结/" itemprop="url" rel="index">
+                    <span itemprop="name">flask网站总结</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -316,7 +341,23 @@
       
 
       
-        
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>好烦啊，一直搞不定<br>下面只是记录我踩过的一些坑，大家不要看了</p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>默认的video标签会有下载按钮，而且不能倍速播放，于是使用了video.js<br>为防止下载video禁止掉了右键菜单<br>目前存在的问题</p>
+<ul>
+<li>打开调试或者查看原网页可以直接看到视频链接</li>
+<li>手机端会之间显示浏览器的播放界面，都有直接下载的按钮</li>
+</ul>
+<h3 id="途径"><a href="#途径" class="headerlink" title="途径"></a>途径</h3><h4 id="坑1-修改referrer"><a href="#坑1-修改referrer" class="headerlink" title="坑1 修改referrer"></a>坑1 修改referrer</h4><p>想通过referrer判断是否是播放还是直接下载（先假设下载都是空referrer）<br>video.js不能直接控制http请求，不能控制referrer<br>控制全局referrer可以在head中加下面这句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;referrer&quot; content=&quot;always/never/origin/default&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>应该是下载空referrer这个假设本来就有问题，这条路堵死了</p>
+<h4 id="坑2-blob"><a href="#坑2-blob" class="headerlink" title="坑2 blob"></a>坑2 blob</h4><p>blob用于处理二进制文件，youtube和bilibili都是用的blob，看起来很promising<br>但是我不会用啊。。。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;video id=&quot;id&quot; width=&quot;320&quot; height=&quot;240&quot;  type=&apos;video/mp4&apos; controls  &gt; &lt;/video&gt;</span><br><span class="line"></span><br><span class="line">window.onload = function() &#123;</span><br><span class="line">    var xhr = new XMLHttpRequest();</span><br><span class="line">    xhr.open(&apos;GET&apos;, &apos;mov_bbb.mp4&apos;, true);</span><br><span class="line">    xhr.responseType = &apos;blob&apos;; //important</span><br><span class="line">    xhr.onload = function(e) &#123;</span><br><span class="line">        if (this.status == 200) &#123;</span><br><span class="line">            console.log(&quot;loaded&quot;);</span><br><span class="line">            var blob = this.response;</span><br><span class="line">            var video = document.getElementById(&apos;id&apos;);</span><br><span class="line">            video.oncanplaythrough = function() &#123;</span><br><span class="line">                console.log(&quot;Can play through video without stopping&quot;);</span><br><span class="line">                URL.revokeObjectURL(this.src);</span><br><span class="line">            &#125;;</span><br><span class="line">            video.src = URL.createObjectURL(blob);</span><br><span class="line">            video.load();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    xhr.send();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以工作，但需要先把视频加载一遍才能看，意思是这个页面加载时间要以分钟来记了。。。<br>而且还有跨域的问题</p>
+<h4 id="坑3-阿里云的flash"><a href="#坑3-阿里云的flash" class="headerlink" title="坑3 阿里云的flash"></a>坑3 阿里云的flash</h4><p>这个坑还没踩进去，但是还是不想用flash，都2018年了啊</p>
+<h4 id="后面的坑"><a href="#后面的坑" class="headerlink" title="后面的坑"></a>后面的坑</h4><ul>
+<li>不行就用ua，把手机端的禁掉，然后pc端由他们下去吧</li>
+<li>然后再看看<a href="https://stackoverflow.com/questions/9756837/prevent-html5-video-from-being-downloaded-right-click-saved" target="_blank" rel="noopener">这个链接</a>里的方法，说不定能用呢😢</li>
+<li>近期不搞了，先专心写毕业论文吧</li>
+</ul>
+
       
     </div>
     
@@ -400,8 +441,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -461,6 +511,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">2.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#途径"><span class="nav-number">3.</span> <span class="nav-text">途径</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#坑1-修改referrer"><span class="nav-number">3.1.</span> <span class="nav-text">坑1 修改referrer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#坑2-blob"><span class="nav-number">3.2.</span> <span class="nav-text">坑2 blob</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#坑3-阿里云的flash"><span class="nav-number">3.3.</span> <span class="nav-text">坑3 阿里云的flash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后面的坑"><span class="nav-number">3.4.</span> <span class="nav-text">后面的坑</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
