@@ -283,6 +283,125 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.github.io/2018/03/01/hik-day1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="翟小翟">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力～奋斗～">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/01/hik-day1/" itemprop="url">hik-day1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-01T14:42:16+08:00">
+                2018-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"># day 1</span><br><span class="line"></span><br><span class="line">## 终极工作内容</span><br><span class="line">- OCR，印刷品照片的文字定位，识别，输出结构化数据</span><br><span class="line">- 暂时只有定位，暂时做调研</span><br><span class="line"></span><br><span class="line">## 暂时工作内容</span><br><span class="line">- 看徐博给的论文 arxiv.org上的 full-page text recognition learning where to start and when to stop</span><br><span class="line">- 看一下icdar上已有的内容</span><br><span class="line">- 学LSTM网络</span><br><span class="line"></span><br><span class="line">### LSTM</span><br><span class="line">- todo</span><br><span class="line"></span><br><span class="line">### 论文</span><br><span class="line">- 知识在arxiv上发表的？没有在找到出处</span><br><span class="line">- First, a neural network detects where to start to recognize a text line, and a second network performs the text recognition and decides when to stop the process</span><br><span class="line">- 从中找到一些文章，2、3、8、10、12、16、17、18，按年份倒着看</span><br><span class="line"></span><br><span class="line">### [icdar2017](http://rrc.cvc.uab.es/)</span><br><span class="line">- COCO-Text is based on the MS COCO dataset, which contains images of complex everyday scenes.</span><br><span class="line">- DeText Text Extraction from Biomedical Literature Figures</span><br><span class="line">- ~~French Street Name Signs (FSNS) dataset，不看~~</span><br><span class="line">- ~~scene text localization and recognition on the Downtown Osaka Scene Text (DOST) dataset，不看~~</span><br><span class="line">- MLT Multi-lingual scene text detection and script identification</span><br><span class="line">- ~~Information Extraction in Historical Handwritten Records，不看~~</span><br><span class="line">- Born-Digital Images (Web and Email)</span><br><span class="line">- 如果看的话，从DeText看起，腾讯ai-lab</span><br><span class="line">- coco-text中有hik-ocr的文字识别和end2end，已经end2end了，那直接拿来做这个的文字识别呢？有没有对应的论文？</span><br><span class="line"></span><br><span class="line">### 一些临时想到的</span><br><span class="line">- google摄像头翻译是这么做的</span><br><span class="line">- 再去找些关键词搜索一下，也可以搜索handwriting，printing？</span><br><span class="line">- 不只是算法，训练集也注意一下</span><br><span class="line">- 要不要上github找一下，搜索icdar？</span><br><span class="line"></span><br><span class="line"># day2</span><br><span class="line"></span><br><span class="line">### 训练集</span><br><span class="line">- COCO-text A. Veit, T. Matera, L. Neumann, J. Matas, S. Belongie. COCO-Text: Dataset and Benchmark for Text Detection and Recognition in Natural Images. arXiv preprint arXiv:1601.07140, 2016.</span><br><span class="line">- Maurdor dataset 法语、英语和阿拉伯语，手写和印刷</span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zjyfdu.github.io/2018/02/26/又是火车上的博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -365,7 +484,7 @@
 <li>雅各女儿底拿被示剑城太子强奸，太子来提亲，雅各和儿子们要求示剑城全城男子割礼，太子同意，然后雅各儿子们趁他们蛋疼的时候，血洗示剑城。</li>
 <li>然后雅各带所有人回家见以撒，路上底拿难产而死，产下一子。</li>
 <li>雅各的一个儿子犹大扒灰的故事，太狗血不写。</li>
-<li></li>
+<li>后面慢慢来吧</li>
 </ul>
 
           
@@ -1602,150 +1721,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjyfdu.github.io/2018/01/30/application-x-www-form-urlencoded和multipart-form-data/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="翟小翟">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力～奋斗～">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/30/application-x-www-form-urlencoded和multipart-form-data/" itemprop="url">application/x-www-form-urlencoded和multipart/form-data</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-30T14:17:47+08:00">
-                2018-01-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/flask网站总结/" itemprop="url" rel="index">
-                    <span itemprop="name">flask网站总结</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://www.cnblogs.com/taoys/archive/2010/12/30/1922186.html" target="_blank" rel="noopener">抄自这里</a><br>form的enctype属性为编码方式，常用有两种：<code>application/x-www-form-urlencoded</code>和<code>multipart/form-data</code>。</p>
-<p>默认为<code>application/x-www-form-urlencoded</code>。 当action为get时候，浏览器用x-www-form-urlencoded的编码方式把form数据转换成一个字串（name1=value1&amp;name2=value2…），然后把这个字串append到url后面，用?分割，加载这个新的url。 当action为post时候，浏览器把form数据封装到http body中，然后发送到server。 </p>
-<p>如果没有type=file的控件，用默认的<code>application/x-www-form-urlencoded</code>就可以了。 但是如果有type=file的话，就要用到<code>multipart/form-data</code>了。浏览器会把整个表单以控件为单位分割，并为每个部分加上Content-Disposition(form-data或者file),Content-Type(默认为text/plain),name(控件name)等信息，并加上分割符(boundary)。<br><a href="http://blog.csdn.net/xiaojianpitt/article/details/6856536" target="_blank" rel="noopener">更详细的</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1796,7 +1771,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1818,7 +1793,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
