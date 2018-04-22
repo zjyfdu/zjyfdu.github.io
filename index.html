@@ -283,6 +283,136 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.github.io/2018/03/11/c复习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="翟小翟">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力～奋斗～">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/11/c复习笔记/" itemprop="url">c复习笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-11T22:09:11+08:00">
+                2018-03-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>cin 带空格的字符串时，需要这样<code>cin.getline(s, 80)</code>，s是char数组</li>
+<li><p>或者也可以这样<code>getline(cin, str)</code>，原型为<code>istream&amp; getline (istream&amp; is, string&amp; str);</code></p>
+</li>
+<li><p>cout 控制输出精度 <code>cout &lt;&lt; fixed &lt;&lt; setprecision(2) &lt;&lt; f</code>，<code>#include &lt;iomanip&gt;</code></p>
+</li>
+<li><p>cout 控制输出格式<code>cout &lt;&lt; setw(4) &lt;&lt; a[i][j]</code></p>
+</li>
+<li><p>使用lambda对vector进行排序</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   int n;</span><br><span class="line">   double th;</span><br><span class="line">   cin &gt;&gt; n &gt;&gt; th;</span><br><span class="line">   vector&lt;pair&lt;string, double&gt;&gt; res;  </span><br><span class="line">   while(n--)&#123;</span><br><span class="line">        string name;</span><br><span class="line">        double score;</span><br><span class="line">        cin &gt;&gt; name &gt;&gt; score;</span><br><span class="line">        if(score &gt; th)&#123;</span><br><span class="line">            res.push_back(pair&lt;string, double&gt;(name, score));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(res.begin(), res.end(), [](pair&lt;string, double&gt;&amp; a, pair&lt;string, double&gt;&amp; b) &#123;return a.second &gt; b.second;&#125;);</span><br><span class="line">    for(auto i: res)&#123;</span><br><span class="line">        printf(&quot;%s %.1f\n&quot;, i.first.c_str(), i.second);</span><br><span class="line">    &#125;</span><br><span class="line">   return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zjyfdu.github.io/2018/02/26/又是火车上的博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1123,7 +1253,6 @@
 <li>好事情是，我的论文差不多算写完了啊</li>
 <li>爬虫明天看完吧，好像什么也没讲，心疼钱</li>
 <li>专利我还不想写，其实也不急，等去了学校吧</li>
-<li>后天再看看node、小程序什么的</li>
 <li>大后天就要再见了啊！<strong>努力！奋斗！</strong></li>
 <li>想起来了，我把张鸣的《重说中国近代史》看完了，但是《苦难辉煌》没看啊</li>
 </ul>
@@ -1602,150 +1731,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjyfdu.github.io/2018/01/30/application-x-www-form-urlencoded和multipart-form-data/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="翟小翟">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力～奋斗～">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/30/application-x-www-form-urlencoded和multipart-form-data/" itemprop="url">application/x-www-form-urlencoded和multipart/form-data</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-30T14:17:47+08:00">
-                2018-01-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/flask网站总结/" itemprop="url" rel="index">
-                    <span itemprop="name">flask网站总结</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://www.cnblogs.com/taoys/archive/2010/12/30/1922186.html" target="_blank" rel="noopener">抄自这里</a><br>form的enctype属性为编码方式，常用有两种：<code>application/x-www-form-urlencoded</code>和<code>multipart/form-data</code>。</p>
-<p>默认为<code>application/x-www-form-urlencoded</code>。 当action为get时候，浏览器用x-www-form-urlencoded的编码方式把form数据转换成一个字串（name1=value1&amp;name2=value2…），然后把这个字串append到url后面，用?分割，加载这个新的url。 当action为post时候，浏览器把form数据封装到http body中，然后发送到server。 </p>
-<p>如果没有type=file的控件，用默认的<code>application/x-www-form-urlencoded</code>就可以了。 但是如果有type=file的话，就要用到<code>multipart/form-data</code>了。浏览器会把整个表单以控件为单位分割，并为每个部分加上Content-Disposition(form-data或者file),Content-Type(默认为text/plain),name(控件name)等信息，并加上分割符(boundary)。<br><a href="http://blog.csdn.net/xiaojianpitt/article/details/6856536" target="_blank" rel="noopener">更详细的</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1796,7 +1781,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
