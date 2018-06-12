@@ -249,7 +249,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjyfdu.github.io/2018/05/02/在centos5家目录安装octave/">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.github.io/2018/05/13/mobileNet和shuffleNet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="翟小翟">
@@ -268,7 +268,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/02/在centos5家目录安装octave/" itemprop="url">在centos5家目录安装octave</a></h1>
+                <a class="post-title-link" href="/2018/05/13/mobileNet和shuffleNet/" itemprop="url">mobileNet和shuffleNet</a></h1>
         
 
         <div class="post-meta">
@@ -280,8 +280,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-02T22:21:23+08:00">
-                2018-05-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-13T13:05:50+08:00">
+                2018-05-13
               </time>
             
 
@@ -320,32 +320,17 @@
       
         
           
-            <h2 id="等等"><a href="#等等" class="headerlink" title="等等"></a>等等</h2><ul>
-<li>为什么还用centos5？</li>
-<li>为什么要用octave？</li>
-<li>为什么要指定安装目录？</li>
+            <h3 id="先说mobileNet"><a href="#先说mobileNet" class="headerlink" title="先说mobileNet"></a>先说mobileNet</h3><ul>
+<li><a href="">链接</a></li>
+<li>使用depthwise convolution和1*1 convolution代替标准的convolution</li>
+<li>这里放个图片和公式</li>
+<li>depthwise的caffe实现在<a href="">这里</a></li>
 </ul>
-<h2 id="更新yum源"><a href="#更新yum源" class="headerlink" title="更新yum源"></a>更新yum源</h2><ul>
-<li>国内yum源好像都已经不支持centos5了，如果能找到烦请留言</li>
-<li>直接手动修改/etc/yum.repos.d/CentOS-Base.repo</li>
-<li>注释掉mirrotlist，baseurl分别修改为<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">baseurl=http://vault.centos.org/5.11/os/x86_64/</span><br><span class="line">baseurl=http://vault.centos.org/5.11/updates/$basearch/</span><br><span class="line">baseurl=http://vault.centos.org/5.11/extras/$basearch/</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="安装依赖库"><a href="#安装依赖库" class="headerlink" title="安装依赖库"></a>安装依赖库</h2><ul>
-<li>漫长的等待<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y install yum-utils</span><br><span class="line">yum-builddep -y octave</span><br><span class="line">yum -y install qt-devel mercurial gcc-c++ lapack-devel libtool</span><br><span class="line">yum -y install epstool transfig pstoedit qscintilla-devel</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
-<li>看这个<a href="https://wiki.octave.org/Octave_in_home_directory" target="_blank" rel="noopener">链接</a></li>
-</ul>
-<h2 id="假捷径-选读"><a href="#假捷径-选读" class="headerlink" title="假捷径(选读)"></a>假捷径(选读)</h2><ul>
-<li><p>我刚开始是直接这样，还是是官方提供的方法<a href="https://wiki.octave.org/Octave_for_GNU/Linux" target="_blank" rel="noopener">这里</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release</span><br><span class="line">yum --installroot=/home/zhaijy/packall/ install octave</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行完成之后修改PATH和LD_LIBRARY_PATH</p>
-</li>
-<li>octave确实能运行，确实是在家目录里安装的，但是这个octave没有randn等函数。。。</li>
-<li>也不知道为什么，应该去掉installroot就不会有问题吧。。</li>
+<h3 id="shuffleNet"><a href="#shuffleNet" class="headerlink" title="shuffleNet"></a>shuffleNet</h3><ul>
+<li>使用group convolution代替mobileNet中的1*1 convolution</li>
+<li>引入channel随机层</li>
+<li>随机层的caffe实现在<a href="">这里</a>，思路是先reshape再transpose再flatten，所以可以实现backword</li>
+<li>这里放shuffleNet Unit的图</li>
 </ul>
 
           
