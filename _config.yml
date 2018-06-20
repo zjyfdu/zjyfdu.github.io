@@ -79,5 +79,5 @@ theme: next
 deploy:
   type: git
   # repo: git@github.com:zjyfdu/zjyfdu.github.io.
-  repo: https://git.coding.net/zjyfdu/zjyfdu.coding.me.git
+  repo: git@git.coding.net:zjyfdu/zjyfdu.coding.me.git
   branch: master
