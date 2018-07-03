@@ -14,7 +14,6 @@ tags:
 - vs里面的vc++目录和下面的c++目录、连接器目录，什么关系啊，能自动加载子目录？
 
 
-
 > 引用自[这里](https://www.cnblogs.com/JMLiu/p/7954630.html)，
 > VC++ Directories是一个Windows环境变量，C/C++是命令行参数，这是本质区别；
 > 但是相同的项，也就是VC++ Directories中的include directories 对应到C/C++中的addition include directories 是一样的效果，也就是说效果一样。同样是命令行参数的还有Link设置，Link设置中的 addition library directories对应到VC++ Directories 中的library directories，也就是说，效果是相同的。
