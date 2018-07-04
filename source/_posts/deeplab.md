@@ -1,7 +1,7 @@
 ---
 title: deeplab
 date: 2018-06-19 21:13:20
-tags:
+categories: caffe
 ---
 今天看了deeplab-V1的论文，不是很清楚，先大概记一下
 

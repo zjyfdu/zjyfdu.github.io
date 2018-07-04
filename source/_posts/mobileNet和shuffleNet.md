@@ -1,7 +1,7 @@
 ---
 title: mobileNet和shuffleNet
 date: 2018-05-13 13:05:50
-tags:
+categories: caffe
 ---
 
 ### 先说mobileNet

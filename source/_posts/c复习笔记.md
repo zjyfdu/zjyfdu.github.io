@@ -1,6 +1,11 @@
 ---
 title: c复习笔记
 date: 2018-03-11 22:09:11
+tags:
+  - cin/cout
+  - lambda
+  - 构造函数
+categories: cpp
 ---
 
 - cin 带空格的字符串时，需要这样`cin.getline(s, 80)`，s是char数组
@@ -8,6 +13,8 @@ date: 2018-03-11 22:09:11
 
 - cout 控制输出精度 `cout << fixed << setprecision(2) << f`，`#include <iomanip>`
 - cout 控制输出格式`cout << setfill('0') << setw(4) << a[i][j]`
+- lambda表达式
+![](http://ot0uaqt93.bkt.clouddn.com/18-7-3/10535321.jpg "lambda!") 
 
 - 使用lambda对vector进行排序
 
@@ -52,57 +59,7 @@ for(it=iVec.begin();it!=iVec.end();){
 }
 ```
 
-```
-#include <iostream>
-#include <vector>
-using namespace std;
-
-int main()
-{
-    int n;
-    cin >> n;
-    vector<vector<int> > a(n, vector<int>(2));
-    vector<int> resultx;
-    vector<int> resulty;
-    for (int i = 0; i < n; i++) {
-        cin >> a[i][0] >> a[i][1];
-    }
-    int first = 0;
-    for (int i = 0; i < n; i++) {
-        int count = 0;
-        for (int j = 0; j < n; j++) {
-            if (j == i)
-                continue;
-            if (a[j][0]>=a[i][0] && a[j][1]>=a[i][1]) {
-                break;
-            }else {
-                count++;
-            }
-            if (count == n-1)//yes{
-                resultx.push_back(a[i][0]);
-                resulty.push_back(a[i][1]);
-            }
-        }
-    }
-    for(int i = 0; i < resultx.size()-1; i++){
-        for (int j = i+1; j < resultx.size(); j++){
-            if (resultx[i]>resultx[j]){
-                int tmpx, tmpy;
-                tmpx = resultx[i];
-                resultx[i] = resultx[j];
-                resultx[j] = tmpx;
-                tmpy = resulty[i];
-                resulty[i] = resulty[j];
-                resulty[j] = tmpy;
-            }
-        }
-    }
-    cout << '(' << resultx[0] << ',' << resulty[0] << ')';
-    for (int i = 1; i < resultx.size(); i++)
-    {
-        cout << ',' << '(' << resultx[i] << ',' << resulty[i] << ')';
-    }
-    cout << endl;
-    return 0;
-}
-```
+- `Sample a(0)`, `Sample a = 0`, 都是调用构造函数
+- `Sample a(9); a = 8` 调用两次构造函数，
+- `Sample b = a `, `Sample b(a)` 拷贝构造函数
+- 类型转换构造函数，编译系统会生成一个临时变量
