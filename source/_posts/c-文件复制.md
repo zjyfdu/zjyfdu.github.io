@@ -50,14 +50,3 @@ int main(int argc, char* argv[])
 	out.close();
 }
 ```
-
-C++编译器遵循以下优先顺序:
-Step 1: 先找参数完全匹配的普通函数(非由模板实例化而得的函数)
-Step 2: 再找参数完全匹配的模板函数
-Step 3: 再找实参经过自动类型转换后能够匹配的普通函数
-Step 4: 上面的都找不到, 则报错
-
-cin cout 重定向
-```
-freopen("test.txt","w",stdout); 
-freopen(“some.txt”,”r”,stdin);
