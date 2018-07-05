@@ -1,6 +1,9 @@
 ---
 title: CTC
 date: 2018-03-20 14:48:40
+tags:
+  - CTC
+categories: caffe
 ---
 
 - [CTC讲解](http://blog.csdn.net/luodongri/article/details/77005948)
