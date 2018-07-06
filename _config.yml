@@ -6,7 +6,7 @@
 title: 努力～奋斗～
 subtitle: 
 description:
-author: 翟小翟
+author: 翟大翟
 language: zh-CH
 timezone:
 
@@ -40,7 +40,7 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace:
   
 # Home page setting

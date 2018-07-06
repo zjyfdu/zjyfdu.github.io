@@ -4,7 +4,7 @@ date: 2018-07-03 14:24:44
 categories: cpp
 ---
 
-```
+```c
 #include<iostream>
 #include<fstream>
 #include<cstring>
