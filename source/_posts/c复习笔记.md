@@ -9,14 +9,15 @@ categories: cpp
 ---
 
 - cin 带空格的字符串时，需要这样`cin.getline(s, 80)`，s是char数组
-- 或者也可以这样`getline(cin, str)`，原型为`istream& getline (istream& is, string& str); `
+- 或者也可以这样`getline(cin, str)`，原型为`istream& getline (istream& is, string& str); `，C++对每种流都定义了一个getline函数
+- 在gcc编译器中，对标准库进行了扩展，加入了一个getline函数。会自动malloc, realloc，所以用的话，需要自己手动free，好像没啥人用，参考[这里](https://www.cnblogs.com/xkfz007/archive/2012/08/01/2618366.html)
 
 - cout 控制输出精度 `cout << fixed << setprecision(2) << f`，`#include <iomanip>`
 - cout 控制输出格式`cout << setfill('0') << setw(4) << a[i][j]`
 - [更多](https://blog.csdn.net/yockie/article/details/9104899)
 
 - cin cout 重定向
-```
+```cpp
 freopen("foo.txt","w",stdout); 
 freopen(“bar.txt”,”r”,stdin);
 ```
@@ -25,7 +26,7 @@ freopen(“bar.txt”,”r”,stdin);
 ![](http://ot0uaqt93.bkt.clouddn.com/18-7-3/10535321.jpg "lambda!") 
 
 - 使用lambda对vector进行排序
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -57,7 +58,7 @@ int main()
 ```
 
 - erase删除vector元素
-```
+```cpp
 for(it=iVec.begin();it!=iVec.end();){
 　　if(*it==4 || *it==5)
 　　　　it=iVec.erase(it);
@@ -74,3 +75,11 @@ for(it=iVec.begin();it!=iVec.end();){
 
 - C++编译器遵循以下优先顺序:
 > 先找参数完全匹配的普通函数(非由模板实例化而得的函数)，再找参数完全匹配的模板函数，再找实参经过自动类型转换后能够匹配的普通函数，上面的都找不到, 则报错。
+
+- 优雅的内存对齐方法
+```c
+unsigned int calc_align(unsigned int n, unsigned align)
+{
+    return ((n + align - 1) & (~(align - 1)));
+}
+```
