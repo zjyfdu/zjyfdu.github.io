@@ -83,3 +83,7 @@ unsigned int calc_align(unsigned int n, unsigned align)
     return ((n + align - 1) & (~(align - 1)));
 }
 ```
+
+- __declspec(dllexport)是导出声明，说明这个函数要从DLL中导出给别人用。
+- __declspec(dllimport)是说这个函数是从别处导入的，不适用也能正常编译代码。
+
