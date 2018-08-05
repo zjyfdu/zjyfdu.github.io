@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CH">
+<html class="theme-next gemini use-motion" lang="zh-CH">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -83,7 +83,7 @@
 <meta name="keywords" content="javaScript,复习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS复习笔记">
-<meta property="og:url" content="https://zjyfdu.github.io/2018/01/01/JS复习笔记/index.html">
+<meta property="og:url" content="https://zjyfdu.coding.me/2018/01/01/JS复习笔记/index.html">
 <meta property="og:site_name" content="努力～奋斗～">
 <meta property="og:description" content="有两种比较运算符：==，自动转换数据类型再比较，会得到非常诡异的结果===，如果数据类型不一致，返回false，如果一致，再比较 NaN === NaN; // false唯一能判断NaN的方法是通过isNaN()函数isNaN(NaN); // true 浮点数比较要这样Math.abs(1 / 3 - (1 - 2 / 3)) &amp;lt; 0.0000001; // true 并如果一个变量没">
 <meta property="og:locale" content="zh-CH">
@@ -98,7 +98,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '5.1.3',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="https://zjyfdu.github.io/2018/01/01/JS复习笔记/"/>
+  <link rel="canonical" href="https://zjyfdu.coding.me/2018/01/01/JS复习笔记/"/>
 
 
 
@@ -222,9 +222,39 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'Cx_xouJhtttu8fgMUVA6','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -253,12 +283,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjyfdu.github.io/2018/01/01/JS复习笔记/">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/01/01/JS复习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="翟小翟">
+      <meta itemprop="name" content="翟大翟">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -464,6 +494,13 @@
           
 
   
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
 
 
 
@@ -491,7 +528,11 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">翟小翟</p>
+              <img class="site-author-image" itemprop="image"
+                src="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg"
+                alt="翟大翟" />
+            
+              <p class="site-author-name" itemprop="name">翟大翟</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -502,7 +543,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -513,7 +554,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -524,7 +565,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -534,6 +575,22 @@
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zjyfdu" target="_blank" title="Github">
+                      
+                        <i class="fa fa-fw fa-github"></i>Github</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/5393730/zjyfdu" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -565,7 +622,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">翟小翟</span>
+  <span class="author" itemprop="copyrightHolder">翟大翟</span>
 
   
 </div>
@@ -673,6 +730,13 @@
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
@@ -712,6 +776,46 @@
 
 
 
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitment({
+            id: '1514802323000', 
+            owner: 'zjyfdu',
+            repo: 'zjyfdu.github.io',
+            
+            oauth: {
+            
+            
+                client_secret: 'c6c3b050dfdfbe78cba24692a672e717ab5943d1',
+            
+                client_id: '7d19555321c1ae7bc064'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
 
 
 
