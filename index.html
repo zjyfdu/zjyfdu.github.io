@@ -572,7 +572,7 @@
 </li>
 <li>针对bounding box内部的每个点，计算他们到上下左右四个边的距离，并且计算角度。针对bounding box外部的点，ground truth置为0</li>
 <li>loss包含两个部分，score map的loss和位置坐标的loss</li>
-<li><p>score的loss使用的是balanced cross entropy，可以配合正负样本不均衡的情况<br>$$ A = \boldsymbol{UDV}^T$$<br>$$ L<em>s = -\beta Y^<em> log(\hat{Y}) - (1-\beta)(1-Y^</em>)log(1-\hat{Y})$$<br>$$ \beta = 1 - \frac{\sum</em>{y^<em> \in Y^</em>} y^<em>}{|Y^</em>|}$$</p>
+<li><p>score的loss使用的是balanced cross entropy，可以配合正负样本不均衡的情况<br>$$ L_s = -\beta Y^<em>log(\hat{Y}) - (1-\beta)(1-Y^</em>)log(1-\hat{Y})$$<br>$$ L<em>s = -\beta Y^<em> log(\hat{Y}) - (1-\beta)(1-Y^</em>)log(1-\hat{Y})$$<br>$$ \beta = 1 - \frac{\sum</em>{y^<em> \in Y^</em>} y^<em>}{|Y^</em>|}$$</p>
 </li>
 <li><p>位置坐标的loss我只看了rotated box的，又可以分成两个部分，iou的loss和角度的loss，角度的loss前面会乘个系数，10或者20，是个超参数</p>
 </li>
