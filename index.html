@@ -552,7 +552,11 @@
       
         
           
-            <h3 id="NET"><a href="#NET" class="headerlink" title="NET"></a>NET</h3><p>pvanet<br>mobilenet<br>squeezenet</p>
+            <p>论文常看常忘，还是把看过的先记下来，再补充总结</p>
+<p>翟尼斯特有债必会</p>
+<h3 id="NET"><a href="#NET" class="headerlink" title="NET"></a>NET</h3><h4 id="pvanet"><a href="#pvanet" class="headerlink" title="pvanet"></a>pvanet</h4><h4 id="mobilenet"><a href="#mobilenet" class="headerlink" title="mobilenet"></a>mobilenet</h4><h4 id="shufflenet"><a href="#shufflenet" class="headerlink" title="shufflenet"></a>shufflenet</h4><ul>
+<li>mobile和shuffle可以看我前面写的<h4 id="densenet"><a href="#densenet" class="headerlink" title="densenet"></a>densenet</h4></li>
+</ul>
 <h3 id="Attention-和-CTC"><a href="#Attention-和-CTC" class="headerlink" title="Attention 和 CTC"></a>Attention 和 CTC</h3><p>Attention is all you need<br>CTC</p>
 <h3 id="text-localization"><a href="#text-localization" class="headerlink" title="text localization"></a>text localization</h3><h4 id="EAST"><a href="#EAST" class="headerlink" title="EAST"></a>EAST</h4><ul>
 <li>用于文本检测，输出可以是四边形或rotated box</li>
@@ -568,11 +572,10 @@
 </li>
 <li>针对bounding box内部的每个点，计算他们到上下左右四个边的距离，并且计算角度。针对bounding box外部的点，ground truth置为0</li>
 <li>loss包含两个部分，score map的loss和位置坐标的loss</li>
-<li>score的loss使用的是balanced cross entropy，可以配合正负样本不均衡的情况</li>
-</ul>
-<p>$$L<em>s = balanced-xent(\hat{Y},Y^<em>) = -\beta Y^</em> log(\hat{Y}) - (1-\beta)(1-Y^*)log(1-\hat{Y})$$<br>$$\beta = 1 - \frac{\sum</em>{y^<em> \in Y^</em>} y^<em>}{|Y^</em>|}$$</p>
-<ul>
-<li>位置坐标的loss我只看了rotated box的，又可以分成两个部分，iou的loss和角度的loss，角度的loss前面会乘个系数，10或者20，是个超参数</li>
+<li><p>score的loss使用的是balanced cross entropy，可以配合正负样本不均衡的情况<br>$$ L<em>s = balanced-xent(\hat{Y},Y^<em>) = -\beta Y^</em> log(\hat{Y}) - (1-\beta)(1-Y^*)log(1-\hat{Y})$$<br>$$ \beta = 1 - \frac{\sum</em>{y^<em> \in Y^</em>} y^<em>}{|Y^</em>|}$$</p>
+</li>
+<li><p>位置坐标的loss我只看了rotated box的，又可以分成两个部分，iou的loss和角度的loss，角度的loss前面会乘个系数，10或者20，是个超参数</p>
+</li>
 </ul>
 <h4 id="InceptText-from-Alibaba-IJCAI2018"><a href="#InceptText-from-Alibaba-IJCAI2018" class="headerlink" title="InceptText from Alibaba, IJCAI2018"></a>InceptText from Alibaba, IJCAI2018</h4><h3 id="text-recognition"><a href="#text-recognition" class="headerlink" title="text recognition"></a>text recognition</h3><p>FAN<br>Edit Probability </p>
 <h3 id="OCR-end2end"><a href="#OCR-end2end" class="headerlink" title="OCR end2end"></a>OCR end2end</h3><p>an end to end textspotter with explicit aligment and attention, ICCV2018<br>Textbox++</p>
