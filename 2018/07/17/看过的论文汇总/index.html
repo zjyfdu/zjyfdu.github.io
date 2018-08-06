@@ -79,20 +79,21 @@
 
 
 
-<meta name="description" content="论文常看常忘，还是把看过的先记下来，再补充总结 翟尼斯特有债必会 NETpvanetmobilenetshufflenet mobile和shuffle可以看我前面写的densenet  Attention 和 CTCAttention is all you needCTC text localizationEAST 用于文本检测，输出可以是四边形或rotated box    最左边用的是PV">
+<meta name="description" content="论文常看常忘，还是把看过的先记下来，再补充总结 NETpvanet pvanet是为了实时目标识别提出来的网络，用来提取特征的，用了很多方法来减小计算量，看起来像个大杂烩 C.ReLU，由于观察到浅层的网络卷基层总是存在互补层，所以直接把卷积取反再concatenate，可以减少一半的计算量 Inception，使用了inception unit，用两个3*3的卷集合替代了5*5的卷积，也是为了">
 <meta name="keywords" content="还债">
 <meta property="og:type" content="article">
 <meta property="og:title" content="看过的论文汇总">
 <meta property="og:url" content="https://zjyfdu.coding.me/2018/07/17/看过的论文汇总/index.html">
 <meta property="og:site_name" content="努力～奋斗～">
-<meta property="og:description" content="论文常看常忘，还是把看过的先记下来，再补充总结 翟尼斯特有债必会 NETpvanetmobilenetshufflenet mobile和shuffle可以看我前面写的densenet  Attention 和 CTCAttention is all you needCTC text localizationEAST 用于文本检测，输出可以是四边形或rotated box    最左边用的是PV">
+<meta property="og:description" content="论文常看常忘，还是把看过的先记下来，再补充总结 NETpvanet pvanet是为了实时目标识别提出来的网络，用来提取特征的，用了很多方法来减小计算量，看起来像个大杂烩 C.ReLU，由于观察到浅层的网络卷基层总是存在互补层，所以直接把卷积取反再concatenate，可以减少一半的计算量 Inception，使用了inception unit，用两个3*3的卷集合替代了5*5的卷积，也是为了">
 <meta property="og:locale" content="zh-CH">
+<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-7/62552972.jpg">
 <meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-7/14151415.jpg">
-<meta property="og:updated_time" content="2018-08-06T17:17:21.936Z">
+<meta property="og:updated_time" content="2018-08-06T17:53:29.225Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="看过的论文汇总">
-<meta name="twitter:description" content="论文常看常忘，还是把看过的先记下来，再补充总结 翟尼斯特有债必会 NETpvanetmobilenetshufflenet mobile和shuffle可以看我前面写的densenet  Attention 和 CTCAttention is all you needCTC text localizationEAST 用于文本检测，输出可以是四边形或rotated box    最左边用的是PV">
-<meta name="twitter:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-7/14151415.jpg">
+<meta name="twitter:description" content="论文常看常忘，还是把看过的先记下来，再补充总结 NETpvanet pvanet是为了实时目标识别提出来的网络，用来提取特征的，用了很多方法来减小计算量，看起来像个大杂烩 C.ReLU，由于观察到浅层的网络卷基层总是存在互补层，所以直接把卷积取反再concatenate，可以减少一半的计算量 Inception，使用了inception unit，用两个3*3的卷集合替代了5*5的卷积，也是为了">
+<meta name="twitter:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-7/62552972.jpg">
 
 
 
@@ -375,9 +376,15 @@
 
       
         <p>论文常看常忘，还是把看过的先记下来，再补充总结</p>
-<p>翟尼斯特有债必会</p>
-<h3 id="NET"><a href="#NET" class="headerlink" title="NET"></a>NET</h3><h4 id="pvanet"><a href="#pvanet" class="headerlink" title="pvanet"></a>pvanet</h4><h4 id="mobilenet"><a href="#mobilenet" class="headerlink" title="mobilenet"></a>mobilenet</h4><h4 id="shufflenet"><a href="#shufflenet" class="headerlink" title="shufflenet"></a>shufflenet</h4><ul>
-<li>mobile和shuffle可以看我前面写的<h4 id="densenet"><a href="#densenet" class="headerlink" title="densenet"></a>densenet</h4></li>
+<h3 id="NET"><a href="#NET" class="headerlink" title="NET"></a>NET</h3><h4 id="pvanet"><a href="#pvanet" class="headerlink" title="pvanet"></a>pvanet</h4><ul>
+<li>pvanet是为了实时目标识别提出来的网络，用来提取特征的，用了很多方法来减小计算量，看起来像个大杂烩</li>
+<li>C.ReLU，由于观察到浅层的网络卷基层总是存在互补层，所以直接把卷积取反再concatenate，可以减少一半的计算量</li>
+<li>Inception，使用了inception unit，用两个3*3的卷集合替代了5*5的卷积，也是为了减小计算量</li>
+<li>HypteNet多层融合，融合哪两层是比较讲究的，选择不好的话，会白白增加计算量。这里作者使用了最后输出层2倍和4倍多layer进行融合，以2倍的layer为标准，分别pooling和差值upscale。<br>- ResNet，再inception unit里也用了残差网络。</li>
+<li>整个网络结构如下表<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-7/62552972.jpg" alt=""></li>
+</ul>
+<h4 id="mobilenet"><a href="#mobilenet" class="headerlink" title="mobilenet"></a>mobilenet</h4><h4 id="shufflenet"><a href="#shufflenet" class="headerlink" title="shufflenet"></a>shufflenet</h4><ul>
+<li>mobile和shuffle可以看<a href="/2018/05/13/mobileNet和shuffleNet/" title="以前写的这篇">以前写的这篇</a><h4 id="densenet"><a href="#densenet" class="headerlink" title="densenet"></a>densenet</h4></li>
 </ul>
 <h3 id="Attention-和-CTC"><a href="#Attention-和-CTC" class="headerlink" title="Attention 和 CTC"></a>Attention 和 CTC</h3><p>Attention is all you need<br>CTC</p>
 <h3 id="text-localization"><a href="#text-localization" class="headerlink" title="text localization"></a>text localization</h3><h4 id="EAST"><a href="#EAST" class="headerlink" title="EAST"></a>EAST</h4><ul>
@@ -388,16 +395,12 @@
 <li>最左边用的是PVANet，也可以换成其他ResNet什么的</li>
 <li>然后中间是特征融合，这里作者借鉴了U-net的做法，原因是文字有大有小，需要有不同的感受野</li>
 <li>这里unpool是怎么实现的？</li>
-<li><p>最后是输出层，包括score map和位置信息，输出的size是原图的1/4大小</p>
-</li>
-<li><p>score对应的ground truth: 是将原始的bounding box按照短边长度r向内收缩了0.3r的距离。不懂为什么要这么做</p>
-</li>
+<li>最后是输出层，包括score map和位置信息，输出的size是原图的1/4大小</li>
+<li>score对应的ground truth: 是将原始的bounding box按照短边长度r向内收缩了0.3r的距离。不懂为什么要这么做</li>
 <li>针对bounding box内部的每个点，计算他们到上下左右四个边的距离，并且计算角度。针对bounding box外部的点，ground truth置为0</li>
 <li>loss包含两个部分，score map的loss和位置坐标的loss</li>
-<li><p>score的loss使用的是balanced cross entropy，可以配合正负样本不均衡的情况</p>
-<script type="math/tex; mode=display">L_s = -\beta Y^*log(\hat{Y}) - (1-\beta)(1-Y^*)log(1-\hat{Y})</script><script type="math/tex; mode=display">L_s = -\beta Y^* log(\hat{Y}) - (1-\beta)(1-Y^*)log(1-\hat{Y})</script><script type="math/tex; mode=display">\beta = 1 - \frac{\sum_{y^* \in Y^*} y^*}{|Y^*|}</script></li>
-<li><p>位置坐标的loss我只看了rotated box的，又可以分成两个部分，iou的loss和角度的loss，角度的loss前面会乘个系数，10或者20，是个超参数</p>
-</li>
+<li>score的loss使用的是balanced cross entropy，可以配合正负样本不均衡的情况<script type="math/tex; mode=display">L_s = -\beta Y^* log(\hat{Y}) - (1-\beta)(1-Y^*)log(1-\hat{Y})</script><script type="math/tex; mode=display">\beta = 1 - \frac{\sum_{y^* \in Y^*} y^*}{|Y^*|}</script></li>
+<li>位置坐标的loss我只看了rotated box的，又可以分成两个部分，iou的loss和角度的loss，角度的loss前面会乘个系数，10或者20，是个超参数</li>
 </ul>
 <h4 id="InceptText-from-Alibaba-IJCAI2018"><a href="#InceptText-from-Alibaba-IJCAI2018" class="headerlink" title="InceptText from Alibaba, IJCAI2018"></a>InceptText from Alibaba, IJCAI2018</h4><h3 id="text-recognition"><a href="#text-recognition" class="headerlink" title="text recognition"></a>text recognition</h3><p>FAN<br>Edit Probability </p>
 <h3 id="OCR-end2end"><a href="#OCR-end2end" class="headerlink" title="OCR end2end"></a>OCR end2end</h3><p>an end to end textspotter with explicit aligment and attention, ICCV2018<br>Textbox++</p>

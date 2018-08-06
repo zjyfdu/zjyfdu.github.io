@@ -79,17 +79,21 @@
 
 
 
-<meta name="description" content="先说mobileNet 链接 使用depthwise convolution和1*1 convolution代替标准的convolution 这里放个图片和公式 depthwise的caffe实现在这里  shuffleNet 使用group convolution代替mobileNet中的1*1 convolution 引入channel随机层 随机层的caffe实现在这里，思路是先reshap">
+<meta name="description" content="先说mobileNet 使用depthwise convolution和point wise(1*1) convolution代替标准的convolution (b)类似于group为M的卷积，m-th filter is applied to m-th channel 计算量是原来的$\frac{1}{N}+\frac{1}{D_k^2}$，kernel一般是3，所以可以减少到1/8到1/9">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mobileNet和shuffleNet">
 <meta property="og:url" content="https://zjyfdu.coding.me/2018/05/13/mobileNet和shuffleNet/index.html">
 <meta property="og:site_name" content="努力～奋斗～">
-<meta property="og:description" content="先说mobileNet 链接 使用depthwise convolution和1*1 convolution代替标准的convolution 这里放个图片和公式 depthwise的caffe实现在这里  shuffleNet 使用group convolution代替mobileNet中的1*1 convolution 引入channel随机层 随机层的caffe实现在这里，思路是先reshap">
+<meta property="og:description" content="先说mobileNet 使用depthwise convolution和point wise(1*1) convolution代替标准的convolution (b)类似于group为M的卷积，m-th filter is applied to m-th channel 计算量是原来的$\frac{1}{N}+\frac{1}{D_k^2}$，kernel一般是3，所以可以减少到1/8到1/9">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:updated_time" content="2018-07-28T09:13:30.138Z">
+<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-7/8709950.jpg">
+<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-7/32435128.jpg">
+<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-7/77705439.jpg">
+<meta property="og:updated_time" content="2018-08-06T18:29:43.621Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mobileNet和shuffleNet">
-<meta name="twitter:description" content="先说mobileNet 链接 使用depthwise convolution和1*1 convolution代替标准的convolution 这里放个图片和公式 depthwise的caffe实现在这里  shuffleNet 使用group convolution代替mobileNet中的1*1 convolution 引入channel随机层 随机层的caffe实现在这里，思路是先reshap">
+<meta name="twitter:description" content="先说mobileNet 使用depthwise convolution和point wise(1*1) convolution代替标准的convolution (b)类似于group为M的卷积，m-th filter is applied to m-th channel 计算量是原来的$\frac{1}{N}+\frac{1}{D_k^2}$，kernel一般是3，所以可以减少到1/8到1/9">
+<meta name="twitter:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-7/8709950.jpg">
 
 
 
@@ -372,16 +376,21 @@
 
       
         <h3 id="先说mobileNet"><a href="#先说mobileNet" class="headerlink" title="先说mobileNet"></a>先说mobileNet</h3><ul>
-<li><a href="">链接</a></li>
-<li>使用depthwise convolution和1*1 convolution代替标准的convolution</li>
-<li>这里放个图片和公式</li>
-<li>depthwise的caffe实现在<a href="">这里</a></li>
+<li>使用depthwise convolution和point wise(1*1) convolution代替标准的convolution<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-7/8709950.jpg" alt=""></li>
+<li>(b)类似于group为M的卷积，m-th filter is applied to m-th channel</li>
+<li>计算量是原来的$\frac{1}{N}+\frac{1}{D_k^2}$，kernel一般是3，所以可以减少到1/8到1/9</li>
+<li>论文里还提出了两个控制计算量的超参数</li>
+<li>width multiplier，$\alpha$，乘在channel前面，计算量减小到$\frac{1}{\alpha}$</li>
+<li>resolution multiplier，$\beta$，乘在输入到尺寸前面，计算量减小到$\frac{1}{\beta}$</li>
+<li>好像文章里公式写错了，卷积到计算量应该是乘输出的尺寸，而不是输入到尺寸吧。。。</li>
 </ul>
-<h3 id="shuffleNet"><a href="#shuffleNet" class="headerlink" title="shuffleNet"></a>shuffleNet</h3><ul>
-<li>使用group convolution代替mobileNet中的1*1 convolution</li>
-<li>引入channel随机层</li>
-<li>随机层的caffe实现在<a href="">这里</a>，思路是先reshape再transpose再flatten，所以可以实现backword</li>
-<li>这里放shuffleNet Unit的图</li>
+<h3 id="shuffleNet"><a href="#shuffleNet" class="headerlink" title="shuffleNet"></a><a href="https://blog.csdn.net/u014380165/article/details/75137111" target="_blank" rel="noopener">shuffleNet</a></h3><ul>
+<li>在resnet的基础上，用带group的1*1卷积代替原来的1*1卷积<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-7/32435128.jpg" alt=""></li>
+<li>group操作会带来边界效应，学出来的特征会局限，所以就有了channel shuffle层</li>
+<li>随机层的caffe实现是先reshape再transpose再flatten，不是真随机，所以可以实现backward</li>
+<li>3*3的depth wise的卷积就是moblieNet里用到的</li>
+<li>然后用shuffleNet Unit组成shuffetNet网络<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-7/77705439.jpg" alt=""></li>
+<li>一个重要结论是group个数的线性增长并不会带来分类准确率的线性增长。但是发现ShuffleNet对于小的网络效果更明显，因为一般小的网络的channel个数都不多，在限定计算资源的前提下，ShuffleNet可以使用更多的feature map。</li>
 </ul>
 
       
