@@ -220,7 +220,7 @@
       
         <li class="menu-item menu-item-search">
           
-            <a href="javascript:;" class="st-search-show-outputs">
+            <a href="javascript:;" class="popup-trigger">
           
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
@@ -235,18 +235,22 @@
   
     <div class="site-search">
       
-  <form class="site-search-form">
-  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-</form>
-
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', 'Cx_xouJhtttu8fgMUVA6','2.0.0');
-</script>
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
 
 
 
@@ -265,6 +269,146 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/08/08/记录一个vscode的bug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="翟大翟">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力～奋斗～">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/08/记录一个vscode的bug/" itemprop="url">记录一个vscode的bug</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-08T00:53:58+08:00">
+                2018-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="啰嗦一下"><a href="#啰嗦一下" class="headerlink" title="啰嗦一下"></a>啰嗦一下</h3><ul>
+<li>在mac下，使用vscode，使用汉字输入法，删除完后，会多一个退格符！而且这个退格符默认是不可见的！</li>
+<li>过年在家写论文的时候，就发现xetex模型奇妙不能编译，说是多了字符，苦于不知道这个字符是啥，也不知道怎么描述这个现象，一直没有找到原因。</li>
+<li>就在今天，我配置博客的搜索的时候，又被这个bug给搞了，看别人的解释说是生成的检索文件里，多了BS(unicode)这个字符，终于顺着这个BS，我找到了困扰我半年的bug。</li>
+<li>十分激动，以至于我一改性冷淡的文风，在大半夜里啰嗦这么多。</li>
+</ul>
+<h3 id="vscode并不打算修"><a href="#vscode并不打算修" class="headerlink" title="vscode并不打算修"></a>vscode并不打算修</h3><ul>
+<li>参考了<a href="https://juejin.im/entry/5a806ddef265da4e84092eeb" target="_blank" rel="noopener">这里</a>的说明。<blockquote>
+<p>vscode底层使用了electron，这是electron的bug，electron不解决这个问题，vscode就不会解决。<br>electron底层使用了chromium， 这是chromium的bug，chromium不解决，elctron就无法解决。</p>
+</blockquote>
+</li>
+<li>非常稳，于是<a href="https://github.com/Microsoft/vscode/issues/37114" target="_blank" rel="noopener">这个bug还是open的</a>。</li>
+</ul>
+<h3 id="补救措施"><a href="#补救措施" class="headerlink" title="补救措施"></a>补救措施</h3><ul>
+<li><p>首先让这个字符显示出来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;editor.renderControlCharacters&quot;: true</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用插件 Remove backspace control character，并如下配置，这样在保存文件的时候，会自动帮你删除这些控制符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“editor.formatOnSave”: true</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -554,10 +698,11 @@
           
             <p>论文常看常忘，还是把看过的先记下来，再补充总结</p>
 <h3 id="NET"><a href="#NET" class="headerlink" title="NET"></a>NET</h3><h4 id="pvanet"><a href="#pvanet" class="headerlink" title="pvanet"></a>pvanet</h4><ul>
-<li>pvanet是为了实时目标识别提出来的网络，用来提取特征的，用了很多方法来减小计算量，看起来像个大杂烩</li>
+<li>pvanet是为了实时目标识别提出来的网络，用来提取特征的，用了很多方法来减小计算量，看起来像个大杂烩</li>
 <li>C.ReLU，由于观察到浅层的网络卷基层总是存在互补层，所以直接把卷积取反再concatenate，可以减少一半的计算量</li>
 <li>Inception，使用了inception unit，用两个3*3的卷集合替代了5*5的卷积，也是为了减小计算量</li>
-<li>HypteNet多层融合，融合哪两层是比较讲究的，选择不好的话，会白白增加计算量。这里作者使用了最后输出层2倍和4倍多layer进行融合，以2倍的layer为标准，分别pooling和差值upscale。<br>- ResNet，再inception unit里也用了残差网络。</li>
+<li>HypteNet多层融合，融合哪两层是比较讲究的，选择不好的话，会白白增加计算量。这里作者使用了最后输出层2倍和4倍多layer进行融合，以2倍的layer为标准，分别pooling和差值upscale。</li>
+<li>ResNet，再inception unit里也用了残差网络。</li>
 <li>整个网络结构如下表<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-7/62552972.jpg" alt=""></li>
 </ul>
 <h4 id="mobilenet"><a href="#mobilenet" class="headerlink" title="mobilenet"></a>mobilenet</h4><h4 id="shufflenet"><a href="#shufflenet" class="headerlink" title="shufflenet"></a>shufflenet</h4><ul>
@@ -571,13 +716,13 @@
 <ul>
 <li>最左边用的是PVANet，也可以换成其他ResNet什么的</li>
 <li>然后中间是特征融合，这里作者借鉴了U-net的做法，原因是文字有大有小，需要有不同的感受野</li>
-<li>这里unpool是怎么实现的？</li>
+<li>这里unpool是怎么实现的？</li>
 <li>最后是输出层，包括score map和位置信息，输出的size是原图的1/4大小</li>
 <li>score对应的ground truth: 是将原始的bounding box按照短边长度r向内收缩了0.3r的距离。不懂为什么要这么做</li>
 <li>针对bounding box内部的每个点，计算他们到上下左右四个边的距离，并且计算角度。针对bounding box外部的点，ground truth置为0</li>
 <li>loss包含两个部分，score map的loss和位置坐标的loss</li>
 <li>score的loss使用的是balanced cross entropy，可以配合正负样本不均衡的情况<script type="math/tex; mode=display">L_s = -\beta Y^* log(\hat{Y}) - (1-\beta)(1-Y^*)log(1-\hat{Y})</script><script type="math/tex; mode=display">\beta = 1 - \frac{\sum_{y^* \in Y^*} y^*}{|Y^*|}</script></li>
-<li>位置坐标的loss我只看了rotated box的，又可以分成两个部分，iou的loss和角度的loss，角度的loss前面会乘个系数，10或者20，是个超参数</li>
+<li>位置坐标的loss我只看了rotated box的，又可以分成两个部分，iou的loss和角度的loss，角度的loss前面会乘个系数，10或者20，是个超参数</li>
 </ul>
 <h4 id="InceptText-from-Alibaba-IJCAI2018"><a href="#InceptText-from-Alibaba-IJCAI2018" class="headerlink" title="InceptText from Alibaba, IJCAI2018"></a>InceptText from Alibaba, IJCAI2018</h4><h3 id="text-recognition"><a href="#text-recognition" class="headerlink" title="text recognition"></a>text recognition</h3><p>FAN<br>Edit Probability </p>
 <h3 id="OCR-end2end"><a href="#OCR-end2end" class="headerlink" title="OCR end2end"></a>OCR end2end</h3><p>an end to end textspotter with explicit aligment and attention, ICCV2018<br>Textbox++</p>
@@ -897,8 +1042,18 @@
 <h4 id="valine"><a href="#valine" class="headerlink" title="valine"></a><a href="https://valine.js.org/" target="_blank" rel="noopener">valine</a></h4><ul>
 <li>是我目前见到过的唯一支持匿名评论的，也是需要注册valine的账号</li>
 </ul>
-<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><h4 id="Swiftype"><a href="#Swiftype" class="headerlink" title="Swiftype"></a>Swiftype</h4><ul>
-<li>去注册账号，拿到swiftype_key，写道next的配置里就好</li>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><h4 id="Swiftype"><a href="#Swiftype" class="headerlink" title="Swiftype"></a><del>Swiftype</del></h4><ul>
+<li><del>去注册账号，拿到swiftype_key，写道next的配置里就好</del></li>
+<li>后来才这道这个是要收费的，不要用了</li>
+</ul>
+<h3 id="local-search"><a href="#local-search" class="headerlink" title="local search"></a>local search</h3><ul>
+<li><code>npm install --save hexo-generator-search</code></li>
+<li>在主题的config里，local_search的enable要打开</li>
+<li><p>在hexo的config里，写上</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">search.xml</span></span><br><span class="line"><span class="attr">  field:</span> <span class="string">post(或者all)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后<code>hexo g</code>就可以了</p>
+</li>
 </ul>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ul>
 <li><p>修改hexo的配置</p>
@@ -907,9 +1062,11 @@
 <li><p>然后在next的配置里修改代码配色</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">highlight_theme:</span> <span class="string">night</span> <span class="string">bright</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>写代码的时候，要注意在```后加上代码类型如c、python、yml等等</p>
+<li><p>写代码的时候，要注意在<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 公式</span><br><span class="line">- 在next的config里，enable mathjax</span><br><span class="line">- 行内公式用`$`，行间公式用`$$`</span><br><span class="line">- 但是还有些问题，比如说公式里有两个`_`，hexo会优先按markdown给你解析成斜体，所以latex公式还不能直接抄，有些富豪需要转义</span><br><span class="line">- 当然，也有优雅的方法，换个render</span><br></pre></td></tr></table></figure></p>
 </li>
 </ul>
+<p>npm uninstall hexo-renderer-marked —save<br>npm install hexo-renderer-kramed —save<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 优雅！</span><br><span class="line">#### mathjax公式粗体</span><br><span class="line">- 放弃`\bm&#123;&#125;`吧，使用`\boldsymbol&#123;&#125;`</span><br></pre></td></tr></table></figure></p>
+<p>\boldsymbol{UVD}<br>```</p>
 
           
         
@@ -1712,139 +1869,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/06/12/mt19937/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="翟大翟">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力～奋斗～">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/12/mt19937/" itemprop="url">mt19937</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-12T19:00:46+08:00">
-                2018-06-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><ul>
-<li>你需要把原来mtalab的代码翻译为c、python等等</li>
-<li>你的代码里使用了随机数</li>
-<li>你的老板又要求你实现的方法exactly the same</li>
-<li>参考<a href="https://code.i-harness.com/zh-CN/q/11a13e1" target="_blank" rel="noopener">这里</a></li>
-</ul>
-<h3 id="mt19927"><a href="#mt19927" class="headerlink" title="mt19927"></a>mt19927</h3><ul>
-<li><a href="https://en.wikipedia.org/wiki/Mersenne_Twister" target="_blank" rel="noopener">Mersenne Twister</a>是目前比较常用的随机数生成器</li>
-<li>周期非常长$2^{19937}-1$，速度非常快</li>
-</ul>
-<h3 id="python代码"><a href="#python代码" class="headerlink" title="python代码"></a>python代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">np.random.seed(1337)</span><br><span class="line">A = np.random.random((5,3))</span><br><span class="line">A.T</span><br><span class="line">array([[ 0.26202468,  0.45931689,  0.26194293,  0.11527423,  0.12505793],</span><br><span class="line">       [ 0.15868397,  0.32100054,  0.97608528,  0.38627507,  0.98354861],</span><br><span class="line">       [ 0.27812652,  0.51839282,  0.73281455,  0.62850118,  0.44322487]])</span><br></pre></td></tr></table></figure>
-<h3 id="MATLAB代码"><a href="#MATLAB代码" class="headerlink" title="MATLAB代码"></a>MATLAB代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">rand(&apos;twister&apos;, 1337);</span><br><span class="line">A = rand(3,5)</span><br><span class="line">A = </span><br><span class="line"> Columns 1 through 2</span><br><span class="line">   0.262024675015582   0.459316887214567</span><br><span class="line">   0.158683972154466   0.321000540520167</span><br><span class="line">   0.278126519494360   0.518392820597537</span><br><span class="line">  Columns 3 through 4</span><br><span class="line">   0.261942925565145   0.115274226683149</span><br><span class="line">   0.976085284877434   0.386275068634359</span><br><span class="line">   0.732814552690482   0.628501179539712</span><br><span class="line">  Column 5</span><br><span class="line">   0.125057926335599</span><br><span class="line">   0.983548605143641</span><br><span class="line">   0.443224868645128</span><br></pre></td></tr></table></figure>
-<h3 id="c-代码"><a href="#c-代码" class="headerlink" title="c++代码"></a>c++代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;random&gt;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">  unsigned seed1 = 1337;</span><br><span class="line">  std::mt19937 g1(seed1);</span><br><span class="line">  for(int i=0; i&lt;100; i++)</span><br><span class="line">    std::cout &lt;&lt; 1.0*g1()/g1.max() &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="还有一些"><a href="#还有一些" class="headerlink" title="还有一些"></a>还有一些</h3><p>最简单的生成算法，混合同余法，可以看<a href="https://www.cnblogs.com/houkai/p/3807041.html" target="_blank" rel="noopener">这里</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1899,7 +1923,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1921,7 +1945,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2154,6 +2178,323 @@
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
 
 
 

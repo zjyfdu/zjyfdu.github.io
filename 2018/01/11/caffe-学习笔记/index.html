@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="安装mac直接看官网的安装有点抓不住要点，有一篇博客介绍得很详细，点这里。是针对MAC下caffe及其python模块的安装，包括有哪些依赖、怎么编译，会遇到哪些坑，以及怎么解决坑等等。感谢作者！  dockerdocker就方便多了，需要先安装docker，centos照着这一篇 12345rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x8">
+<meta name="description" content="安装mac直接看官网的安装有点抓不住要点，有一篇博客介绍得很详细，点这里。是针对MAC下caffe及其python模块的安装，包括有哪些依赖、怎么编译，会遇到哪些坑，以及怎么解决坑等等。感谢作者！  dockerdocker就方便多了，需要先安装docker，centos照着这一篇 12345rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_">
 <meta name="keywords" content="caffe,学习笔记,docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="caffe 学习笔记">
 <meta property="og:url" content="https://zjyfdu.coding.me/2018/01/11/caffe-学习笔记/index.html">
 <meta property="og:site_name" content="努力～奋斗～">
-<meta property="og:description" content="安装mac直接看官网的安装有点抓不住要点，有一篇博客介绍得很详细，点这里。是针对MAC下caffe及其python模块的安装，包括有哪些依赖、怎么编译，会遇到哪些坑，以及怎么解决坑等等。感谢作者！  dockerdocker就方便多了，需要先安装docker，centos照着这一篇 12345rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x8">
+<meta property="og:description" content="安装mac直接看官网的安装有点抓不住要点，有一篇博客介绍得很详细，点这里。是针对MAC下caffe及其python模块的安装，包括有哪些依赖、怎么编译，会遇到哪些坑，以及怎么解决坑等等。感谢作者！  dockerdocker就方便多了，需要先安装docker，centos照着这一篇 12345rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:updated_time" content="2018-01-13T12:33:09.000Z">
+<meta property="og:updated_time" content="2018-08-07T16:31:31.870Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="caffe 学习笔记">
-<meta name="twitter:description" content="安装mac直接看官网的安装有点抓不住要点，有一篇博客介绍得很详细，点这里。是针对MAC下caffe及其python模块的安装，包括有哪些依赖、怎么编译，会遇到哪些坑，以及怎么解决坑等等。感谢作者！  dockerdocker就方便多了，需要先安装docker，centos照着这一篇 12345rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x8">
+<meta name="twitter:description" content="安装mac直接看官网的安装有点抓不住要点，有一篇博客介绍得很详细，点这里。是针对MAC下caffe及其python模块的安装，包括有哪些依赖、怎么编译，会遇到哪些坑，以及怎么解决坑等等。感谢作者！  dockerdocker就方便多了，需要先安装docker，centos照着这一篇 12345rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_">
 
 
 
@@ -224,7 +224,7 @@
       
         <li class="menu-item menu-item-search">
           
-            <a href="javascript:;" class="st-search-show-outputs">
+            <a href="javascript:;" class="popup-trigger">
           
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
@@ -239,18 +239,22 @@
   
     <div class="site-search">
       
-  <form class="site-search-form">
-  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-</form>
-
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', 'Cx_xouJhtttu8fgMUVA6','2.0.0');
-</script>
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
 
 
 
@@ -372,18 +376,18 @@
       
 
       
-        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h3><p>直接看官网的安装有点抓不住要点，有一篇博客介绍得很详细，<a href="http://akmetiuk.com/posts/2016-03-29-compiling-caffe.html" target="_blank" rel="noopener">点这里</a>。是针对MAC下caffe及其python模块的安装，包括有哪些依赖、怎么编译，会遇到哪些坑，以及怎么解决坑等等。感谢作者！ </p>
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h3><p>直接看官网的安装有点抓不住要点，有一篇博客介绍得很详细，<a href="http://akmetiuk.com/posts/2016-03-29-compiling-caffe.html" target="_blank" rel="noopener">点这里</a>。是针对MAC下caffe及其python模块的安装，包括有哪些依赖、怎么编译，会遇到哪些坑，以及怎么解决坑等等。感谢作者！ </p>
 <h3 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h3><p>docker就方便多了，需要先安装docker，centos照着<a href="https://www.liquidweb.com/kb/how-to-install-docker-on-centos-6/" target="_blank" rel="noopener">这一篇</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm</span><br><span class="line">yum update -y</span><br><span class="line">yum -y install docker-io</span><br><span class="line">service docker start</span><br><span class="line">chkconfig docker on</span><br></pre></td></tr></table></figure>
-<p>至此docker安装完毕，然后搜索caffe的镜像。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search caffe</span><br></pre></td></tr></table></figure></p>
-<p>然后会搜到一堆镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">NAME                                DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED</span><br><span class="line">tleyden5iwx/caffe-cpu-master                                                        48                   [OK]</span><br><span class="line">bvlc/caffe                          Official Caffe images                           42                   [OK]</span><br><span class="line">kaixhin/caffe                       Ubuntu Core 14.04 + Caffe.                      38                   [OK]</span><br><span class="line">kaixhin/cuda-caffe                  Ubuntu Core 14.04 + CUDA + Caffe.               38                   [OK]</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>至此docker安装完毕，然后搜索caffe的镜像。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search caffe</span><br></pre></td></tr></table></figure></p>
+<p>然后会搜到一堆镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">NAME                                DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED</span><br><span class="line">tleyden5iwx/caffe-cpu-master                                                        48                   [OK]</span><br><span class="line">bvlc/caffe                          Official Caffe images                           42                   [OK]</span><br><span class="line">kaixhin/caffe                       Ubuntu Core 14.04 + Caffe.                      38                   [OK]</span><br><span class="line">kaixhin/cuda-caffe                  Ubuntu Core 14.04 + CUDA + Caffe.               38                   [OK]</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
 <p>其中就有官方的docker，也不知道为什么，我就用了<code>kaixhin/caffe</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull kaixhin/caffe</span><br></pre></td></tr></table></figure></p>
 <p>这个名字太丑了，我们改为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag kaixhin/caffe caffe</span><br></pre></td></tr></table></figure></p>
 <p>然后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -i -t caffe /bin/bash</span><br></pre></td></tr></table></figure></p>
 <p>然后就你直接用现成的caffe了。<code>exit</code>退出后，需要保存容器，不然下次还是会打开全新的容器。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker ps -l</span><br><span class="line"><span class="comment"># CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                     PORTS               NAMES</span></span><br><span class="line"><span class="comment"># c8f1d7bcb4f2        caffe               "/bin/bash"         8 minutes ago       Exited (0) 7 minutes ago                       boring_turing</span></span><br><span class="line">docker commit c8f caffe</span><br></pre></td></tr></table></figure></p>
 <p>还有其余一些docker命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker stop $(docker ps -a -q) #停用所有容器</span><br><span class="line">docker rm $(docker ps -a -q) #删除所有容器</span><br><span class="line">docker rmi &lt;image id&gt; #删除image</span><br></pre></td></tr></table></figure></p>
-<h2 id="MNIS"><a href="#MNIS" class="headerlink" title="MNIS"></a>MNIS</h2><p>基本全是照着<a href="https://zhuanlan.zhihu.com/p/24110318" target="_blank" rel="noopener">这里</a>，一知半解地做</p>
-<p>训练时，报错<code>Unknown database backend</code>，需要在<code>Makefile.config</code>中，修改<code>USE_LMDB := 1</code>，然后重新<code>make clean</code>，<code>make all -j4</code>等等</p>
+<h2 id="MNIS"><a href="#MNIS" class="headerlink" title="MNIS"></a>MNIS</h2><p>基本全是照着<a href="https://zhuanlan.zhihu.com/p/24110318" target="_blank" rel="noopener">这里</a>，一知半解地做</p>
+<p>训练时，报错<code>Unknown database backend</code>，需要在<code>Makefile.config</code>中，修改<code>USE_LMDB := 1</code>，然后重新<code>make clean</code>，<code>make all -j4</code>等等</p>
 
       
     </div>
@@ -518,7 +522,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -540,7 +544,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -589,7 +593,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mac"><span class="nav-number">1.1.</span> <span class="nav-text">mac</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker"><span class="nav-number">1.2.</span> <span class="nav-text">docker</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MNIS"><span class="nav-number">2.</span> <span class="nav-text">MNIS</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mac"><span class="nav-number">1.1.</span> <span class="nav-text">mac</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker"><span class="nav-number">1.2.</span> <span class="nav-text">docker</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MNIS"><span class="nav-number">2.</span> <span class="nav-text">MNIS</span></a></li></ol></div>
             
 
           </div>
@@ -815,6 +819,323 @@
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
 
 
 

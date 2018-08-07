@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="cin/cout,lambda,构造函数," />
+  <meta name="keywords" content="vscode," />
 
 
 
@@ -79,20 +79,18 @@
 
 
 
-<meta name="description" content="cin 带空格的字符串时，需要这样cin.getline(s, 80)，s是char数组 或者也可以这样getline(cin, str)，原型为istream&amp;amp; getline (istream&amp;amp; is, string&amp;amp; str);，C++对每种流都定义了一个getline函数 在gcc编译器中，对标准库进行了扩展，加入了一个getline函数。会自动malloc, r">
-<meta name="keywords" content="cin&#x2F;cout,lambda,构造函数">
+<meta name="description" content="啰嗦一下 在mac下，使用vscode，使用汉字输入法，删除完后，会多一个退格符！而且这个退格符默认是不可见的！ 过年在家写论文的时候，就发现xetex模型奇妙不能编译，说是多了字符，苦于不知道这个字符是啥，也不知道怎么描述这个现象，一直没有找到原因。 就在今天，我配置博客的搜索的时候，又被这个bug给搞了，看别人的解释说是生成的检索文件里，多了BS(unicode)这个字符，终于顺着这个BS，我">
+<meta name="keywords" content="vscode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="c复习笔记">
-<meta property="og:url" content="https://zjyfdu.coding.me/2018/03/11/c复习笔记/index.html">
+<meta property="og:title" content="记录一个vscode的bug">
+<meta property="og:url" content="https://zjyfdu.coding.me/2018/08/08/记录一个vscode的bug/index.html">
 <meta property="og:site_name" content="努力～奋斗～">
-<meta property="og:description" content="cin 带空格的字符串时，需要这样cin.getline(s, 80)，s是char数组 或者也可以这样getline(cin, str)，原型为istream&amp;amp; getline (istream&amp;amp; is, string&amp;amp; str);，C++对每种流都定义了一个getline函数 在gcc编译器中，对标准库进行了扩展，加入了一个getline函数。会自动malloc, r">
+<meta property="og:description" content="啰嗦一下 在mac下，使用vscode，使用汉字输入法，删除完后，会多一个退格符！而且这个退格符默认是不可见的！ 过年在家写论文的时候，就发现xetex模型奇妙不能编译，说是多了字符，苦于不知道这个字符是啥，也不知道怎么描述这个现象，一直没有找到原因。 就在今天，我配置博客的搜索的时候，又被这个bug给搞了，看别人的解释说是生成的检索文件里，多了BS(unicode)这个字符，终于顺着这个BS，我">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-3/10535321.jpg">
-<meta property="og:updated_time" content="2018-08-05T07:17:34.939Z">
+<meta property="og:updated_time" content="2018-08-07T17:31:43.518Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="c复习笔记">
-<meta name="twitter:description" content="cin 带空格的字符串时，需要这样cin.getline(s, 80)，s是char数组 或者也可以这样getline(cin, str)，原型为istream&amp;amp; getline (istream&amp;amp; is, string&amp;amp; str);，C++对每种流都定义了一个getline函数 在gcc编译器中，对标准库进行了扩展，加入了一个getline函数。会自动malloc, r">
-<meta name="twitter:image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-3/10535321.jpg">
+<meta name="twitter:title" content="记录一个vscode的bug">
+<meta name="twitter:description" content="啰嗦一下 在mac下，使用vscode，使用汉字输入法，删除完后，会多一个退格符！而且这个退格符默认是不可见的！ 过年在家写论文的时候，就发现xetex模型奇妙不能编译，说是多了字符，苦于不知道这个字符是啥，也不知道怎么描述这个现象，一直没有找到原因。 就在今天，我配置博客的搜索的时候，又被这个bug给搞了，看别人的解释说是生成的检索文件里，多了BS(unicode)这个字符，终于顺着这个BS，我">
 
 
 
@@ -122,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://zjyfdu.coding.me/2018/03/11/c复习笔记/"/>
+  <link rel="canonical" href="https://zjyfdu.coding.me/2018/08/08/记录一个vscode的bug/"/>
 
 
 
 
 
-  <title>c复习笔记 | 努力～奋斗～</title>
+  <title>记录一个vscode的bug | 努力～奋斗～</title>
   
 
 
@@ -289,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/03/11/c复习笔记/">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/08/08/记录一个vscode的bug/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="翟大翟">
@@ -306,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">c复习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">记录一个vscode的bug</h1>
         
 
         <div class="post-meta">
@@ -318,8 +316,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-11T22:09:11+08:00">
-                2018-03-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-08T00:53:58+08:00">
+                2018-08-08
               </time>
             
 
@@ -328,28 +326,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/cpp/" itemprop="url" rel="index">
-                    <span itemprop="name">cpp</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -378,45 +354,26 @@
       
 
       
-        <ul>
-<li>cin 带空格的字符串时，需要这样<code>cin.getline(s, 80)</code>，s是char数组</li>
-<li>或者也可以这样<code>getline(cin, str)</code>，原型为<code>istream&amp; getline (istream&amp; is, string&amp; str);</code>，C++对每种流都定义了一个getline函数</li>
-<li><p>在gcc编译器中，对标准库进行了扩展，加入了一个getline函数。会自动malloc, realloc，所以用的话，需要自己手动free，好像没啥人用，参考<a href="https://www.cnblogs.com/xkfz007/archive/2012/08/01/2618366.html" target="_blank" rel="noopener">这里</a></p>
-</li>
-<li><p>cout 控制输出精度 <code>cout &lt;&lt; fixed &lt;&lt; setprecision(2) &lt;&lt; f</code>，<code>#include &lt;iomanip&gt;</code></p>
-</li>
-<li>cout 控制输出格式<code>cout &lt;&lt; setfill(&#39;0&#39;) &lt;&lt; setw(4) &lt;&lt; a[i][j]</code></li>
-<li><p><a href="https://blog.csdn.net/yockie/article/details/9104899" target="_blank" rel="noopener">更多</a></p>
-</li>
-<li><p>cin cout 重定向</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">freopen(<span class="string">"foo.txt"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>); </span><br><span class="line">freopen(“bar.txt”,”r”,<span class="built_in">stdin</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>lambda表达式<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-7-3/10535321.jpg" alt="" title="lambda!"> </p>
-</li>
-<li><p>使用lambda对vector进行排序</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> n;</span><br><span class="line">   <span class="keyword">double</span> th;</span><br><span class="line">   <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; th;</span><br><span class="line">   <span class="built_in">vector</span>&lt;pair&lt;<span class="built_in">string</span>, <span class="keyword">double</span>&gt;&gt; res;  </span><br><span class="line">   <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        <span class="built_in">string</span> name;</span><br><span class="line">        <span class="keyword">double</span> score;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; name &gt;&gt; score;</span><br><span class="line">        <span class="keyword">if</span>(score &gt; th)&#123;</span><br><span class="line">            res.push_back(pair&lt;<span class="built_in">string</span>, <span class="keyword">double</span>&gt;(name, score));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(res.begin(), res.end(), [](pair&lt;<span class="built_in">string</span>, <span class="keyword">double</span>&gt;&amp; a, pair&lt;<span class="built_in">string</span>, <span class="keyword">double</span>&gt;&amp; b) &#123;<span class="keyword">return</span> a.second &gt; b.second;&#125;);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i: res)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s %.1f\n"</span>, i.first.c_str(), i.second);</span><br><span class="line">    &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>erase删除vector元素</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(it=iVec.begin();it!=iVec.end();)&#123;</span><br><span class="line">　　<span class="keyword">if</span>(*it==<span class="number">4</span> || *it==<span class="number">5</span>)</span><br><span class="line">　　　　it=iVec.erase(it);</span><br><span class="line">　　<span class="keyword">else</span></span><br><span class="line">　　　　it++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>Sample a(0)</code>, <code>Sample a = 0</code>, 都是调用构造函数</p>
-</li>
-<li><code>Sample a(9); a = 8</code> 调用两次构造函数，</li>
-<li><code>Sample b = a</code>, <code>Sample b(a)</code> 拷贝构造函数</li>
-<li>类型转换构造函数，编译系统会生成一个临时变量</li>
+        <h3 id="啰嗦一下"><a href="#啰嗦一下" class="headerlink" title="啰嗦一下"></a>啰嗦一下</h3><ul>
+<li>在mac下，使用vscode，使用汉字输入法，删除完后，会多一个退格符！而且这个退格符默认是不可见的！</li>
+<li>过年在家写论文的时候，就发现xetex模型奇妙不能编译，说是多了字符，苦于不知道这个字符是啥，也不知道怎么描述这个现象，一直没有找到原因。</li>
+<li>就在今天，我配置博客的搜索的时候，又被这个bug给搞了，看别人的解释说是生成的检索文件里，多了BS(unicode)这个字符，终于顺着这个BS，我找到了困扰我半年的bug。</li>
+<li>十分激动，以至于我一改性冷淡的文风，在大半夜里啰嗦这么多。</li>
 </ul>
-<ul>
-<li><p>C++编译器遵循以下优先顺序:</p>
-<blockquote>
-<p>先找参数完全匹配的普通函数(非由模板实例化而得的函数)，再找参数完全匹配的模板函数，再找实参经过自动类型转换后能够匹配的普通函数，上面的都找不到, 则报错。</p>
+<h3 id="vscode并不打算修"><a href="#vscode并不打算修" class="headerlink" title="vscode并不打算修"></a>vscode并不打算修</h3><ul>
+<li>参考了<a href="https://juejin.im/entry/5a806ddef265da4e84092eeb" target="_blank" rel="noopener">这里</a>的说明。<blockquote>
+<p>vscode底层使用了electron，这是electron的bug，electron不解决这个问题，vscode就不会解决。<br>electron底层使用了chromium， 这是chromium的bug，chromium不解决，elctron就无法解决。</p>
 </blockquote>
 </li>
-<li><p>优雅的内存对齐方法</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">calc_align</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> n, <span class="keyword">unsigned</span> align)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ((n + align - <span class="number">1</span>) &amp; (~(align - <span class="number">1</span>)));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>非常稳，于是<a href="https://github.com/Microsoft/vscode/issues/37114" target="_blank" rel="noopener">这个bug还是open的</a>。</li>
+</ul>
+<h3 id="补救措施"><a href="#补救措施" class="headerlink" title="补救措施"></a>补救措施</h3><ul>
+<li><p>首先让这个字符显示出来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;editor.renderControlCharacters&quot;: true</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>__declspec(dllexport)是导出声明，说明这个函数要从DLL中导出给别人用。</p>
+<li><p>使用插件 Remove backspace control character，并如下配置，这样在保存文件的时候，会自动帮你删除这些控制符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“editor.formatOnSave”: true</span><br></pre></td></tr></table></figure>
 </li>
-<li>__declspec(dllimport)是说这个函数是从别处导入的，不适用也能正常编译代码。</li>
 </ul>
 
       
@@ -435,11 +392,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/cin-cout/" rel="tag"># cin/cout</a>
-          
-            <a href="/tags/lambda/" rel="tag"># lambda</a>
-          
-            <a href="/tags/构造函数/" rel="tag"># 构造函数</a>
+            <a href="/tags/vscode/" rel="tag"># vscode</a>
           
         </div>
       
@@ -452,8 +405,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/26/又是火车上的博客/" rel="next" title="又是火车上的博客">
-                <i class="fa fa-chevron-left"></i> 又是火车上的博客
+              <a href="/2018/08/03/python-里的字符串编码问题/" rel="next" title="python 里的字符串编码问题">
+                <i class="fa fa-chevron-left"></i> python 里的字符串编码问题
               </a>
             
           </div>
@@ -461,10 +414,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/20/CTC/" rel="prev" title="CTC">
-                CTC <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -523,8 +472,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -604,6 +562,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#啰嗦一下"><span class="nav-number">1.</span> <span class="nav-text">啰嗦一下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vscode并不打算修"><span class="nav-number">2.</span> <span class="nav-text">vscode并不打算修</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补救措施"><span class="nav-number">3.</span> <span class="nav-text">补救措施</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -797,7 +771,7 @@
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitment({
-            id: '1520777351000', 
+            id: '1533660838000', 
             owner: 'zjyfdu',
             repo: 'zjyfdu.github.io',
             
