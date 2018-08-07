@@ -27,23 +27,23 @@ sys.setdefaultencoding('utf-8')
 - unicode是个大集合，支持百万级别的字符，但unicode只是给每个字符进行了一个编码，没有给具体实现
 - utf-8是unicode的一种实现形式，除此之外还有utf-16等等
 - gb系列的编码和unicode没啥关系，GB2312 < GBK < GB18030
-- windows中文版系统的默认编码是gbk的
+- windows中文版系统的默认编码是gbk的
 
 ### 一些python的知识
 
 - python里有三种string类，unicode（text string）、str（byte string）、basestring。basestring是前两个的父类
 - python里，字节串就等同于字符串
 - 在类型转换或和文本拼接时，需要确定字节串的编码，不然就不能转换。python2的年代，默认的encoding是ASCII，放现在当然是不够用的
-- python3终于把默认的编码变成unicode
+- python3终于把默认的编码变成unicode
 - str转换成unicode，在python里叫decode，unicode转换成str称之为encode
-- 打印unicode是不会出错的，这就是python3的厉害，打印str的话，就要看打印编码式和你显示的编码是否一致了
+- 打印unicode是不会出错的，这就是python3的厉害，打印str的话，就要看打印编码式和你显示的编码是否一致了
 
 ### 这些编码的区别
 
-- 文本编码格式：只和你的编辑器有关，负责把你的python文件按这种格式保存
-- python文件开头的coding：告诉python解释器，文件是按什么格式保存的，所以要与你实际文件的保存格式一致。如果不写的话，python文件里只能有ASCII。
-- 默认的encoding格式就是你要告诉系统，字节码以哪种格式转换成unicode
-- u是指后面引号里的内容是unocide，b是指引号里面的内容是str，所以python3里写u是没用的，python2里写b是没用的
+- 文本编码格式：只和你的编辑器有关，负责把你的python文件按这种格式保存
+- python文件开头的coding：告诉python解释器，文件是按什么格式保存的，所以要与你实际文件的保存格式一致。如果不写的话，python文件里只能有ASCII
+- 默认的encoding格式就是你要告诉系统，字节码以哪种格式转换成unicode
+- u是指后面引号里的内容是unocide，b是指引号里面的内容是str，所以python3里写u是没用的，python2里写b是没用的
 
 ### 最佳实践
 

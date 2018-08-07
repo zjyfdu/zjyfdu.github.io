@@ -7,12 +7,12 @@ categories: caffe
 ### 先说mobileNet
 - 使用depthwise convolution和point wise(1*1) convolution代替标准的convolution
 ![](http://ot0uaqt93.bkt.clouddn.com/18-8-7/8709950.jpg)
-- (b)类似于group为M的卷积，m-th filter is applied to m-th channel
+- (b)类似于group为M的卷积，m-th filter is applied to m-th channel
 - 计算量是原来的$\frac{1}{N}+\frac{1}{D_k^2}$，kernel一般是3，所以可以减少到1/8到1/9
 - 论文里还提出了两个控制计算量的超参数
 - width multiplier，$\alpha$，乘在channel前面，计算量减小到$\frac{1}{\alpha}$
 - resolution multiplier，$\beta$，乘在输入到尺寸前面，计算量减小到$\frac{1}{\beta}$
-- 好像文章里公式写错了，卷积到计算量应该是乘输出的尺寸，而不是输入到尺寸吧。。。
+- 好像文章里公式写错了，卷积到计算量应该是乘输出的尺寸，而不是输入到尺寸吧。。。
 
 ### [shuffleNet](https://blog.csdn.net/u014380165/article/details/75137111)
 - 在resnet的基础上，用带group的1\*1卷积代替原来的1\*1卷积
