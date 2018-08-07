@@ -81,3 +81,10 @@ deploy:
   # repo: git@github.com:zjyfdu/zjyfdu.github.io.
   repo: https://git.coding.net/zjyfdu/zjyfdu.coding.me.git
   branch: master
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 1000
+  

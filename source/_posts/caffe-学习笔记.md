@@ -10,9 +10,9 @@ categories: caffe
 
 ## 安装
 
-### mac
+### mac
 
-直接看官网的安装有点抓不住要点，有一篇博客介绍得很详细，[点这里](http://akmetiuk.com/posts/2016-03-29-compiling-caffe.html)。是针对MAC下caffe及其python模块的安装，包括有哪些依赖、怎么编译，会遇到哪些坑，以及怎么解决坑等等。感谢作者！ 
+直接看官网的安装有点抓不住要点，有一篇博客介绍得很详细，[点这里](http://akmetiuk.com/posts/2016-03-29-compiling-caffe.html)。是针对MAC下caffe及其python模块的安装，包括有哪些依赖、怎么编译，会遇到哪些坑，以及怎么解决坑等等。感谢作者！ 
 
 ### docker
 docker就方便多了，需要先安装docker，centos照着[这一篇](https://www.liquidweb.com/kb/how-to-install-docker-on-centos-6/)
@@ -24,11 +24,11 @@ yum -y install docker-io
 service docker start
 chkconfig docker on
 ```
-至此docker安装完毕，然后搜索caffe的镜像。
+至此docker安装完毕，然后搜索caffe的镜像。
 ```bash
 docker search caffe
 ```
-然后会搜到一堆镜像
+然后会搜到一堆镜像
 ```
 NAME                                DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
 tleyden5iwx/caffe-cpu-master                                                        48                   [OK]
@@ -63,11 +63,7 @@ docker rm $(docker ps -a -q) #删除所有容器
 docker rmi <image id> #删除image
 ```
 
-
-
-
-
 ## MNIS
-基本全是照着[这里](https://zhuanlan.zhihu.com/p/24110318)，一知半解地做
+基本全是照着[这里](https://zhuanlan.zhihu.com/p/24110318)，一知半解地做
 
-训练时，报错`Unknown database backend`，需要在`Makefile.config`中，修改`USE_LMDB := 1`，然后重新`make clean`，`make all -j4`等等
+训练时，报错`Unknown database backend`，需要在`Makefile.config`中，修改`USE_LMDB := 1`，然后重新`make clean`，`make all -j4`等等
