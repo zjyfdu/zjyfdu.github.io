@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="先说mobileNet 使用depthwise convolution和point wise(1*1) convolution代替标准的convolution (b)类似于group为M的卷积，m-th filter is applied to m-th channel 计算量是原来的$\frac{1}{N}+\frac{1}{D_k^2}$，kernel一般是3，所以可以减少到1/8到1/9">
+<meta name="description" content="先说mobileNet 使用depthwise convolution和point wise(1*1) convolution代替标准的convolution (b)类似于group为M的卷积，m-th filter is applied to m-th channel 计算量是原来的$\frac{1}{N}+\frac{1}{D_k^2}$，kernel一般是3，所以可以减少到1/8到1/9 论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mobileNet和shuffleNet">
 <meta property="og:url" content="https://zjyfdu.coding.me/2018/05/13/mobileNet和shuffleNet/index.html">
 <meta property="og:site_name" content="努力～奋斗～">
-<meta property="og:description" content="先说mobileNet 使用depthwise convolution和point wise(1*1) convolution代替标准的convolution (b)类似于group为M的卷积，m-th filter is applied to m-th channel 计算量是原来的$\frac{1}{N}+\frac{1}{D_k^2}$，kernel一般是3，所以可以减少到1/8到1/9">
+<meta property="og:description" content="先说mobileNet 使用depthwise convolution和point wise(1*1) convolution代替标准的convolution (b)类似于group为M的卷积，m-th filter is applied to m-th channel 计算量是原来的$\frac{1}{N}+\frac{1}{D_k^2}$，kernel一般是3，所以可以减少到1/8到1/9 论">
 <meta property="og:locale" content="zh-CH">
 <meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-7/8709950.jpg">
 <meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-7/32435128.jpg">
 <meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-7/77705439.jpg">
-<meta property="og:updated_time" content="2018-08-06T18:29:43.621Z">
+<meta property="og:updated_time" content="2018-08-07T17:35:14.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mobileNet和shuffleNet">
-<meta name="twitter:description" content="先说mobileNet 使用depthwise convolution和point wise(1*1) convolution代替标准的convolution (b)类似于group为M的卷积，m-th filter is applied to m-th channel 计算量是原来的$\frac{1}{N}+\frac{1}{D_k^2}$，kernel一般是3，所以可以减少到1/8到1/9">
+<meta name="twitter:description" content="先说mobileNet 使用depthwise convolution和point wise(1*1) convolution代替标准的convolution (b)类似于group为M的卷积，m-th filter is applied to m-th channel 计算量是原来的$\frac{1}{N}+\frac{1}{D_k^2}$，kernel一般是3，所以可以减少到1/8到1/9 论">
 <meta name="twitter:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-7/8709950.jpg">
 
 
@@ -381,12 +381,12 @@
       
         <h3 id="先说mobileNet"><a href="#先说mobileNet" class="headerlink" title="先说mobileNet"></a>先说mobileNet</h3><ul>
 <li>使用depthwise convolution和point wise(1*1) convolution代替标准的convolution<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-7/8709950.jpg" alt=""></li>
-<li>(b)类似于group为M的卷积，m-th filter is applied to m-th channel</li>
+<li>(b)类似于group为M的卷积，m-th filter is applied to m-th channel</li>
 <li>计算量是原来的$\frac{1}{N}+\frac{1}{D_k^2}$，kernel一般是3，所以可以减少到1/8到1/9</li>
 <li>论文里还提出了两个控制计算量的超参数</li>
 <li>width multiplier，$\alpha$，乘在channel前面，计算量减小到$\frac{1}{\alpha}$</li>
 <li>resolution multiplier，$\beta$，乘在输入到尺寸前面，计算量减小到$\frac{1}{\beta}$</li>
-<li>好像文章里公式写错了，卷积到计算量应该是乘输出的尺寸，而不是输入到尺寸吧。。。</li>
+<li>好像文章里公式写错了，卷积到计算量应该是乘输出的尺寸，而不是输入到尺寸吧。。。</li>
 </ul>
 <h3 id="shuffleNet"><a href="#shuffleNet" class="headerlink" title="shuffleNet"></a><a href="https://blog.csdn.net/u014380165/article/details/75137111" target="_blank" rel="noopener">shuffleNet</a></h3><ul>
 <li>在resnet的基础上，用带group的1*1卷积代替原来的1*1卷积<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-7/32435128.jpg" alt=""></li>

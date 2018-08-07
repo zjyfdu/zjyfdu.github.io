@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="努力～奋斗～">
 <meta property="og:description" content="丑陋的编码python中有很多地方涉及到编码，简直丑陋  文本编辑器可以选编码格式，一般都位于右下角 python文件开头有#coding: utf-8 python还有默认encoding 123import sysreload(sys)sys.setdefaultencoding(&apos;utf-8&apos;)  字符串前有u和b   一些编码知识 unicode是个大集合，支持百万级别的字符，但unico">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:updated_time" content="2018-08-05T08:15:14.898Z">
+<meta property="og:updated_time" content="2018-08-07T17:35:14.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 里的字符串编码问题">
 <meta name="twitter:description" content="丑陋的编码python中有很多地方涉及到编码，简直丑陋  文本编辑器可以选编码格式，一般都位于右下角 python文件开头有#coding: utf-8 python还有默认encoding 123import sysreload(sys)sys.setdefaultencoding(&apos;utf-8&apos;)  字符串前有u和b   一些编码知识 unicode是个大集合，支持百万级别的字符，但unico">
@@ -390,21 +390,21 @@
 <li>unicode是个大集合，支持百万级别的字符，但unicode只是给每个字符进行了一个编码，没有给具体实现</li>
 <li>utf-8是unicode的一种实现形式，除此之外还有utf-16等等</li>
 <li>gb系列的编码和unicode没啥关系，GB2312 &lt; GBK &lt; GB18030</li>
-<li>windows中文版系统的默认编码是gbk的</li>
+<li>windows中文版系统的默认编码是gbk的</li>
 </ul>
 <h3 id="一些python的知识"><a href="#一些python的知识" class="headerlink" title="一些python的知识"></a>一些python的知识</h3><ul>
 <li>python里有三种string类，unicode（text string）、str（byte string）、basestring。basestring是前两个的父类</li>
 <li>python里，字节串就等同于字符串</li>
 <li>在类型转换或和文本拼接时，需要确定字节串的编码，不然就不能转换。python2的年代，默认的encoding是ASCII，放现在当然是不够用的</li>
-<li>python3终于把默认的编码变成unicode</li>
+<li>python3终于把默认的编码变成unicode</li>
 <li>str转换成unicode，在python里叫decode，unicode转换成str称之为encode</li>
-<li>打印unicode是不会出错的，这就是python3的厉害，打印str的话，就要看打印编码式和你显示的编码是否一致了</li>
+<li>打印unicode是不会出错的，这就是python3的厉害，打印str的话，就要看打印编码式和你显示的编码是否一致了</li>
 </ul>
 <h3 id="这些编码的区别"><a href="#这些编码的区别" class="headerlink" title="这些编码的区别"></a>这些编码的区别</h3><ul>
-<li>文本编码格式：只和你的编辑器有关，负责把你的python文件按这种格式保存</li>
-<li>python文件开头的coding：告诉python解释器，文件是按什么格式保存的，所以要与你实际文件的保存格式一致。如果不写的话，python文件里只能有ASCII。</li>
-<li>默认的encoding格式就是你要告诉系统，字节码以哪种格式转换成unicode</li>
-<li>u是指后面引号里的内容是unocide，b是指引号里面的内容是str，所以python3里写u是没用的，python2里写b是没用的</li>
+<li>文本编码格式：只和你的编辑器有关，负责把你的python文件按这种格式保存</li>
+<li>python文件开头的coding：告诉python解释器，文件是按什么格式保存的，所以要与你实际文件的保存格式一致。如果不写的话，python文件里只能有ASCII</li>
+<li>默认的encoding格式就是你要告诉系统，字节码以哪种格式转换成unicode</li>
+<li>u是指后面引号里的内容是unocide，b是指引号里面的内容是str，所以python3里写u是没用的，python2里写b是没用的</li>
 </ul>
 <h3 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h3><ul>
 <li>换python3</li>

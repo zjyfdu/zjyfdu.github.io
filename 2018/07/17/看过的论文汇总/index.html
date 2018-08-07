@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-CH">
 <meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-7/62552972.jpg">
 <meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-7/14151415.jpg">
-<meta property="og:updated_time" content="2018-08-07T16:32:16.153Z">
+<meta property="og:updated_time" content="2018-08-07T17:36:38.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="看过的论文汇总">
 <meta name="twitter:description" content="论文常看常忘，还是把看过的先记下来，再补充总结 NETpvanet pvanet是为了实时目标识别提出来的网络，用来提取特征的，用了很多方法来减小计算量，看起来像个大杂烩 C.ReLU，由于观察到浅层的网络卷基层总是存在互补层，所以直接把卷积取反再concatenate，可以减少一半的计算量 Inception，使用了inception unit，用两个3*3的卷集合替代了5*5的卷积，也是为了减">
@@ -389,17 +389,13 @@
 <li>整个网络结构如下表<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-7/62552972.jpg" alt=""></li>
 </ul>
 <h4 id="mobilenet"><a href="#mobilenet" class="headerlink" title="mobilenet"></a>mobilenet</h4><h4 id="shufflenet"><a href="#shufflenet" class="headerlink" title="shufflenet"></a>shufflenet</h4><ul>
-<li>mobile和shuffle可以看<a href="/2018/05/13/mobileNet和shuffleNet/" title="以前写的这篇">以前写的这篇</a><h4 id="densenet"><a href="#densenet" class="headerlink" title="densenet"></a>densenet</h4></li>
+<li>mobile和shuffle可以看<a href="/2018/05/13/mobileNet和shuffleNet/" title="以前写的这篇">以前写的这篇</a></li>
 </ul>
-<h3 id="Attention-和-CTC"><a href="#Attention-和-CTC" class="headerlink" title="Attention 和 CTC"></a>Attention 和 CTC</h3><p>Attention is all you need<br>CTC</p>
+<h4 id="densenet"><a href="#densenet" class="headerlink" title="densenet"></a>densenet</h4><h3 id="Attention-和-CTC"><a href="#Attention-和-CTC" class="headerlink" title="Attention 和 CTC"></a>Attention 和 CTC</h3><p>Attention is all you need<br>CTC</p>
 <h3 id="text-localization"><a href="#text-localization" class="headerlink" title="text localization"></a>text localization</h3><h4 id="EAST"><a href="#EAST" class="headerlink" title="EAST"></a>EAST</h4><ul>
-<li>用于文本检测，输出可以是四边形或rotated box</li>
-</ul>
-<p><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-7/14151415.jpg" alt=""></p>
-<ul>
+<li>用于文本检测，输出可以是四边形或rotated box<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-7/14151415.jpg" alt=""></li>
 <li>最左边用的是PVANet，也可以换成其他ResNet什么的</li>
-<li>然后中间是特征融合，这里作者借鉴了U-net的做法，原因是文字有大有小，需要有不同的感受野</li>
-<li>这里unpool是怎么实现的？</li>
+<li>然后中间是特征融合，这里作者借鉴了U-net的做法，用到了unpool，原因是文字有大有小，需要有不同的感受野</li>
 <li>最后是输出层，包括score map和位置信息，输出的size是原图的1/4大小</li>
 <li>score对应的ground truth: 是将原始的bounding box按照短边长度r向内收缩了0.3r的距离。不懂为什么要这么做</li>
 <li>针对bounding box内部的每个点，计算他们到上下左右四个边的距离，并且计算角度。针对bounding box外部的点，ground truth置为0</li>
@@ -410,7 +406,7 @@
 <h4 id="InceptText-from-Alibaba-IJCAI2018"><a href="#InceptText-from-Alibaba-IJCAI2018" class="headerlink" title="InceptText from Alibaba, IJCAI2018"></a>InceptText from Alibaba, IJCAI2018</h4><h3 id="text-recognition"><a href="#text-recognition" class="headerlink" title="text recognition"></a>text recognition</h3><p>FAN<br>Edit Probability </p>
 <h3 id="OCR-end2end"><a href="#OCR-end2end" class="headerlink" title="OCR end2end"></a>OCR end2end</h3><p>an end to end textspotter with explicit aligment and attention, ICCV2018<br>Textbox++</p>
 <h3 id="OCR-综述"><a href="#OCR-综述" class="headerlink" title="OCR 综述"></a>OCR 综述</h3><p>Text Detection and Recognition in Imagery: A Survey</p>
-<h3 id="Character-Segmentation"><a href="#Character-Segmentation" class="headerlink" title="Character Segmentation"></a>Character Segmentation</h3><p>A Gradient Vector Flow-Based Method for Video Character Segmentation, ICDAR2011</p>
+<h3 id="Character-Segmentation"><a href="#Character-Segmentation" class="headerlink" title="Character Segmentation"></a>Character Segmentation</h3><p>A Gradient Vector Flow-Based Method for Video Character Segmentation, ICDAR201z1</p>
 <h3 id="GAN-and-Draw"><a href="#GAN-and-Draw" class="headerlink" title="GAN and Draw"></a>GAN and Draw</h3><p>GAN<br>draw</p>
 <h3 id="General-CV"><a href="#General-CV" class="headerlink" title="General CV"></a>General CV</h3><p>YOLO<br>SSD<br>Faster rcnn<br>mask rcnn<br>FCN<br>deeplab</p>
 <h3 id="Visualization"><a href="#Visualization" class="headerlink" title="Visualization"></a>Visualization</h3><p>Understanding neural Networks Through Deep Visualization</p>
