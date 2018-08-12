@@ -88,8 +88,12 @@
 <meta property="og:description" content="论文常看常忘，还是把看过的先记下来，再补充总结 NETpvanet pvanet是为了实时目标识别提出来的网络，用来提取特征的，用了很多方法来减小计算量，看起来像个大杂烩 C.ReLU，由于观察到浅层的网络卷基层总是存在互补层，所以直接把卷积取反再concatenate，可以减少一半的计算量 Inception，使用了inception unit，用两个3*3的卷集合替代了5*5的卷积，也是为了减">
 <meta property="og:locale" content="zh-CH">
 <meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-7/62552972.jpg">
+<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-8/25005397.jpg">
+<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-8/51626114.jpg">
 <meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-7/14151415.jpg">
-<meta property="og:updated_time" content="2018-08-07T17:36:38.086Z">
+<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-12/26480255.jpg">
+<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-13/48652183.jpg">
+<meta property="og:updated_time" content="2018-08-12T16:29:42.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="看过的论文汇总">
 <meta name="twitter:description" content="论文常看常忘，还是把看过的先记下来，再补充总结 NETpvanet pvanet是为了实时目标识别提出来的网络，用来提取特征的，用了很多方法来减小计算量，看起来像个大杂烩 C.ReLU，由于观察到浅层的网络卷基层总是存在互补层，所以直接把卷积取反再concatenate，可以减少一半的计算量 Inception，使用了inception unit，用两个3*3的卷集合替代了5*5的卷积，也是为了减">
@@ -380,36 +384,79 @@
 
       
         <p>论文常看常忘，还是把看过的先记下来，再补充总结</p>
-<h3 id="NET"><a href="#NET" class="headerlink" title="NET"></a>NET</h3><h4 id="pvanet"><a href="#pvanet" class="headerlink" title="pvanet"></a>pvanet</h4><ul>
+<h1 id="NET"><a href="#NET" class="headerlink" title="NET"></a>NET</h1><h2 id="pvanet"><a href="#pvanet" class="headerlink" title="pvanet"></a>pvanet</h2><ul>
 <li>pvanet是为了实时目标识别提出来的网络，用来提取特征的，用了很多方法来减小计算量，看起来像个大杂烩</li>
 <li>C.ReLU，由于观察到浅层的网络卷基层总是存在互补层，所以直接把卷积取反再concatenate，可以减少一半的计算量</li>
 <li>Inception，使用了inception unit，用两个3*3的卷集合替代了5*5的卷积，也是为了减小计算量</li>
 <li>HypteNet多层融合，融合哪两层是比较讲究的，选择不好的话，会白白增加计算量。这里作者使用了最后输出层2倍和4倍多layer进行融合，以2倍的layer为标准，分别pooling和差值upscale。</li>
 <li>ResNet，再inception unit里也用了残差网络。</li>
-<li>整个网络结构如下表<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-7/62552972.jpg" alt=""></li>
+<li>整个网络结构如下表</li>
 </ul>
-<h4 id="mobilenet"><a href="#mobilenet" class="headerlink" title="mobilenet"></a>mobilenet</h4><h4 id="shufflenet"><a href="#shufflenet" class="headerlink" title="shufflenet"></a>shufflenet</h4><ul>
+<p><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-7/62552972.jpg" alt="pvanet"></p>
+<ul>
+<li>pvanet里还提到了一种学习策略，动态调整学习率，如果一定的迭代次数内，loss下降小于阈值，就说明是on plateau，这时候就降低学习率。<a href="https://github.com/BVLC/caffe/pull/4606/files" target="_blank" rel="noopener">在github上有人实现</a>，只不过没有被merge进来。</li>
+</ul>
+<h2 id="mobilenet"><a href="#mobilenet" class="headerlink" title="mobilenet"></a>mobilenet</h2><h2 id="shufflenet"><a href="#shufflenet" class="headerlink" title="shufflenet"></a>shufflenet</h2><ul>
 <li>mobile和shuffle可以看<a href="/2018/05/13/mobileNet和shuffleNet/" title="以前写的这篇">以前写的这篇</a></li>
 </ul>
-<h4 id="densenet"><a href="#densenet" class="headerlink" title="densenet"></a>densenet</h4><h3 id="Attention-和-CTC"><a href="#Attention-和-CTC" class="headerlink" title="Attention 和 CTC"></a>Attention 和 CTC</h3><p>Attention is all you need<br>CTC</p>
-<h3 id="text-localization"><a href="#text-localization" class="headerlink" title="text localization"></a>text localization</h3><h4 id="EAST"><a href="#EAST" class="headerlink" title="EAST"></a>EAST</h4><ul>
-<li>用于文本检测，输出可以是四边形或rotated box<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-7/14151415.jpg" alt=""></li>
+<h2 id="densenet"><a href="#densenet" class="headerlink" title="densenet"></a>densenet</h2><ul>
+<li>每一层都有来自前面所有层的输入，L个层，就是$\frac{L*(L+1)}{2}$个连接。</li>
+<li>Each layer has direct access to the gradients from the loss function and the original input signal, leading to an implicit deep supervision.</li>
+<li>resNet中，l层的输出是l-1的非线性加l-1</li>
+</ul>
+<script type="math/tex; mode=display">x_l = H_l(x_{l-1}) + x_{l-1}</script><ul>
+<li>denseNet中，是直接做的concatenate</li>
+</ul>
+<script type="math/tex; mode=display">x_l = H_l([x_0, x_1, ..., x_{l-1}])</script><ul>
+<li>denseNet中包含三个dense block，如下图所示（盗图自<a href="https://blog.csdn.net/u014380165/article/details/75142664" target="_blank" rel="noopener">这里</a>）</li>
+</ul>
+<p><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-8/25005397.jpg" alt="dense block"></p>
+<ul>
+<li>整个网络的结构图如下</li>
+</ul>
+<p><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-8/51626114.jpg" alt="dense net"></p>
+<ul>
+<li><p>由于denseNet是concatenate，所以到最后一层的时候，channel会异常地大，所以每个3*3卷积前，会有个1*1的bottle neck层，减小channel数量</p>
+</li>
+<li><p>dense block之间还有transition层，也是用1*1的卷积减小channel数</p>
+</li>
+</ul>
+<h1 id="Attention-和-CTC"><a href="#Attention-和-CTC" class="headerlink" title="Attention 和 CTC"></a>Attention 和 CTC</h1><p>Attention is all you need<br>CTC</p>
+<h1 id="text-localization"><a href="#text-localization" class="headerlink" title="text localization"></a>text localization</h1><h2 id="EAST"><a href="#EAST" class="headerlink" title="EAST"></a>EAST</h2><ul>
+<li>用于文本检测，输出可以是四边形或rotated box</li>
+</ul>
+<p><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-7/14151415.jpg" alt="east"></p>
+<ul>
 <li>最左边用的是PVANet，也可以换成其他ResNet什么的</li>
 <li>然后中间是特征融合，这里作者借鉴了U-net的做法，用到了unpool，原因是文字有大有小，需要有不同的感受野</li>
 <li>最后是输出层，包括score map和位置信息，输出的size是原图的1/4大小</li>
 <li>score对应的ground truth: 是将原始的bounding box按照短边长度r向内收缩了0.3r的距离。不懂为什么要这么做</li>
 <li>针对bounding box内部的每个点，计算他们到上下左右四个边的距离，并且计算角度。针对bounding box外部的点，ground truth置为0</li>
 <li>loss包含两个部分，score map的loss和位置坐标的loss</li>
-<li>score的loss使用的是balanced cross entropy，可以配合正负样本不均衡的情况<script type="math/tex; mode=display">L_s = -\beta Y^* log(\hat{Y}) - (1-\beta)(1-Y^*)log(1-\hat{Y})</script><script type="math/tex; mode=display">\beta = 1 - \frac{\sum_{y^* \in Y^*} y^*}{|Y^*|}</script></li>
+<li>score的loss使用的是balanced cross entropy，可以配合正负样本不均衡的情况</li>
+</ul>
+<script type="math/tex; mode=display">L_s = -\beta Y^* log(\hat{Y}) - (1-\beta)(1-Y^*)log(1-\hat{Y})</script><script type="math/tex; mode=display">\beta = 1 - \frac{\sum_{y^* \in Y^*} y^*}{|Y^*|}</script><ul>
 <li>位置坐标的loss我只看了rotated box的，又可以分成两个部分，iou的loss和角度的loss，角度的loss前面会乘个系数，10或者20，是个超参数</li>
 </ul>
-<h4 id="InceptText-from-Alibaba-IJCAI2018"><a href="#InceptText-from-Alibaba-IJCAI2018" class="headerlink" title="InceptText from Alibaba, IJCAI2018"></a>InceptText from Alibaba, IJCAI2018</h4><h3 id="text-recognition"><a href="#text-recognition" class="headerlink" title="text recognition"></a>text recognition</h3><p>FAN<br>Edit Probability </p>
-<h3 id="OCR-end2end"><a href="#OCR-end2end" class="headerlink" title="OCR end2end"></a>OCR end2end</h3><p>an end to end textspotter with explicit aligment and attention, ICCV2018<br>Textbox++</p>
-<h3 id="OCR-综述"><a href="#OCR-综述" class="headerlink" title="OCR 综述"></a>OCR 综述</h3><p>Text Detection and Recognition in Imagery: A Survey</p>
-<h3 id="Character-Segmentation"><a href="#Character-Segmentation" class="headerlink" title="Character Segmentation"></a>Character Segmentation</h3><p>A Gradient Vector Flow-Based Method for Video Character Segmentation, ICDAR201z1</p>
-<h3 id="GAN-and-Draw"><a href="#GAN-and-Draw" class="headerlink" title="GAN and Draw"></a>GAN and Draw</h3><p>GAN<br>draw</p>
-<h3 id="General-CV"><a href="#General-CV" class="headerlink" title="General CV"></a>General CV</h3><p>YOLO<br>SSD<br>Faster rcnn<br>mask rcnn<br>FCN<br>deeplab</p>
-<h3 id="Visualization"><a href="#Visualization" class="headerlink" title="Visualization"></a>Visualization</h3><p>Understanding neural Networks Through Deep Visualization</p>
+<h2 id="InceptText-from-Alibaba-IJCAI2018"><a href="#InceptText-from-Alibaba-IJCAI2018" class="headerlink" title="InceptText from Alibaba, IJCAI2018"></a>InceptText from Alibaba, IJCAI2018</h2><h1 id="text-recognition"><a href="#text-recognition" class="headerlink" title="text recognition"></a>text recognition</h1><p>FAN<br>Edit Probability</p>
+<h1 id="OCR-end2end"><a href="#OCR-end2end" class="headerlink" title="OCR end2end"></a>OCR end2end</h1><p>an end to end textspotter with explicit aligment and attention, ICCV2018<br>Textbox++</p>
+<h1 id="OCR-综述"><a href="#OCR-综述" class="headerlink" title="OCR 综述"></a>OCR 综述</h1><p>Text Detection and Recognition in Imagery: A Survey</p>
+<h1 id="Character-Segmentation"><a href="#Character-Segmentation" class="headerlink" title="Character Segmentation"></a>Character Segmentation</h1><p>A Gradient Vector Flow-Based Method for Video Character Segmentation, ICDAR201z1</p>
+<h1 id="GAN-and-Draw"><a href="#GAN-and-Draw" class="headerlink" title="GAN and Draw"></a>GAN and Draw</h1><p>GAN<br>draw</p>
+<h1 id="General-CV"><a href="#General-CV" class="headerlink" title="General CV"></a>General CV</h1><h2 id="YOLO"><a href="#YOLO" class="headerlink" title="YOLO"></a>YOLO</h2><h2 id="SSD"><a href="#SSD" class="headerlink" title="SSD"></a>SSD</h2><h2 id="Faster-rcnn"><a href="#Faster-rcnn" class="headerlink" title="Faster rcnn"></a>Faster rcnn</h2><h2 id="mask-rcnn"><a href="#mask-rcnn" class="headerlink" title="mask rcnn"></a>mask rcnn</h2><h2 id="FCN"><a href="#FCN" class="headerlink" title="FCN"></a>FCN</h2><ul>
+<li>FCN里用到了三个技术，全卷积、上采样和跳层链接</li>
+<li>全卷积：一般的CNN最后会有全连接层，把二维的图像压缩成以为的向量，FCN把全连接换成了卷积，实际上计算上是等价的。</li>
+</ul>
+<p><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-12/26480255.jpg" alt="fcn"></p>
+<ul>
+<li>上采样：或者叫反卷积、转置卷积（Caffe和Kera里叫Deconvolution，tensorflow里叫conv_transpose）。</li>
+<li>跳层连接：将全卷积之后的结果直接上采样得到的结果是很粗糙的，所以用不同池化层的结果进行上采样之后来优化输出。</li>
+</ul>
+<p><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-13/48652183.jpg" alt="fcn2"></p>
+<ul>
+<li>原文感觉不好看，主要参考了<a href="https://blog.csdn.net/junparadox/article/details/52610744" target="_blank" rel="noopener">这里</a></li>
+</ul>
+<h2 id="deeplab"><a href="#deeplab" class="headerlink" title="deeplab"></a>deeplab</h2><h1 id="Visualization"><a href="#Visualization" class="headerlink" title="Visualization"></a>Visualization</h1><p>Understanding neural Networks Through Deep Visualization</p>
 
       
     </div>
@@ -611,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#NET"><span class="nav-number">1.</span> <span class="nav-text">NET</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pvanet"><span class="nav-number">1.1.</span> <span class="nav-text">pvanet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mobilenet"><span class="nav-number">1.2.</span> <span class="nav-text">mobilenet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shufflenet"><span class="nav-number">1.3.</span> <span class="nav-text">shufflenet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#densenet"><span class="nav-number">1.4.</span> <span class="nav-text">densenet</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Attention-和-CTC"><span class="nav-number">2.</span> <span class="nav-text">Attention 和 CTC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-localization"><span class="nav-number">3.</span> <span class="nav-text">text localization</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#EAST"><span class="nav-number">3.1.</span> <span class="nav-text">EAST</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#InceptText-from-Alibaba-IJCAI2018"><span class="nav-number">3.2.</span> <span class="nav-text">InceptText from Alibaba, IJCAI2018</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-recognition"><span class="nav-number">4.</span> <span class="nav-text">text recognition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OCR-end2end"><span class="nav-number">5.</span> <span class="nav-text">OCR end2end</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OCR-综述"><span class="nav-number">6.</span> <span class="nav-text">OCR 综述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Character-Segmentation"><span class="nav-number">7.</span> <span class="nav-text">Character Segmentation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GAN-and-Draw"><span class="nav-number">8.</span> <span class="nav-text">GAN and Draw</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#General-CV"><span class="nav-number">9.</span> <span class="nav-text">General CV</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Visualization"><span class="nav-number">10.</span> <span class="nav-text">Visualization</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NET"><span class="nav-number">1.</span> <span class="nav-text">NET</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pvanet"><span class="nav-number">1.1.</span> <span class="nav-text">pvanet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mobilenet"><span class="nav-number">1.2.</span> <span class="nav-text">mobilenet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shufflenet"><span class="nav-number">1.3.</span> <span class="nav-text">shufflenet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#densenet"><span class="nav-number">1.4.</span> <span class="nav-text">densenet</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Attention-和-CTC"><span class="nav-number">2.</span> <span class="nav-text">Attention 和 CTC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#text-localization"><span class="nav-number">3.</span> <span class="nav-text">text localization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#EAST"><span class="nav-number">3.1.</span> <span class="nav-text">EAST</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InceptText-from-Alibaba-IJCAI2018"><span class="nav-number">3.2.</span> <span class="nav-text">InceptText from Alibaba, IJCAI2018</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#text-recognition"><span class="nav-number">4.</span> <span class="nav-text">text recognition</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OCR-end2end"><span class="nav-number">5.</span> <span class="nav-text">OCR end2end</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OCR-综述"><span class="nav-number">6.</span> <span class="nav-text">OCR 综述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Character-Segmentation"><span class="nav-number">7.</span> <span class="nav-text">Character Segmentation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GAN-and-Draw"><span class="nav-number">8.</span> <span class="nav-text">GAN and Draw</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#General-CV"><span class="nav-number">9.</span> <span class="nav-text">General CV</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#YOLO"><span class="nav-number">9.1.</span> <span class="nav-text">YOLO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSD"><span class="nav-number">9.2.</span> <span class="nav-text">SSD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Faster-rcnn"><span class="nav-number">9.3.</span> <span class="nav-text">Faster rcnn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mask-rcnn"><span class="nav-number">9.4.</span> <span class="nav-text">mask rcnn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FCN"><span class="nav-number">9.5.</span> <span class="nav-text">FCN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deeplab"><span class="nav-number">9.6.</span> <span class="nav-text">deeplab</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Visualization"><span class="nav-number">10.</span> <span class="nav-text">Visualization</span></a></li></ol></div>
             
 
           </div>
