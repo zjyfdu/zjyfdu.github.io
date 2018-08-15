@@ -52,6 +52,3 @@ sys.setdefaultencoding('utf-8')
   - 所有 text string 都应该是 unicode 类型，而不是 str
   - 在需要转换的时候，显式转换。从字节解码成文本，用 var.decode(encoding)，从文本编码成字节，用 var.encode(encoding)
   - 从外部读取数据时，默认它是字节，然后 decode 成需要的文本；同样的，当需要向外部发送文本时，encode 成字节再发送。
-
-
-
