@@ -5,14 +5,14 @@ tags: flask
 categories: flask网站总结
 ---
 
-### 问题
+# 问题
 由于sqlite不支持`DROP COLUMN`、`ALTER COLUMN`、`ADD CONSTRAINT`等操作，如果flask使用了sqlite做数据库，flask-migrate不能自动迁移
 
-### 解决
+# 解决
 两种途径，都来自[这里](https://github.com/miguelgrinberg/Flask-Migrate/issues/61)
-#### 方法1
+## 方法1
 换MySql或者Postgres，也是flask-migrate作者的建议。
-#### 方法2
+## 方法2
 在创建db的地方
 ```python
 from sqlalchemy import MetaData
