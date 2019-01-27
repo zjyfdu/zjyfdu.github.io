@@ -283,12 +283,173 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/07/16/write-a-shell-in-c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="翟大翟">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/11989810.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力～奋斗～">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/16/write-a-shell-in-c/" itemprop="url">write a shell in c</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-16T15:06:39+08:00">
+                2018-07-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index">
+                    <span itemprop="name">cpp</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>源文章标题取得很大，<a href="https://brennan.io/2015/01/16/write-a-shell-in-c/" target="_blank" rel="noopener">write a shell in c</a>。相关的内容总结如下。</p>
+<ul>
+<li><p>fork(), exec() and waitpid() are defined by the POSIX standard, and Windows is not POSIX-compliant. In order to have POSIX compliance under Windows, you should compile under Cygwin.</p>
+</li>
+<li><p>fork, exec, chdir are in unistd.h(unix std); execvp is in stdlib</p>
+</li>
+<li><p>system命令相当于 fork + exec + waitpid</p>
+</li>
+<li><p>windows也提供了一个chdir函数，叫_chdir，在direct.h里</p>
+</li>
+<li><p>cc来自于Unix的c语言编译器，是 c compiler 的缩写。gcc来自Linux世界，是GNU compiler collection 的缩写，注意这是一个编译器集合，不仅仅是c或c++</p>
+</li>
+<li><p>strtok()</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> sentence[]=<span class="string">"192.168...9...14"</span>;</span><br><span class="line"><span class="keyword">char</span> *token=strtok(sentence,<span class="string">"."</span>);</span><br><span class="line"><span class="keyword">while</span>(token!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">  <span class="built_in">cout</span>&lt;&lt;token&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">  token=strtok(<span class="literal">NULL</span>,<span class="string">"."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在gcc编译器中，对标准库进行了扩展，加入了一个getline函数。会自动malloc, realloc，所以用的话，需要自己手动free，好像没啥人用，参考<a href="https://www.cnblogs.com/xkfz007/archive/2012/08/01/2618366.html" target="_blank" rel="noopener">这里</a></p>
+</li>
+<li><p>我用system代替了fork等，于是有了<a href="https://github.com/zjyfdu/lsh/blob/master/src/%E6%BA%90.cpp" target="_blank" rel="noopener">window版</a></p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/07/06/配置评论、搜索和代码/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="翟大翟">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg">
+      <meta itemprop="image" content="/images/11989810.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -470,7 +631,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="翟大翟">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg">
+      <meta itemprop="image" content="/images/11989810.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -624,7 +785,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="翟大翟">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg">
+      <meta itemprop="image" content="/images/11989810.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -766,7 +927,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="翟大翟">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg">
+      <meta itemprop="image" content="/images/11989810.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -934,7 +1095,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="翟大翟">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg">
+      <meta itemprop="image" content="/images/11989810.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1029,6 +1190,7 @@
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"></span><br><span class="line">net_struct = &#123;<span class="string">'alexnet'</span>: &#123;<span class="string">'net'</span>:[[<span class="number">11</span>,<span class="number">4</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="number">2</span>,<span class="number">0</span>],[<span class="number">5</span>,<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">2</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">2</span>,<span class="number">0</span>]],</span><br><span class="line">                   <span class="string">'name'</span>:[<span class="string">'conv1'</span>,<span class="string">'pool1'</span>,<span class="string">'conv2'</span>,<span class="string">'pool2'</span>,<span class="string">'conv3'</span>,<span class="string">'conv4'</span>,<span class="string">'conv5'</span>,<span class="string">'pool5'</span>]&#125;,</span><br><span class="line">       <span class="string">'vgg16'</span>: &#123;<span class="string">'net'</span>:[[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>]],</span><br><span class="line">                 <span class="string">'name'</span>:[<span class="string">'conv1_1'</span>,<span class="string">'conv1_2'</span>,<span class="string">'pool1'</span>,<span class="string">'conv2_1'</span>,<span class="string">'conv2_2'</span>,<span class="string">'pool2'</span>,<span class="string">'conv3_1'</span>,<span class="string">'conv3_2'</span>,</span><br><span class="line">                         <span class="string">'conv3_3'</span>, <span class="string">'pool3'</span>,<span class="string">'conv4_1'</span>,<span class="string">'conv4_2'</span>,<span class="string">'conv4_3'</span>,<span class="string">'pool4'</span>,<span class="string">'conv5_1'</span>,<span class="string">'conv5_2'</span>,<span class="string">'conv5_3'</span>,<span class="string">'pool5'</span>]&#125;,</span><br><span class="line">       <span class="string">'zf-5'</span>:&#123;<span class="string">'net'</span>: [[<span class="number">7</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>],[<span class="number">5</span>,<span class="number">2</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>]],</span><br><span class="line">               <span class="string">'name'</span>: [<span class="string">'conv1'</span>,<span class="string">'pool1'</span>,<span class="string">'conv2'</span>,<span class="string">'pool2'</span>,<span class="string">'conv3'</span>,<span class="string">'conv4'</span>,<span class="string">'conv5'</span>]&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#[3,1,1] stands for filter_size, stride, padding</span></span><br><span class="line"></span><br><span class="line">imsize = <span class="number">224</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">outFromIn</span><span class="params">(isz, net, layernum)</span>:</span></span><br><span class="line">    totstride = <span class="number">1</span></span><br><span class="line">    insize = isz</span><br><span class="line">    <span class="keyword">for</span> layer <span class="keyword">in</span> range(layernum):</span><br><span class="line">        fsize, stride, pad = net[layer]</span><br><span class="line">        outsize = (insize - fsize + <span class="number">2</span>*pad) / stride + <span class="number">1</span></span><br><span class="line">        insize = outsize</span><br><span class="line">        totstride = totstride * stride</span><br><span class="line">    <span class="keyword">return</span> outsize, totstride</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">inFromOut</span><span class="params">(net, layernum)</span>:</span></span><br><span class="line">    RF = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> layer <span class="keyword">in</span> reversed(range(layernum)):</span><br><span class="line">        fsize, stride, pad = net[layer]</span><br><span class="line">        RF = ((RF <span class="number">-1</span>)* stride) + fsize</span><br><span class="line">    <span class="keyword">return</span> RF</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"layer output sizes given image = %dx%d"</span> % (imsize, imsize)</span><br><span class="line">    <span class="keyword">for</span> net <span class="keyword">in</span> net_struct.keys():</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'************net structrue name is %s**************'</span>% net</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(net_struct[net][<span class="string">'net'</span>])):</span><br><span class="line">            p = outFromIn(imsize,net_struct[net][<span class="string">'net'</span>], i+<span class="number">1</span>)</span><br><span class="line">            rf = inFromOut(net_struct[net][<span class="string">'net'</span>], i+<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"Layer Name = %s, Output size = %3d, Stride = % 3d, RF size = %3d"</span> % (net_struct[net][<span class="string">'name'</span>][i], p[<span class="number">0</span>], p[<span class="number">1</span>], rf)</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">layer output sizes given image = 224x224</span><br><span class="line">************net structrue name is vgg16**************</span><br><span class="line">Layer Name = conv1_1, Output size = 224, Stride =   1, RF size =   3</span><br><span class="line">Layer Name = conv1_2, Output size = 224, Stride =   1, RF size =   5</span><br><span class="line">Layer Name = pool1, Output size = 112, Stride =   2, RF size =   6</span><br><span class="line">Layer Name = conv2_1, Output size = 112, Stride =   2, RF size =  10</span><br><span class="line">Layer Name = conv2_2, Output size = 112, Stride =   2, RF size =  14</span><br><span class="line">Layer Name = pool2, Output size =  56, Stride =   4, RF size =  16</span><br><span class="line">Layer Name = conv3_1, Output size =  56, Stride =   4, RF size =  24</span><br><span class="line">Layer Name = conv3_2, Output size =  56, Stride =   4, RF size =  32</span><br><span class="line">Layer Name = conv3_3, Output size =  56, Stride =   4, RF size =  40</span><br><span class="line">Layer Name = pool3, Output size =  28, Stride =   8, RF size =  44</span><br><span class="line">Layer Name = conv4_1, Output size =  28, Stride =   8, RF size =  60</span><br><span class="line">Layer Name = conv4_2, Output size =  28, Stride =   8, RF size =  76</span><br><span class="line">Layer Name = conv4_3, Output size =  28, Stride =   8, RF size =  92</span><br><span class="line">Layer Name = pool4, Output size =  14, Stride =  16, RF size = 100</span><br><span class="line">Layer Name = conv5_1, Output size =  14, Stride =  16, RF size = 132</span><br><span class="line">Layer Name = conv5_2, Output size =  14, Stride =  16, RF size = 164</span><br><span class="line">Layer Name = conv5_3, Output size =  14, Stride =  16, RF size = 196</span><br><span class="line">Layer Name = pool5, Output size =   7, Stride =  32, RF size = 212</span><br><span class="line">************net structrue name is zf-5**************</span><br><span class="line">Layer Name = conv1, Output size = 112, Stride =   2, RF size =   7</span><br><span class="line">Layer Name = pool1, Output size =  56, Stride =   4, RF size =  11</span><br><span class="line">Layer Name = conv2, Output size =  28, Stride =   8, RF size =  27</span><br><span class="line">Layer Name = pool2, Output size =  14, Stride =  16, RF size =  43</span><br><span class="line">Layer Name = conv3, Output size =  14, Stride =  16, RF size =  75</span><br><span class="line">Layer Name = conv4, Output size =  14, Stride =  16, RF size = 107</span><br><span class="line">Layer Name = conv5, Output size =  14, Stride =  16, RF size = 139</span><br><span class="line">************net structrue name is alexnet**************</span><br><span class="line">Layer Name = conv1, Output size =  54, Stride =   4, RF size =  11</span><br><span class="line">Layer Name = pool1, Output size =  26, Stride =   8, RF size =  19</span><br><span class="line">Layer Name = conv2, Output size =  26, Stride =   8, RF size =  51</span><br><span class="line">Layer Name = pool2, Output size =  12, Stride =  16, RF size =  67</span><br><span class="line">Layer Name = conv3, Output size =  12, Stride =  16, RF size =  99</span><br><span class="line">Layer Name = conv4, Output size =  12, Stride =  16, RF size = 131</span><br><span class="line">Layer Name = conv5, Output size =  12, Stride =  16, RF size = 163</span><br><span class="line">Layer Name = pool5, Output size =   5, Stride =  32, RF size = 195</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -1081,7 +1243,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="翟大翟">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg">
+      <meta itemprop="image" content="/images/11989810.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1178,7 +1340,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-14/70081567.jpg" alt="deeplab"></p>
+<p><img src="/images/70081567.jpg" alt="deeplab"></p>
 <h2 id="Fully-connected-CRF"><a href="#Fully-connected-CRF" class="headerlink" title="Fully connected CRF"></a>Fully connected CRF</h2><ul>
 <li>CRF简单来说，能做到的就是在决定一个位置的像素值时（在这个paper里是label），会考虑周围邻居的像素值（label），这样能抹除一些噪音。但是通过CNN得到的feature map在一定程度上已经足够平滑了，所以short range的CRF没什么意义。于是作者采用了fully connected CRF，这样考虑的就是全局的信息了。</li>
 <li>随机变量$X_i$是像素$i$的标签，变量$X$由$X_1, X_2, …, X_N$组成随机向量，$N$就是图像中的像素个数。</li>
@@ -1200,7 +1362,7 @@ E(x)=\sum _i\theta_i(x_i)+\sum _{ij}\theta_{ij}(x_i,x_j)</script><ul>
 <h1 id="v2"><a href="#v2" class="headerlink" title="v2"></a>v2</h1><ul>
 <li>v2在v1的基础上增加了多感受野</li>
 </ul>
-<p><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-14/4478311.jpg" alt="deeplabv2"></p>
+<p><img src="/images/4478311.jpg" alt="deeplabv2"></p>
 <ul>
 <li>参考<a href="https://blog.csdn.net/ming0808sun/article/details/78843471" target="_blank" rel="noopener">这里</a></li>
 </ul>
@@ -1257,7 +1419,7 @@ E(x)=\sum _i\theta_i(x_i)+\sum _{ij}\theta_{ij}(x_i,x_j)</script><ul>
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="翟大翟">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg">
+      <meta itemprop="image" content="/images/11989810.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1390,7 +1552,7 @@ E(x)=\sum _i\theta_i(x_i)+\sum _{ij}\theta_{ij}(x_i,x_j)</script><ul>
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="翟大翟">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg">
+      <meta itemprop="image" content="/images/11989810.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1480,6 +1642,7 @@ E(x)=\sum _i\theta_i(x_i)+\sum _{ij}\theta_{ij}(x_i,x_j)</script><ul>
           
             <p>coursera北大的c++课上的一道题，本地ok，poj(pku的OJ)上ok，垃圾coursera上compile error。<br>先贴在这里，我感觉写的还是很优雅的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;  </span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class BigInt &#123;</span><br><span class="line">public:</span><br><span class="line">	BigInt()&#123;</span><br><span class="line">		values = &quot;0&quot;;</span><br><span class="line">		flag = true;</span><br><span class="line">	&#125;</span><br><span class="line">	BigInt(const string stringvalue)&#123;</span><br><span class="line">		values = stringvalue;</span><br><span class="line">		flag = true;</span><br><span class="line">	&#125;</span><br><span class="line">	BigInt(const int intvalue)&#123;</span><br><span class="line">		if (intvalue &gt;= 0)&#123;</span><br><span class="line">			values = to_string(intvalue);</span><br><span class="line">			flag = true;</span><br><span class="line">		&#125;</span><br><span class="line">		else&#123;</span><br><span class="line">			values = to_string(-intvalue);</span><br><span class="line">			flag = false;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//~BigInt();</span><br><span class="line">	friend ostream&amp; operator &lt;&lt; (ostream&amp; out, const BigInt&amp; b);</span><br><span class="line">	friend istream&amp; operator &gt;&gt; (istream&amp; in, const BigInt&amp; b);</span><br><span class="line">	BigInt&amp; operator + (BigInt b);</span><br><span class="line">	BigInt&amp; operator - (BigInt b);</span><br><span class="line">	BigInt&amp; operator * (BigInt b);</span><br><span class="line">	BigInt&amp; operator / (BigInt b);</span><br><span class="line">	bool operator &gt;= (BigInt b);</span><br><span class="line"></span><br><span class="line">//private:</span><br><span class="line">	string values;</span><br><span class="line">	bool flag;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">bool BigInt::operator &gt;= (BigInt b)&#123;</span><br><span class="line">	int agb = 0;</span><br><span class="line">	if (values.length() &gt; b.values.length())</span><br><span class="line">	&#123;</span><br><span class="line">		agb = 1;</span><br><span class="line">	&#125;</span><br><span class="line">	else if (values.length() &lt; b.values.length())</span><br><span class="line">	&#123;</span><br><span class="line">		agb = -1;</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		agb = values.compare(b.values);</span><br><span class="line">	&#125;</span><br><span class="line">	return agb&gt;=0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> BigInt&amp; BigInt :: operator + (BigInt b) &#123;</span><br><span class="line"></span><br><span class="line">	if (flag == b.flag)&#123;</span><br><span class="line">		string res = &quot;&quot;;</span><br><span class="line">		reverse(values.begin(), values.end());</span><br><span class="line">		reverse(b.values.begin(), b.values.end());</span><br><span class="line">		int i = 0, carry = 0;</span><br><span class="line">		for (; i &lt; values.length() &amp;&amp; i &lt; b.values.length(); ++i)&#123;</span><br><span class="line">			int tmp = values[i] - &apos;0&apos; + b.values[i] - &apos;0&apos; + carry;</span><br><span class="line">			carry = tmp / 10;</span><br><span class="line">			tmp = tmp % 10;</span><br><span class="line">			res = (char)(tmp + &apos;0&apos;) + res;</span><br><span class="line">		&#125;</span><br><span class="line">		if (i &lt; values.length())&#123;</span><br><span class="line">			for (; i &lt; values.length(); ++i)&#123;</span><br><span class="line">				int tmp = values[i] - &apos;0&apos; + carry;</span><br><span class="line">				carry = tmp / 10;</span><br><span class="line">				tmp = tmp % 10;</span><br><span class="line">				res = (char)(tmp + &apos;0&apos;) + res;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		else if (i &lt; b.values.length())&#123;</span><br><span class="line">			for (; i &lt; b.values.length(); ++i)&#123;</span><br><span class="line">				int tmp = b.values[i] - &apos;0&apos; + carry;</span><br><span class="line">				carry = tmp / 10;</span><br><span class="line">				tmp = tmp % 10;</span><br><span class="line">				res = (char)(tmp + &apos;0&apos;) + res;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		if (carry == 1)</span><br><span class="line">			res = &apos;1&apos; + res;</span><br><span class="line">		values = res;</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		int agb = 0;</span><br><span class="line">		if (values.length() &gt; b.values.length())</span><br><span class="line">		&#123;</span><br><span class="line">			agb = 1;</span><br><span class="line">		&#125;</span><br><span class="line">		else if (values.length() &lt; b.values.length())</span><br><span class="line">		&#123;</span><br><span class="line">			agb = -1;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			agb = values.compare(b.values);</span><br><span class="line">		&#125;</span><br><span class="line">		if (0 == agb)</span><br><span class="line">		&#123;</span><br><span class="line">			values = &quot;0&quot;;</span><br><span class="line">			return *this;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		else if (agb &lt; 0)&#123;</span><br><span class="line">			flag = !flag;</span><br><span class="line">			string tmp = values;</span><br><span class="line">			values = b.values;</span><br><span class="line">			b.values = tmp;</span><br><span class="line">		&#125;</span><br><span class="line">		string res = &quot;&quot;;</span><br><span class="line">		reverse(values.begin(), values.end());</span><br><span class="line">		reverse(b.values.begin(), b.values.end());</span><br><span class="line">		int i = 0;</span><br><span class="line">		for (; i &lt; values.length() &amp;&amp; i &lt; b.values.length(); ++i)</span><br><span class="line">			res.push_back(values.at(i) - b.values.at(i) + &apos;0&apos;);</span><br><span class="line"></span><br><span class="line">		if (i &lt; values.length()) </span><br><span class="line">			for (; i &lt; values.length(); ++i)</span><br><span class="line">				res.push_back(values.at(i));</span><br><span class="line"></span><br><span class="line">		int carry = 0;</span><br><span class="line">		for (i = 0; i &lt; values.length(); ++i)</span><br><span class="line">		&#123;</span><br><span class="line">			int newValue = res.at(i) - carry - &apos;0&apos;;</span><br><span class="line">			if (newValue &lt; 0) carry = 1;</span><br><span class="line">			else carry = 0;</span><br><span class="line">			res.at(i) = newValue + carry * 10 + &apos;0&apos;;</span><br><span class="line">		&#125;</span><br><span class="line">		while (res[res.length() - 1] == &apos;0&apos;)</span><br><span class="line">			res.pop_back();</span><br><span class="line">		reverse(res.begin(), res.end());</span><br><span class="line">		values = res;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return *this;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> BigInt &amp;BigInt::operator - (BigInt b)</span><br><span class="line"> &#123;	</span><br><span class="line">	 BigInt tmp(b);</span><br><span class="line">	 tmp.flag = !tmp.flag;</span><br><span class="line">	 return *this+tmp;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> BigInt &amp;BigInt::operator * (BigInt b)</span><br><span class="line"> &#123;</span><br><span class="line">	 BigInt res;</span><br><span class="line">	 if (values == &quot;0&quot; || b.values == &quot;0&quot;)&#123;</span><br><span class="line">		 values = &quot;0&quot;;</span><br><span class="line">		 return *this;</span><br><span class="line">	 &#125;</span><br><span class="line">	 if (flag == b.flag)</span><br><span class="line">		 flag = true;</span><br><span class="line">	 else</span><br><span class="line">		 flag = false;</span><br><span class="line"></span><br><span class="line">	 BigInt thisbk(*this);</span><br><span class="line">	 for (int i = 0; i &lt; b.values.length(); ++i)&#123;</span><br><span class="line">		 for (int j = 0; j &lt; b.values[i] - &apos;0&apos;; ++j)&#123;</span><br><span class="line">			 res = res + thisbk;</span><br><span class="line">		 &#125;</span><br><span class="line">		res.values.push_back(&apos;0&apos;);</span><br><span class="line">	 &#125;</span><br><span class="line">	 res.values.pop_back();</span><br><span class="line">	 values = res.values;</span><br><span class="line">	 return *this;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> BigInt &amp;BigInt::operator / (BigInt b)</span><br><span class="line"> &#123;</span><br><span class="line">	 if (b.values == &quot;0&quot;)</span><br><span class="line">		 throw &quot;Division by zero condition!&quot;;</span><br><span class="line">	 if (flag == b.flag)</span><br><span class="line">		 flag = true;</span><br><span class="line">	 else</span><br><span class="line">		 flag = false;</span><br><span class="line"></span><br><span class="line">	 BigInt one(1);</span><br><span class="line">	 while (*this &gt;= b)&#123;</span><br><span class="line">		 b.values.push_back(&apos;0&apos;);</span><br><span class="line">		 one.values.push_back(&apos;0&apos;);</span><br><span class="line">	 &#125;</span><br><span class="line">	 b.values.pop_back();</span><br><span class="line">	 one.values.pop_back();</span><br><span class="line"></span><br><span class="line">	 BigInt thisbk(*this), res(0);</span><br><span class="line">	 while (one.values.compare(&quot;0&quot;) &gt; 0)&#123;</span><br><span class="line">		 while (*this &gt;= b)&#123;</span><br><span class="line">			 *this - b;</span><br><span class="line">			 res + one;</span><br><span class="line">		 &#125;</span><br><span class="line">		 b.values.pop_back();</span><br><span class="line">		 one.values.pop_back();</span><br><span class="line">	 &#125;</span><br><span class="line">	 values = res.values;</span><br><span class="line">	 return *this;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">ostream&amp; operator &lt;&lt; (ostream&amp; ou, const BigInt&amp; b)</span><br><span class="line">&#123;</span><br><span class="line">	if (!b.flag)</span><br><span class="line">		ou &lt;&lt; &apos;-&apos;;</span><br><span class="line">	ou &lt;&lt; b.values;</span><br><span class="line">	return ou;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">istream&amp; operator &gt;&gt; (istream&amp; in, BigInt&amp; b)</span><br><span class="line">&#123;</span><br><span class="line">	string str;</span><br><span class="line">	in &gt;&gt; str;</span><br><span class="line">	b.values = str;</span><br><span class="line">	return in;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	BigInt b1, b2;</span><br><span class="line">	string str;</span><br><span class="line">	cin &gt;&gt; b1 &gt;&gt; str &gt;&gt; b2;</span><br><span class="line"></span><br><span class="line">	if (str == &quot;+&quot;)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; b1 + b2 &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	else if (str == &quot;-&quot;)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; b1 - b2 &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	else if (str == &quot;*&quot;)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; b1 * b2 &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; b1 / b2 &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -1532,7 +1695,7 @@ E(x)=\sum _i\theta_i(x_i)+\sum _{ij}\theta_{ij}(x_i,x_j)</script><ul>
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="翟大翟">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg">
+      <meta itemprop="image" content="/images/11989810.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1621,7 +1784,7 @@ E(x)=\sum _i\theta_i(x_i)+\sum _{ij}\theta_{ij}(x_i,x_j)</script><ul>
         
           
             <h3 id="先说mobileNet"><a href="#先说mobileNet" class="headerlink" title="先说mobileNet"></a>先说mobileNet</h3><ul>
-<li>使用depthwise convolution和point wise(1*1) convolution代替标准的convolution<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-7/8709950.jpg" alt=""></li>
+<li>使用depthwise convolution和point wise(1*1) convolution代替标准的convolution<br><img src="/images/8709950.jpg" alt=""></li>
 <li>(b)类似于group为M的卷积，m-th filter is applied to m-th channel</li>
 <li>计算量是原来的$\frac{1}{N}+\frac{1}{D_k^2}$，kernel一般是3，所以可以减少到1/8到1/9</li>
 <li>论文里还提出了两个控制计算量的超参数</li>
@@ -1630,165 +1793,12 @@ E(x)=\sum _i\theta_i(x_i)+\sum _{ij}\theta_{ij}(x_i,x_j)</script><ul>
 <li>好像文章里公式写错了，卷积到计算量应该是乘输出的尺寸，而不是输入到尺寸吧。。。</li>
 </ul>
 <h3 id="shuffleNet"><a href="#shuffleNet" class="headerlink" title="shuffleNet"></a><a href="https://blog.csdn.net/u014380165/article/details/75137111" target="_blank" rel="noopener">shuffleNet</a></h3><ul>
-<li>在resnet的基础上，用带group的1*1卷积代替原来的1*1卷积<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-7/32435128.jpg" alt=""></li>
+<li>在resnet的基础上，用带group的1*1卷积代替原来的1*1卷积<br><img src="/images/32435128.jpg" alt=""></li>
 <li>group操作会带来边界效应，学出来的特征会局限，所以就有了channel shuffle层</li>
 <li>随机层的caffe实现是先reshape再transpose再flatten，不是真随机，所以可以实现backward</li>
 <li>3*3的depth wise的卷积就是moblieNet里用到的</li>
-<li>然后用shuffleNet Unit组成shuffetNet网络<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-7/77705439.jpg" alt=""></li>
+<li>然后用shuffleNet Unit组成shuffetNet网络<br><img src="/images/77705439.jpg" alt=""></li>
 <li>一个重要结论是group个数的线性增长并不会带来分类准确率的线性增长。但是发现ShuffleNet对于小的网络效果更明显，因为一般小的网络的channel个数都不多，在限定计算资源的前提下，ShuffleNet可以使用更多的feature map。</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/03/20/CTC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="翟大翟">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力～奋斗～">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/20/CTC/" itemprop="url">CTC</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-20T14:48:40+08:00">
-                2018-03-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/caffe/" itemprop="url" rel="index">
-                    <span itemprop="name">caffe</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>以OCR为例，原始图片经过CNN卷积，图片高度方向尺寸变为1</li>
-<li>图片的宽度方向即为时间序列方向</li>
-<li><p>在channel分享进行innerproduct，然后softmax，得到每个序列在每个字符的概率，类似于下面这张图<br><img src="https://img-blog.csdn.net/20170809180923623" alt=""></p>
-</li>
-<li><p>然后根据这个概率图，使用类似动态规划的思路，可以计算出ctc loss和导数</p>
-</li>
-<li><p>不想写了，看下面这篇吧</p>
-</li>
-<li><p><a href="http://blog.csdn.net/luodongri/article/details/77005948" target="_blank" rel="noopener">CTC讲解</a></p>
-</li>
 </ul>
 
           
@@ -1865,7 +1875,7 @@ E(x)=\sum _i\theta_i(x_i)+\sum _{ij}\theta_{ij}(x_i,x_j)</script><ul>
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg"
+                src="/images/11989810.jpg"
                 alt="翟大翟" />
             
               <p class="site-author-name" itemprop="name">翟大翟</p>
@@ -1879,7 +1889,7 @@ E(x)=\sum _i\theta_i(x_i)+\sum _{ij}\theta_{ij}(x_i,x_j)</script><ul>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1954,7 +1964,7 @@ E(x)=\sum _i\theta_i(x_i)+\sum _{ij}\theta_{ij}(x_i,x_j)</script><ul>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

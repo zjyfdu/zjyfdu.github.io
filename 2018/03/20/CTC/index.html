@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="以OCR为例，原始图片经过CNN卷积，图片高度方向尺寸变为1 图片的宽度方向即为时间序列方向 在channel分享进行innerproduct，然后softmax，得到每个序列在每个字符的概率，类似于下面这张图  然后根据这个概率图，使用类似动态规划的思路，可以计算出ctc loss和导数  不想写了，看下面这篇吧  CTC讲解">
+<meta name="description" content="以OCR为例，原始图片经过CNN卷积，图片高度方向尺寸变为1 图片的宽度方向即为时间序列方向 在channel分享进行innerproduct，然后softmax，得到每个序列在每个字符的概率，类似于下面这张图    然后根据这个概率图，使用类似动态规划的思路，可以计算出ctc loss和导数  不想写了，看下面这篇吧  CTC讲解">
 <meta name="keywords" content="CTC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CTC">
 <meta property="og:url" content="https://zjyfdu.coding.me/2018/03/20/CTC/index.html">
 <meta property="og:site_name" content="努力～奋斗～">
-<meta property="og:description" content="以OCR为例，原始图片经过CNN卷积，图片高度方向尺寸变为1 图片的宽度方向即为时间序列方向 在channel分享进行innerproduct，然后softmax，得到每个序列在每个字符的概率，类似于下面这张图  然后根据这个概率图，使用类似动态规划的思路，可以计算出ctc loss和导数  不想写了，看下面这篇吧  CTC讲解">
+<meta property="og:description" content="以OCR为例，原始图片经过CNN卷积，图片高度方向尺寸变为1 图片的宽度方向即为时间序列方向 在channel分享进行innerproduct，然后softmax，得到每个序列在每个字符的概率，类似于下面这张图    然后根据这个概率图，使用类似动态规划的思路，可以计算出ctc loss和导数  不想写了，看下面这篇吧  CTC讲解">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:image" content="https://img-blog.csdn.net/20170809180923623">
-<meta property="og:updated_time" content="2018-12-31T14:38:16.279Z">
+<meta property="og:image" content="https://zjyfdu.coding.me/images/ctc.jpg">
+<meta property="og:updated_time" content="2019-01-27T11:35:34.765Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CTC">
-<meta name="twitter:description" content="以OCR为例，原始图片经过CNN卷积，图片高度方向尺寸变为1 图片的宽度方向即为时间序列方向 在channel分享进行innerproduct，然后softmax，得到每个序列在每个字符的概率，类似于下面这张图  然后根据这个概率图，使用类似动态规划的思路，可以计算出ctc loss和导数  不想写了，看下面这篇吧  CTC讲解">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20170809180923623">
+<meta name="twitter:description" content="以OCR为例，原始图片经过CNN卷积，图片高度方向尺寸变为1 图片的宽度方向即为时间序列方向 在channel分享进行innerproduct，然后softmax，得到每个序列在每个字符的概率，类似于下面这张图    然后根据这个概率图，使用类似动态规划的思路，可以计算出ctc loss和导数  不想写了，看下面这篇吧  CTC讲解">
+<meta name="twitter:image" content="https://zjyfdu.coding.me/images/ctc.jpg">
 
 
 
@@ -294,7 +294,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="翟大翟">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg">
+      <meta itemprop="image" content="/images/11989810.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -381,8 +381,10 @@
         <ul>
 <li>以OCR为例，原始图片经过CNN卷积，图片高度方向尺寸变为1</li>
 <li>图片的宽度方向即为时间序列方向</li>
-<li><p>在channel分享进行innerproduct，然后softmax，得到每个序列在每个字符的概率，类似于下面这张图<br><img src="https://img-blog.csdn.net/20170809180923623" alt=""></p>
-</li>
+<li>在channel分享进行innerproduct，然后softmax，得到每个序列在每个字符的概率，类似于下面这张图</li>
+</ul>
+<p><img src="/images/ctc.jpg" alt=""></p>
+<ul>
 <li><p>然后根据这个概率图，使用类似动态规划的思路，可以计算出ctc loss和导数</p>
 </li>
 <li><p>不想写了，看下面这篇吧</p>
@@ -497,7 +499,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg"
+                src="/images/11989810.jpg"
                 alt="翟大翟" />
             
               <p class="site-author-name" itemprop="name">翟大翟</p>
@@ -511,7 +513,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -586,7 +588,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

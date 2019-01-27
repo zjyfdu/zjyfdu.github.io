@@ -87,17 +87,17 @@
 <meta property="og:site_name" content="努力～奋斗～">
 <meta property="og:description" content="论文常看常忘，还是把看过的先记下来，再补充总结 NETpvanet pvanet是为了实时目标识别提出来的网络，用来提取特征的，用了很多方法来减小计算量，看起来像个大杂烩 C.ReLU，由于观察到浅层的网络卷基层总是存在互补层，所以直接把卷积取反再concatenate，可以减少一半的计算量 Inception，使用了inception unit，用两个3*3的卷集合替代了5*5的卷积，也是为了减">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-7/62552972.jpg">
-<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-8/25005397.jpg">
-<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-8/51626114.jpg">
-<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-7/14151415.jpg">
-<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-12/26480255.jpg">
-<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-13/48652183.jpg">
-<meta property="og:updated_time" content="2018-08-15T18:16:14.877Z">
+<meta property="og:image" content="https://zjyfdu.coding.me/images/62552972.jpg">
+<meta property="og:image" content="https://zjyfdu.coding.me/images/25005397.jpg">
+<meta property="og:image" content="https://zjyfdu.coding.me/images/51626114.jpg">
+<meta property="og:image" content="https://zjyfdu.coding.me/images/14151415.jpg">
+<meta property="og:image" content="https://zjyfdu.coding.me/images/26480255.jpg">
+<meta property="og:image" content="https://zjyfdu.coding.me/images/48652183.jpg">
+<meta property="og:updated_time" content="2019-01-27T11:45:55.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="看过的论文汇总">
 <meta name="twitter:description" content="论文常看常忘，还是把看过的先记下来，再补充总结 NETpvanet pvanet是为了实时目标识别提出来的网络，用来提取特征的，用了很多方法来减小计算量，看起来像个大杂烩 C.ReLU，由于观察到浅层的网络卷基层总是存在互补层，所以直接把卷积取反再concatenate，可以减少一半的计算量 Inception，使用了inception unit，用两个3*3的卷集合替代了5*5的卷积，也是为了减">
-<meta name="twitter:image" content="http://ot0uaqt93.bkt.clouddn.com/18-8-7/62552972.jpg">
+<meta name="twitter:image" content="https://zjyfdu.coding.me/images/62552972.jpg">
 
 
 
@@ -299,7 +299,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="翟大翟">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg">
+      <meta itemprop="image" content="/images/11989810.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -392,7 +392,7 @@
 <li>ResNet，再inception unit里也用了残差网络。</li>
 <li>整个网络结构如下表</li>
 </ul>
-<p><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-7/62552972.jpg" alt="pvanet"></p>
+<p><img src="/images/62552972.jpg" alt="pvanet"></p>
 <ul>
 <li>pvanet里还提到了一种学习策略，动态调整学习率，如果一定的迭代次数内，loss下降小于阈值，就说明是on plateau，这时候就降低学习率。<a href="https://github.com/BVLC/caffe/pull/4606/files" target="_blank" rel="noopener">在github上有人实现</a>，只不过没有被merge进来。</li>
 </ul>
@@ -410,11 +410,11 @@
 <script type="math/tex; mode=display">x_l = H_l([x_0, x_1, ..., x_{l-1}])</script><ul>
 <li>denseNet中包含三个dense block，如下图所示（盗图自<a href="https://blog.csdn.net/u014380165/article/details/75142664" target="_blank" rel="noopener">这里</a>）</li>
 </ul>
-<p><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-8/25005397.jpg" alt="dense block"></p>
+<p><img src="/images/25005397.jpg" alt="dense block"></p>
 <ul>
 <li>整个网络的结构图如下</li>
 </ul>
-<p><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-8/51626114.jpg" alt="dense net"></p>
+<p><img src="/images/51626114.jpg" alt="dense net"></p>
 <ul>
 <li><p>由于denseNet是concatenate，所以到最后一层的时候，channel会异常地大，所以每个3*3卷积前，会有个1*1的bottle neck层，减小channel数量</p>
 </li>
@@ -425,7 +425,7 @@
 <h1 id="text-localization"><a href="#text-localization" class="headerlink" title="text localization"></a>text localization</h1><h2 id="EAST"><a href="#EAST" class="headerlink" title="EAST"></a>EAST</h2><ul>
 <li>用于文本检测，输出可以是四边形或rotated box</li>
 </ul>
-<p><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-7/14151415.jpg" alt="east"></p>
+<p><img src="/images/14151415.jpg" alt="east"></p>
 <ul>
 <li>最左边用的是PVANet，也可以换成其他ResNet什么的</li>
 <li>然后中间是特征融合，这里作者借鉴了U-net的做法，用到了unpool，原因是文字有大有小，需要有不同的感受野</li>
@@ -447,12 +447,12 @@
 <li>FCN里用到了三个技术，全卷积、上采样和跳层链接</li>
 <li>全卷积：一般的CNN最后会有全连接层，把二维的图像压缩成以为的向量，FCN把全连接换成了卷积，实际上计算上是等价的。</li>
 </ul>
-<p><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-12/26480255.jpg" alt="fcn"></p>
+<p><img src="/images/26480255.jpg" alt="fcn"></p>
 <ul>
 <li>上采样：或者叫反卷积、转置卷积（Caffe和Kera里叫Deconvolution，tensorflow里叫conv_transpose）。</li>
 <li>跳层连接：将全卷积之后的结果直接上采样得到的结果是很粗糙的，所以用不同池化层的结果进行上采样之后来优化输出。</li>
 </ul>
-<p><img src="http://ot0uaqt93.bkt.clouddn.com/18-8-13/48652183.jpg" alt="fcn2"></p>
+<p><img src="/images/48652183.jpg" alt="fcn2"></p>
 <ul>
 <li>原文感觉不好看，主要参考了<a href="https://blog.csdn.net/junparadox/article/details/52610744" target="_blank" rel="noopener">这里</a></li>
 </ul>
@@ -576,7 +576,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg"
+                src="/images/11989810.jpg"
                 alt="翟大翟" />
             
               <p class="site-author-name" itemprop="name">翟大翟</p>
@@ -590,7 +590,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -681,7 +681,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

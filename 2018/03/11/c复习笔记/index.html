@@ -87,12 +87,12 @@
 <meta property="og:site_name" content="努力～奋斗～">
 <meta property="og:description" content="cin 带空格的字符串时，需要这样cin.getline(s, 80)，s是char数组 或者也可以这样getline(cin, str)，原型为istream&amp;amp; getline (istream&amp;amp; is, string&amp;amp; str);，C++对每种流都定义了一个getline函数 在gcc编译器中，对标准库进行了扩展，加入了一个getline函数。会自动malloc, r">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-3/10535321.jpg">
-<meta property="og:updated_time" content="2018-08-05T07:17:34.939Z">
+<meta property="og:image" content="https://zjyfdu.coding.me/images/10535321.jpg">
+<meta property="og:updated_time" content="2019-01-27T11:45:55.079Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c复习笔记">
 <meta name="twitter:description" content="cin 带空格的字符串时，需要这样cin.getline(s, 80)，s是char数组 或者也可以这样getline(cin, str)，原型为istream&amp;amp; getline (istream&amp;amp; is, string&amp;amp; str);，C++对每种流都定义了一个getline函数 在gcc编译器中，对标准库进行了扩展，加入了一个getline函数。会自动malloc, r">
-<meta name="twitter:image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-3/10535321.jpg">
+<meta name="twitter:image" content="https://zjyfdu.coding.me/images/10535321.jpg">
 
 
 
@@ -294,7 +294,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="翟大翟">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg">
+      <meta itemprop="image" content="/images/11989810.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -391,7 +391,7 @@
 <li><p>cin cout 重定向</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">freopen(<span class="string">"foo.txt"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>); </span><br><span class="line">freopen(“bar.txt”,”r”,<span class="built_in">stdin</span>);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>lambda表达式<br><img src="http://ot0uaqt93.bkt.clouddn.com/18-7-3/10535321.jpg" alt="" title="lambda!"> </p>
+<li><p>lambda表达式<br><img src="/images/10535321.jpg" alt="" title="lambda!"> </p>
 </li>
 <li><p>使用lambda对vector进行排序</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> n;</span><br><span class="line">   <span class="keyword">double</span> th;</span><br><span class="line">   <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; th;</span><br><span class="line">   <span class="built_in">vector</span>&lt;pair&lt;<span class="built_in">string</span>, <span class="keyword">double</span>&gt;&gt; res;  </span><br><span class="line">   <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        <span class="built_in">string</span> name;</span><br><span class="line">        <span class="keyword">double</span> score;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; name &gt;&gt; score;</span><br><span class="line">        <span class="keyword">if</span>(score &gt; th)&#123;</span><br><span class="line">            res.push_back(pair&lt;<span class="built_in">string</span>, <span class="keyword">double</span>&gt;(name, score));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(res.begin(), res.end(), [](pair&lt;<span class="built_in">string</span>, <span class="keyword">double</span>&gt;&amp; a, pair&lt;<span class="built_in">string</span>, <span class="keyword">double</span>&gt;&amp; b) &#123;<span class="keyword">return</span> a.second &gt; b.second;&#125;);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i: res)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s %.1f\n"</span>, i.first.c_str(), i.second);</span><br><span class="line">    &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -529,7 +529,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="http://ot0uaqt93.bkt.clouddn.com/18-7-5/11989810.jpg"
+                src="/images/11989810.jpg"
                 alt="翟大翟" />
             
               <p class="site-author-name" itemprop="name">翟大翟</p>
@@ -543,7 +543,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -618,7 +618,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
