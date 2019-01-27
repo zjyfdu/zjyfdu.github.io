@@ -424,6 +424,162 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2019/01/23/一些shell命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="翟大翟">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/11989810.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力～奋斗～">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/23/一些shell命令/" itemprop="url">一些shell命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T19:20:03+08:00">
+                2019-01-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/shell/" itemprop="url" rel="index">
+                    <span itemprop="name">shell</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>for循环</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">for file in `ls /etc`</span><br><span class="line"></span><br><span class="line">for skill in Ada Coffe Action Java; do</span><br><span class="line">    echo "I am good at $&#123;skill&#125;Script"</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">for (( EXP1; EXP2; EXP3 ))</span><br><span class="line">do</span><br><span class="line">    # do something</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">while condition</span><br><span class="line">do</span><br><span class="line">    # do something</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">until condition</span><br><span class="line">do</span><br><span class="line">    # do something</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<ul>
+<li>if</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if condition</span><br><span class="line">then</span><br><span class="line">    # do something</span><br><span class="line">elif</span><br><span class="line">    # do something</span><br><span class="line">else</span><br><span class="line">    # do something</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<ul>
+<li>文件包含</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source ./function.sh</span><br><span class="line">. ./function.sh</span><br></pre></td></tr></table></figure>
+<ul>
+<li>字符串</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">string="abcd"</span><br><span class="line">echo $&#123;#string&#125;</span><br><span class="line"></span><br><span class="line">string="zhe pian tai shui le"</span><br><span class="line">echo $&#123;string:13:4&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/12/31/要2019年了/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -692,7 +848,11 @@
       
         
           
-            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">start_date = datetime.date(<span class="number">2018</span>, <span class="number">6</span>, <span class="number">6</span>)</span><br><span class="line">start_rank = <span class="number">866</span></span><br><span class="line"></span><br><span class="line">cookies = &#123;</span><br><span class="line">    <span class="string">'ASP.NET_SessionId'</span>: <span class="string">'obe4o1esws0xutvslbbapc55'</span>,</span><br><span class="line">    <span class="string">'safedog-flow-item'</span>: <span class="string">''</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>,</span><br><span class="line">    <span class="string">'Upgrade-Insecure-Requests'</span>: <span class="string">'1'</span>,</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'</span>,</span><br><span class="line">    <span class="string">'Accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'</span>,</span><br><span class="line">    <span class="string">'Referer'</span>: <span class="string">'https://rcgy.zjhui.net/'</span>,</span><br><span class="line">    <span class="string">'Accept-Encoding'</span>: <span class="string">'gzip, deflate, br'</span>,</span><br><span class="line">    <span class="string">'Accept-Language'</span>: <span class="string">'zh'</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">params = (</span><br><span class="line">    (<span class="string">'flag'</span>, <span class="string">'0'</span>),</span><br><span class="line">    (<span class="string">'userName'</span>, <span class="string">'13122358292'</span>),</span><br><span class="line">    (<span class="string">'passWord'</span>, <span class="string">'MzAyMDI4MnpqeWQ='</span>),</span><br><span class="line">    (<span class="string">'md5'</span>, <span class="string">'08dcb32a31936c855b5f8f5c21f5b957'</span>),</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">response = requests.get(<span class="string">'https://rcgy.zjhui.net/Login.aspx'</span>, headers=headers, params=params, cookies=cookies)</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>,</span><br><span class="line">    <span class="string">'Pragma'</span>: <span class="string">'no-cache'</span>,</span><br><span class="line">    <span class="string">'Cache-Control'</span>: <span class="string">'no-cache'</span>,</span><br><span class="line">    <span class="string">'Upgrade-Insecure-Requests'</span>: <span class="string">'1'</span>,</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'</span>,</span><br><span class="line">    <span class="string">'Accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'</span>,</span><br><span class="line">    <span class="string">'Referer'</span>: <span class="string">'https://rcgy.zjhui.net/System/ApplyRecord.aspx'</span>,</span><br><span class="line">    <span class="string">'Accept-Encoding'</span>: <span class="string">'gzip, deflate, br'</span>,</span><br><span class="line">    <span class="string">'Accept-Language'</span>: <span class="string">'zh'</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">response = requests.get(<span class="string">'https://rcgy.zjhui.net/System/WaitingRecord.aspx'</span>, headers=headers, cookies=cookies)</span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(response.content, features=<span class="string">"lxml"</span>)</span><br><span class="line">rank = soup.find(id=<span class="string">'ctl00_ctl00_ctl00_main_main_main_rptPtApplyRecord_ctl00_labPageRank'</span>).string</span><br><span class="line">rank = int(rank)</span><br><span class="line"></span><br><span class="line">today = datetime.date.today()</span><br><span class="line">remain_days = float(rank) * (today - start_date).days / (start_rank - rank)</span><br><span class="line">remain_days = int(remain_days)</span><br><span class="line">check_in_date = today + datetime.timedelta(days=remain_days)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">"rank:\t"</span>, rank</span><br><span class="line"><span class="keyword">print</span> <span class="string">"days remaining:\t"</span>, remain_days</span><br><span class="line"><span class="keyword">print</span> <span class="string">"check in date:\t"</span>, check_in_date</span><br></pre></td></tr></table></figure>
+            <h1 id="1-截取请求"><a href="#1-截取请求" class="headerlink" title="1. 截取请求"></a>1. 截取请求</h1><ul>
+<li>chrome里按F12，network选项卡</li>
+<li>然后点击登录</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">start_date = datetime.date(<span class="number">2018</span>, <span class="number">6</span>, <span class="number">6</span>)</span><br><span class="line">start_rank = <span class="number">866</span></span><br><span class="line"></span><br><span class="line">cookies = &#123;</span><br><span class="line">    <span class="string">'ASP.NET_SessionId'</span>: <span class="string">'obe4o1esws0xutvslbbapc55'</span>,</span><br><span class="line">    <span class="string">'safedog-flow-item'</span>: <span class="string">''</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>,</span><br><span class="line">    <span class="string">'Upgrade-Insecure-Requests'</span>: <span class="string">'1'</span>,</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'</span>,</span><br><span class="line">    <span class="string">'Accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'</span>,</span><br><span class="line">    <span class="string">'Referer'</span>: <span class="string">'https://rcgy.zjhui.net/'</span>,</span><br><span class="line">    <span class="string">'Accept-Encoding'</span>: <span class="string">'gzip, deflate, br'</span>,</span><br><span class="line">    <span class="string">'Accept-Language'</span>: <span class="string">'zh'</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">params = (</span><br><span class="line">    (<span class="string">'flag'</span>, <span class="string">'0'</span>),</span><br><span class="line">    (<span class="string">'userName'</span>, <span class="string">'13122358292'</span>),</span><br><span class="line">    (<span class="string">'passWord'</span>, <span class="string">'MzAyMDI4MnpqeWQ='</span>),</span><br><span class="line">    (<span class="string">'md5'</span>, <span class="string">'08dcb32a31936c855b5f8f5c21f5b957'</span>),</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">response = requests.get(<span class="string">'https://rcgy.zjhui.net/Login.aspx'</span>, headers=headers, params=params, cookies=cookies)</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>,</span><br><span class="line">    <span class="string">'Pragma'</span>: <span class="string">'no-cache'</span>,</span><br><span class="line">    <span class="string">'Cache-Control'</span>: <span class="string">'no-cache'</span>,</span><br><span class="line">    <span class="string">'Upgrade-Insecure-Requests'</span>: <span class="string">'1'</span>,</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'</span>,</span><br><span class="line">    <span class="string">'Accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'</span>,</span><br><span class="line">    <span class="string">'Referer'</span>: <span class="string">'https://rcgy.zjhui.net/System/ApplyRecord.aspx'</span>,</span><br><span class="line">    <span class="string">'Accept-Encoding'</span>: <span class="string">'gzip, deflate, br'</span>,</span><br><span class="line">    <span class="string">'Accept-Language'</span>: <span class="string">'zh'</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">response = requests.get(<span class="string">'https://rcgy.zjhui.net/System/WaitingRecord.aspx'</span>, headers=headers, cookies=cookies)</span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(response.content, features=<span class="string">"lxml"</span>)</span><br><span class="line">rank = soup.find(id=<span class="string">'ctl00_ctl00_ctl00_main_main_main_rptPtApplyRecord_ctl00_labPageRank'</span>).string</span><br><span class="line">rank = int(rank)</span><br><span class="line"></span><br><span class="line">today = datetime.date.today()</span><br><span class="line">remain_days = float(rank) * (today - start_date).days / (start_rank - rank)</span><br><span class="line">remain_days = int(remain_days)</span><br><span class="line">check_in_date = today + datetime.timedelta(days=remain_days)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">"rank:\t"</span>, rank</span><br><span class="line"><span class="keyword">print</span> <span class="string">"days remaining:\t"</span>, remain_days</span><br><span class="line"><span class="keyword">print</span> <span class="string">"check in date:\t"</span>, check_in_date</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1672,229 +1832,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/07/17/看过的论文汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="翟大翟">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/11989810.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力～奋斗～">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/17/看过的论文汇总/" itemprop="url">看过的论文汇总</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-17T15:09:47+08:00">
-                2018-07-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/caffe/" itemprop="url" rel="index">
-                    <span itemprop="name">caffe</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>论文常看常忘，还是把看过的先记下来，再补充总结</p>
-<h1 id="NET"><a href="#NET" class="headerlink" title="NET"></a>NET</h1><h2 id="pvanet"><a href="#pvanet" class="headerlink" title="pvanet"></a>pvanet</h2><ul>
-<li>pvanet是为了实时目标识别提出来的网络，用来提取特征的，用了很多方法来减小计算量，看起来像个大杂烩</li>
-<li>C.ReLU，由于观察到浅层的网络卷基层总是存在互补层，所以直接把卷积取反再concatenate，可以减少一半的计算量</li>
-<li>Inception，使用了inception unit，用两个3*3的卷集合替代了5*5的卷积，也是为了减小计算量</li>
-<li>HypteNet多层融合，融合哪两层是比较讲究的，选择不好的话，会白白增加计算量。这里作者使用了最后输出层2倍和4倍多layer进行融合，以2倍的layer为标准，分别pooling和差值upscale。</li>
-<li>ResNet，再inception unit里也用了残差网络。</li>
-<li>整个网络结构如下表</li>
-</ul>
-<p><img src="/images/62552972.jpg" alt="pvanet"></p>
-<ul>
-<li>pvanet里还提到了一种学习策略，动态调整学习率，如果一定的迭代次数内，loss下降小于阈值，就说明是on plateau，这时候就降低学习率。<a href="https://github.com/BVLC/caffe/pull/4606/files" target="_blank" rel="noopener">在github上有人实现</a>，只不过没有被merge进来。</li>
-</ul>
-<h2 id="mobilenet"><a href="#mobilenet" class="headerlink" title="mobilenet"></a>mobilenet</h2><h2 id="shufflenet"><a href="#shufflenet" class="headerlink" title="shufflenet"></a>shufflenet</h2><ul>
-<li>mobile和shuffle可以看<a href="/2018/05/13/mobileNet和shuffleNet/" title="以前写的这篇">以前写的这篇</a></li>
-</ul>
-<h2 id="densenet"><a href="#densenet" class="headerlink" title="densenet"></a>densenet</h2><ul>
-<li>每一层都有来自前面所有层的输入，L个层，就是$\frac{L*(L+1)}{2}$个连接。</li>
-<li>Each layer has direct access to the gradients from the loss function and the original input signal, leading to an implicit deep supervision.</li>
-<li>resNet中，l层的输出是l-1的非线性加l-1</li>
-</ul>
-<script type="math/tex; mode=display">x_l = H_l(x_{l-1}) + x_{l-1}</script><ul>
-<li>denseNet中，是直接做的concatenate</li>
-</ul>
-<script type="math/tex; mode=display">x_l = H_l([x_0, x_1, ..., x_{l-1}])</script><ul>
-<li>denseNet中包含三个dense block，如下图所示（盗图自<a href="https://blog.csdn.net/u014380165/article/details/75142664" target="_blank" rel="noopener">这里</a>）</li>
-</ul>
-<p><img src="/images/25005397.jpg" alt="dense block"></p>
-<ul>
-<li>整个网络的结构图如下</li>
-</ul>
-<p><img src="/images/51626114.jpg" alt="dense net"></p>
-<ul>
-<li><p>由于denseNet是concatenate，所以到最后一层的时候，channel会异常地大，所以每个3*3卷积前，会有个1*1的bottle neck层，减小channel数量</p>
-</li>
-<li><p>dense block之间还有transition层，也是用1*1的卷积减小channel数</p>
-</li>
-</ul>
-<h1 id="Attention-和-CTC"><a href="#Attention-和-CTC" class="headerlink" title="Attention 和 CTC"></a>Attention 和 CTC</h1><p>Attention is all you need<br>CTC</p>
-<h1 id="text-localization"><a href="#text-localization" class="headerlink" title="text localization"></a>text localization</h1><h2 id="EAST"><a href="#EAST" class="headerlink" title="EAST"></a>EAST</h2><ul>
-<li>用于文本检测，输出可以是四边形或rotated box</li>
-</ul>
-<p><img src="/images/14151415.jpg" alt="east"></p>
-<ul>
-<li>最左边用的是PVANet，也可以换成其他ResNet什么的</li>
-<li>然后中间是特征融合，这里作者借鉴了U-net的做法，用到了unpool，原因是文字有大有小，需要有不同的感受野</li>
-<li>最后是输出层，包括score map和位置信息，输出的size是原图的1/4大小</li>
-<li>score对应的ground truth: 是将原始的bounding box按照短边长度r向内收缩了0.3r的距离。不懂为什么要这么做</li>
-<li>针对bounding box内部的每个点，计算他们到上下左右四个边的距离，并且计算角度。针对bounding box外部的点，ground truth置为0</li>
-<li>loss包含两个部分，score map的loss和位置坐标的loss</li>
-<li>score的loss使用的是balanced cross entropy，可以配合正负样本不均衡的情况</li>
-</ul>
-<script type="math/tex; mode=display">L_s = -\beta Y^* log(\hat{Y}) - (1-\beta)(1-Y^*)log(1-\hat{Y})</script><script type="math/tex; mode=display">\beta = 1 - \frac{\sum_{y^* \in Y^*} y^*}{|Y^*|}</script><ul>
-<li>位置坐标的loss我只看了rotated box的，又可以分成两个部分，iou的loss和角度的loss，角度的loss前面会乘个系数，10或者20，是个超参数</li>
-</ul>
-<h2 id="InceptText-from-Alibaba-IJCAI2018"><a href="#InceptText-from-Alibaba-IJCAI2018" class="headerlink" title="InceptText from Alibaba, IJCAI2018"></a>InceptText from Alibaba, IJCAI2018</h2><h1 id="text-recognition"><a href="#text-recognition" class="headerlink" title="text recognition"></a>text recognition</h1><p>FAN<br>Edit Probability</p>
-<h1 id="OCR-end2end"><a href="#OCR-end2end" class="headerlink" title="OCR end2end"></a>OCR end2end</h1><p>an end to end textspotter with explicit aligment and attention, ICCV2018<br>Textbox++</p>
-<h1 id="OCR-综述"><a href="#OCR-综述" class="headerlink" title="OCR 综述"></a>OCR 综述</h1><p>Text Detection and Recognition in Imagery: A Survey</p>
-<h1 id="Character-Segmentation"><a href="#Character-Segmentation" class="headerlink" title="Character Segmentation"></a>Character Segmentation</h1><p>A Gradient Vector Flow-Based Method for Video Character Segmentation, ICDAR201z1</p>
-<h1 id="GAN-and-Draw"><a href="#GAN-and-Draw" class="headerlink" title="GAN and Draw"></a>GAN and Draw</h1><p>GAN<br>draw</p>
-<h1 id="General-CV"><a href="#General-CV" class="headerlink" title="General CV"></a>General CV</h1><h2 id="YOLO"><a href="#YOLO" class="headerlink" title="YOLO"></a>YOLO</h2><h2 id="SSD"><a href="#SSD" class="headerlink" title="SSD"></a>SSD</h2><h2 id="Faster-rcnn"><a href="#Faster-rcnn" class="headerlink" title="Faster rcnn"></a>Faster rcnn</h2><h2 id="mask-rcnn"><a href="#mask-rcnn" class="headerlink" title="mask rcnn"></a>mask rcnn</h2><h2 id="FCN"><a href="#FCN" class="headerlink" title="FCN"></a>FCN</h2><ul>
-<li>FCN里用到了三个技术，全卷积、上采样和跳层链接</li>
-<li>全卷积：一般的CNN最后会有全连接层，把二维的图像压缩成以为的向量，FCN把全连接换成了卷积，实际上计算上是等价的。</li>
-</ul>
-<p><img src="/images/26480255.jpg" alt="fcn"></p>
-<ul>
-<li>上采样：或者叫反卷积、转置卷积（Caffe和Kera里叫Deconvolution，tensorflow里叫conv_transpose）。</li>
-<li>跳层连接：将全卷积之后的结果直接上采样得到的结果是很粗糙的，所以用不同池化层的结果进行上采样之后来优化输出。</li>
-</ul>
-<p><img src="/images/48652183.jpg" alt="fcn2"></p>
-<ul>
-<li>原文感觉不好看，主要参考了<a href="https://blog.csdn.net/junparadox/article/details/52610744" target="_blank" rel="noopener">这里</a></li>
-</ul>
-<h2 id="deeplab"><a href="#deeplab" class="headerlink" title="deeplab"></a>deeplab</h2><ul>
-<li>deeplab可以看<a href="/2018/06/19/deeplab/" title="以前写的这篇">以前写的这篇</a></li>
-</ul>
-<h1 id="Visualization"><a href="#Visualization" class="headerlink" title="Visualization"></a>Visualization</h1><p>Understanding neural Networks Through Deep Visualization</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1944,7 +1886,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1955,7 +1897,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1966,7 +1908,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
