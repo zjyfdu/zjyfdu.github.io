@@ -14,7 +14,7 @@ categories: caffe
   - feature map的感受野的计算公式为$RF_{i}=(RF_{i+1}-1)*stride+kernel$
   - 所以在stride减小的情况下想办法增大kernel，即在kernel里面增加hole，kernel变大
 
-![deeplab](http://ot0uaqt93.bkt.clouddn.com/18-8-14/70081567.jpg)
+![deeplab](/images/70081567.jpg)
 
 ## Fully connected CRF
 
@@ -45,6 +45,6 @@ $$
 
 - v2在v1的基础上增加了多感受野
 
-![deeplabv2](http://ot0uaqt93.bkt.clouddn.com/18-8-14/4478311.jpg)
+![deeplabv2](/images/4478311.jpg)
 
 - 参考[这里](https://blog.csdn.net/ming0808sun/article/details/78843471)

@@ -35,4 +35,4 @@ http {
 ## 效果拔群
 百度统计的测试结果，从12s提高到6s
 
-![](http://ot0uaqt93.bkt.clouddn.com/18-1-9/94641900.jpg "-6s, excited!") 
+![](/images/94641900.jpg "-6s, excited!") 

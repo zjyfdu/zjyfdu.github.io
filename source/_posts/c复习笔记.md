@@ -23,7 +23,7 @@ freopen(“bar.txt”,”r”,stdin);
 ```
 
 - lambda表达式
-![](http://ot0uaqt93.bkt.clouddn.com/18-7-3/10535321.jpg "lambda!") 
+![](/images/10535321.jpg "lambda!") 
 
 - 使用lambda对vector进行排序
 ```cpp

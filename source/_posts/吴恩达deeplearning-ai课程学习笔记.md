@@ -14,23 +14,23 @@ categories: caffe
 
 ### 1. 神经网络前馈和后馈
 
-![](http://ot0uaqt93.bkt.clouddn.com/18-1-23/89948814.jpg "前馈")
-![](http://ot0uaqt93.bkt.clouddn.com/18-1-23/41005456.jpg "后馈")
+![](/images/89948814.jpg "前馈")
+![](/images/41005456.jpg "后馈")
 如果没有激活函数的话，多层的神经网络仍然是个线性的模型。
-![](http://ot0uaqt93.bkt.clouddn.com/18-1-23/73637538.jpg "激活函数")
+![](/images/73637538.jpg "激活函数")
 
 ### 2. 超参数、正则化、优化算法等
 
 L2正则化相当于是w权重减小， weight decay
-![](http://ot0uaqt93.bkt.clouddn.com/18-1-23/69146591.jpg)
+![](/images/69146591.jpg)
 后面等这些是用在mini-batch中的，当训练数据量太大，需要对训练数据分割为mini-batch。但这样会造成收敛方向波动，为了减小这种波动，引入Adam优化算法。
-![](http://ot0uaqt93.bkt.clouddn.com/18-1-23/27110293.jpg "指数加权平均")
-![](http://ot0uaqt93.bkt.clouddn.com/18-1-23/27110293.jpg)
-![](http://ot0uaqt93.bkt.clouddn.com/18-1-23/47657351.jpg)
-![](http://ot0uaqt93.bkt.clouddn.com/18-1-23/306118.jpg)
+![](/images/27110293.jpg "指数加权平均")
+![](/images/27110293.jpg)
+![](/images/47657351.jpg)
+![](/images/306118.jpg)
 batch norm
-![](http://ot0uaqt93.bkt.clouddn.com/18-1-23/49641113.jpg)
-![](http://ot0uaqt93.bkt.clouddn.com/18-1-23/54964765.jpg)
+![](/images/49641113.jpg)
+![](/images/54964765.jpg)
 
 ### 3. CNN
 
