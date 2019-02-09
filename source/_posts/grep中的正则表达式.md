@@ -27,6 +27,11 @@ date: 2018-11-20 19:36:53
 
 # sed
 - 默认是eres，-r表示要用eres，不支持pres
+- mac下到sed和linux还不太一样，写inplace替换要这样，其中，`-i`后面是
+
+```shell
+sed -i '' 's/http.*ot0uaqt93.bkt.*\//\/images\//g' `ls *.md`
+```
 
 # awk
 - 厉害了，只支持eres
