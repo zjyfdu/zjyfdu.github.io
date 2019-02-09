@@ -283,6 +283,348 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2019/02/09/卷积的实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="翟大翟">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/11989810.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力～奋斗～">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/09/卷积的实现/" itemprop="url">卷积的实现</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-09T10:11:57+08:00">
+                2019-02-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index">
+                    <span itemprop="name">cpp</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><a href="https://www.cnblogs.com/louyihang-loves-baiyan/p/5154337.html" target="_blank" rel="noopener">这里</a>应该说的比较清楚</li>
+<li>就贴个图吧<br><img src="/images/caffe_conv.jpg" alt=""></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2019/02/09/caffe运行顺序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="翟大翟">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/11989810.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力～奋斗～">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/09/caffe运行顺序/" itemprop="url">caffe运行顺序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-09T10:09:07+08:00">
+                2019-02-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index">
+                    <span itemprop="name">cpp</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/caffe/" itemprop="url" rel="index">
+                    <span itemprop="name">caffe</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="blob"><a href="#blob" class="headerlink" title="blob"></a>blob</h1><ul>
+<li><p>explict，显示构造函数，只对构造函数有用，用来抑制隐式转换</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">String</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">String</span> <span class="params">( <span class="keyword">int</span> n )</span></span>; <span class="comment">// 本意是预先分配n个字节给字符串，加上explicit，就抑制了String ( int n )的隐式转换，</span></span><br><span class="line">    String ( <span class="keyword">const</span> <span class="keyword">char</span>* p );  <span class="comment">// 用C风格的字符串p作为初始化值</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function">String <span class="title">s2</span> <span class="params">( <span class="number">10</span> )</span></span>;          <span class="comment">//OK 分配10个字节的空字符串</span></span><br><span class="line">String s3 = String ( <span class="number">10</span> ); <span class="comment">//OK 分配10个字节的空字符串</span></span><br><span class="line"> </span><br><span class="line">String s4 = <span class="number">10</span>;            <span class="comment">//编译不通过，不允许隐式的转换</span></span><br><span class="line">String s5 = <span class="string">'a'</span>;           <span class="comment">//编译不通过，不允许隐式的转换</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> &#123;</span></span><br><span class="line">    A(<span class="keyword">int</span> a);   </span><br><span class="line">&#125;;   </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Function</span><span class="params">(A a)</span></span>;   </span><br><span class="line"><span class="comment">// 当调用Function(2)的时候，2会隐式转换为A类型</span></span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> &#123;</span>   </span><br><span class="line">    <span class="function"><span class="keyword">explicit</span>   <span class="title">A</span><span class="params">(<span class="keyword">int</span>   a)</span></span>;   </span><br><span class="line">&#125;;   </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Function</span><span class="params">(A a)</span></span>;  </span><br><span class="line"><span class="comment">// 这样，当调用Function(2)的时候，编译器会给出错误信息</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>template</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// suppose I've declared</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(T&amp; t)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;&gt; <span class="keyword">void</span> foo&lt;<span class="keyword">int</span>&gt;(<span class="keyword">int</span>&amp; t); </span><br><span class="line"><span class="comment">// declares a specialization of the template, with potentially different body.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> <span class="keyword">void</span> foo&lt;<span class="keyword">int</span>&gt;(<span class="keyword">int</span>&amp; t); </span><br><span class="line"><span class="comment">// causes an explicit instantiation of the template, but doesn't introduce a specialization. </span></span><br><span class="line"><span class="comment">// It just forces the instantiation of the template for a specific type.</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>iniline主要是将代码进行复制，扩充，会使代码总量上升，好处就是可以节省调用的开销，能提高执行效率</p>
+</li>
+<li><p>shared_ptr引用计数智能指，可以参考<a href="https://blog.csdn.net/Xiejingfa/article/details/50750037" target="_blank" rel="noopener">这里</a></p>
+</li>
+</ul>
+<h1 id="caffe-cpp"><a href="#caffe-cpp" class="headerlink" title="caffe.cpp"></a>caffe.cpp</h1><ul>
+<li><p>step1: 命令行下输入./build/tools/caffe train -solver xxx.prototxt 运行了程序的入口caffe.cpp main()</p>
+</li>
+<li><p>step2: caffe.cpp main()根据命令行输入的参数train 调用caffe.cpp train()</p>
+</li>
+<li><p>step3: caffe.cpp train()读取xxx.prototxt的参数 调用solver.cpp Solver()的构造函数创建Solver对象</p>
+</li>
+<li><p>step4: 创建Solver对象的时候需要调用solver.cpp Init()函数来初始化模型的网络</p>
+</li>
+<li><p>step5: solver.cpp Init()函数调用solver.cpp InitTrainNet()和InitTestNets()函数来分别初始化训练和测试网络。</p>
+</li>
+<li><p>step6: InitTrainNet() 通过xxx.prototxt 指定的xxxnet.prototxt读取net的参数，调用net.cpp Net()的构造函数，创建训练网络，</p>
+</li>
+<li><p>step7: net.cpp Net()调用net.cpp Init()函数，通过for循环来1)创建网络中每一个Layer对象，2)设置bottom和top，3）调用layer.cpp Setup()，Setup()里会调用具体layer的LayerSetUp()和Reshape()</p>
+</li>
+<li><p>step8: 调用InitTestNets()创建测试网络，与InitTrainNet(）类似</p>
+</li>
+<li><p>step9: 运行返回到caffe.cpp train()中，利用创建好的solver对象调用solver.cpp Solve()函数</p>
+</li>
+<li><p>step10: solver.cpp Solve() 调用 solver.cpp Step()函数，while循环迭代的次数，每次迭代 1）调用net.cpp ForwardBackward()来前向以及后向传播 2)solve.cpp ApplyUpdate()更新参数 3）每一定轮次运行solver.cpp TestAll()</p>
+</li>
+<li><p>以上抄自<a href="https://blog.csdn.net/BVL10101111/article/details/74787586" target="_blank" rel="noopener">这里</a></p>
+</li>
+</ul>
+<h1 id="layer-factory"><a href="#layer-factory" class="headerlink" title="layer_factory"></a>layer_factory</h1><ul>
+<li>#表示：对应变量字符串化  </li>
+<li>##表示：把宏参数名与宏定义代码序列中的标识符连接在一起，形成一个新的标识符</li>
+<li>连接符#@：它将单字符标记符变换为单字符，即加单引号。例如<code>#define B(x) #@x</code>，则B(a)即’a’，B(1)即’1’</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> trace(x, format) printf(#x <span class="meta-string">" = %"</span> #format <span class="meta-string">"\n"</span>, x)  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> trace2(i) trace(x##i, d) </span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">char</span> *s = <span class="string">"three"</span>;  </span><br><span class="line">	<span class="keyword">float</span> x = <span class="number">2.0</span>;</span><br><span class="line"> </span><br><span class="line">	trace(i, d);    <span class="comment">// i = 1   </span></span><br><span class="line">	trace(x, f);    <span class="comment">// x = 2.000000</span></span><br><span class="line">	trace(s, s);    <span class="comment">// s = three      </span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> x1 = <span class="number">1</span>, x2 = <span class="number">2</span>;  </span><br><span class="line">	trace2(<span class="number">1</span>);      <span class="comment">// x1 = 1</span></span><br><span class="line">	trace2(<span class="number">2</span>);      <span class="comment">// x2 = 2		</span></span><br><span class="line"> </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>看<a href="https://www.jianshu.com/p/191f6cb3c102" target="_blank" rel="noopener">这里</a>吧，我太懒了。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2019/01/27/GAN总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -982,15 +1324,8 @@
 <li><p>bres需要多写转义</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\&#123;n,m\&#125;, x\|y #bres需要写转义，</span><br><span class="line">&#123;n,m&#125;, x|y    #而eres和pres不需要</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>pres可以用<code>\d, \D, \S, \s</code>，其它两种不可以。</p>
+<li><p>pres可以用<figure class="highlight plain"><figcaption><span>\D, \S, \s```，其它两种不可以。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># grep</span><br><span class="line">- 默认的正则为基础正则，&quot;-E&quot;表示eres，&quot;-P&quot;表示pers.</span><br><span class="line">- egrep等效于grep -E，egrep -P等效于 grep -P</span><br><span class="line"></span><br><span class="line"># sed</span><br><span class="line">- 默认是eres，-r表示要用eres，不支持pres</span><br><span class="line">- mac下到sed和linux还不太一样，写inplace替换要这样，其中，`-i`后面是</span><br><span class="line"></span><br><span class="line">```shell</span><br><span class="line">sed -i &apos;&apos; &apos;s/http.*ot0uaqt93.bkt.*\//\/images\//g&apos; `ls *.md`</span><br></pre></td></tr></table></figure></p>
 </li>
-</ul>
-<h1 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h1><ul>
-<li>默认的正则为基础正则，”-E”表示eres，”-P”表示pers.</li>
-<li>egrep等效于grep -E，egrep -P等效于 grep -P</li>
-</ul>
-<h1 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h1><ul>
-<li>默认是eres，-r表示要用eres，不支持pres</li>
 </ul>
 <h1 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h1><ul>
 <li>厉害了，只支持eres</li>
@@ -1512,326 +1847,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/08/08/记录一个vscode的bug/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="翟大翟">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/11989810.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力～奋斗～">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/08/记录一个vscode的bug/" itemprop="url">记录一个vscode的bug</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-08T00:53:58+08:00">
-                2018-08-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="啰嗦一下"><a href="#啰嗦一下" class="headerlink" title="啰嗦一下"></a>啰嗦一下</h1><ul>
-<li>在mac下，使用vscode，使用汉字输入法，删除完后，会多一个退格符！而且这个退格符默认是不可见的！</li>
-<li>过年在家写论文的时候，就发现xetex模型奇妙不能编译，说是多了字符，苦于不知道这个字符是啥，也不知道怎么描述这个现象，一直没有找到原因。</li>
-<li>就在今天，我配置博客的搜索的时候，又被这个bug给搞了，看别人的解释说是生成的检索文件里，多了BS(unicode)这个字符，终于顺着这个BS，我找到了困扰我半年的bug。</li>
-<li>十分激动，以至于我一改性冷淡的文风，在大半夜里啰嗦这么多。</li>
-</ul>
-<h1 id="vscode并不打算修"><a href="#vscode并不打算修" class="headerlink" title="vscode并不打算修"></a>vscode并不打算修</h1><ul>
-<li>参考了<a href="https://juejin.im/entry/5a806ddef265da4e84092eeb" target="_blank" rel="noopener">这里</a>的说明。<blockquote>
-<p>vscode底层使用了electron，这是electron的bug，electron不解决这个问题，vscode就不会解决。<br>electron底层使用了chromium， 这是chromium的bug，chromium不解决，elctron就无法解决。</p>
-</blockquote>
-</li>
-<li>非常稳，于是<a href="https://github.com/Microsoft/vscode/issues/37114" target="_blank" rel="noopener">这个bug还是open的</a>。</li>
-</ul>
-<h1 id="补救措施"><a href="#补救措施" class="headerlink" title="补救措施"></a>补救措施</h1><ul>
-<li>首先让这个字符显示出来</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"editor.renderControlCharacters": true</span><br></pre></td></tr></table></figure>
-<ul>
-<li>使用插件 Remove backspace control character，并如下配置，这样在保存文件的时候，会自动帮你删除这些控制符</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“editor.formatOnSave”: true</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/08/03/python-里的字符串编码问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="翟大翟">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/11989810.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力～奋斗～">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/03/python-里的字符串编码问题/" itemprop="url">python 里的字符串编码问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-03T14:29:40+08:00">
-                2018-08-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="丑陋的编码"><a href="#丑陋的编码" class="headerlink" title="丑陋的编码"></a>丑陋的编码</h3><p>python中有很多地方涉及到编码，简直丑陋</p>
-<ul>
-<li>文本编辑器可以选编码格式，一般都位于右下角</li>
-<li>python文件开头有<code>#coding: utf-8</code></li>
-<li><p>python还有默认encoding</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(<span class="string">'utf-8'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>字符串前有u和b</p>
-</li>
-</ul>
-<h3 id="一些编码知识"><a href="#一些编码知识" class="headerlink" title="一些编码知识"></a><a href="https://blog.ernest.me/post/python-setdefaultencoding-unicode-bytes" target="_blank" rel="noopener">一些编码知识</a></h3><ul>
-<li>unicode是个大集合，支持百万级别的字符，但unicode只是给每个字符进行了一个编码，没有给具体实现</li>
-<li>utf-8是unicode的一种实现形式，除此之外还有utf-16等等</li>
-<li>gb系列的编码和unicode没啥关系，GB2312 &lt; GBK &lt; GB18030</li>
-<li>windows中文版系统的默认编码是gbk的</li>
-</ul>
-<h3 id="一些python的知识"><a href="#一些python的知识" class="headerlink" title="一些python的知识"></a>一些python的知识</h3><ul>
-<li>python里有三种string类，unicode（text string）、str（byte string）、basestring。basestring是前两个的父类</li>
-<li>python里，字节串就等同于字符串</li>
-<li>在类型转换或和文本拼接时，需要确定字节串的编码，不然就不能转换。python2的年代，默认的encoding是ASCII，放现在当然是不够用的</li>
-<li>python3终于把默认的编码变成unicode</li>
-<li>str转换成unicode，在python里叫decode，unicode转换成str称之为encode</li>
-<li>打印unicode是不会出错的，这就是python3的厉害，打印str的话，就要看打印编码式和你显示的编码是否一致了</li>
-</ul>
-<h3 id="这些编码的区别"><a href="#这些编码的区别" class="headerlink" title="这些编码的区别"></a>这些编码的区别</h3><ul>
-<li>文本编码格式：只和你的编辑器有关，负责把你的python文件按这种格式保存</li>
-<li>python文件开头的coding：告诉python解释器，文件是按什么格式保存的，所以要与你实际文件的保存格式一致。如果不写的话，python文件里只能有ASCII</li>
-<li>默认的encoding格式就是你要告诉系统，字节码以哪种格式转换成unicode</li>
-<li>u是指后面引号里的内容是unocide，b是指引号里面的内容是str，所以python3里写u是没用的，python2里写b是没用的</li>
-</ul>
-<h3 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h3><ul>
-<li>换python3</li>
-<li><a href="https://blog.ernest.me/post/python-setdefaultencoding-unicode-bytes" target="_blank" rel="noopener">如果换不了python3</a><ul>
-<li>所有 text string 都应该是 unicode 类型，而不是 str</li>
-<li>在需要转换的时候，显式转换。从字节解码成文本，用 var.decode(encoding)，从文本编码成字节，用 var.encode(encoding)</li>
-<li>从外部读取数据时，默认它是字节，然后 decode 成需要的文本；同样的，当需要向外部发送文本时，encode 成字节再发送。</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1886,7 +1901,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1897,7 +1912,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1908,7 +1923,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
