@@ -11,7 +11,6 @@ date: 2019-02-09 10:09:07
 
 # blob
 - explict，显示构造函数，只对构造函数有用，用来抑制隐式转换
-
 ```cpp
 class String {
     explicit String ( int n ); // 本意是预先分配n个字节给字符串，加上explicit，就抑制了String ( int n )的隐式转换，
@@ -79,10 +78,9 @@ template void foo<int>(int& t);
 
 # layer_factory
 
-- #表示：对应变量字符串化  
-- ##表示：把宏参数名与宏定义代码序列中的标识符连接在一起，形成一个新的标识符
+- \#表示：对应变量字符串化  
+- \#\#表示：把宏参数名与宏定义代码序列中的标识符连接在一起，形成一个新的标识符
 - 连接符#@：它将单字符标记符变换为单字符，即加单引号。例如`#define B(x) #@x`，则B(a)即'a'，B(1)即'1'
-
 ```c++
 #include <cstdio>  
 #define trace(x, format) printf(#x " = %" #format "\n", x)  
@@ -99,8 +97,8 @@ int main(int argc, char* argv[])
 	trace(s, s);    // s = three      
 
 	int x1 = 1, x2 = 2;  
-	trace2(1);	    // x1 = 1
-	trace2(2);		// x2 = 2		
+	trace2(1);      // x1 = 1
+	trace2(2);      // x2 = 2		
  
 	return 0;
 }

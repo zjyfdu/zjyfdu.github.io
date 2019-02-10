@@ -1,8 +1,33 @@
 ---
 title: GAN总结
-tags:
-  - caffe
-  - docker
-categories: cpp
+tags: GAN
+categories: GAN
 date: 2019-01-27 18:32:57
 ---
+
+# GAN原理
+
+- GAN的终极目的，其实是用$P_G(x)$拟合真实的$P_{data}(x)$，最直接的想法是用MLE来做，MLE实际上和最小化KL距离是等同的，证明见下张图
+
+![](/images/mle_equals_kl.jpg)
+
+- 机器之心的[这篇](https://www.jiqizhixin.com/articles/2017-10-1-1)，基本就是照着李宏毅对课件写的，可以主要看一下为什么说判别器可以衡量两个分布指尖的JS散度
+
+- GAN的过程
+
+![](/images/origin_gan.jpg)
+
+- Goodfellow说上面这种形式的判别器不好收敛，就搞成了下面这种，据李宏毅说，这个修改没啥乱用，只是Goodfellow偷懒而已
+
+![](/images/origin_gan2.jpg)
+
+# conditional GAN
+
+- 除了图片是否真实外，判别器还要区分生成的图片类别对不对
+
+![](/images/cgan.jpg)
+
+- 这种结构的判别器会好一点
+
+![](/images/cgan_d.jpg)
+
