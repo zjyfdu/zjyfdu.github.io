@@ -571,11 +571,11 @@
 <h1 id="layer-factory"><a href="#layer-factory" class="headerlink" title="layer_factory"></a>layer_factory</h1><ul>
 <li>#表示：对应变量字符串化  </li>
 <li>##表示：把宏参数名与宏定义代码序列中的标识符连接在一起，形成一个新的标识符</li>
-<li>连接符#@：它将单字符标记符变换为单字符，即加单引号。例如<code>#define B(x) #@x</code>，则B(a)即’a’，B(1)即’1’</li>
-</ul>
+<li><p>连接符#@：它将单字符标记符变换为单字符，即加单引号。例如<code>#define B(x) #@x</code>，则B(a)即’a’，B(1)即’1’</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> trace(x, format) printf(#x <span class="meta-string">" = %"</span> #format <span class="meta-string">"\n"</span>, x)  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> trace2(i) trace(x##i, d) </span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">char</span> *s = <span class="string">"three"</span>;  </span><br><span class="line">	<span class="keyword">float</span> x = <span class="number">2.0</span>;</span><br><span class="line"> </span><br><span class="line">	trace(i, d);    <span class="comment">// i = 1   </span></span><br><span class="line">	trace(x, f);    <span class="comment">// x = 2.000000</span></span><br><span class="line">	trace(s, s);    <span class="comment">// s = three      </span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> x1 = <span class="number">1</span>, x2 = <span class="number">2</span>;  </span><br><span class="line">	trace2(<span class="number">1</span>);      <span class="comment">// x1 = 1</span></span><br><span class="line">	trace2(<span class="number">2</span>);      <span class="comment">// x2 = 2		</span></span><br><span class="line"> </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>看<a href="https://www.jianshu.com/p/191f6cb3c102" target="_blank" rel="noopener">这里</a>吧，我太懒了。</li>
+</li>
+<li><p>看<a href="https://www.jianshu.com/p/191f6cb3c102" target="_blank" rel="noopener">这里</a>吧，我太懒了。</p>
+</li>
 </ul>
 
           
@@ -679,8 +679,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/cpp/" itemprop="url" rel="index">
-                    <span itemprop="name">cpp</span>
+                  <a href="/categories/GAN/" itemprop="url" rel="index">
+                    <span itemprop="name">GAN</span>
                   </a>
                 </span>
 
@@ -718,7 +718,30 @@
       
         
           
-            
+            <h1 id="GAN原理"><a href="#GAN原理" class="headerlink" title="GAN原理"></a>GAN原理</h1><ul>
+<li>GAN的终极目的，其实是用$P_G(x)$拟合真实的$P_{data}(x)$，最直接的想法是用MLE来做，MLE实际上和最小化KL距离是等同的，证明见下张图</li>
+</ul>
+<p><img src="/images/mle_equals_kl.jpg" alt=""></p>
+<ul>
+<li><p>机器之心的<a href="https://www.jiqizhixin.com/articles/2017-10-1-1" target="_blank" rel="noopener">这篇</a>，基本就是照着李宏毅对课件写的，可以主要看一下为什么说判别器可以衡量两个分布指尖的JS散度</p>
+</li>
+<li><p>GAN的过程</p>
+</li>
+</ul>
+<p><img src="/images/origin_gan.jpg" alt=""></p>
+<ul>
+<li>Goodfellow说上面这种形式的判别器不好收敛，就搞成了下面这种，据李宏毅说，这个修改没啥乱用，只是Goodfellow偷懒而已</li>
+</ul>
+<p><img src="/images/origin_gan2.jpg" alt=""></p>
+<h1 id="conditional-GAN"><a href="#conditional-GAN" class="headerlink" title="conditional GAN"></a>conditional GAN</h1><ul>
+<li>除了图片是否真实外，判别器还要区分生成的图片类别对不对</li>
+</ul>
+<p><img src="/images/cgan.jpg" alt=""></p>
+<ul>
+<li>这种结构的判别器会好一点</li>
+</ul>
+<p><img src="/images/cgan_d.jpg" alt=""></p>
+
           
         
       
@@ -1729,7 +1752,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/16/python把bmp转换成jpg/" itemprop="url">python把bmp转换成jpg</a></h1>
+                <a class="post-title-link" href="/2018/08/16/python把bmp转换成jpg/" itemprop="url">python把bmp和png转换成jpg</a></h1>
         
 
         <div class="post-meta">
@@ -1805,9 +1828,9 @@
           
             <ul>
 <li>反正已经加到这么晚了，索性再水一篇博客再走</li>
-<li>如何把bmp批量转换成jpg</li>
+<li>如何把bmp和png批量转换成jpg</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(<span class="string">"."</span>):</span><br><span class="line">    <span class="keyword">for</span> bmpfig <span class="keyword">in</span> files:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> bmpfig.endswith(<span class="string">'.bmp'</span>):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        bmpfig = os.path.join(root, bmpfig)</span><br><span class="line">        newfigname = bmpfig[:<span class="number">-4</span>] + <span class="string">".jpg"</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"converting from"</span>, bmpfig, <span class="string">"to"</span>, newfigname</span><br><span class="line">        img = Image.open(bmpfig)</span><br><span class="line">        img.save(newfigname, format=<span class="string">'jpeg'</span>, quality=<span class="number">95</span>)</span><br><span class="line">        img.close()</span><br><span class="line">        os.remove(bmpfig)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(<span class="string">"."</span>):</span><br><span class="line">    <span class="keyword">for</span> bmpfig <span class="keyword">in</span> files:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> bmpfig.endswith(<span class="string">'.bmp'</span>) <span class="keyword">and</span> <span class="keyword">not</span> bmpfig.endswith(<span class="string">'.png'</span>):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        bmpfig = os.path.join(root, bmpfig)</span><br><span class="line">        newfigname = bmpfig[:<span class="number">-4</span>] + <span class="string">".jpg"</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"converting from"</span>, bmpfig, <span class="string">"to"</span>, newfigname</span><br><span class="line">        img = Image.open(bmpfig)</span><br><span class="line">        img = img.convert(<span class="string">'RGB'</span>)  // <span class="keyword">for</span> png</span><br><span class="line">        img.save(newfigname, format=<span class="string">'jpeg'</span>, quality=<span class="number">95</span>)</span><br><span class="line">        img.close()</span><br><span class="line">        os.remove(bmpfig)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>这段代码贴在某个文件夹下，运行之后会递归地把所有bmp转换成jpg</li>
 <li>其中，quality是生成jpg的质量，quality越大，jpg文件越大，图片细节越清晰，取值0-100</li>
@@ -1912,7 +1935,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1923,7 +1946,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

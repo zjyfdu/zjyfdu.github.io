@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="反正已经加到这么晚了，索性再水一篇博客再走 如何把bmp批量转换成jpg  1234567891011121314import osfrom PIL import Imagefor root, dirs, files in os.walk(&quot;.&quot;):    for bmpfig in files:        if not bmpfig.endswith(&apos;.bmp&apos;):">
+<meta name="description" content="反正已经加到这么晚了，索性再水一篇博客再走 如何把bmp和png批量转换成jpg  123456789101112131415import osfrom PIL import Imagefor root, dirs, files in os.walk(&quot;.&quot;):    for bmpfig in files:        if not bmpfig.endswith(&apos;.bmp&apos;) and n">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python把bmp转换成jpg">
+<meta property="og:title" content="python把bmp和png转换成jpg">
 <meta property="og:url" content="https://zjyfdu.coding.me/2018/08/16/python把bmp转换成jpg/index.html">
 <meta property="og:site_name" content="努力～奋斗～">
-<meta property="og:description" content="反正已经加到这么晚了，索性再水一篇博客再走 如何把bmp批量转换成jpg  1234567891011121314import osfrom PIL import Imagefor root, dirs, files in os.walk(&quot;.&quot;):    for bmpfig in files:        if not bmpfig.endswith(&apos;.bmp&apos;):">
+<meta property="og:description" content="反正已经加到这么晚了，索性再水一篇博客再走 如何把bmp和png批量转换成jpg  123456789101112131415import osfrom PIL import Imagefor root, dirs, files in os.walk(&quot;.&quot;):    for bmpfig in files:        if not bmpfig.endswith(&apos;.bmp&apos;) and n">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:updated_time" content="2019-01-27T11:45:55.088Z">
+<meta property="og:updated_time" content="2019-02-10T09:49:25.660Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python把bmp转换成jpg">
-<meta name="twitter:description" content="反正已经加到这么晚了，索性再水一篇博客再走 如何把bmp批量转换成jpg  1234567891011121314import osfrom PIL import Imagefor root, dirs, files in os.walk(&quot;.&quot;):    for bmpfig in files:        if not bmpfig.endswith(&apos;.bmp&apos;):">
+<meta name="twitter:title" content="python把bmp和png转换成jpg">
+<meta name="twitter:description" content="反正已经加到这么晚了，索性再水一篇博客再走 如何把bmp和png批量转换成jpg  123456789101112131415import osfrom PIL import Imagefor root, dirs, files in os.walk(&quot;.&quot;):    for bmpfig in files:        if not bmpfig.endswith(&apos;.bmp&apos;) and n">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>python把bmp转换成jpg | 努力～奋斗～</title>
+  <title>python把bmp和png转换成jpg | 努力～奋斗～</title>
   
 
 
@@ -304,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python把bmp转换成jpg</h1>
+          <h1 class="post-title" itemprop="name headline">python把bmp和png转换成jpg</h1>
         
 
         <div class="post-meta">
@@ -378,9 +378,9 @@
       
         <ul>
 <li>反正已经加到这么晚了，索性再水一篇博客再走</li>
-<li>如何把bmp批量转换成jpg</li>
+<li>如何把bmp和png批量转换成jpg</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(<span class="string">"."</span>):</span><br><span class="line">    <span class="keyword">for</span> bmpfig <span class="keyword">in</span> files:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> bmpfig.endswith(<span class="string">'.bmp'</span>):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        bmpfig = os.path.join(root, bmpfig)</span><br><span class="line">        newfigname = bmpfig[:<span class="number">-4</span>] + <span class="string">".jpg"</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"converting from"</span>, bmpfig, <span class="string">"to"</span>, newfigname</span><br><span class="line">        img = Image.open(bmpfig)</span><br><span class="line">        img.save(newfigname, format=<span class="string">'jpeg'</span>, quality=<span class="number">95</span>)</span><br><span class="line">        img.close()</span><br><span class="line">        os.remove(bmpfig)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(<span class="string">"."</span>):</span><br><span class="line">    <span class="keyword">for</span> bmpfig <span class="keyword">in</span> files:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> bmpfig.endswith(<span class="string">'.bmp'</span>) <span class="keyword">and</span> <span class="keyword">not</span> bmpfig.endswith(<span class="string">'.png'</span>):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        bmpfig = os.path.join(root, bmpfig)</span><br><span class="line">        newfigname = bmpfig[:<span class="number">-4</span>] + <span class="string">".jpg"</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"converting from"</span>, bmpfig, <span class="string">"to"</span>, newfigname</span><br><span class="line">        img = Image.open(bmpfig)</span><br><span class="line">        img = img.convert(<span class="string">'RGB'</span>)  // <span class="keyword">for</span> png</span><br><span class="line">        img.save(newfigname, format=<span class="string">'jpeg'</span>, quality=<span class="number">95</span>)</span><br><span class="line">        img.close()</span><br><span class="line">        os.remove(bmpfig)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>这段代码贴在某个文件夹下，运行之后会递归地把所有bmp转换成jpg</li>
 <li>其中，quality是生成jpg的质量，quality越大，jpg文件越大，图片细节越清晰，取值0-100</li>
@@ -517,7 +517,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -528,7 +528,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
