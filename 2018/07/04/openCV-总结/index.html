@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="腐蚀与膨胀(Eroding and Dilating)  此操作将图像 A 与任意形状的内核 (B)，通常为正方形或圆形,进行卷积。内核 B 有一个可定义的 锚点, 通常定义为内核中心点。进行膨胀操作时，将内核 B 划过图像,将内核 B 覆盖区域的最大相素值提取，并代替锚点位置的相素。显然，这一最大化操作将会导致图像中的亮区开始”扩展” (因此有了术语膨胀 dilation )。   霍夫线变换">
+<meta name="description" content="一些图像操作 腐蚀与膨胀(Eroding and Dilating) 膨胀腐蚀都是针对亮色区域说的，膨胀是取最大值，腐蚀是最小值，实现的话，最直接的方法是四个for循环     此操作将图像 A 与任意形状的内核 (B)，通常为正方形或圆形,进行卷积。内核 B 有一个可定义的 锚点, 通常定义为内核中心点。进行膨胀操作时，将内核 B 划过图像,将内核 B 覆盖区域的最大相素值提取，并代替锚点位置的">
 <meta name="keywords" content="openCV">
 <meta property="og:type" content="article">
 <meta property="og:title" content="openCV 总结">
 <meta property="og:url" content="https://zjyfdu.coding.me/2018/07/04/openCV-总结/index.html">
 <meta property="og:site_name" content="努力～奋斗～">
-<meta property="og:description" content="腐蚀与膨胀(Eroding and Dilating)  此操作将图像 A 与任意形状的内核 (B)，通常为正方形或圆形,进行卷积。内核 B 有一个可定义的 锚点, 通常定义为内核中心点。进行膨胀操作时，将内核 B 划过图像,将内核 B 覆盖区域的最大相素值提取，并代替锚点位置的相素。显然，这一最大化操作将会导致图像中的亮区开始”扩展” (因此有了术语膨胀 dilation )。   霍夫线变换">
+<meta property="og:description" content="一些图像操作 腐蚀与膨胀(Eroding and Dilating) 膨胀腐蚀都是针对亮色区域说的，膨胀是取最大值，腐蚀是最小值，实现的话，最直接的方法是四个for循环     此操作将图像 A 与任意形状的内核 (B)，通常为正方形或圆形,进行卷积。内核 B 有一个可定义的 锚点, 通常定义为内核中心点。进行膨胀操作时，将内核 B 划过图像,将内核 B 覆盖区域的最大相素值提取，并代替锚点位置的">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:updated_time" content="2019-01-27T11:45:55.086Z">
+<meta property="og:updated_time" content="2019-03-03T09:29:55.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="openCV 总结">
-<meta name="twitter:description" content="腐蚀与膨胀(Eroding and Dilating)  此操作将图像 A 与任意形状的内核 (B)，通常为正方形或圆形,进行卷积。内核 B 有一个可定义的 锚点, 通常定义为内核中心点。进行膨胀操作时，将内核 B 划过图像,将内核 B 覆盖区域的最大相素值提取，并代替锚点位置的相素。显然，这一最大化操作将会导致图像中的亮区开始”扩展” (因此有了术语膨胀 dilation )。   霍夫线变换">
+<meta name="twitter:description" content="一些图像操作 腐蚀与膨胀(Eroding and Dilating) 膨胀腐蚀都是针对亮色区域说的，膨胀是取最大值，腐蚀是最小值，实现的话，最直接的方法是四个for循环     此操作将图像 A 与任意形状的内核 (B)，通常为正方形或圆形,进行卷积。内核 B 有一个可定义的 锚点, 通常定义为内核中心点。进行膨胀操作时，将内核 B 划过图像,将内核 B 覆盖区域的最大相素值提取，并代替锚点位置的">
 
 
 
@@ -376,18 +376,29 @@
       
 
       
-        <ul>
-<li><p><a href="http://www.opencv.org.cn/opencvdoc/2.3.2/html/doc/tutorials/imgproc/erosion_dilatation/erosion_dilatation.html" target="_blank" rel="noopener">腐蚀与膨胀(Eroding and Dilating)</a></p>
+        <h1 id="一些图像操作"><a href="#一些图像操作" class="headerlink" title="一些图像操作"></a>一些图像操作</h1><ul>
+<li><a href="http://www.opencv.org.cn/opencvdoc/2.3.2/html/doc/tutorials/imgproc/erosion_dilatation/erosion_dilatation.html" target="_blank" rel="noopener">腐蚀与膨胀(Eroding and Dilating)</a><blockquote>
+<p>膨胀腐蚀都是针对亮色区域说的，膨胀是取最大值，腐蚀是最小值，实现的话，最直接的方法是四个for循环</p>
+</blockquote>
+</li>
+</ul>
 <blockquote>
 <p>此操作将图像 A 与任意形状的内核 (B)，通常为正方形或圆形,进行卷积。内核 B 有一个可定义的 锚点, 通常定义为内核中心点。进行膨胀操作时，将内核 B 划过图像,将内核 B 覆盖区域的最大相素值提取，并代替锚点位置的相素。显然，这一最大化操作将会导致图像中的亮区开始”扩展” (因此有了术语膨胀 dilation )。</p>
 </blockquote>
-</li>
-<li><p><a href="https://www.cnblogs.com/skyfsm/p/6902524.html" target="_blank" rel="noopener">霍夫线变换</a></p>
-</li>
-<li><p>IplImage是OpenCV中C语言的图像类型;cv::Mat是OpenCV中C++语言的图像类型。<a href="https://blog.csdn.net/caroline_wendy/article/details/16940895" target="_blank" rel="noopener">这里</a></p>
-</li>
+<ul>
+<li><a href="https://www.cnblogs.com/skyfsm/p/6902524.html" target="_blank" rel="noopener">霍夫线变换</a></li>
+</ul>
+<h1 id="C的接口"><a href="#C的接口" class="headerlink" title="C的接口"></a>C的接口</h1><ul>
+<li>字体的说明参考<a href="https://blog.csdn.net/longzaitianya1989/article/details/8121286" target="_blank" rel="noopener">这里</a></li>
 <li>cvReleaseImage，只是将IplImage*型的变量值赋为NULL，而这个变量本身还是存在的并且在内存中的存储位置不变</li>
-<li><a href="https://blog.csdn.net/jdk_yxs/article/details/64921975" target="_blank" rel="noopener">c和c++的opencv区别</a></li>
+<li><code>iplimg-&gt;imageSize == iplimg-&gt;height * iplimg-&gt;widthStep</code>，而不是f<code>rame-&gt;height * frame-&gt;width</code></li>
+<li><code>iplimg-&gt;imageData</code>是对齐的内存，<a href="https://docs.opencv.org/3.4/d6/d5b/structIplImage.html" target="_blank" rel="noopener">官方文档</a>说<code>iplimg-&gt;imageDataOrigin</code>是没有对齐的内存，还没有验证过</li>
+<li>默认的存储方式是BGR，不是RGB</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读图</span></span><br><span class="line">IplImage* iplimg = cvLoadImage(<span class="string">"heels.jpg"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把cv::mat改为c的图</span></span><br><span class="line">*iplimg = IplImage(matimg);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建新图，最后一个参数是channel数</span></span><br><span class="line">IplImage* iplimg=cvCreateImage(cvSize(<span class="number">360</span>, <span class="number">640</span>), IPL_DEPTH_8U, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示图</span></span><br><span class="line">cvNamedWindow(<span class="string">"img"</span>, <span class="number">0</span>);  </span><br><span class="line">cvShowImage(<span class="string">"img"</span>, iplimg);  </span><br><span class="line">cvWaitKey(<span class="number">0</span>);  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印字</span></span><br><span class="line">CvFont font;</span><br><span class="line">cvInitFont(&amp;font, CV_FONT_HERSHEY_COMPLEX, <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">8</span>);  </span><br><span class="line">cvPutText(iplimg, <span class="string">"This is a picture named lena!"</span>, cvPoint(<span class="number">50</span>, <span class="number">50</span>), &amp;font, CV_RGB(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存图</span></span><br><span class="line">cvSaveImage(<span class="string">"c:\\test1.jpg"</span>, iplimg);</span><br></pre></td></tr></table></figure>
+<h1 id="C-的接口"><a href="#C-的接口" class="headerlink" title="C++的接口"></a>C++的接口</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读图</span></span><br><span class="line">cv::Mat matimg = cv::imread (<span class="string">"heels.jpg"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把IplImage改为c++接口</span></span><br><span class="line">matimg = cv::Mat(iplimg);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建新图，CV_8UC3是三通道，CV_8UC1是单通道</span></span><br><span class="line">cv::Mat matimg(2, 2, CV_8UC3, Scalar(0,255,0));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示图</span></span><br><span class="line">cv::imshow(<span class="string">"img"</span>, matimg);</span><br><span class="line">cv::waitKey(<span class="number">-1</span>);  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印字</span></span><br><span class="line"><span class="comment">// void putText(Mat&amp; img, const string&amp; text, Point org, int fontFace, double fontScale, Scalar color, int thickness=1, int lineType=8, bool bottomLeftOrigin=false )</span></span><br><span class="line">cv::putText(image, <span class="string">"opencv"</span>, Point(<span class="number">5</span>,<span class="number">100</span>), FONT_HERSHEY_DUPLEX, <span class="number">1</span>, Scalar(<span class="number">0</span>,<span class="number">143</span>,<span class="number">143</span>), <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存图</span></span><br><span class="line">cv::imwrite(<span class="string">"c:\\test1.jpg"</span>, matimg);</span><br></pre></td></tr></table></figure>
+<h1 id="头文件分析"><a href="#头文件分析" class="headerlink" title="头文件分析"></a>头文件分析</h1><ul>
+<li>以后做吧</li>
 </ul>
 
       
@@ -490,8 +501,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -571,6 +591,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一些图像操作"><span class="nav-number">1.</span> <span class="nav-text">一些图像操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C的接口"><span class="nav-number">2.</span> <span class="nav-text">C的接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-的接口"><span class="nav-number">3.</span> <span class="nav-text">C++的接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#头文件分析"><span class="nav-number">4.</span> <span class="nav-text">头文件分析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

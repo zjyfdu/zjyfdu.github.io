@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="努力～奋斗～">
 <meta property="og:description" content="评论gitment gitment是挂在github的issue上，从github给的api上提交和拉取评论，然后界面（应该）是作者自己做的。 当然好处是只能github账号登陆，坏处的话，issue会很乱吧。。。 具体操作：可以看这里，就是先注册个application，然后把id、secret什么的填到next的config里就好。 坑：Error：validation failed。原因是作">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:updated_time" content="2019-01-27T11:45:55.106Z">
+<meta property="og:updated_time" content="2019-03-03T09:32:39.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="配置评论、搜索和代码">
 <meta name="twitter:description" content="评论gitment gitment是挂在github的issue上，从github给的api上提交和拉取评论，然后界面（应该）是作者自己做的。 当然好处是只能github账号登陆，坏处的话，issue会很乱吧。。。 具体操作：可以看这里，就是先注册个application，然后把id、secret什么的填到next的config里就好。 坑：Error：validation failed。原因是作">
@@ -407,10 +407,17 @@
 </ul>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">highlight_theme:</span> <span class="string">night</span> <span class="string">bright</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>写代码的时候，要注意在<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 公式</span><br><span class="line"></span><br><span class="line">- 在next的config里，enable mathjax</span><br><span class="line">- 行内公式用`$`，行间公式用`$$`</span><br><span class="line">- 但是还有些问题，比如说公式里有两个`_`，hexo会优先按markdown给你解析成斜体，所以latex公式还不能直接抄，有些富豪需要转义</span><br><span class="line">- 当然，也有优雅的方法，换个render</span><br><span class="line"></span><br><span class="line">```shell</span><br><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure></p>
-</li>
-<li><p>更换完了行内公式还是有问题，参考<a href="https://www.jianshu.com/p/e8d433a2c5b7" target="_blank" rel="noopener">这里</a></p>
-</li>
+<li>写代码的时候，要注意在```后加上代码类型如c、python、yml等等</li>
+</ul>
+<h1 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h1><ul>
+<li>在next的config里，enable mathjax</li>
+<li>行内公式用$$<code>，行间公式用</code>$$$</li>
+<li>但是还有些问题，比如说公式里有两个<code>_</code>，hexo会优先按markdown给你解析成斜体，所以latex公式还不能直接抄，有些富豪需要转义</li>
+<li>当然，也有优雅的方法，换个render</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
+<ul>
+<li>更换完了行内公式还是有问题，参考<a href="https://www.jianshu.com/p/e8d433a2c5b7" target="_blank" rel="noopener">这里</a></li>
 <li>修改kramed的转义规则，文件为<code>/node_modules/kramed/lib/rules/inline.js</code></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">escape</span>: <span class="regexp">/^\\([`*\[\]()# +\-.!_&gt;])/</span>,</span><br><span class="line">em: <span class="regexp">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure>
@@ -620,7 +627,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#评论"><span class="nav-number">1.</span> <span class="nav-text">评论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gitment"><span class="nav-number">1.1.</span> <span class="nav-text">gitment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#valine"><span class="nav-number">1.2.</span> <span class="nav-text">valine</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搜索"><span class="nav-number">2.</span> <span class="nav-text">搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Swiftype"><span class="nav-number">2.1.</span> <span class="nav-text">Swiftype</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#local-search"><span class="nav-number">3.</span> <span class="nav-text">local search</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#评论"><span class="nav-number">1.</span> <span class="nav-text">评论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gitment"><span class="nav-number">1.1.</span> <span class="nav-text">gitment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#valine"><span class="nav-number">1.2.</span> <span class="nav-text">valine</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搜索"><span class="nav-number">2.</span> <span class="nav-text">搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Swiftype"><span class="nav-number">2.1.</span> <span class="nav-text">Swiftype</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#local-search"><span class="nav-number">3.</span> <span class="nav-text">local search</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#公式"><span class="nav-number">5.</span> <span class="nav-text">公式</span></a></li></ol></div>
             
 
           </div>

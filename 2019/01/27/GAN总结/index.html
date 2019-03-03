@@ -92,7 +92,14 @@
 <meta property="og:image" content="https://zjyfdu.coding.me/images/origin_gan2.jpg">
 <meta property="og:image" content="https://zjyfdu.coding.me/images/cgan.jpg">
 <meta property="og:image" content="https://zjyfdu.coding.me/images/cgan_d.jpg">
-<meta property="og:updated_time" content="2019-02-10T09:49:22.533Z">
+<meta property="og:image" content="https://zjyfdu.coding.me/images/stack_gan.jpg">
+<meta property="og:image" content="https://zjyfdu.coding.me/images/speach.jpg">
+<meta property="og:image" content="https://zjyfdu.coding.me/images/img2img.jpg">
+<meta property="og:image" content="https://zjyfdu.coding.me/images/direct_trans.jpg">
+<meta property="og:image" content="https://zjyfdu.coding.me/images/direct_trans2.jpg">
+<meta property="og:image" content="https://zjyfdu.coding.me/images/cycle_gan.jpg">
+<meta property="og:image" content="https://zjyfdu.coding.me/images/star_gan.jpg">
+<meta property="og:updated_time" content="2019-02-10T13:49:05.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GAN总结">
 <meta name="twitter:description" content="GAN原理 GAN的终极目的，其实是用$P_G(x)$拟合真实的$P_{data}(x)$，最直接的想法是用MLE来做，MLE实际上和最小化KL距离是等同的，证明见下张图    机器之心的这篇，基本就是照着李宏毅对课件写的，可以主要看一下为什么说判别器可以衡量两个分布指尖的JS散度  GAN的过程     Goodfellow说上面这种形式的判别器不好收敛，就搞成了下面这种，据李宏毅说，这个修改没">
@@ -405,6 +412,20 @@
 <li>这种结构的判别器会好一点</li>
 </ul>
 <p><img src="/images/cgan_d.jpg" alt=""></p>
+<ul>
+<li>stack_GAN，GAN直接生成大图的话会比较模糊，所以用两阶段的方法</li>
+</ul>
+<p><img src="/images/stack_gan.jpg" alt=""></p>
+<ul>
+<li>语音增强和image2image也都可以看作是cGAN</li>
+</ul>
+<p><img src="/images/speach.jpg" alt=""><br><img src="/images/img2img.jpg" alt=""></p>
+<h1 id="unsupervised-conditional-GAN"><a href="#unsupervised-conditional-GAN" class="headerlink" title="unsupervised conditional GAN"></a>unsupervised conditional GAN</h1><ul>
+<li>问题：没有监督之后，generator可能会生成很真实，但不满足条件的图片</li>
+<li>办法1，直接忽略这个问题，因为如果generator不是太深的话，生成图片和输入图片还是相关的</li>
+<li>还有一些加入consistency</li>
+</ul>
+<p><img src="/images/direct_trans.jpg" alt=""><br><img src="/images/direct_trans2.jpg" alt=""><br><img src="/images/cycle_gan.jpg" alt=""><br><img src="/images/star_gan.jpg" alt=""></p>
 
       
     </div>
@@ -606,7 +627,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GAN原理"><span class="nav-number">1.</span> <span class="nav-text">GAN原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#conditional-GAN"><span class="nav-number">2.</span> <span class="nav-text">conditional GAN</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GAN原理"><span class="nav-number">1.</span> <span class="nav-text">GAN原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#conditional-GAN"><span class="nav-number">2.</span> <span class="nav-text">conditional GAN</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#unsupervised-conditional-GAN"><span class="nav-number">3.</span> <span class="nav-text">unsupervised conditional GAN</span></a></li></ol></div>
             
 
           </div>
