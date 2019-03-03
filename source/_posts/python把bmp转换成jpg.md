@@ -20,7 +20,7 @@ for root, dirs, files in os.walk("."):
         newfigname = bmpfig[:-4] + ".jpg"
         print "converting from", bmpfig, "to", newfigname
         img = Image.open(bmpfig)
-        img = img.convert('RGB')  // for png
+        img = img.convert('RGB')  # for png
         img.save(newfigname, format='jpeg', quality=95)
         img.close()
         os.remove(bmpfig)

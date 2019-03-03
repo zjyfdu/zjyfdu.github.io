@@ -31,3 +31,22 @@ date: 2019-01-27 18:32:57
 
 ![](/images/cgan_d.jpg)
 
+- stack_GAN，GAN直接生成大图的话会比较模糊，所以用两阶段的方法
+
+![](/images/stack_gan.jpg)
+
+- 语音增强和image2image也都可以看作是cGAN
+
+![](/images/speach.jpg)
+![](/images/img2img.jpg)
+
+# unsupervised conditional GAN
+
+- 问题：没有监督之后，generator可能会生成很真实，但不满足条件的图片
+- 办法1，直接忽略这个问题，因为如果generator不是太深的话，生成图片和输入图片还是相关的
+- 还有一些加入consistency
+
+![](/images/direct_trans.jpg)
+![](/images/direct_trans2.jpg)
+![](/images/cycle_gan.jpg)
+![](/images/star_gan.jpg)
