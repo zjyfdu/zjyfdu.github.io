@@ -283,6 +283,330 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/06/20/计算感受野/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="翟大翟">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/11989810.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力～奋斗～">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/20/计算感受野/" itemprop="url">计算感受野</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-20T08:58:51+08:00">
+                2018-06-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/caffe/" itemprop="url" rel="index">
+                    <span itemprop="name">caffe</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>feature map的计算公式为<code>outsize = (insize - fsize + 2*pad) / stride + 1</code></li>
+<li>stride 的计算公式为<code>totstride = totstride * stride</code>，这两个公式都是从前往后算</li>
+<li>receptive field <code>RF = ((RF -1)* stride) + fsize</code>，这个要从后往前算</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"></span><br><span class="line">net_struct = &#123;<span class="string">'alexnet'</span>: &#123;<span class="string">'net'</span>:[[<span class="number">11</span>,<span class="number">4</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="number">2</span>,<span class="number">0</span>],[<span class="number">5</span>,<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">2</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">2</span>,<span class="number">0</span>]],</span><br><span class="line">                   <span class="string">'name'</span>:[<span class="string">'conv1'</span>,<span class="string">'pool1'</span>,<span class="string">'conv2'</span>,<span class="string">'pool2'</span>,<span class="string">'conv3'</span>,<span class="string">'conv4'</span>,<span class="string">'conv5'</span>,<span class="string">'pool5'</span>]&#125;,</span><br><span class="line">       <span class="string">'vgg16'</span>: &#123;<span class="string">'net'</span>:[[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>]],</span><br><span class="line">                 <span class="string">'name'</span>:[<span class="string">'conv1_1'</span>,<span class="string">'conv1_2'</span>,<span class="string">'pool1'</span>,<span class="string">'conv2_1'</span>,<span class="string">'conv2_2'</span>,<span class="string">'pool2'</span>,<span class="string">'conv3_1'</span>,<span class="string">'conv3_2'</span>,</span><br><span class="line">                         <span class="string">'conv3_3'</span>, <span class="string">'pool3'</span>,<span class="string">'conv4_1'</span>,<span class="string">'conv4_2'</span>,<span class="string">'conv4_3'</span>,<span class="string">'pool4'</span>,<span class="string">'conv5_1'</span>,<span class="string">'conv5_2'</span>,<span class="string">'conv5_3'</span>,<span class="string">'pool5'</span>]&#125;,</span><br><span class="line">       <span class="string">'zf-5'</span>:&#123;<span class="string">'net'</span>: [[<span class="number">7</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>],[<span class="number">5</span>,<span class="number">2</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>]],</span><br><span class="line">               <span class="string">'name'</span>: [<span class="string">'conv1'</span>,<span class="string">'pool1'</span>,<span class="string">'conv2'</span>,<span class="string">'pool2'</span>,<span class="string">'conv3'</span>,<span class="string">'conv4'</span>,<span class="string">'conv5'</span>]&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#[3,1,1] stands for filter_size, stride, padding</span></span><br><span class="line"></span><br><span class="line">imsize = <span class="number">224</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">outFromIn</span><span class="params">(isz, net, layernum)</span>:</span></span><br><span class="line">    totstride = <span class="number">1</span></span><br><span class="line">    insize = isz</span><br><span class="line">    <span class="keyword">for</span> layer <span class="keyword">in</span> range(layernum):</span><br><span class="line">        fsize, stride, pad = net[layer]</span><br><span class="line">        outsize = (insize - fsize + <span class="number">2</span>*pad) / stride + <span class="number">1</span></span><br><span class="line">        insize = outsize</span><br><span class="line">        totstride = totstride * stride</span><br><span class="line">    <span class="keyword">return</span> outsize, totstride</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">inFromOut</span><span class="params">(net, layernum)</span>:</span></span><br><span class="line">    RF = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> layer <span class="keyword">in</span> reversed(range(layernum)):</span><br><span class="line">        fsize, stride, pad = net[layer]</span><br><span class="line">        RF = ((RF <span class="number">-1</span>)* stride) + fsize</span><br><span class="line">    <span class="keyword">return</span> RF</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"layer output sizes given image = %dx%d"</span> % (imsize, imsize)</span><br><span class="line">    <span class="keyword">for</span> net <span class="keyword">in</span> net_struct.keys():</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'************net structrue name is %s**************'</span>% net</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(net_struct[net][<span class="string">'net'</span>])):</span><br><span class="line">            p = outFromIn(imsize,net_struct[net][<span class="string">'net'</span>], i+<span class="number">1</span>)</span><br><span class="line">            rf = inFromOut(net_struct[net][<span class="string">'net'</span>], i+<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"Layer Name = %s, Output size = %3d, Stride = % 3d, RF size = %3d"</span> % (net_struct[net][<span class="string">'name'</span>][i], p[<span class="number">0</span>], p[<span class="number">1</span>], rf)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">layer output sizes given image = 224x224</span><br><span class="line">************net structrue name is vgg16**************</span><br><span class="line">Layer Name = conv1_1, Output size = 224, Stride =   1, RF size =   3</span><br><span class="line">Layer Name = conv1_2, Output size = 224, Stride =   1, RF size =   5</span><br><span class="line">Layer Name = pool1, Output size = 112, Stride =   2, RF size =   6</span><br><span class="line">Layer Name = conv2_1, Output size = 112, Stride =   2, RF size =  10</span><br><span class="line">Layer Name = conv2_2, Output size = 112, Stride =   2, RF size =  14</span><br><span class="line">Layer Name = pool2, Output size =  56, Stride =   4, RF size =  16</span><br><span class="line">Layer Name = conv3_1, Output size =  56, Stride =   4, RF size =  24</span><br><span class="line">Layer Name = conv3_2, Output size =  56, Stride =   4, RF size =  32</span><br><span class="line">Layer Name = conv3_3, Output size =  56, Stride =   4, RF size =  40</span><br><span class="line">Layer Name = pool3, Output size =  28, Stride =   8, RF size =  44</span><br><span class="line">Layer Name = conv4_1, Output size =  28, Stride =   8, RF size =  60</span><br><span class="line">Layer Name = conv4_2, Output size =  28, Stride =   8, RF size =  76</span><br><span class="line">Layer Name = conv4_3, Output size =  28, Stride =   8, RF size =  92</span><br><span class="line">Layer Name = pool4, Output size =  14, Stride =  16, RF size = 100</span><br><span class="line">Layer Name = conv5_1, Output size =  14, Stride =  16, RF size = 132</span><br><span class="line">Layer Name = conv5_2, Output size =  14, Stride =  16, RF size = 164</span><br><span class="line">Layer Name = conv5_3, Output size =  14, Stride =  16, RF size = 196</span><br><span class="line">Layer Name = pool5, Output size =   7, Stride =  32, RF size = 212</span><br><span class="line">************net structrue name is zf-5**************</span><br><span class="line">Layer Name = conv1, Output size = 112, Stride =   2, RF size =   7</span><br><span class="line">Layer Name = pool1, Output size =  56, Stride =   4, RF size =  11</span><br><span class="line">Layer Name = conv2, Output size =  28, Stride =   8, RF size =  27</span><br><span class="line">Layer Name = pool2, Output size =  14, Stride =  16, RF size =  43</span><br><span class="line">Layer Name = conv3, Output size =  14, Stride =  16, RF size =  75</span><br><span class="line">Layer Name = conv4, Output size =  14, Stride =  16, RF size = 107</span><br><span class="line">Layer Name = conv5, Output size =  14, Stride =  16, RF size = 139</span><br><span class="line">************net structrue name is alexnet**************</span><br><span class="line">Layer Name = conv1, Output size =  54, Stride =   4, RF size =  11</span><br><span class="line">Layer Name = pool1, Output size =  26, Stride =   8, RF size =  19</span><br><span class="line">Layer Name = conv2, Output size =  26, Stride =   8, RF size =  51</span><br><span class="line">Layer Name = pool2, Output size =  12, Stride =  16, RF size =  67</span><br><span class="line">Layer Name = conv3, Output size =  12, Stride =  16, RF size =  99</span><br><span class="line">Layer Name = conv4, Output size =  12, Stride =  16, RF size = 131</span><br><span class="line">Layer Name = conv5, Output size =  12, Stride =  16, RF size = 163</span><br><span class="line">Layer Name = pool5, Output size =   5, Stride =  32, RF size = 195</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/06/19/deeplab/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="翟大翟">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/11989810.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力～奋斗～">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/19/deeplab/" itemprop="url">deeplab</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-19T21:13:20+08:00">
+                2018-06-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/caffe/" itemprop="url" rel="index">
+                    <span itemprop="name">caffe</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="v1"><a href="#v1" class="headerlink" title="v1"></a>v1</h1><h2 id="Atrous-algorithm"><a href="#Atrous-algorithm" class="headerlink" title="Atrous algorithm"></a>Atrous algorithm</h2><ul>
+<li>deeplab和FCN一样，也是在VGG上finetune</li>
+<li>首先要解决的问题是，如何增大最后输出的score map呢？deeplab把VGG最后的pool4和pool5的stride从2变成了1，整个VGG的stride从32变成8</li>
+<li>但是修改了stide之后，后面的conv层感受野就不一样大了，不能finetune了，所以这里引入了非常优雅的atrous algorithm<ul>
+<li>feature map的感受野的计算公式为$RF_{i}=(RF_{i+1}-1)*stride+kernel$</li>
+<li>所以在stride减小的情况下想办法增大kernel，即在kernel里面增加hole，kernel变大</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/70081567.jpg" alt="deeplab"></p>
+<h2 id="Fully-connected-CRF"><a href="#Fully-connected-CRF" class="headerlink" title="Fully connected CRF"></a>Fully connected CRF</h2><ul>
+<li>CRF简单来说，能做到的就是在决定一个位置的像素值时（在这个paper里是label），会考虑周围邻居的像素值（label），这样能抹除一些噪音。但是通过CNN得到的feature map在一定程度上已经足够平滑了，所以short range的CRF没什么意义。于是作者采用了fully connected CRF，这样考虑的就是全局的信息了。</li>
+<li>随机变量$X_i$是像素$i$的标签，变量$X$由$X_1, X_2, …, X_N$组成随机向量，$N$就是图像中的像素个数。</li>
+<li>在全连接CRF中，标签$x$的能量为</li>
+</ul>
+<script type="math/tex; mode=display">
+E(x)=\sum _i\theta_i(x_i)+\sum _{ij}\theta_{ij}(x_i,x_j)</script><ul>
+<li>$\theta_i(x_i)$是一元能量，表示像素$i$被分割成$x_i$的能量，二元能量$\theta_{ij}(x_i,x_j)$像素点$i$、$j$同时分割成$x_i$、$x_j$的能量。</li>
+<li>一元能量使用FCN的输出</li>
+</ul>
+<script type="math/tex; mode=display">
+\theta_i(x_i) = -logP(x_i)</script><ul>
+<li>二元能量表达式为</li>
+</ul>
+<script type="math/tex; mode=display">
+\theta_{ij}(x_i, x_j)=\mu(x_i, x_j)[\omega_1exp(-\frac{\left \|p_i-p_j  \right \|^2} {2\sigma_\alpha^2}-\frac{\left \|I_i-I_j  \right \|^2}{2\sigma_\beta^2})+\omega_2exp(-\frac{\left \|p_i-p_j  \right \|^2} {2\sigma_\gamma^2})]</script><ul>
+<li>主要参考<a href="https://blog.csdn.net/junparadox/article/details/52610744" target="_blank" rel="noopener">这里</a></li>
+</ul>
+<h1 id="v2"><a href="#v2" class="headerlink" title="v2"></a>v2</h1><ul>
+<li>v2在v1的基础上增加了多感受野</li>
+</ul>
+<p><img src="/images/4478311.jpg" alt="deeplabv2"></p>
+<ul>
+<li>参考<a href="https://blog.csdn.net/ming0808sun/article/details/78843471" target="_blank" rel="noopener">这里</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/06/12/mt19937/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -368,6 +692,7 @@
 <h3 id="MATLAB代码"><a href="#MATLAB代码" class="headerlink" title="MATLAB代码"></a>MATLAB代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">rand(&apos;twister&apos;, 1337);</span><br><span class="line">A = rand(3,5)</span><br><span class="line">A = </span><br><span class="line"> Columns 1 through 2</span><br><span class="line">   0.262024675015582   0.459316887214567</span><br><span class="line">   0.158683972154466   0.321000540520167</span><br><span class="line">   0.278126519494360   0.518392820597537</span><br><span class="line">  Columns 3 through 4</span><br><span class="line">   0.261942925565145   0.115274226683149</span><br><span class="line">   0.976085284877434   0.386275068634359</span><br><span class="line">   0.732814552690482   0.628501179539712</span><br><span class="line">  Column 5</span><br><span class="line">   0.125057926335599</span><br><span class="line">   0.983548605143641</span><br><span class="line">   0.443224868645128</span><br></pre></td></tr></table></figure>
 <h3 id="c-代码"><a href="#c-代码" class="headerlink" title="c++代码"></a>c++代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;random&gt;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">  unsigned seed1 = 1337;</span><br><span class="line">  std::mt19937 g1(seed1);</span><br><span class="line">  for(int i=0; i&lt;100; i++)</span><br><span class="line">    std::cout &lt;&lt; 1.0*g1()/g1.max() &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="还有一些"><a href="#还有一些" class="headerlink" title="还有一些"></a>还有一些</h3><p>最简单的生成算法，混合同余法，可以看<a href="https://www.cnblogs.com/houkai/p/3807041.html" target="_blank" rel="noopener">这里</a></p>
+<p>c++11的random库，可以参考<a href="https://www.cnblogs.com/byhj/p/4149467.html" target="_blank" rel="noopener">这里</a></p>
 
           
         
@@ -1467,319 +1792,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/02/12/视频防盗啊啊/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="翟大翟">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/11989810.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力～奋斗～">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/12/视频防盗啊啊/" itemprop="url">视频防盗啊啊</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-12T11:59:48+08:00">
-                2018-02-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/flask网站总结/" itemprop="url" rel="index">
-                    <span itemprop="name">flask网站总结</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>好烦啊，一直搞不定<br>下面只是记录我踩过的一些坑，大家不要看了</p>
-<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>默认的video标签会有下载按钮，而且不能倍速播放，于是使用了video.js<br>为防止下载video禁止掉了右键菜单<br>目前存在的问题</p>
-<ul>
-<li>打开调试或者查看原网页可以直接看到视频链接</li>
-<li>手机端会之间显示浏览器的播放界面，都有直接下载的按钮</li>
-</ul>
-<h3 id="途径"><a href="#途径" class="headerlink" title="途径"></a>途径</h3><h4 id="坑1-修改referrer"><a href="#坑1-修改referrer" class="headerlink" title="坑1 修改referrer"></a>坑1 修改referrer</h4><p>想通过referrer判断是否是播放还是直接下载（先假设下载都是空referrer）<br>video.js不能直接控制http请求，不能控制referrer<br>控制全局referrer可以在head中加下面这句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;referrer&quot; content=&quot;always/never/origin/default&quot;&gt;</span><br></pre></td></tr></table></figure></p>
-<p>应该是下载空referrer这个假设本来就有问题，这条路堵死了</p>
-<h4 id="坑2-blob"><a href="#坑2-blob" class="headerlink" title="坑2 blob"></a>坑2 blob</h4><p>blob用于处理二进制文件，youtube和bilibili都是用的blob，看起来很promising<br>但是我不会用啊。。。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;video id=&quot;id&quot; width=&quot;320&quot; height=&quot;240&quot;  type=&apos;video/mp4&apos; controls  &gt; &lt;/video&gt;</span><br><span class="line"></span><br><span class="line">window.onload = function() &#123;</span><br><span class="line">    var xhr = new XMLHttpRequest();</span><br><span class="line">    xhr.open(&apos;GET&apos;, &apos;mov_bbb.mp4&apos;, true);</span><br><span class="line">    xhr.responseType = &apos;blob&apos;; //important</span><br><span class="line">    xhr.onload = function(e) &#123;</span><br><span class="line">        if (this.status == 200) &#123;</span><br><span class="line">            console.log(&quot;loaded&quot;);</span><br><span class="line">            var blob = this.response;</span><br><span class="line">            var video = document.getElementById(&apos;id&apos;);</span><br><span class="line">            video.oncanplaythrough = function() &#123;</span><br><span class="line">                console.log(&quot;Can play through video without stopping&quot;);</span><br><span class="line">                URL.revokeObjectURL(this.src);</span><br><span class="line">            &#125;;</span><br><span class="line">            video.src = URL.createObjectURL(blob);</span><br><span class="line">            video.load();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    xhr.send();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>可以工作，但需要先把视频加载一遍才能看，意思是这个页面加载时间要以分钟来记了。。。<br>而且还有跨域的问题</p>
-<h4 id="坑3-阿里云的flash"><a href="#坑3-阿里云的flash" class="headerlink" title="坑3 阿里云的flash"></a>坑3 阿里云的flash</h4><p>这个坑还没踩进去，但是还是不想用flash，都2018年了啊</p>
-<h4 id="后面的坑"><a href="#后面的坑" class="headerlink" title="后面的坑"></a>后面的坑</h4><ul>
-<li>不行就用ua，把手机端的禁掉，然后pc端由他们下去吧</li>
-<li>然后再看看<a href="https://stackoverflow.com/questions/9756837/prevent-html5-video-from-being-downloaded-right-click-saved" target="_blank" rel="noopener">这个链接</a>里的方法，说不定能用呢😢</li>
-<li>近期不搞了，先专心写毕业论文吧</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/02/04/老子在火车上写博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="翟大翟">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/11989810.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力～奋斗～">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/04/老子在火车上写博客/" itemprop="url">火车上写的博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-04T16:11:19+08:00">
-                2018-02-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="0-关于火车，关于回家"><a href="#0-关于火车，关于回家" class="headerlink" title="0. 关于火车，关于回家"></a>0. 关于火车，关于回家</h3><p>这篇是在火车上写的，回家坐火车会有种奇妙的感觉，大概一学期也就这么一次，你不会为挥霍时间而慌张，反而是时间越快越高兴，大概是家的魔力吧。</p>
-<p>所以这篇思路<del>可能</del>会有点跳，想到哪写到哪吧。</p>
-<h3 id="1-关于博客，关于js"><a href="#1-关于博客，关于js" class="headerlink" title="1. 关于博客，关于js"></a>1. 关于博客，关于js</h3><p>之前我一直不愿意用hexo写博客，几个原因，</p>
-<ol>
-<li>这种静态的博客，一点逼格也没有，连个留言都要第三方插件解决</li>
-<li>没有博客对编辑界面，只能在某个特定对电脑上写，然后再推上去</li>
-<li>我不会node</li>
-</ol>
-<p>然而最终还是意外地向hexo妥协了，还是那么几个原因，</p>
-<ol>
-<li>好像我的博客不会有人注册或留言的，静态也够用</li>
-<li>我已经人机合一了。。。</li>
-<li>我对python的热爱被flask终结掉了，我想换个语言了</li>
-<li>想通了一个道理，不拥抱js/css，网站一定会很丑。。。</li>
-</ol>
-<p>所以还是要感谢FJ，在我下定好决心学node又不知道做什么的时候，FJ说要有小程序，<del>于是就有了小程序</del>于是我就像突然看到了灯塔一样，也突然有了动力。</p>
-<p>其实也是挺奇怪的事，我也早早想到过小程序，但是呢，所有自己想到的项目，都会在心里自动贴一个标签，练手。然后练手两个字，就完全限制了这个项目的意义，练到手熟之后呢，大概就不了了之了。FJ的作用，大概只是说了句小程序，然后提了一堆我看来奇奇怪怪的需求。但也是因此，这个本来应该是练手的项目，它的意义就足以支撑我认真做下去了。</p>
-<p>所以啊，我还是一个靠意义活着的生物，不管真假。</p>
-<h3 id="2-关于圣经旧约"><a href="#2-关于圣经旧约" class="headerlink" title="2. 关于圣经旧约"></a>2. 关于圣经旧约</h3><p>我是这学期开始看圣经的，当然正如你们所见的，我是个温和的共产主义者。看圣经完全是出于好奇心，主要是《西部世界》带起来的。</p>
-<p>故事性不强而且很散，为了怕我看了就忘了，先把看了的部分记下来。</p>
-<p>如有错误或冒犯，烦请指正。</p>
-<ul>
-<li>上帝创世，嗯。</li>
-<li>然后就是伊甸园里，撒旦化身成蛇，引诱夏娃亚当吃了禁果，然后他们知羞耻。上帝惩罚蛇用肚子走路，女人见蛇就踩，蛇见女人就咬脚后跟，男人需要劳作才能收获果实，然后把亚当夏娃逐出伊甸园。</li>
-<li>亚当夏娃大儿子该隐种地，二儿子亚伯放牧。该隐献给上帝谷物，亚伯献给上帝羊羔，上帝喜欢亚伯的礼物，该隐妒嫉，遂杀弟。</li>
-<li>后来世风日下，god has seen too much evil，上帝后悔造了人，于是计划大洪水大清洗一下。</li>
-<li>让诺亚造船，然后每个动物带一对。水落之后，诺亚放出鸽子，鸽子衔橄榄枝返回，诺亚于是知道水完全退了。上帝以彩虹立誓，不在用洪水灭世。</li>
-<li>上帝让诺亚的长孙亚伯拉罕带着族人去往应许之地迦南。但亚伯拉罕的侄子罗德，执意去往索多玛。索多玛后被周围国家所灭，罗德通遭罪，亚伯拉罕于是去解救。</li>
-<li>亚伯拉罕妻子不会生孩子，两个人急了，于是找婢女夏甲生了孩子，取名实马里。后上帝赐子亚伯拉罕，并取名为以撒。</li>
-<li>上帝说索多玛恶贯满盈，要毁灭索多玛。亚伯拉罕恳求，上帝答应只要索多玛能有十个好人，就放过这里。前来考察的两个天使遇上罗德，罗德招待他们，但索多玛的全城老幼却要求罗德交出客人。天使让罗德一家逃难，然后毁灭了索多玛。罗德妻子在逃跑时，回头看，变成盐柱。</li>
-<li>上帝考验亚伯拉罕，亚拿儿子献祭，上帝及时制止，并送了只羊羔。</li>
-<li>以撒母亲帮儿子从她的族人中，选取了妻子利百加。</li>
-<li>利百加也不能生，于是上帝让她怀上了双胞胎，分别是以扫和雅各。雅各骗取了哥哥以扫的长子权，骗取了父亲本应该给以扫的祝福。以扫恨之入骨，雅各逃往舅舅拉班家。</li>
-<li>拉班有两个女儿，小女儿好看。雅各给舅舅放羊，舅答应七年之后把好看的小女儿嫁给雅各。七年之后，过完新婚之夜，雅各发现嫁给她的时大女儿。因为按照当地习俗，妹妹不能比姐姐先嫁。于是雅各又答应给拉班放七年羊，然后和妹妹结婚。</li>
-<li>婚后雅各只喜欢妹妹，冷落姐姐，于是上帝让姐姐怀孕。反正后来姐妹互相争宠，给雅各生了一堆孩子。雅各放羊放着放着就变得很富有，拉班及其子妒嫉，于是上帝让雅各回到故乡。</li>
-<li>好长好啰嗦，后面慢慢更。</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1834,7 +1846,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1856,7 +1868,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

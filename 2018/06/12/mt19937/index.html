@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="努力～奋斗～">
 <meta property="og:description" content="背景 你需要把原来mtalab的代码翻译为c、python等等 你的代码里使用了随机数 你的老板又要求你实现的方法exactly the same 参考这里  mt19927 Mersenne Twister是目前比较常用的随机数生成器 周期非常长$2^{19937}-1$，速度非常快  python代码1234567import numpy as npnp.random.seed(1337)A">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:updated_time" content="2019-01-27T11:45:55.085Z">
+<meta property="og:updated_time" content="2019-03-04T14:29:34.977Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mt19937">
 <meta name="twitter:description" content="背景 你需要把原来mtalab的代码翻译为c、python等等 你的代码里使用了随机数 你的老板又要求你实现的方法exactly the same 参考这里  mt19927 Mersenne Twister是目前比较常用的随机数生成器 周期非常长$2^{19937}-1$，速度非常快  python代码1234567import numpy as npnp.random.seed(1337)A">
@@ -367,6 +367,7 @@
 <h3 id="MATLAB代码"><a href="#MATLAB代码" class="headerlink" title="MATLAB代码"></a>MATLAB代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">rand(&apos;twister&apos;, 1337);</span><br><span class="line">A = rand(3,5)</span><br><span class="line">A = </span><br><span class="line"> Columns 1 through 2</span><br><span class="line">   0.262024675015582   0.459316887214567</span><br><span class="line">   0.158683972154466   0.321000540520167</span><br><span class="line">   0.278126519494360   0.518392820597537</span><br><span class="line">  Columns 3 through 4</span><br><span class="line">   0.261942925565145   0.115274226683149</span><br><span class="line">   0.976085284877434   0.386275068634359</span><br><span class="line">   0.732814552690482   0.628501179539712</span><br><span class="line">  Column 5</span><br><span class="line">   0.125057926335599</span><br><span class="line">   0.983548605143641</span><br><span class="line">   0.443224868645128</span><br></pre></td></tr></table></figure>
 <h3 id="c-代码"><a href="#c-代码" class="headerlink" title="c++代码"></a>c++代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;random&gt;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">  unsigned seed1 = 1337;</span><br><span class="line">  std::mt19937 g1(seed1);</span><br><span class="line">  for(int i=0; i&lt;100; i++)</span><br><span class="line">    std::cout &lt;&lt; 1.0*g1()/g1.max() &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="还有一些"><a href="#还有一些" class="headerlink" title="还有一些"></a>还有一些</h3><p>最简单的生成算法，混合同余法，可以看<a href="https://www.cnblogs.com/houkai/p/3807041.html" target="_blank" rel="noopener">这里</a></p>
+<p>c++11的random库，可以参考<a href="https://www.cnblogs.com/byhj/p/4149467.html" target="_blank" rel="noopener">这里</a></p>
 
       
     </div>
@@ -491,7 +492,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -513,7 +514,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
