@@ -51,6 +51,7 @@ if [ $var -gt 0 ] # 还有lt、ge、le、eq、ne
 
 - case
 
+
  ```shell
 case "$varname" in
     [a-z]) echo "abc";;
@@ -101,6 +102,7 @@ echo $? # 0
 
  - `cp t.{txt,back}` 文件名扩展
  - 大括号和小括号的区别
+
 
  ```shell
  a=123

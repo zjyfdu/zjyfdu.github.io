@@ -49,13 +49,14 @@ cvSaveImage("c:\\test1.jpg", iplimg);
 // 读图
 cv::Mat matimg = cv::imread ("heels.jpg");
 
-// 把IplImage改为c++接口
-matimg = cv::Mat(iplimg);
+// 把IplImage改为c++接口，第二个参数是需不需要拷贝，默认是false
+matimg = cv::Mat(iplimg, false);
 
 // 创建新图，CV_8UC3是三通道，CV_8UC1是单通道
 cv::Mat matimg(2, 2, CV_8UC3, Scalar(0,255,0));
 
 // 显示图
+cv::nameWindow("img");
 cv::imshow("img", matimg);
 cv::waitKey(-1);  
 
@@ -63,9 +64,24 @@ cv::waitKey(-1);
 // void putText(Mat& img, const string& text, Point org, int fontFace, double fontScale, Scalar color, int thickness=1, int lineType=8, bool bottomLeftOrigin=false )
 cv::putText(image, "opencv", Point(5,100), FONT_HERSHEY_DUPLEX, 1, Scalar(0,143,143), 2);
 
-// 保存图
+// 保存图，后缀名决定了图片对编码格式
 cv::imwrite("c:\\test1.jpg", matimg);
+
+// 遍历图像
+// Vec3b表示三通道usigned char类型，
+// 还可以有2通道和4通道，类型还可以有f(loat)、i(nt)、d(ouble)、s(hort)、w(unsigned short)
+// typedef Vec<float, 2> Vec2f;
+matimg.at<cv::Vec3b>(j,i)[channel] = value;
+
+// 还可以直接取每一行对首地址
+uchar* data = matimg.ptr<uchar>(j);
 ```
 
 # 头文件分析
-- 以后做吧
+- 一般直接包含这三个头文件
+
+```
+#include<opencv2/core/core.hpp>
+#include<opencv2/imgproc/imgproc.hpp>
+#include<opencv2/highgui/highgui.hpp>
+```
