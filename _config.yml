@@ -79,11 +79,31 @@ theme: next
 deploy:
   type: git
   # repo: git@github.com:zjyfdu/zjyfdu.github.io.
+  # repo: https://github.com/zjyfdu/zjyfdu.github.io.git
   repo: https://git.coding.net/zjyfdu/zjyfdu.coding.me.git
-  branch: master
+  # branch: master
 
 search:
   path: search.xml
   field: post
   format: html
   limit: 1000
+
+live2d:
+  enable: true
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  debug: false
+  model:
+    use: live2d-widget-model-hijiki
+  display:
+    position: left
+    width: 200
+    height: 400
+    hOffset: 0
+    vOffset: -100
+  mobile:
+    show: false
