@@ -283,6 +283,322 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/06/22/visual-studio-13使用boost/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="翟大翟">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/11989810.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力～奋斗～">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/22/visual-studio-13使用boost/" itemprop="url">visual studio 13使用boost</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-22T11:17:03+08:00">
+                2018-06-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index">
+                    <span itemprop="name">cpp</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ul>
+<li>先去<a href="http://www.boost.org/" target="_blank" rel="noopener">boost官方网站</a>中查看boost的最新版本，然后去相应的链接地址进行下载</li>
+<li>在你创建好的工程项目中，选择属性对话框，然后在VC++目录选项中，把boost路径添加到包含目录和库目录中</li>
+<li>首选运行bootstra.bat，如果没有cl命令的话，查看<a href="https://blog.csdn.net/zhidebushizhan/article/details/51396670" target="_blank" rel="noopener">这里</a>，我是这个命令<code>call &quot;%VS120COMNTOOLS%&quot;vsvars32.bat</code>解决问题</li>
+<li>生成动态链接的静态库<code>bjam address-model=64 link= static  threading=multi  variant=release  runtime-link=shared  stage</code></li>
+</ul>
+<h3 id="困惑的地方"><a href="#困惑的地方" class="headerlink" title="困惑的地方"></a>困惑的地方</h3><ul>
+<li>vs里面的vc++目录和下面的c++目录、连接器目录，什么关系啊，能自动加载子目录？</li>
+</ul>
+<blockquote>
+<p>引用自<a href="https://www.cnblogs.com/JMLiu/p/7954630.html" target="_blank" rel="noopener">这里</a>，<br>VC++ Directories是一个Windows环境变量，C/C++是命令行参数，这是本质区别；<br>但是相同的项，也就是VC++ Directories中的include directories 对应到C/C++中的addition include directories 是一样的效果，也就是说效果一样。同样是命令行参数的还有Link设置，Link设置中的 addition library directories对应到VC++ Directories 中的library directories，也就是说，效果是相同的。</p>
+</blockquote>
+<ul>
+<li>bjam里面的debug release、static share是啥。。。</li>
+</ul>
+<blockquote>
+<p>编译调试版本加 debug</p>
+<p>编译发布版本加  release</p>
+<p>编译静态链接库：link=static runtime-link=static</p>
+<p>编译动态库：link=shared runtime-link=shared</p>
+<p>静态库只是需要的文件编译到exe/so中，而且shared的是否用户也要存在dll,所以static是更安全的方式；当然组件式开发和升级的软件用shared方式更加合适</p>
+</blockquote>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://blog.csdn.net/blues1021/article/details/45034133" target="_blank" rel="noopener">https://blog.csdn.net/blues1021/article/details/45034133</a></li>
+<li><a href="https://blog.csdn.net/qingyulove/article/details/78863457" target="_blank" rel="noopener">https://blog.csdn.net/qingyulove/article/details/78863457</a></li>
+<li><a href="https://blog.csdn.net/zhidebushizhan/article/details/51396670" target="_blank" rel="noopener">https://blog.csdn.net/zhidebushizhan/article/details/51396670</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/06/20/计算感受野/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="翟大翟">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/11989810.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力～奋斗～">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/20/计算感受野/" itemprop="url">计算感受野</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-20T08:58:51+08:00">
+                2018-06-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/caffe/" itemprop="url" rel="index">
+                    <span itemprop="name">caffe</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>feature map的计算公式为<code>outsize = (insize - fsize + 2*pad) / stride + 1</code></li>
+<li>stride 的计算公式为<code>totstride = totstride * stride</code>，这两个公式都是从前往后算</li>
+<li>receptive field <code>RF = ((RF -1)* stride) + fsize</code>，这个要从后往前算</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"></span><br><span class="line">net_struct = &#123;<span class="string">'alexnet'</span>: &#123;<span class="string">'net'</span>:[[<span class="number">11</span>,<span class="number">4</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="number">2</span>,<span class="number">0</span>],[<span class="number">5</span>,<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">2</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">2</span>,<span class="number">0</span>]],</span><br><span class="line">                   <span class="string">'name'</span>:[<span class="string">'conv1'</span>,<span class="string">'pool1'</span>,<span class="string">'conv2'</span>,<span class="string">'pool2'</span>,<span class="string">'conv3'</span>,<span class="string">'conv4'</span>,<span class="string">'conv5'</span>,<span class="string">'pool5'</span>]&#125;,</span><br><span class="line">       <span class="string">'vgg16'</span>: &#123;<span class="string">'net'</span>:[[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                        [<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>]],</span><br><span class="line">                 <span class="string">'name'</span>:[<span class="string">'conv1_1'</span>,<span class="string">'conv1_2'</span>,<span class="string">'pool1'</span>,<span class="string">'conv2_1'</span>,<span class="string">'conv2_2'</span>,<span class="string">'pool2'</span>,<span class="string">'conv3_1'</span>,<span class="string">'conv3_2'</span>,</span><br><span class="line">                         <span class="string">'conv3_3'</span>, <span class="string">'pool3'</span>,<span class="string">'conv4_1'</span>,<span class="string">'conv4_2'</span>,<span class="string">'conv4_3'</span>,<span class="string">'pool4'</span>,<span class="string">'conv5_1'</span>,<span class="string">'conv5_2'</span>,<span class="string">'conv5_3'</span>,<span class="string">'pool5'</span>]&#125;,</span><br><span class="line">       <span class="string">'zf-5'</span>:&#123;<span class="string">'net'</span>: [[<span class="number">7</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>],[<span class="number">5</span>,<span class="number">2</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>]],</span><br><span class="line">               <span class="string">'name'</span>: [<span class="string">'conv1'</span>,<span class="string">'pool1'</span>,<span class="string">'conv2'</span>,<span class="string">'pool2'</span>,<span class="string">'conv3'</span>,<span class="string">'conv4'</span>,<span class="string">'conv5'</span>]&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#[3,1,1] stands for filter_size, stride, padding</span></span><br><span class="line"></span><br><span class="line">imsize = <span class="number">224</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">outFromIn</span><span class="params">(isz, net, layernum)</span>:</span></span><br><span class="line">    totstride = <span class="number">1</span></span><br><span class="line">    insize = isz</span><br><span class="line">    <span class="keyword">for</span> layer <span class="keyword">in</span> range(layernum):</span><br><span class="line">        fsize, stride, pad = net[layer]</span><br><span class="line">        outsize = (insize - fsize + <span class="number">2</span>*pad) / stride + <span class="number">1</span></span><br><span class="line">        insize = outsize</span><br><span class="line">        totstride = totstride * stride</span><br><span class="line">    <span class="keyword">return</span> outsize, totstride</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">inFromOut</span><span class="params">(net, layernum)</span>:</span></span><br><span class="line">    RF = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> layer <span class="keyword">in</span> reversed(range(layernum)):</span><br><span class="line">        fsize, stride, pad = net[layer]</span><br><span class="line">        RF = ((RF <span class="number">-1</span>)* stride) + fsize</span><br><span class="line">    <span class="keyword">return</span> RF</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"layer output sizes given image = %dx%d"</span> % (imsize, imsize)</span><br><span class="line">    <span class="keyword">for</span> net <span class="keyword">in</span> net_struct.keys():</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'************net structrue name is %s**************'</span>% net</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(net_struct[net][<span class="string">'net'</span>])):</span><br><span class="line">            p = outFromIn(imsize,net_struct[net][<span class="string">'net'</span>], i+<span class="number">1</span>)</span><br><span class="line">            rf = inFromOut(net_struct[net][<span class="string">'net'</span>], i+<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"Layer Name = %s, Output size = %3d, Stride = % 3d, RF size = %3d"</span> % (net_struct[net][<span class="string">'name'</span>][i], p[<span class="number">0</span>], p[<span class="number">1</span>], rf)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">layer output sizes given image = 224x224</span><br><span class="line">************net structrue name is vgg16**************</span><br><span class="line">Layer Name = conv1_1, Output size = 224, Stride =   1, RF size =   3</span><br><span class="line">Layer Name = conv1_2, Output size = 224, Stride =   1, RF size =   5</span><br><span class="line">Layer Name = pool1, Output size = 112, Stride =   2, RF size =   6</span><br><span class="line">Layer Name = conv2_1, Output size = 112, Stride =   2, RF size =  10</span><br><span class="line">Layer Name = conv2_2, Output size = 112, Stride =   2, RF size =  14</span><br><span class="line">Layer Name = pool2, Output size =  56, Stride =   4, RF size =  16</span><br><span class="line">Layer Name = conv3_1, Output size =  56, Stride =   4, RF size =  24</span><br><span class="line">Layer Name = conv3_2, Output size =  56, Stride =   4, RF size =  32</span><br><span class="line">Layer Name = conv3_3, Output size =  56, Stride =   4, RF size =  40</span><br><span class="line">Layer Name = pool3, Output size =  28, Stride =   8, RF size =  44</span><br><span class="line">Layer Name = conv4_1, Output size =  28, Stride =   8, RF size =  60</span><br><span class="line">Layer Name = conv4_2, Output size =  28, Stride =   8, RF size =  76</span><br><span class="line">Layer Name = conv4_3, Output size =  28, Stride =   8, RF size =  92</span><br><span class="line">Layer Name = pool4, Output size =  14, Stride =  16, RF size = 100</span><br><span class="line">Layer Name = conv5_1, Output size =  14, Stride =  16, RF size = 132</span><br><span class="line">Layer Name = conv5_2, Output size =  14, Stride =  16, RF size = 164</span><br><span class="line">Layer Name = conv5_3, Output size =  14, Stride =  16, RF size = 196</span><br><span class="line">Layer Name = pool5, Output size =   7, Stride =  32, RF size = 212</span><br><span class="line">************net structrue name is zf-5**************</span><br><span class="line">Layer Name = conv1, Output size = 112, Stride =   2, RF size =   7</span><br><span class="line">Layer Name = pool1, Output size =  56, Stride =   4, RF size =  11</span><br><span class="line">Layer Name = conv2, Output size =  28, Stride =   8, RF size =  27</span><br><span class="line">Layer Name = pool2, Output size =  14, Stride =  16, RF size =  43</span><br><span class="line">Layer Name = conv3, Output size =  14, Stride =  16, RF size =  75</span><br><span class="line">Layer Name = conv4, Output size =  14, Stride =  16, RF size = 107</span><br><span class="line">Layer Name = conv5, Output size =  14, Stride =  16, RF size = 139</span><br><span class="line">************net structrue name is alexnet**************</span><br><span class="line">Layer Name = conv1, Output size =  54, Stride =   4, RF size =  11</span><br><span class="line">Layer Name = pool1, Output size =  26, Stride =   8, RF size =  19</span><br><span class="line">Layer Name = conv2, Output size =  26, Stride =   8, RF size =  51</span><br><span class="line">Layer Name = pool2, Output size =  12, Stride =  16, RF size =  67</span><br><span class="line">Layer Name = conv3, Output size =  12, Stride =  16, RF size =  99</span><br><span class="line">Layer Name = conv4, Output size =  12, Stride =  16, RF size = 131</span><br><span class="line">Layer Name = conv5, Output size =  12, Stride =  16, RF size = 163</span><br><span class="line">Layer Name = pool5, Output size =   5, Stride =  32, RF size = 195</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/06/19/deeplab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1499,308 +1815,6 @@ E(x)=\sum _i\theta_i(x_i)+\sum _{ij}\theta_{ij}(x_i,x_j)</script><ul>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/02/12/scrapy-爬虫/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="翟大翟">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/11989810.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力～奋斗～">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/12/scrapy-爬虫/" itemprop="url">scrapy 爬虫</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-12T17:20:01+08:00">
-                2018-02-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/scrapy/" itemprop="url" rel="index">
-                    <span itemprop="name">scrapy</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>这是在dc学院上299买的课，也是丧心病狂啊，怀着后悔的心情上完了全部课程。</p>
-<h3 id="主要截图"><a href="#主要截图" class="headerlink" title="主要截图"></a>主要截图</h3><p><img src="/images/5689847.jpg" alt="" title="框架图"></p>
-<p><img src="/images/56909416.jpg" alt="" title="css选择器"></p>
-<p><img src="/images/98241099.jpg" alt="" title="chrome的调试技巧"> </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/02/12/视频防盗啊啊/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="翟大翟">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/11989810.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力～奋斗～">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/12/视频防盗啊啊/" itemprop="url">视频防盗啊啊</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-12T11:59:48+08:00">
-                2018-02-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/flask网站总结/" itemprop="url" rel="index">
-                    <span itemprop="name">flask网站总结</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>好烦啊，一直搞不定<br>下面只是记录我踩过的一些坑，大家不要看了</p>
-<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>默认的video标签会有下载按钮，而且不能倍速播放，于是使用了video.js<br>为防止下载video禁止掉了右键菜单<br>目前存在的问题</p>
-<ul>
-<li>打开调试或者查看原网页可以直接看到视频链接</li>
-<li>手机端会之间显示浏览器的播放界面，都有直接下载的按钮</li>
-</ul>
-<h3 id="途径"><a href="#途径" class="headerlink" title="途径"></a>途径</h3><h4 id="坑1-修改referrer"><a href="#坑1-修改referrer" class="headerlink" title="坑1 修改referrer"></a>坑1 修改referrer</h4><p>想通过referrer判断是否是播放还是直接下载（先假设下载都是空referrer）<br>video.js不能直接控制http请求，不能控制referrer<br>控制全局referrer可以在head中加下面这句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;referrer&quot; content=&quot;always/never/origin/default&quot;&gt;</span><br></pre></td></tr></table></figure></p>
-<p>应该是下载空referrer这个假设本来就有问题，这条路堵死了</p>
-<h4 id="坑2-blob"><a href="#坑2-blob" class="headerlink" title="坑2 blob"></a>坑2 blob</h4><p>blob用于处理二进制文件，youtube和bilibili都是用的blob，看起来很promising<br>但是我不会用啊。。。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;video id=&quot;id&quot; width=&quot;320&quot; height=&quot;240&quot;  type=&apos;video/mp4&apos; controls  &gt; &lt;/video&gt;</span><br><span class="line"></span><br><span class="line">window.onload = function() &#123;</span><br><span class="line">    var xhr = new XMLHttpRequest();</span><br><span class="line">    xhr.open(&apos;GET&apos;, &apos;mov_bbb.mp4&apos;, true);</span><br><span class="line">    xhr.responseType = &apos;blob&apos;; //important</span><br><span class="line">    xhr.onload = function(e) &#123;</span><br><span class="line">        if (this.status == 200) &#123;</span><br><span class="line">            console.log(&quot;loaded&quot;);</span><br><span class="line">            var blob = this.response;</span><br><span class="line">            var video = document.getElementById(&apos;id&apos;);</span><br><span class="line">            video.oncanplaythrough = function() &#123;</span><br><span class="line">                console.log(&quot;Can play through video without stopping&quot;);</span><br><span class="line">                URL.revokeObjectURL(this.src);</span><br><span class="line">            &#125;;</span><br><span class="line">            video.src = URL.createObjectURL(blob);</span><br><span class="line">            video.load();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    xhr.send();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>可以工作，但需要先把视频加载一遍才能看，意思是这个页面加载时间要以分钟来记了。。。<br>而且还有跨域的问题</p>
-<h4 id="坑3-阿里云的flash"><a href="#坑3-阿里云的flash" class="headerlink" title="坑3 阿里云的flash"></a>坑3 阿里云的flash</h4><p>这个坑还没踩进去，但是还是不想用flash，都2018年了啊</p>
-<h4 id="后面的坑"><a href="#后面的坑" class="headerlink" title="后面的坑"></a>后面的坑</h4><ul>
-<li>不行就用ua，把手机端的禁掉，然后pc端由他们下去吧</li>
-<li>然后再看看<a href="https://stackoverflow.com/questions/9756837/prevent-html5-video-from-being-downloaded-right-click-saved" target="_blank" rel="noopener">这个链接</a>里的方法，说不定能用呢😢</li>
-<li>近期不搞了，先专心写毕业论文吧</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1855,7 +1869,7 @@ E(x)=\sum _i\theta_i(x_i)+\sum _{ij}\theta_{ij}(x_i,x_j)</script><ul>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1866,7 +1880,7 @@ E(x)=\sum _i\theta_i(x_i)+\sum _{ij}\theta_{ij}(x_i,x_j)</script><ul>
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1877,7 +1891,7 @@ E(x)=\sum _i\theta_i(x_i)+\sum _{ij}\theta_{ij}(x_i,x_j)</script><ul>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
