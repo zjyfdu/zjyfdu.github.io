@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="照抄的这里 正则表达式 基础正则，basic regex，即bres 扩展正则，extended regex，即eres perl的正则，perl regex，即pres  不同正则表达式的区别 bres需要多写转义 12\&amp;#123;n,m\&amp;#125;, x\|y #bres需要写转义，&amp;#123;n,m&amp;#125;, x|y    #而eres和pres不需要  pres可以用\D, \S,">
+<meta name="description" content="照抄的这里 正则表达式 基础正则，basic regex，即bres 扩展正则，extended regex，即eres perl的正则，perl regex，即pres  不同正则表达式的区别 bres需要多写转义  12\&amp;#123;n,m\&amp;#125;, x\|y #bres需要写转义，&amp;#123;n,m&amp;#125;, x|y    #而eres和pres不需要  pres可以用下面这些，其">
 <meta name="keywords" content="正则,grep">
 <meta property="og:type" content="article">
 <meta property="og:title" content="grep中的正则表达式">
 <meta property="og:url" content="https://zjyfdu.coding.me/2018/11/20/grep中的正则表达式/index.html">
 <meta property="og:site_name" content="努力～奋斗～">
-<meta property="og:description" content="照抄的这里 正则表达式 基础正则，basic regex，即bres 扩展正则，extended regex，即eres perl的正则，perl regex，即pres  不同正则表达式的区别 bres需要多写转义 12\&amp;#123;n,m\&amp;#125;, x\|y #bres需要写转义，&amp;#123;n,m&amp;#125;, x|y    #而eres和pres不需要  pres可以用\D, \S,">
+<meta property="og:description" content="照抄的这里 正则表达式 基础正则，basic regex，即bres 扩展正则，extended regex，即eres perl的正则，perl regex，即pres  不同正则表达式的区别 bres需要多写转义  12\&amp;#123;n,m\&amp;#125;, x\|y #bres需要写转义，&amp;#123;n,m&amp;#125;, x|y    #而eres和pres不需要  pres可以用下面这些，其">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:updated_time" content="2019-02-04T05:50:37.001Z">
+<meta property="og:updated_time" content="2019-06-16T09:56:03.809Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="grep中的正则表达式">
-<meta name="twitter:description" content="照抄的这里 正则表达式 基础正则，basic regex，即bres 扩展正则，extended regex，即eres perl的正则，perl regex，即pres  不同正则表达式的区别 bres需要多写转义 12\&amp;#123;n,m\&amp;#125;, x\|y #bres需要写转义，&amp;#123;n,m&amp;#125;, x|y    #而eres和pres不需要  pres可以用\D, \S,">
+<meta name="twitter:description" content="照抄的这里 正则表达式 基础正则，basic regex，即bres 扩展正则，extended regex，即eres perl的正则，perl regex，即pres  不同正则表达式的区别 bres需要多写转义  12\&amp;#123;n,m\&amp;#125;, x\|y #bres需要写转义，&amp;#123;n,m&amp;#125;, x|y    #而eres和pres不需要  pres可以用下面这些，其">
 
 
 
@@ -361,12 +361,22 @@
 <li>perl的正则，perl regex，即pres</li>
 </ul>
 <h1 id="不同正则表达式的区别"><a href="#不同正则表达式的区别" class="headerlink" title="不同正则表达式的区别"></a>不同正则表达式的区别</h1><ul>
-<li><p>bres需要多写转义</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\&#123;n,m\&#125;, x\|y #bres需要写转义，</span><br><span class="line">&#123;n,m&#125;, x|y    #而eres和pres不需要</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>pres可以用<figure class="highlight plain"><figcaption><span>\D, \S, \s```，其它两种不可以。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># grep</span><br><span class="line">- 默认的正则为基础正则，&quot;-E&quot;表示eres，&quot;-P&quot;表示pers.</span><br><span class="line">- egrep等效于grep -E，egrep -P等效于 grep -P</span><br><span class="line"></span><br><span class="line"># sed</span><br><span class="line">- 默认是eres，-r表示要用eres，不支持pres</span><br><span class="line">- mac下到sed和linux还不太一样，写inplace替换要这样，其中，`-i`后面是</span><br><span class="line"></span><br><span class="line">```shell</span><br><span class="line">sed -i &apos;&apos; &apos;s/http.*ot0uaqt93.bkt.*\//\/images\//g&apos; `ls *.md`</span><br></pre></td></tr></table></figure></p>
-</li>
+<li>bres需要多写转义</li>
 </ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\&#123;n,m\&#125;, x\|y #bres需要写转义，</span><br><span class="line">&#123;n,m&#125;, x|y    #而eres和pres不需要</span><br></pre></td></tr></table></figure>
+<ul>
+<li>pres可以用下面这些，其它两种不可以。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\d, \D, \S, \s</span><br></pre></td></tr></table></figure>
+<h1 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h1><ul>
+<li>默认的正则为基础正则，”-E”表示eres，”-P”表示pers.</li>
+<li>egrep等效于grep -E，egrep -P等效于 grep -P</li>
+</ul>
+<h1 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h1><ul>
+<li>默认是eres，-r表示要用eres，不支持pres</li>
+<li>mac下到sed和linux还不太一样，写inplace替换要这样，其中，<code>-i</code>后面是</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i '' 's/http.*ot0uaqt93.bkt.*\//\/images\//g' `ls *.md`</span><br></pre></td></tr></table></figure>
 <h1 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h1><ul>
 <li>厉害了，只支持eres</li>
 </ul>
@@ -573,7 +583,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#正则表达式"><span class="nav-number">1.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不同正则表达式的区别"><span class="nav-number">2.</span> <span class="nav-text">不同正则表达式的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#awk"><span class="nav-number">3.</span> <span class="nav-text">awk</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#正则表达式"><span class="nav-number">1.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不同正则表达式的区别"><span class="nav-number">2.</span> <span class="nav-text">不同正则表达式的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#grep"><span class="nav-number">3.</span> <span class="nav-text">grep</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sed"><span class="nav-number">4.</span> <span class="nav-text">sed</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#awk"><span class="nav-number">5.</span> <span class="nav-text">awk</span></a></li></ol></div>
             
 
           </div>
