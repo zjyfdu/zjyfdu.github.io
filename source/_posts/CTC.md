@@ -1,5 +1,6 @@
 ---
 title: CTC
+typora-root-url: ../../source
 date: 2018-03-20 14:48:40
 tags:
   - CTC

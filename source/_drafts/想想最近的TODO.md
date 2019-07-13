@@ -1,5 +1,6 @@
 ---
 title: 想想最近的TODO
+typora-root-url: ../../source
 date: 2018-01-31 22:59:13
 ---
 

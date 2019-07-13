@@ -1,10 +1,9 @@
 ---
 title: caffe运行顺序
+typora-root-url: ../../source
 tags:
   - caffe
-  - cpp
 categories: 
-  - cpp
   - caffe
 date: 2019-02-09 10:09:07
 ---

@@ -1,5 +1,6 @@
 ---
 title: JS复习笔记
+typora-root-url: ../../source
 date: 2018-01-01 18:25:23
 tags:
   - javaScript

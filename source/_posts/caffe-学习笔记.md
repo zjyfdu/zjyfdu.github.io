@@ -1,5 +1,6 @@
 ---
 title: caffe 学习笔记
+typora-root-url: ../../source
 date: 2018-01-11 01:46:30
 tags:
   - caffe

@@ -1,5 +1,6 @@
 ---
 title: 一些shell命令
+typora-root-url: ../../source
 tags: shell
 categories: shell
 date: 2019-01-23 19:20:03

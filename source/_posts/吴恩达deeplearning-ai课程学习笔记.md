@@ -1,5 +1,6 @@
 ---
 title: 吴恩达deeplearning.ai课程学习笔记
+typora-root-url: ../../source
 date: 2018-01-16 16:32:21
 tags: 学习笔记
 categories: caffe

@@ -1,5 +1,6 @@
 ---
 title: C宏函数重载
+typora-root-url: ../../source
 tags: cpp
 categories: cpp
 date: 2019-02-14 17:46:37

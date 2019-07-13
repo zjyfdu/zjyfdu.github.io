@@ -1,5 +1,6 @@
 ---
 title: grep中的正则表达式
+typora-root-url: ../../source
 tags:
   - 正则
   - grep
@@ -15,11 +16,16 @@ date: 2018-11-20 19:36:53
 
 # 不同正则表达式的区别
 - bres需要多写转义
+
 ```shell
 \{n,m\}, x\|y #bres需要写转义，
 {n,m}, x|y    #而eres和pres不需要
 ```
-- pres可以用```\d, \D, \S, \s```，其它两种不可以。
+- pres可以用下面这些，其它两种不可以。
+
+```
+\d, \D, \S, \s
+```
 
 # grep
 - 默认的正则为基础正则，"-E"表示eres，"-P"表示pers.

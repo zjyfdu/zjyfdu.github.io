@@ -1,5 +1,6 @@
 ---
 title: nginx 开启gzip
+typora-root-url: ../../source
 date: 2018-01-09 12:30:58
 tags: nginx配置
 categories: flask网站总结
@@ -36,3 +37,5 @@ http {
 百度统计的测试结果，从12s提高到6s
 
 ![](/images/94641900.jpg "-6s, excited!") 
+
+![è¿éåå¾çæè¿°](/assets/SouthEast.png)

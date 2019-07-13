@@ -1,5 +1,6 @@
 ---
 title: mobileNet和shuffleNet
+typora-root-url: ../../source
 date: 2018-05-13 13:05:50
 categories: caffe
 ---

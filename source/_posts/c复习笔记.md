@@ -1,5 +1,6 @@
 ---
 title: c复习笔记
+typora-root-url: ../../source
 date: 2018-03-11 22:09:11
 tags:
   - cin/cout

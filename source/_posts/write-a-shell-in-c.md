@@ -1,5 +1,6 @@
 ---
 title: write a shell in c
+typora-root-url: ../../source
 tags:
   - caffe
   - docker

@@ -1,5 +1,6 @@
 ---
 title: 记录一个vscode的bug
+typora-root-url: ../../source
 tags:
   - vscode
 date: 2018-08-08 00:53:58

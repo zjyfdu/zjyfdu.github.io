@@ -1,5 +1,6 @@
 ---
 title: sqlite 常用命令
+typora-root-url: ../../source
 date: 2018-01-22 23:49:20
 tags: sqlite
 categories: flask网站总结

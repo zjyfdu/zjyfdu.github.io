@@ -1,5 +1,6 @@
 ---
 title: Attention
+typora-root-url: ../../source
 tags: Attention
 categories: caffe
 date: 2019-03-04 22:31:36

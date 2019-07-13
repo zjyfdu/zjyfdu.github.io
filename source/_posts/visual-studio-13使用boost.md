@@ -1,5 +1,6 @@
 ---
 title: visual studio 13使用boost
+typora-root-url: ../../source
 date: 2018-06-22 11:17:03
 categories: cpp
 ---

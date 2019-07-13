@@ -1,5 +1,6 @@
 ---
 title: Flask-migrate No support for ALTER of constraints in SQLite dialect
+typora-root-url: ../../source
 date: 2018-01-08 16:39:16
 tags: flask
 categories: flask网站总结

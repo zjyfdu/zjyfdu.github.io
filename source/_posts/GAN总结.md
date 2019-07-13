@@ -1,5 +1,6 @@
 ---
 title: GAN总结
+typora-root-url: ../../source
 tags: GAN
 categories: GAN
 date: 2019-01-27 18:32:57

@@ -1,5 +1,6 @@
 ---
 title: flask部署：gunicorn和nginx安装记录
+typora-root-url: ../../source
 date: 2018-01-14 14:14:42
 tags: flask
 categories: flask网站总结

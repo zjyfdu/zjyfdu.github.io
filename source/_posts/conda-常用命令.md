@@ -1,5 +1,6 @@
 ---
 title: conda 常用命令
+typora-root-url: ../../source
 tags:
   - conda
   - python

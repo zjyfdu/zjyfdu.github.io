@@ -1,5 +1,6 @@
 ---
 title: python把bmp和png转换成jpg
+typora-root-url: ../../source
 tags: python
 categories: python
 date: 2018-08-16 21:30:50

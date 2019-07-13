@@ -1,5 +1,6 @@
 ---
 title: openCV 总结
+typora-root-url: ../../source
 date: 2018-07-04 12:19:14
 tags: openCV
 categories: cpp

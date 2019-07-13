@@ -1,5 +1,6 @@
 ---
 title: deeplab
+typora-root-url: ../../source
 date: 2018-06-19 21:13:20
 categories: caffe
 ---

@@ -1,5 +1,6 @@
 ---
 title: c++文件复制
+typora-root-url: ../../source
 date: 2018-07-03 14:24:44
 categories: cpp
 ---

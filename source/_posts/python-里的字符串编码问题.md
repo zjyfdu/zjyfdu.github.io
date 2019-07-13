@@ -1,5 +1,6 @@
 ---
 title: python 里的字符串编码问题
+typora-root-url: ../../source
 tags:
   - 编码
   - 字符串

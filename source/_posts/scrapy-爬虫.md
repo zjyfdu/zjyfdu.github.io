@@ -2,6 +2,7 @@
 title: scrapy 爬虫
 date: 2018-02-12 17:20:01
 categories: scrapy
+typora-root-url: ../../source
 ---
 
 ### 前言

@@ -1,5 +1,6 @@
 ---
 title: jQuery笔记
+typora-root-url: ../../source
 date: 2018-02-25 11:29:08
 tags:
   - javaScript
