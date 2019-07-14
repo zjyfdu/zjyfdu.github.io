@@ -8,7 +8,7 @@
       <link href="/2019/07/14/%E5%89%8D%E7%AB%AF%E5%8E%86%E5%8F%B2/"/>
       <url>/2019/07/14/%E5%89%8D%E7%AB%AF%E5%8E%86%E5%8F%B2/</url>
       
-        <content type="html"><![CDATA[<p>听方应杭的知乎live记下来的，一部前端的发展史，就是一部逆袭的历史。</p><p>图片是他做的，应该不会找我侵删吧，红色是重大事件，蓝色是一些工具</p><p><img src="/images/image-20190714094504609.png" alt="image-20190714094504609"></p><ol><li><p><strong>后端</strong>：最开始没有前端，后端写页面，不太会css，用table布局</p></li><li><p><strong>后端+美工</strong>：开始出现美工，美工复制ps和css，用div布局</p></li><li><p><strong>后端+美工</strong>：2004年，gmail发布，页面功能复杂，大量应用ajax，微软ie5加入ajax</p><p>js开始受重视，后端写页面写js，美工加图片加特效</p></li><li><p><strong>后端+美工+前端</strong>：乔布斯拟物化流行，用户体验大爆发，需要有人专门用js写界面逻辑，前后端开始分离</p><p>|          | 原先                                  | 后来                     |<br>| ———— | ——————————————————- | ———————————— |<br>| 页面分离 | 页面由后端框架提供，前端只负责js和css | Html、css、js全部给前端  |<br>| 数据分离 | 数据隐藏到页面中                      | 以接口形式，ajax传给前端 |<br>| 人员分离 | 前后端两个部门，人员分离              |                          |</p></li><li><p>后端数据比较重要，前端只负责界面，不好晋升，现在也没有解决，但缓解了很多。</p><ol><li>移动端设备兴起，2G、3G网络网络不好，页面性能优化</li><li>响应式，不同的设备尺寸不一</li><li>自动化、模块化怎么解决</li></ol></li></ol><p><img src="/images/image-20190714094525575.png" alt="image-20190714094525575"></p><ol><li><p><strong>js语言独立</strong>：node.js出现，js可以脱离浏览器运行，前端程序员开始做一些其他程序员在做的事</p><ol><li>自动化和打包工具，Grunt、Gulp、Webpack</li><li>模块化约定，CommonJS、AMD、CMD、UMD，民间方案，已经过时</li><li>rails社区技术支援，CoffeeScript、SASS、Pug（Jade），语言不行就升级</li></ol></li><li><p><strong>标准制定方语言升级</strong>：xhtml&rarr;html5、css2&rarr;css3、ES5&rarr;ES6</p></li><li><p><strong>前端框架出现</strong>：</p><p>MVC框架出现了backbone</p><p>MVVM框架（MVVM是从C#的WPF里开始用的）出现了Angular</p><p>从Angular启发又出现了Vue</p><p>facebook推出react，Redux的思想，有游戏开发的思路</p></li><li><p><strong>可以做服务端</strong>：TJ加入了node，TJ以前写Ruby，express.js、koa.js，nodejs可以做后台应用</p></li><li><p><strong>可以桌面端</strong>：node+webkit，github写了electron，微信、vscode、叮叮</p></li><li><p><strong>移动端</strong>：react native可以做ios和android应用</p></li></ol>]]></content>
+        <content type="html"><![CDATA[<p>听方应杭的知乎live记下来的，一部前端的发展史，就是一部逆袭的历史。</p><p>图片是他做的，应该不会找我侵删吧，红色是重大事件，蓝色是一些工具</p><p><img src="/images/image-20190714094504609.png" alt="image-20190714094504609"></p><ol><li><p><strong>后端</strong>：最开始没有前端，后端写页面，不太会css，用table布局</p></li><li><p><strong>后端+美工</strong>：开始出现美工，美工复制ps和css，用div布局</p></li><li><p><strong>后端+美工</strong>：2004年，gmail发布，页面功能复杂，大量应用ajax，微软ie5加入ajax</p><p>js开始受重视，后端写页面写js，美工加图片加特效</p></li><li><p><strong>后端+美工+前端</strong>：乔布斯拟物化流行，用户体验大爆发，需要有人专门用js写界面逻辑，前后端开始分离</p></li></ol><style>table th:nth-of-type(1){width: 20%;}table th:nth-of-type(2){width: 40%;}table th:nth-of-type(3){width: 40%;}</style><div class="table-container"><table><thead><tr><th></th><th>原先</th><th>后来</th></tr></thead><tbody><tr><td>页面分离</td><td>页面由后端框架提供，前端只负责js和css</td><td>Html、css、js全部给前端</td></tr><tr><td>数据分离</td><td>数据隐藏到页面中</td><td>以接口形式，ajax传给前端</td></tr><tr><td>人员分离</td><td>前后端两个部门，人员分离</td></tr></tbody></table></div><ol><li>后端数据比较重要，前端只负责界面，不好晋升，现在也没有解决，但缓解了很多。<ol><li>移动端设备兴起，2G、3G网络网络不好，页面性能优化</li><li>响应式，不同的设备尺寸不一</li><li>自动化、模块化怎么解决</li></ol></li></ol><p><img src="/images/image-20190714094525575.png" alt="image-20190714094525575"></p><ol><li><p><strong>js语言独立</strong>：node.js出现，js可以脱离浏览器运行，前端程序员开始做一些其他程序员在做的事</p><ol><li>自动化和打包工具，Grunt、Gulp、Webpack</li><li>模块化约定，CommonJS、AMD、CMD、UMD，民间方案，已经过时</li><li>rails社区技术支援，CoffeeScript、SASS、Pug（Jade），语言不行就升级</li></ol></li><li><p><strong>标准制定方语言升级</strong>：xhtml&rarr;html5、css2&rarr;css3、ES5&rarr;ES6</p></li><li><p><strong>前端框架出现</strong>：</p><p>MVC框架出现了backbone</p><p>MVVM框架（MVVM是从C#的WPF里开始用的）出现了Angular</p><p>从Angular启发又出现了Vue</p><p>facebook推出react，Redux的思想，有游戏开发的思路</p></li><li><p><strong>可以做服务端</strong>：TJ加入了node，TJ以前写Ruby，express.js、koa.js，nodejs可以做后台应用</p></li><li><p><strong>可以桌面端</strong>：node+webkit，github写了electron，微信、vscode、叮叮</p></li><li><p><strong>移动端</strong>：react native可以做ios和android应用</p></li></ol>]]></content>
       
       
       
@@ -361,9 +361,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> conda </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
