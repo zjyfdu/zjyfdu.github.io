@@ -1,11 +1,3 @@
-/* Refrences:
-1. http://notes.iissnan.com/2016/publishing-github-pages-with-travis-ci
-2. https://github.com/chrisjlee/hexo-theme-zurb-foundation/blob/e82f45a82bbaaee063bcb1298cd9793575afb142/gulpfile.js
-3. https://github.com/gulpjs/gulp/blob/master/docs/recipes/delete-files-folder.md
-4. https://hexo.io/api/
-5. https://github.com/iissnan/theme-next-docs/blob/master/.travis.yml
-*/
-
 var gulp = require('gulp');
 var minifycss = require('gulp-clean-css');
 var uglify = require('gulp-uglify');
@@ -72,15 +64,17 @@ gulp.task('minify-img', function() {
 })
 
 gulp.task('minify-img-aggressive', function() {
-    return gulp.src('./public/images/**/*.*')
+    return gulp.src('./source/images/**/*.*') //直接压缩source里的图片，public里的不管了
         .pipe(imagemin(
         [imagemin.gifsicle({'optimizationLevel': 3}), 
         imagemin.jpegtran({'progressive': true}), 
         imagemin.optipng({'optimizationLevel': 7}), 
         imagemin.svgo()],
         {'verbose': true}))
-        .pipe(gulp.dest('./public/images'))
+        .pipe(gulp.dest('./source/images'))
 })
+
+gulp.task('img', ['minify-img-aggressive'])
 
 gulp.task('compress', function(cb) {
     runSequence(['minify-html', 'minify-css', 'minify-js'], cb);
