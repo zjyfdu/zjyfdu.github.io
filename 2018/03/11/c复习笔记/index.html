@@ -1,4 +1,827 @@
-<!DOCTYPE html><html class="theme-next gemini use-motion" lang="zh-CH"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=5.1.3"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=5.1.3"><link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222"><meta name="keywords" content="cin/cout,lambda,构造函数,"><meta name="description" content="cin 带空格的字符串时，需要这样cin.getline(s, 80)，s是char数组 或者也可以这样getline(cin, str)，原型为istream&amp;amp; getline (istream&amp;amp; is, string&amp;amp; str);，C++对每种流都定义了一个getline函数 在gcc编译器中，对标准库进行了扩展，加入了一个getline函数。会自动malloc, r"><meta name="keywords" content="cin&#x2F;cout,lambda,构造函数"><meta property="og:type" content="article"><meta property="og:title" content="c复习笔记"><meta property="og:url" content="https://zjyfdu.coding.me/2018/03/11/c复习笔记/index.html"><meta property="og:site_name" content="努力～奋斗～"><meta property="og:description" content="cin 带空格的字符串时，需要这样cin.getline(s, 80)，s是char数组 或者也可以这样getline(cin, str)，原型为istream&amp;amp; getline (istream&amp;amp; is, string&amp;amp; str);，C++对每种流都定义了一个getline函数 在gcc编译器中，对标准库进行了扩展，加入了一个getline函数。会自动malloc, r"><meta property="og:locale" content="zh-CH"><meta property="og:image" content="https://zjyfdu.coding.me/images/10535321.jpg"><meta property="og:updated_time" content="2019-07-13T16:11:30.779Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="c复习笔记"><meta name="twitter:description" content="cin 带空格的字符串时，需要这样cin.getline(s, 80)，s是char数组 或者也可以这样getline(cin, str)，原型为istream&amp;amp; getline (istream&amp;amp; is, string&amp;amp; str);，C++对每种流都定义了一个getline函数 在gcc编译器中，对标准库进行了扩展，加入了一个getline函数。会自动malloc, r"><meta name="twitter:image" content="https://zjyfdu.coding.me/images/10535321.jpg"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Gemini",version:"5.1.3",sidebar:{position:"left",display:"post",offset:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!0,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="https://zjyfdu.coding.me/2018/03/11/c复习笔记/"><title>c复习笔记 | 努力～奋斗～</title></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">努力～奋斗～</span><span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle"></p></div><div class="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br> 关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br> 标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br> 分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br> 归档</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br> 搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/03/11/c复习笔记/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="翟大翟"><meta itemprop="description" content><meta itemprop="image" content="/images/11989810.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="努力～奋斗～"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">c复习笔记</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-11T22:09:11+08:00">2018-03-11</time></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span></span></div></header><div class="post-body" itemprop="articleBody"><ul><li>cin 带空格的字符串时，需要这样<code>cin.getline(s, 80)</code>，s是char数组</li><li>或者也可以这样<code>getline(cin, str)</code>，原型为<code>istream&amp; getline (istream&amp; is, string&amp; str);</code>，C++对每种流都定义了一个getline函数</li><li><p>在gcc编译器中，对标准库进行了扩展，加入了一个getline函数。会自动malloc, realloc，所以用的话，需要自己手动free，好像没啥人用，参考<a href="https://www.cnblogs.com/xkfz007/archive/2012/08/01/2618366.html" target="_blank" rel="noopener">这里</a></p></li><li><p>cout 控制输出精度 <code>cout &lt;&lt; fixed &lt;&lt; setprecision(2) &lt;&lt; f</code>，<code>#include &lt;iomanip&gt;</code></p></li><li>cout 控制输出格式<code>cout &lt;&lt; setfill(&#39;0&#39;) &lt;&lt; setw(4) &lt;&lt; a[i][j]</code></li><li><p><a href="https://blog.csdn.net/yockie/article/details/9104899" target="_blank" rel="noopener">更多</a></p></li><li><p>cin cout 重定向</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">freopen(<span class="string">"foo.txt"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>); </span><br><span class="line">freopen(“bar.txt”,”r”,<span class="built_in">stdin</span>);</span><br></pre></td></tr></table></figure></li><li><p>lambda表达式<br><img src="/images/10535321.jpg" alt title="lambda!"></p></li><li><p>使用lambda对vector进行排序</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> n;</span><br><span class="line">   <span class="keyword">double</span> th;</span><br><span class="line">   <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; th;</span><br><span class="line">   <span class="built_in">vector</span>&lt;pair&lt;<span class="built_in">string</span>, <span class="keyword">double</span>&gt;&gt; res;  </span><br><span class="line">   <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        <span class="built_in">string</span> name;</span><br><span class="line">        <span class="keyword">double</span> score;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; name &gt;&gt; score;</span><br><span class="line">        <span class="keyword">if</span>(score &gt; th)&#123;</span><br><span class="line">            res.push_back(pair&lt;<span class="built_in">string</span>, <span class="keyword">double</span>&gt;(name, score));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(res.begin(), res.end(), [](pair&lt;<span class="built_in">string</span>, <span class="keyword">double</span>&gt;&amp; a, pair&lt;<span class="built_in">string</span>, <span class="keyword">double</span>&gt;&amp; b) &#123;<span class="keyword">return</span> a.second &gt; b.second;&#125;);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i: res)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s %.1f\n"</span>, i.first.c_str(), i.second);</span><br><span class="line">    &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>erase删除vector元素</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(it=iVec.begin();it!=iVec.end();)&#123;</span><br><span class="line">　　<span class="keyword">if</span>(*it==<span class="number">4</span> || *it==<span class="number">5</span>)</span><br><span class="line">　　　　it=iVec.erase(it);</span><br><span class="line">　　<span class="keyword">else</span></span><br><span class="line">　　　　it++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p><code>Sample a(0)</code>, <code>Sample a = 0</code>, 都是调用构造函数</p></li><li><code>Sample a(9); a = 8</code> 调用两次构造函数，</li><li><code>Sample b = a</code>, <code>Sample b(a)</code> 拷贝构造函数</li><li>类型转换构造函数，编译系统会生成一个临时变量</li></ul><ul><li><p>C++编译器遵循以下优先顺序:</p><blockquote><p>先找参数完全匹配的普通函数(非由模板实例化而得的函数)，再找参数完全匹配的模板函数，再找实参经过自动类型转换后能够匹配的普通函数，上面的都找不到, 则报错。</p></blockquote></li><li><p>优雅的内存对齐方法</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">calc_align</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> n, <span class="keyword">unsigned</span> align)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ((n + align - <span class="number">1</span>) &amp; (~(align - <span class="number">1</span>)));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>__declspec(dllexport)是导出声明，说明这个函数要从DLL中导出给别人用。</p></li><li>__declspec(dllimport)是说这个函数是从别处导入的，不适用也能正常编译代码。</li></ul></div><footer class="post-footer"><div class="post-tags"> <a href="/tags/cin-cout/" rel="tag"># cin/cout</a> <a href="/tags/lambda/" rel="tag"># lambda</a> <a href="/tags/构造函数/" rel="tag"># 构造函数</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/2018/02/26/又是火车上的博客/" rel="next" title="又是火车上的博客"><i class="fa fa-chevron-left"></i> 又是火车上的博客</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/2018/03/20/CTC/" rel="prev" title="CTC">CTC<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"></div></div></div><div class="comments" id="comments"><div id="gitment-container"></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><section class="site-overview-wrap sidebar-panel sidebar-panel-active"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="/images/11989810.jpg" alt="翟大翟"><p class="site-author-name" itemprop="name">翟大翟</p><p class="site-description motion-element" itemprop="description"></p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">51</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/index.html"><span class="site-state-item-count">12</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">41</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/zjyfdu" target="_blank" title="Github"><i class="fa fa-fw fa-github"></i> Github</a></span><span class="links-of-author-item"><a href="https://stackoverflow.com/users/5393730/zjyfdu" target="_blank" title="StackOverflow"><i class="fa fa-fw fa-stack-overflow"></i> StackOverflow</a></span></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2019</span><span class="with-love"><i class="fa fa-user"></i></span> <span class="author" itemprop="copyrightHolder">翟大翟</span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script><script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script><script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script><script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><style>a.gitment-editor-footer-tip{display:none}.gitment-container.gitment-footer-container{display:none}</style><script type="text/javascript">function renderGitment(){new Gitment({id:"1520777351000",owner:"zjyfdu",repo:"zjyfdu.github.io",oauth:{client_secret:"c6c3b050dfdfbe78cba24692a672e717ab5943d1",client_id:"7d19555321c1ae7bc064"}}).render("gitment-container")}renderGitment()</script><script type="text/javascript">
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CH">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="cin/cout,lambda,构造函数,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="cin 带空格的字符串时，需要这样cin.getline(s, 80)，s是char数组 或者也可以这样getline(cin, str)，原型为istream&amp;amp; getline (istream&amp;amp; is, string&amp;amp; str);，C++对每种流都定义了一个getline函数 在gcc编译器中，对标准库进行了扩展，加入了一个getline函数。会自动malloc, r">
+<meta name="keywords" content="cin&#x2F;cout,lambda,构造函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c复习笔记">
+<meta property="og:url" content="https://zjyfdu.coding.me/2018/03/11/c复习笔记/index.html">
+<meta property="og:site_name" content="努力～奋斗～">
+<meta property="og:description" content="cin 带空格的字符串时，需要这样cin.getline(s, 80)，s是char数组 或者也可以这样getline(cin, str)，原型为istream&amp;amp; getline (istream&amp;amp; is, string&amp;amp; str);，C++对每种流都定义了一个getline函数 在gcc编译器中，对标准库进行了扩展，加入了一个getline函数。会自动malloc, r">
+<meta property="og:locale" content="zh-CH">
+<meta property="og:image" content="https://zjyfdu.coding.me/images/10535321.jpg">
+<meta property="og:updated_time" content="2019-07-13T16:11:30.779Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="c复习笔记">
+<meta name="twitter:description" content="cin 带空格的字符串时，需要这样cin.getline(s, 80)，s是char数组 或者也可以这样getline(cin, str)，原型为istream&amp;amp; getline (istream&amp;amp; is, string&amp;amp; str);，C++对每种流都定义了一个getline函数 在gcc编译器中，对标准库进行了扩展，加入了一个getline函数。会自动malloc, r">
+<meta name="twitter:image" content="https://zjyfdu.coding.me/images/10535321.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zjyfdu.coding.me/2018/03/11/c复习笔记/">
+
+
+
+
+
+  <title>c复习笔记 | 努力～奋斗～</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">努力～奋斗～</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/03/11/c复习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="翟大翟">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/11989810.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力～奋斗～">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">c复习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-11T22:09:11+08:00">
+                2018-03-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index">
+                    <span itemprop="name">cpp</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>cin 带空格的字符串时，需要这样<code>cin.getline(s, 80)</code>，s是char数组</li>
+<li>或者也可以这样<code>getline(cin, str)</code>，原型为<code>istream&amp; getline (istream&amp; is, string&amp; str);</code>，C++对每种流都定义了一个getline函数</li>
+<li><p>在gcc编译器中，对标准库进行了扩展，加入了一个getline函数。会自动malloc, realloc，所以用的话，需要自己手动free，好像没啥人用，参考<a href="https://www.cnblogs.com/xkfz007/archive/2012/08/01/2618366.html" target="_blank" rel="noopener">这里</a></p>
+</li>
+<li><p>cout 控制输出精度 <code>cout &lt;&lt; fixed &lt;&lt; setprecision(2) &lt;&lt; f</code>，<code>#include &lt;iomanip&gt;</code></p>
+</li>
+<li>cout 控制输出格式<code>cout &lt;&lt; setfill(&#39;0&#39;) &lt;&lt; setw(4) &lt;&lt; a[i][j]</code></li>
+<li><p><a href="https://blog.csdn.net/yockie/article/details/9104899" target="_blank" rel="noopener">更多</a></p>
+</li>
+<li><p>cin cout 重定向</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">freopen(<span class="string">"foo.txt"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>); </span><br><span class="line">freopen(“bar.txt”,”r”,<span class="built_in">stdin</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>lambda表达式<br><img src="/images/10535321.jpg" alt title="lambda!"> </p>
+</li>
+<li><p>使用lambda对vector进行排序</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> n;</span><br><span class="line">   <span class="keyword">double</span> th;</span><br><span class="line">   <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; th;</span><br><span class="line">   <span class="built_in">vector</span>&lt;pair&lt;<span class="built_in">string</span>, <span class="keyword">double</span>&gt;&gt; res;  </span><br><span class="line">   <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        <span class="built_in">string</span> name;</span><br><span class="line">        <span class="keyword">double</span> score;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; name &gt;&gt; score;</span><br><span class="line">        <span class="keyword">if</span>(score &gt; th)&#123;</span><br><span class="line">            res.push_back(pair&lt;<span class="built_in">string</span>, <span class="keyword">double</span>&gt;(name, score));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(res.begin(), res.end(), [](pair&lt;<span class="built_in">string</span>, <span class="keyword">double</span>&gt;&amp; a, pair&lt;<span class="built_in">string</span>, <span class="keyword">double</span>&gt;&amp; b) &#123;<span class="keyword">return</span> a.second &gt; b.second;&#125;);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i: res)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s %.1f\n"</span>, i.first.c_str(), i.second);</span><br><span class="line">    &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>erase删除vector元素</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(it=iVec.begin();it!=iVec.end();)&#123;</span><br><span class="line">　　<span class="keyword">if</span>(*it==<span class="number">4</span> || *it==<span class="number">5</span>)</span><br><span class="line">　　　　it=iVec.erase(it);</span><br><span class="line">　　<span class="keyword">else</span></span><br><span class="line">　　　　it++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Sample a(0)</code>, <code>Sample a = 0</code>, 都是调用构造函数</p>
+</li>
+<li><code>Sample a(9); a = 8</code> 调用两次构造函数，</li>
+<li><code>Sample b = a</code>, <code>Sample b(a)</code> 拷贝构造函数</li>
+<li>类型转换构造函数，编译系统会生成一个临时变量</li>
+</ul>
+<ul>
+<li><p>C++编译器遵循以下优先顺序:</p>
+<blockquote>
+<p>先找参数完全匹配的普通函数(非由模板实例化而得的函数)，再找参数完全匹配的模板函数，再找实参经过自动类型转换后能够匹配的普通函数，上面的都找不到, 则报错。</p>
+</blockquote>
+</li>
+<li><p>优雅的内存对齐方法</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">calc_align</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> n, <span class="keyword">unsigned</span> align)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ((n + align - <span class="number">1</span>) &amp; (~(align - <span class="number">1</span>)));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>__declspec(dllexport)是导出声明，说明这个函数要从DLL中导出给别人用。</p>
+</li>
+<li>__declspec(dllimport)是说这个函数是从别处导入的，不适用也能正常编译代码。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/cin-cout/" rel="tag"># cin/cout</a>
+          
+            <a href="/tags/lambda/" rel="tag"># lambda</a>
+          
+            <a href="/tags/构造函数/" rel="tag"># 构造函数</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/26/又是火车上的博客/" rel="next" title="又是火车上的博客">
+                <i class="fa fa-chevron-left"></i> 又是火车上的博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/20/CTC/" rel="prev" title="CTC">
+                CTC <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/11989810.jpg" alt="翟大翟">
+            
+              <p class="site-author-name" itemprop="name">翟大翟</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zjyfdu" target="_blank" title="Github">
+                      
+                        <i class="fa fa-fw fa-github"></i>Github</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/5393730/zjyfdu" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">翟大翟</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitment({
+            id: '1520777351000', 
+            owner: 'zjyfdu',
+            repo: 'zjyfdu.github.io',
+            
+            oauth: {
+            
+            
+                client_secret: 'c6c3b050dfdfbe78cba24692a672e717ab5943d1',
+            
+                client_id: '7d19555321c1ae7bc064'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -313,7 +1136,24 @@
         onPopupClose();
       }
     });
-  </script><script type="text/x-mathjax-config">
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
         tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
@@ -321,11 +1161,23 @@
           skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
         }
       });
-    </script><script type="text/x-mathjax-config">
+    </script>
+
+    <script type="text/x-mathjax-config">
       MathJax.Hub.Queue(function() {
         var all = MathJax.Hub.getAllJax(), i;
         for (i=0; i < all.length; i += 1) {
           all[i].SourceElement().parentNode.className += ' has-jax';
         }
       });
-    </script><script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/hijiki.model.json"},display:{position:"left",width:200,height:400,hOffset:0,vOffset:-100},mobile:{show:!1},log:!1})</script></body></html>
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":200,"height":400,"hOffset":0,"vOffset":-100},"mobile":{"show":false},"log":false});</script></body>
+</html>

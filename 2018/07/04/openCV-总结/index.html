@@ -1,4 +1,836 @@
-<!DOCTYPE html><html class="theme-next gemini use-motion" lang="zh-CH"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=5.1.3"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=5.1.3"><link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222"><meta name="keywords" content="openCV,"><meta name="description" content="一些图像操作 腐蚀与膨胀(Eroding and Dilating)   膨胀腐蚀都是针对亮色区域说的，膨胀是取最大值，腐蚀是最小值，实现的话，最直接的方法是四个for循环   开运算：腐蚀+膨胀，可以去除图中的小白点；闭运算：膨胀+腐蚀，可以去除图片中的小黑点  top hat：原图-开，得到的是开运算中被去掉的小白点；black hat：原图-闭，得到闭运算中去掉的小黑点  霍夫线变换  直方"><meta name="keywords" content="openCV"><meta property="og:type" content="article"><meta property="og:title" content="openCV 总结"><meta property="og:url" content="https://zjyfdu.coding.me/2018/07/04/openCV-总结/index.html"><meta property="og:site_name" content="努力～奋斗～"><meta property="og:description" content="一些图像操作 腐蚀与膨胀(Eroding and Dilating)   膨胀腐蚀都是针对亮色区域说的，膨胀是取最大值，腐蚀是最小值，实现的话，最直接的方法是四个for循环   开运算：腐蚀+膨胀，可以去除图中的小白点；闭运算：膨胀+腐蚀，可以去除图片中的小黑点  top hat：原图-开，得到的是开运算中被去掉的小白点；black hat：原图-闭，得到闭运算中去掉的小黑点  霍夫线变换  直方"><meta property="og:locale" content="zh-CH"><meta property="og:updated_time" content="2019-07-13T16:11:30.777Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="openCV 总结"><meta name="twitter:description" content="一些图像操作 腐蚀与膨胀(Eroding and Dilating)   膨胀腐蚀都是针对亮色区域说的，膨胀是取最大值，腐蚀是最小值，实现的话，最直接的方法是四个for循环   开运算：腐蚀+膨胀，可以去除图中的小白点；闭运算：膨胀+腐蚀，可以去除图片中的小黑点  top hat：原图-开，得到的是开运算中被去掉的小白点；black hat：原图-闭，得到闭运算中去掉的小黑点  霍夫线变换  直方"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Gemini",version:"5.1.3",sidebar:{position:"left",display:"post",offset:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!0,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="https://zjyfdu.coding.me/2018/07/04/openCV-总结/"><title>openCV 总结 | 努力～奋斗～</title></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">努力～奋斗～</span><span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle"></p></div><div class="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br> 关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br> 标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br> 分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br> 归档</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br> 搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/07/04/openCV-总结/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="翟大翟"><meta itemprop="description" content><meta itemprop="image" content="/images/11989810.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="努力～奋斗～"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">openCV 总结</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-04T12:19:14+08:00">2018-07-04</time></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span></span></div></header><div class="post-body" itemprop="articleBody"><h1 id="一些图像操作"><a href="#一些图像操作" class="headerlink" title="一些图像操作"></a>一些图像操作</h1><ul><li><a href="http://www.opencv.org.cn/opencvdoc/2.3.2/html/doc/tutorials/imgproc/erosion_dilatation/erosion_dilatation.html" target="_blank" rel="noopener">腐蚀与膨胀(Eroding and Dilating)</a></li></ul><blockquote><p>膨胀腐蚀都是针对亮色区域说的，膨胀是取最大值，腐蚀是最小值，实现的话，最直接的方法是四个for循环</p></blockquote><ul><li><p><strong>开运算</strong>：腐蚀+膨胀，可以去除图中的小白点；<strong>闭运算</strong>：膨胀+腐蚀，可以去除图片中的小黑点</p></li><li><p><strong>top hat</strong>：原图-开，得到的是开运算中被去掉的小白点；<strong>black hat</strong>：原图-闭，得到闭运算中去掉的小黑点</p></li><li><p><a href="https://www.cnblogs.com/skyfsm/p/6902524.html" target="_blank" rel="noopener">霍夫线变换</a></p></li><li><p>直方图均衡化</p></li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cv::equalizeHist(srcmat, dstmat);</span><br><span class="line"></span><br><span class="line">cv::<span class="function">Mat <span class="title">lookup</span><span class="params">(<span class="number">1</span>, <span class="number">256</span>, CV_8U)</span></span>;</span><br><span class="line"><span class="comment">// p[i] 是强度小于等于i的比例</span></span><br><span class="line">lookup.at&lt;uchar&gt;(i) = <span class="keyword">static_cast</span>&lt;uchar&gt;(<span class="number">255.0</span> * p[i]);</span><br><span class="line">dstmat = applyLookUp(srcmat, lookup);</span><br></pre></td></tr></table></figure><h1 id="C的接口"><a href="#C的接口" class="headerlink" title="C的接口"></a>C的接口</h1><ul><li>字体的说明参考<a href="https://blog.csdn.net/longzaitianya1989/article/details/8121286" target="_blank" rel="noopener">这里</a></li><li>cvReleaseImage，只是将IplImage*型的变量值赋为NULL，而这个变量本身还是存在的并且在内存中的存储位置不变</li><li><code>iplimg-&gt;imageSize == iplimg-&gt;height * iplimg-&gt;widthStep</code>，而不是f<code>rame-&gt;height * frame-&gt;width</code></li><li><code>iplimg-&gt;imageData</code>是对齐的内存，<a href="https://docs.opencv.org/3.4/d6/d5b/structIplImage.html" target="_blank" rel="noopener">官方文档</a>说<code>iplimg-&gt;imageDataOrigin</code>是没有对齐的内存，还没有验证过</li><li>默认的存储方式是BGR，不是RGB</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读图</span></span><br><span class="line">IplImage* iplimg = cvLoadImage(<span class="string">"heels.jpg"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把cv::mat改为c的图</span></span><br><span class="line">*iplimg = IplImage(matimg);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建新图，最后一个参数是channel数</span></span><br><span class="line">IplImage* iplimg=cvCreateImage(cvSize(<span class="number">360</span>, <span class="number">640</span>), IPL_DEPTH_8U, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示图</span></span><br><span class="line">cvNamedWindow(<span class="string">"img"</span>, <span class="number">0</span>);  </span><br><span class="line">cvShowImage(<span class="string">"img"</span>, iplimg);  </span><br><span class="line">cvWaitKey(<span class="number">0</span>);  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印字</span></span><br><span class="line">CvFont font;</span><br><span class="line">cvInitFont(&amp;font, CV_FONT_HERSHEY_COMPLEX, <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">8</span>);  </span><br><span class="line">cvPutText(iplimg, <span class="string">"This is a picture named lena!"</span>, cvPoint(<span class="number">50</span>, <span class="number">50</span>), &amp;font, CV_RGB(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存图</span></span><br><span class="line">cvSaveImage(<span class="string">"c:\\test1.jpg"</span>, iplimg);</span><br></pre></td></tr></table></figure><h1 id="C-的接口"><a href="#C-的接口" class="headerlink" title="C++的接口"></a>C++的接口</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读图</span></span><br><span class="line">cv::Mat matimg = cv::imread (<span class="string">"heels.jpg"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把IplImage改为c++接口，第二个参数是需不需要拷贝，默认是false</span></span><br><span class="line">matimg = cv::Mat(iplimg, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建新图，CV_8UC3是三通道，CV_8UC1是单通道</span></span><br><span class="line">cv::Mat matimg(2, 2, CV_8UC3, Scalar(0,255,0));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示图</span></span><br><span class="line">cv::nameWindow(<span class="string">"img"</span>);</span><br><span class="line">cv::imshow(<span class="string">"img"</span>, matimg);</span><br><span class="line">cv::waitKey(<span class="number">-1</span>);  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印字</span></span><br><span class="line"><span class="comment">// void putText(Mat&amp; img, const string&amp; text, Point org, int fontFace, double fontScale, Scalar color, int thickness=1, int lineType=8, bool bottomLeftOrigin=false )</span></span><br><span class="line">cv::putText(image, <span class="string">"opencv"</span>, Point(<span class="number">5</span>,<span class="number">100</span>), FONT_HERSHEY_DUPLEX, <span class="number">1</span>, Scalar(<span class="number">0</span>,<span class="number">143</span>,<span class="number">143</span>), <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存图，后缀名决定了图片对编码格式</span></span><br><span class="line">cv::imwrite(<span class="string">"c:\\test1.jpg"</span>, matimg);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历图像</span></span><br><span class="line"><span class="comment">// Vec3b表示三通道usigned char类型，</span></span><br><span class="line"><span class="comment">// 还可以有2通道和4通道，类型还可以有f(loat)、i(nt)、d(ouble)、s(hort)、w(unsigned short)</span></span><br><span class="line"><span class="comment">// typedef Vec&lt;float, 2&gt; Vec2f;</span></span><br><span class="line">matimg.at&lt;cv::Vec3b&gt;(j,i)[channel] = value;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 还可以直接取每一行对首地址</span></span><br><span class="line">uchar* data = matimg.ptr&lt;uchar&gt;(j);</span><br></pre></td></tr></table></figure><h1 id="头文件分析"><a href="#头文件分析" class="headerlink" title="头文件分析"></a>头文件分析</h1><ul><li>一般直接包含这三个头文件</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;opencv2/core/core.hpp&gt;</span><br><span class="line">#include&lt;opencv2/imgproc/imgproc.hpp&gt;</span><br><span class="line">#include&lt;opencv2/highgui/highgui.hpp&gt;</span><br></pre></td></tr></table></figure></div><footer class="post-footer"><div class="post-tags"> <a href="/tags/openCV/" rel="tag"># openCV</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/2018/07/03/c-文件复制/" rel="next" title="c++文件复制"><i class="fa fa-chevron-left"></i> c++文件复制</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/2018/07/06/配置评论、搜索和代码/" rel="prev" title="配置评论、搜索和代码">配置评论、搜索和代码<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"></div></div></div><div class="comments" id="comments"><div id="gitment-container"></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> 文章目录</li><li class="sidebar-nav-overview" data-target="site-overview-wrap"> 站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="/images/11989810.jpg" alt="翟大翟"><p class="site-author-name" itemprop="name">翟大翟</p><p class="site-description motion-element" itemprop="description"></p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">51</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/index.html"><span class="site-state-item-count">12</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">41</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/zjyfdu" target="_blank" title="Github"><i class="fa fa-fw fa-github"></i> Github</a></span><span class="links-of-author-item"><a href="https://stackoverflow.com/users/5393730/zjyfdu" target="_blank" title="StackOverflow"><i class="fa fa-fw fa-stack-overflow"></i> StackOverflow</a></span></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一些图像操作"><span class="nav-number">1.</span> <span class="nav-text">一些图像操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C的接口"><span class="nav-number">2.</span> <span class="nav-text">C的接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-的接口"><span class="nav-number">3.</span> <span class="nav-text">C++的接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#头文件分析"><span class="nav-number">4.</span> <span class="nav-text">头文件分析</span></a></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2019</span><span class="with-love"><i class="fa fa-user"></i></span> <span class="author" itemprop="copyrightHolder">翟大翟</span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script><script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script><script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script><script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><style>a.gitment-editor-footer-tip{display:none}.gitment-container.gitment-footer-container{display:none}</style><script type="text/javascript">function renderGitment(){new Gitment({id:"1530677954000",owner:"zjyfdu",repo:"zjyfdu.github.io",oauth:{client_secret:"c6c3b050dfdfbe78cba24692a672e717ab5943d1",client_id:"7d19555321c1ae7bc064"}}).render("gitment-container")}renderGitment()</script><script type="text/javascript">
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CH">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="openCV,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一些图像操作 腐蚀与膨胀(Eroding and Dilating)   膨胀腐蚀都是针对亮色区域说的，膨胀是取最大值，腐蚀是最小值，实现的话，最直接的方法是四个for循环   开运算：腐蚀+膨胀，可以去除图中的小白点；闭运算：膨胀+腐蚀，可以去除图片中的小黑点  top hat：原图-开，得到的是开运算中被去掉的小白点；black hat：原图-闭，得到闭运算中去掉的小黑点  霍夫线变换  直方">
+<meta name="keywords" content="openCV">
+<meta property="og:type" content="article">
+<meta property="og:title" content="openCV 总结">
+<meta property="og:url" content="https://zjyfdu.coding.me/2018/07/04/openCV-总结/index.html">
+<meta property="og:site_name" content="努力～奋斗～">
+<meta property="og:description" content="一些图像操作 腐蚀与膨胀(Eroding and Dilating)   膨胀腐蚀都是针对亮色区域说的，膨胀是取最大值，腐蚀是最小值，实现的话，最直接的方法是四个for循环   开运算：腐蚀+膨胀，可以去除图中的小白点；闭运算：膨胀+腐蚀，可以去除图片中的小黑点  top hat：原图-开，得到的是开运算中被去掉的小白点；black hat：原图-闭，得到闭运算中去掉的小黑点  霍夫线变换  直方">
+<meta property="og:locale" content="zh-CH">
+<meta property="og:updated_time" content="2019-07-13T16:11:30.777Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="openCV 总结">
+<meta name="twitter:description" content="一些图像操作 腐蚀与膨胀(Eroding and Dilating)   膨胀腐蚀都是针对亮色区域说的，膨胀是取最大值，腐蚀是最小值，实现的话，最直接的方法是四个for循环   开运算：腐蚀+膨胀，可以去除图中的小白点；闭运算：膨胀+腐蚀，可以去除图片中的小黑点  top hat：原图-开，得到的是开运算中被去掉的小白点；black hat：原图-闭，得到闭运算中去掉的小黑点  霍夫线变换  直方">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zjyfdu.coding.me/2018/07/04/openCV-总结/">
+
+
+
+
+
+  <title>openCV 总结 | 努力～奋斗～</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">努力～奋斗～</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/07/04/openCV-总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="翟大翟">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/11989810.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力～奋斗～">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">openCV 总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-04T12:19:14+08:00">
+                2018-07-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index">
+                    <span itemprop="name">cpp</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一些图像操作"><a href="#一些图像操作" class="headerlink" title="一些图像操作"></a>一些图像操作</h1><ul>
+<li><a href="http://www.opencv.org.cn/opencvdoc/2.3.2/html/doc/tutorials/imgproc/erosion_dilatation/erosion_dilatation.html" target="_blank" rel="noopener">腐蚀与膨胀(Eroding and Dilating)</a></li>
+</ul>
+<blockquote>
+<p>膨胀腐蚀都是针对亮色区域说的，膨胀是取最大值，腐蚀是最小值，实现的话，最直接的方法是四个for循环</p>
+</blockquote>
+<ul>
+<li><p><strong>开运算</strong>：腐蚀+膨胀，可以去除图中的小白点；<strong>闭运算</strong>：膨胀+腐蚀，可以去除图片中的小黑点</p>
+</li>
+<li><p><strong>top hat</strong>：原图-开，得到的是开运算中被去掉的小白点；<strong>black hat</strong>：原图-闭，得到闭运算中去掉的小黑点</p>
+</li>
+<li><p><a href="https://www.cnblogs.com/skyfsm/p/6902524.html" target="_blank" rel="noopener">霍夫线变换</a></p>
+</li>
+<li><p>直方图均衡化</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cv::equalizeHist(srcmat, dstmat);</span><br><span class="line"></span><br><span class="line">cv::<span class="function">Mat <span class="title">lookup</span><span class="params">(<span class="number">1</span>, <span class="number">256</span>, CV_8U)</span></span>;</span><br><span class="line"><span class="comment">// p[i] 是强度小于等于i的比例</span></span><br><span class="line">lookup.at&lt;uchar&gt;(i) = <span class="keyword">static_cast</span>&lt;uchar&gt;(<span class="number">255.0</span> * p[i]);</span><br><span class="line">dstmat = applyLookUp(srcmat, lookup);</span><br></pre></td></tr></table></figure>
+<h1 id="C的接口"><a href="#C的接口" class="headerlink" title="C的接口"></a>C的接口</h1><ul>
+<li>字体的说明参考<a href="https://blog.csdn.net/longzaitianya1989/article/details/8121286" target="_blank" rel="noopener">这里</a></li>
+<li>cvReleaseImage，只是将IplImage*型的变量值赋为NULL，而这个变量本身还是存在的并且在内存中的存储位置不变</li>
+<li><code>iplimg-&gt;imageSize == iplimg-&gt;height * iplimg-&gt;widthStep</code>，而不是f<code>rame-&gt;height * frame-&gt;width</code></li>
+<li><code>iplimg-&gt;imageData</code>是对齐的内存，<a href="https://docs.opencv.org/3.4/d6/d5b/structIplImage.html" target="_blank" rel="noopener">官方文档</a>说<code>iplimg-&gt;imageDataOrigin</code>是没有对齐的内存，还没有验证过</li>
+<li>默认的存储方式是BGR，不是RGB</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读图</span></span><br><span class="line">IplImage* iplimg = cvLoadImage(<span class="string">"heels.jpg"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把cv::mat改为c的图</span></span><br><span class="line">*iplimg = IplImage(matimg);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建新图，最后一个参数是channel数</span></span><br><span class="line">IplImage* iplimg=cvCreateImage(cvSize(<span class="number">360</span>, <span class="number">640</span>), IPL_DEPTH_8U, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示图</span></span><br><span class="line">cvNamedWindow(<span class="string">"img"</span>, <span class="number">0</span>);  </span><br><span class="line">cvShowImage(<span class="string">"img"</span>, iplimg);  </span><br><span class="line">cvWaitKey(<span class="number">0</span>);  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印字</span></span><br><span class="line">CvFont font;</span><br><span class="line">cvInitFont(&amp;font, CV_FONT_HERSHEY_COMPLEX, <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">8</span>);  </span><br><span class="line">cvPutText(iplimg, <span class="string">"This is a picture named lena!"</span>, cvPoint(<span class="number">50</span>, <span class="number">50</span>), &amp;font, CV_RGB(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存图</span></span><br><span class="line">cvSaveImage(<span class="string">"c:\\test1.jpg"</span>, iplimg);</span><br></pre></td></tr></table></figure>
+<h1 id="C-的接口"><a href="#C-的接口" class="headerlink" title="C++的接口"></a>C++的接口</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读图</span></span><br><span class="line">cv::Mat matimg = cv::imread (<span class="string">"heels.jpg"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把IplImage改为c++接口，第二个参数是需不需要拷贝，默认是false</span></span><br><span class="line">matimg = cv::Mat(iplimg, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建新图，CV_8UC3是三通道，CV_8UC1是单通道</span></span><br><span class="line">cv::Mat matimg(2, 2, CV_8UC3, Scalar(0,255,0));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示图</span></span><br><span class="line">cv::nameWindow(<span class="string">"img"</span>);</span><br><span class="line">cv::imshow(<span class="string">"img"</span>, matimg);</span><br><span class="line">cv::waitKey(<span class="number">-1</span>);  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印字</span></span><br><span class="line"><span class="comment">// void putText(Mat&amp; img, const string&amp; text, Point org, int fontFace, double fontScale, Scalar color, int thickness=1, int lineType=8, bool bottomLeftOrigin=false )</span></span><br><span class="line">cv::putText(image, <span class="string">"opencv"</span>, Point(<span class="number">5</span>,<span class="number">100</span>), FONT_HERSHEY_DUPLEX, <span class="number">1</span>, Scalar(<span class="number">0</span>,<span class="number">143</span>,<span class="number">143</span>), <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存图，后缀名决定了图片对编码格式</span></span><br><span class="line">cv::imwrite(<span class="string">"c:\\test1.jpg"</span>, matimg);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历图像</span></span><br><span class="line"><span class="comment">// Vec3b表示三通道usigned char类型，</span></span><br><span class="line"><span class="comment">// 还可以有2通道和4通道，类型还可以有f(loat)、i(nt)、d(ouble)、s(hort)、w(unsigned short)</span></span><br><span class="line"><span class="comment">// typedef Vec&lt;float, 2&gt; Vec2f;</span></span><br><span class="line">matimg.at&lt;cv::Vec3b&gt;(j,i)[channel] = value;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 还可以直接取每一行对首地址</span></span><br><span class="line">uchar* data = matimg.ptr&lt;uchar&gt;(j);</span><br></pre></td></tr></table></figure>
+<h1 id="头文件分析"><a href="#头文件分析" class="headerlink" title="头文件分析"></a>头文件分析</h1><ul>
+<li>一般直接包含这三个头文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;opencv2/core/core.hpp&gt;</span><br><span class="line">#include&lt;opencv2/imgproc/imgproc.hpp&gt;</span><br><span class="line">#include&lt;opencv2/highgui/highgui.hpp&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/openCV/" rel="tag"># openCV</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/03/c-文件复制/" rel="next" title="c++文件复制">
+                <i class="fa fa-chevron-left"></i> c++文件复制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/06/配置评论、搜索和代码/" rel="prev" title="配置评论、搜索和代码">
+                配置评论、搜索和代码 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/11989810.jpg" alt="翟大翟">
+            
+              <p class="site-author-name" itemprop="name">翟大翟</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zjyfdu" target="_blank" title="Github">
+                      
+                        <i class="fa fa-fw fa-github"></i>Github</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/5393730/zjyfdu" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一些图像操作"><span class="nav-number">1.</span> <span class="nav-text">一些图像操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C的接口"><span class="nav-number">2.</span> <span class="nav-text">C的接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-的接口"><span class="nav-number">3.</span> <span class="nav-text">C++的接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#头文件分析"><span class="nav-number">4.</span> <span class="nav-text">头文件分析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">翟大翟</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitment({
+            id: '1530677954000', 
+            owner: 'zjyfdu',
+            repo: 'zjyfdu.github.io',
+            
+            oauth: {
+            
+            
+                client_secret: 'c6c3b050dfdfbe78cba24692a672e717ab5943d1',
+            
+                client_id: '7d19555321c1ae7bc064'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -313,7 +1145,24 @@
         onPopupClose();
       }
     });
-  </script><script type="text/x-mathjax-config">
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
         tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
@@ -321,11 +1170,23 @@
           skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
         }
       });
-    </script><script type="text/x-mathjax-config">
+    </script>
+
+    <script type="text/x-mathjax-config">
       MathJax.Hub.Queue(function() {
         var all = MathJax.Hub.getAllJax(), i;
         for (i=0; i < all.length; i += 1) {
           all[i].SourceElement().parentNode.className += ' has-jax';
         }
       });
-    </script><script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/hijiki.model.json"},display:{position:"left",width:200,height:400,hOffset:0,vOffset:-100},mobile:{show:!1},log:!1})</script></body></html>
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":200,"height":400,"hOffset":0,"vOffset":-100},"mobile":{"show":false},"log":false});</script></body>
+</html>
