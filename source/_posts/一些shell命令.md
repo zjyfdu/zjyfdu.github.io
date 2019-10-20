@@ -31,6 +31,7 @@ do
 done
 
 # while : 等效于 while true
+# There's no real difference in behavior. Both commands do nothing and exit with a successful status. : emphasizes doing nothing; true emphasizes the successful status.
 ```
 
 - if
@@ -115,3 +116,18 @@ echo $? # 0
 
  - `sudo sh -c "..."`，引号里的内容都会有sudo权限
  - `echo $(( 2#101011 ))`，这里是2进制的意思
+
+ - `trap`
+ ```shell
+trap "echo Booh!" SIGINT SIGTERM
+echo "it's going to run until you hit Ctrl+Z"
+echo "hit Ctrl+C to be blown away!"
+
+while true:         
+do
+    sleep 60       
+done
+# “kill pid” 会发送SIGTERM到进程pid.
+# 在终端中敲入interrupt key（DELETE或ctrl+c）会产生SIGINT信号。
+# “kill -9 pid” 会发送SIGKILL到进程pid，SIGKILL不能被捕获，会直接结束
+```
