@@ -88,7 +88,7 @@
 <meta property="og:description" content="cin 带空格的字符串时，需要这样cin.getline(s, 80)，s是char数组 或者也可以这样getline(cin, str)，原型为istream&amp;amp; getline (istream&amp;amp; is, string&amp;amp; str);，C++对每种流都定义了一个getline函数 在gcc编译器中，对标准库进行了扩展，加入了一个getline函数。会自动malloc, r">
 <meta property="og:locale" content="zh-CH">
 <meta property="og:image" content="https://zjyfdu.coding.me/images/10535321.jpg">
-<meta property="og:updated_time" content="2019-07-13T16:11:30.779Z">
+<meta property="og:updated_time" content="2019-10-26T16:18:47.832Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c复习笔记">
 <meta name="twitter:description" content="cin 带空格的字符串时，需要这样cin.getline(s, 80)，s是char数组 或者也可以这样getline(cin, str)，原型为istream&amp;amp; getline (istream&amp;amp; is, string&amp;amp; str);，C++对每种流都定义了一个getline函数 在gcc编译器中，对标准库进行了扩展，加入了一个getline函数。会自动malloc, r">
@@ -414,9 +414,14 @@
 </li>
 <li><p>__declspec(dllexport)是导出声明，说明这个函数要从DLL中导出给别人用。</p>
 </li>
-<li>__declspec(dllimport)是说这个函数是从别处导入的，不适用也能正常编译代码。</li>
+<li><p>__declspec(dllimport)是说这个函数是从别处导入的，不适用也能正常编译代码。</p>
+</li>
+<li><p>ANSI C是美国国家标准局，为C语言制定的一套国际标准语法，避免各个厂家的C语言不一致</p>
+</li>
+<li>include的文件可以不写到gcc里面</li>
 </ul>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;max.c&quot;</span><br><span class="line">gcc main.c</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -c max.c -o max.o</span><br><span class="line">gcc max.o main.c</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -539,7 +544,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -561,7 +566,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
