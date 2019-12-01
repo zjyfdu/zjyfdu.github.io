@@ -88,3 +88,15 @@ unsigned int calc_align(unsigned int n, unsigned align)
 - __declspec(dllexport)是导出声明，说明这个函数要从DLL中导出给别人用。
 - __declspec(dllimport)是说这个函数是从别处导入的，不适用也能正常编译代码。
 
+- ANSI C是美国国家标准局，为C语言制定的一套国际标准语法，避免各个厂家的C语言不一致
+- include的文件可以不写到gcc里面
+
+```
+#include "max.c"
+gcc main.c
+```
+
+```
+gcc -c max.c -o max.o
+gcc max.o main.c
+```
