@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>百度真香啊</title>
+      <link href="/2019/12/15/%E7%99%BE%E5%BA%A6%E7%9C%9F%E9%A6%99/"/>
+      <url>/2019/12/15/%E7%99%BE%E5%BA%A6%E7%9C%9F%E9%A6%99/</url>
+      
+        <content type="html"><![CDATA[<ul><li>目前我知道有两个地方能薅到免费的GPU，一个是google的colab，一个是百度的aistudio</li></ul><h1 id="colab"><a href="#colab" class="headerlink" title="colab"></a>colab</h1><ul><li>colab是tesla p100，一次可以运行12h，只能以jupyter notebook的形式运行，没有shell真的很难受啊，</li><li>文件可以挂载在google driver</li><li>有人做了ssh访问colab，看<a href="https://imadelhanafi.com/posts/google_colal_server/" target="_blank" rel="noopener">这里</a>，使用Ngrok做了个反向的代理</li></ul><h1 id="aistudio"><a href="#aistudio" class="headerlink" title="aistudio"></a>aistudio</h1><ul><li>百度最友好的是提供命令行，同时也有个work路径，持久存储，比谷歌舒服多了</li><li>给的还是Tesla V100啊</li><li>理论上只能支持paddlepaddle，但亲测可以pytorch，需要自己安装</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Linux-x86_64.sh</span><br><span class="line">conda install --channel https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/ pytorch torchvision cudatoolkit=9.2 -c pytorch</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CPU历史考古</title>
       <link href="/2019/12/01/CPU%E5%8E%86%E5%8F%B2%E8%80%83%E5%8F%A4/"/>
       <url>/2019/12/01/CPU%E5%8E%86%E5%8F%B2%E8%80%83%E5%8F%A4/</url>

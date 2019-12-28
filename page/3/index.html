@@ -281,6 +281,151 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/11/20/grep中的正则表达式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="翟大翟">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/11989810.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力～奋斗～">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/20/grep中的正则表达式/" itemprop="url">grep中的正则表达式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-20T19:36:53+08:00">
+                2018-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>照抄的<a href="https://blog.csdn.net/yufenghyc/article/details/51078107" target="_blank" rel="noopener">这里</a></p>
+<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><ul>
+<li>基础正则，basic regex，即bres</li>
+<li>扩展正则，extended regex，即eres</li>
+<li>perl的正则，perl regex，即pres</li>
+</ul>
+<h1 id="不同正则表达式的区别"><a href="#不同正则表达式的区别" class="headerlink" title="不同正则表达式的区别"></a>不同正则表达式的区别</h1><ul>
+<li>bres需要多写转义</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\&#123;n,m\&#125;, x\|y #bres需要写转义，</span><br><span class="line">&#123;n,m&#125;, x|y    #而eres和pres不需要</span><br></pre></td></tr></table></figure>
+<ul>
+<li>pres可以用下面这些，其它两种不可以。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\d, \D, \S, \s</span><br></pre></td></tr></table></figure>
+<h1 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h1><ul>
+<li>默认的正则为基础正则，”-E”表示eres，”-P”表示pers.</li>
+<li>egrep等效于grep -E，egrep -P等效于 grep -P</li>
+</ul>
+<h1 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h1><ul>
+<li>默认是eres，-r表示要用eres，不支持pres</li>
+<li>mac下到sed和linux还不太一样，写inplace替换要这样，其中，<code>-i</code>后面是</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i '' 's/http.*ot0uaqt93.bkt.*\//\/images\//g' `ls *.md`</span><br></pre></td></tr></table></figure>
+<h1 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h1><ul>
+<li>厉害了，只支持eres</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/11/19/conda-常用命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1813,148 +1958,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/07/03/c-文件复制/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="翟大翟">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/11989810.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力～奋斗～">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/03/c-文件复制/" itemprop="url">c++文件复制</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-03T14:24:44+08:00">
-                2018-07-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/cpp/" itemprop="url" rel="index">
-                    <span itemprop="name">cpp</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="keyword">if</span> (argc &lt; <span class="number">3</span>)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"filename missed"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function">ifstream <span class="title">in</span><span class="params">(argv[<span class="number">1</span>], ios::binary | ios::in)</span></span>;</span><br><span class="line">	<span class="keyword">if</span> (!in)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"source file open failed"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function">ofstream <span class="title">out</span><span class="params">(argv[<span class="number">2</span>], ios::binary | ios::out)</span></span>; <span class="comment">//打开文件用于写</span></span><br><span class="line">	<span class="keyword">if</span> (!out) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"New file open error."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		in.close(); <span class="comment">//打开的文件一定要关闭</span></span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">strcmp</span>(argv[<span class="number">1</span>], argv[<span class="number">2</span>])==<span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"the src file can't be same with dst file"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">char</span> buf[<span class="number">2048</span>];</span><br><span class="line">	<span class="keyword">while</span> (in)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//read从in流中读取2048字节，放入buf数组中，同时文件指针向后移动2048字节</span></span><br><span class="line">		<span class="comment">//若不足2048字节遇到文件结尾，则以实际提取字节读取。</span></span><br><span class="line">		in.read(buf, <span class="number">2048</span>);</span><br><span class="line">		<span class="comment">//gcount()用来提取读取的字节数，write将buf中的内容写入out流。</span></span><br><span class="line">		out.write(buf, in.gcount());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//char c;</span></span><br><span class="line">	<span class="comment">//while (in.get(c))&#123;</span></span><br><span class="line">	<span class="comment">//	out.put(c);</span></span><br><span class="line">	<span class="comment">//&#125;</span></span><br><span class="line">	in.close();</span><br><span class="line">	out.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2007,7 +2010,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
