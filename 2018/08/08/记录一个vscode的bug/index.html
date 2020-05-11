@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="啰嗦一下 在mac下，使用vscode，使用汉字输入法，删除完后，会多一个退格符！而且这个退格符默认是不可见的！ 过年在家写论文的时候，就发现xetex模型奇妙不能编译，说是多了字符，苦于不知道这个字符是啥，也不知道怎么描述这个现象，一直没有找到原因。 就在今天，我配置博客的搜索的时候，又被这个bug给搞了，看别人的解释说是生成的检索文件里，多了BS(unicode)这个字符，终于顺着这个BS，我">
+<meta name="description" content="啰嗦一下 在mac下，使用vscode，使用汉字输入法，删除完后，会多一个退格符！而且这个退格符默认是不可见的！ 过年在家写论文的时候，就发现xetex莫名其妙不能编译，说是多了字符，苦于不知道这个字符是啥，也不知道怎么描述这个现象，一直没有找到原因。 就在今天，我配置博客的搜索的时候，又被这个bug给搞了，看别人的解释说是生成的检索文件里，多了BS(unicode)这个字符，终于顺着这个BS，我">
 <meta name="keywords" content="vscode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="记录一个vscode的bug">
 <meta property="og:url" content="https://zjyfdu.coding.me/2018/08/08/记录一个vscode的bug/index.html">
 <meta property="og:site_name" content="努力～奋斗～">
-<meta property="og:description" content="啰嗦一下 在mac下，使用vscode，使用汉字输入法，删除完后，会多一个退格符！而且这个退格符默认是不可见的！ 过年在家写论文的时候，就发现xetex模型奇妙不能编译，说是多了字符，苦于不知道这个字符是啥，也不知道怎么描述这个现象，一直没有找到原因。 就在今天，我配置博客的搜索的时候，又被这个bug给搞了，看别人的解释说是生成的检索文件里，多了BS(unicode)这个字符，终于顺着这个BS，我">
+<meta property="og:description" content="啰嗦一下 在mac下，使用vscode，使用汉字输入法，删除完后，会多一个退格符！而且这个退格符默认是不可见的！ 过年在家写论文的时候，就发现xetex莫名其妙不能编译，说是多了字符，苦于不知道这个字符是啥，也不知道怎么描述这个现象，一直没有找到原因。 就在今天，我配置博客的搜索的时候，又被这个bug给搞了，看别人的解释说是生成的检索文件里，多了BS(unicode)这个字符，终于顺着这个BS，我">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:updated_time" content="2019-07-13T16:11:30.781Z">
+<meta property="og:updated_time" content="2020-05-11T13:04:35.544Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记录一个vscode的bug">
-<meta name="twitter:description" content="啰嗦一下 在mac下，使用vscode，使用汉字输入法，删除完后，会多一个退格符！而且这个退格符默认是不可见的！ 过年在家写论文的时候，就发现xetex模型奇妙不能编译，说是多了字符，苦于不知道这个字符是啥，也不知道怎么描述这个现象，一直没有找到原因。 就在今天，我配置博客的搜索的时候，又被这个bug给搞了，看别人的解释说是生成的检索文件里，多了BS(unicode)这个字符，终于顺着这个BS，我">
+<meta name="twitter:description" content="啰嗦一下 在mac下，使用vscode，使用汉字输入法，删除完后，会多一个退格符！而且这个退格符默认是不可见的！ 过年在家写论文的时候，就发现xetex莫名其妙不能编译，说是多了字符，苦于不知道这个字符是啥，也不知道怎么描述这个现象，一直没有找到原因。 就在今天，我配置博客的搜索的时候，又被这个bug给搞了，看别人的解释说是生成的检索文件里，多了BS(unicode)这个字符，终于顺着这个BS，我">
 
 
 
@@ -354,12 +354,12 @@
       
         <h1 id="啰嗦一下"><a href="#啰嗦一下" class="headerlink" title="啰嗦一下"></a>啰嗦一下</h1><ul>
 <li>在mac下，使用vscode，使用汉字输入法，删除完后，会多一个退格符！而且这个退格符默认是不可见的！</li>
-<li>过年在家写论文的时候，就发现xetex模型奇妙不能编译，说是多了字符，苦于不知道这个字符是啥，也不知道怎么描述这个现象，一直没有找到原因。</li>
+<li>过年在家写论文的时候，就发现xetex莫名其妙不能编译，说是多了字符，苦于不知道这个字符是啥，也不知道怎么描述这个现象，一直没有找到原因。</li>
 <li>就在今天，我配置博客的搜索的时候，又被这个bug给搞了，看别人的解释说是生成的检索文件里，多了BS(unicode)这个字符，终于顺着这个BS，我找到了困扰我半年的bug。</li>
-<li>十分激动，以至于我一改性冷淡的文风，在大半夜里啰嗦这么多。</li>
+<li>十分激动，以至于我一改冷淡的文风，在大半夜里啰嗦这么多。</li>
 </ul>
 <h1 id="vscode并不打算修"><a href="#vscode并不打算修" class="headerlink" title="vscode并不打算修"></a>vscode并不打算修</h1><ul>
-<li>参考了<a href="https://juejin.im/entry/5a806ddef265da4e84092eeb" target="_blank" rel="noopener">这里</a>的说明。<blockquote>
+<li>参考<a href="https://juejin.im/entry/5a806ddef265da4e84092eeb" target="_blank" rel="noopener">这里</a>的说明。<blockquote>
 <p>vscode底层使用了electron，这是electron的bug，electron不解决这个问题，vscode就不会解决。<br>electron底层使用了chromium， 这是chromium的bug，chromium不解决，elctron就无法解决。</p>
 </blockquote>
 </li>
@@ -501,7 +501,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -523,7 +523,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -592,7 +592,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

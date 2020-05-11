@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="9102年都快结束了，我才开始真正看yolov2 先复习一下yolov1 输出的shape是$7\times7\times30$，分别是类别，置信度和坐标，虽然每个格子输出两个框，但只有一组类别 坐标$x, y$是相对于每一个格的，$w, h$是相对于整个图的，这样做的好处是位置坐标的取值范围都是$[0, 1]$    loss都统一认为是回归问题">
+<meta name="description" content="先复习一下yolov1 输出的shape是$7\times7\times30$，分别是类别，置信度和坐标，虽然每个格子输出两个框，但只有一组类别 坐标$x, y$是相对于每一个格的，$w, h$是相对于整个图的，这样做的好处是位置坐标的取值范围都是$[0, 1]$    loss都统一认为是回归问题">
 <meta name="keywords" content="yolo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YOLO2">
 <meta property="og:url" content="https://zjyfdu.coding.me/2019/10/20/YOLO2/index.html">
 <meta property="og:site_name" content="努力～奋斗～">
-<meta property="og:description" content="9102年都快结束了，我才开始真正看yolov2 先复习一下yolov1 输出的shape是$7\times7\times30$，分别是类别，置信度和坐标，虽然每个格子输出两个框，但只有一组类别 坐标$x, y$是相对于每一个格的，$w, h$是相对于整个图的，这样做的好处是位置坐标的取值范围都是$[0, 1]$    loss都统一认为是回归问题">
+<meta property="og:description" content="先复习一下yolov1 输出的shape是$7\times7\times30$，分别是类别，置信度和坐标，虽然每个格子输出两个框，但只有一组类别 坐标$x, y$是相对于每一个格的，$w, h$是相对于整个图的，这样做的好处是位置坐标的取值范围都是$[0, 1]$    loss都统一认为是回归问题">
 <meta property="og:locale" content="zh-CH">
 <meta property="og:image" content="https://zjyfdu.coding.me/images/v2-8630f8d3dbe3634f124eaf82f222ca94_r.jpg">
 <meta property="og:image" content="https://zjyfdu.coding.me/images/v2-45795a63cdbaac8c05d875dfb6fcfb5a_r.jpg">
-<meta property="og:updated_time" content="2019-10-20T15:39:44.926Z">
+<meta property="og:updated_time" content="2020-05-11T13:02:22.897Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YOLO2">
-<meta name="twitter:description" content="9102年都快结束了，我才开始真正看yolov2 先复习一下yolov1 输出的shape是$7\times7\times30$，分别是类别，置信度和坐标，虽然每个格子输出两个框，但只有一组类别 坐标$x, y$是相对于每一个格的，$w, h$是相对于整个图的，这样做的好处是位置坐标的取值范围都是$[0, 1]$    loss都统一认为是回归问题">
+<meta name="twitter:description" content="先复习一下yolov1 输出的shape是$7\times7\times30$，分别是类别，置信度和坐标，虽然每个格子输出两个框，但只有一组类别 坐标$x, y$是相对于每一个格的，$w, h$是相对于整个图的，这样做的好处是位置坐标的取值范围都是$[0, 1]$    loss都统一认为是回归问题">
 <meta name="twitter:image" content="https://zjyfdu.coding.me/images/v2-8630f8d3dbe3634f124eaf82f222ca94_r.jpg">
 
 
@@ -355,8 +355,7 @@
       
 
       
-        <p>9102年都快结束了，我才开始真正看yolov2</p>
-<h1 id="先复习一下yolov1"><a href="#先复习一下yolov1" class="headerlink" title="先复习一下yolov1"></a>先复习一下<a href="https://zhuanlan.zhihu.com/p/32525231" target="_blank" rel="noopener">yolov1</a></h1><ul>
+        <h1 id="先复习一下yolov1"><a href="#先复习一下yolov1" class="headerlink" title="先复习一下yolov1"></a>先复习一下<a href="https://zhuanlan.zhihu.com/p/32525231" target="_blank" rel="noopener">yolov1</a></h1><ul>
 <li>输出的shape是$7\times7\times30$，分别是类别，置信度和坐标，虽然每个格子输出两个框，但只有一组类别</li>
 <li>坐标$x, y$是相对于每一个格的，$w, h$是相对于整个图的，这样做的好处是位置坐标的取值范围都是$[0, 1]$</li>
 </ul>
@@ -493,7 +492,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -515,7 +514,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -584,7 +583,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="努力～奋斗～">
 <meta property="og:description" content="目前我知道有两个地方能薅到免费的GPU，一个是google的colab，一个是百度的aistudio  colab colab是tesla p100，一次可以运行12h，只能以jupyter notebook的形式运行，没有shell真的很难受啊， 文件可以挂载在google driver 有人做了ssh访问colab，看这里，使用Ngrok做了个反向的代理  aistudio 百度最友好的是提">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:updated_time" content="2019-12-28T15:11:28.710Z">
+<meta property="og:updated_time" content="2020-05-11T13:28:17.860Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="百度真香啊">
 <meta name="twitter:description" content="目前我知道有两个地方能薅到免费的GPU，一个是google的colab，一个是百度的aistudio  colab colab是tesla p100，一次可以运行12h，只能以jupyter notebook的形式运行，没有shell真的很难受啊， 文件可以挂载在google driver 有人做了ssh访问colab，看这里，使用Ngrok做了个反向的代理  aistudio 百度最友好的是提">
@@ -364,7 +364,18 @@
 <li>给的还是Tesla V100啊</li>
 <li>理论上只能支持paddlepaddle，但亲测可以pytorch，需要自己安装</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Linux-x86_64.sh</span><br><span class="line">conda install --channel https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/ pytorch torchvision cudatoolkit=9.2 -c pytorch</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.10-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>安装之后需要修改conda的镜像，否则下载很慢，修改<code>~/.condarc</code></p>
+</li>
+<li><p>这个是我的<code>.condarc</code>，基本上是<code>conda install</code>的时候，如果下载的url不是清华的镜像，就需要添加相应的镜像了</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</span><br><span class="line">show_channel_urls: true</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装pytorch</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install --channel https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/ pytorch torchvision cudatoolkit=9.2 -c pytorch</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -397,6 +408,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/29/onlyoffice文档在线编辑/" rel="prev" title="onlyoffice文档在线编辑">
+                onlyoffice文档在线编辑 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -482,7 +497,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -504,7 +519,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -573,7 +588,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
