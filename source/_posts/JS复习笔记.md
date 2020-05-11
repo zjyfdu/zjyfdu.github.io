@@ -75,6 +75,7 @@ foo(1);
 // Array []
 ```
 8. 变量提升
+JavaScript的函数定义有个特点，它会先扫描整个函数体的语句，把所有申明的变量“提升”到函数顶部
 ```
 function foo() {
     var
@@ -87,8 +88,8 @@ function foo() {
     }
 }
 ```
-9. 默认有一个全局对象window，全局作用域的变量实际上被绑定到window的一个属性
-10. 为了解决块级作用域，ES6引入了新的关键字let，用let替代var可以申明一个块级作用域的变量：
+1. 默认有一个全局对象window，全局作用域的变量实际上被绑定到window的一个属性
+2.  为了解决块级作用域，ES6引入了新的关键字let，用let替代var可以申明一个块级作用域的变量：
 ```
 'use strict';
 
@@ -124,11 +125,13 @@ var tmp = xiaoming.age;
 tmp(); //NaN
 ```
 13. 用 `apply`或`call`传`this`
+call和apply作用是一样的，都是为了改变某个函数运行时的上下文（context）而存在的，换句话说，就是为了改变函数体内部this的指向
+从[这里](https://www.jianshu.com/p/aa2eeecd8b4f)抄的
 ```
 Math.max.apply(null, [3, 5, 4]); // 5
 Math.max.call(null, 3, 5, 4); // 5
 ```
-14. 名字空间
+1.  名字空间
 ```
 // 唯一的全局变量MYAPP:
 var MYAPP = {};

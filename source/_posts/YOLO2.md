@@ -6,8 +6,6 @@ typora-root-url: ../../source
 date: 2019-10-20 21:26:31
 ---
 
-9102年都快结束了，我才开始真正看yolov2
-
 #先复习一下[yolov1](https://zhuanlan.zhihu.com/p/32525231)
 
 - 输出的shape是$7\times7\times30$，分别是类别，置信度和坐标，虽然每个格子输出两个框，但只有一组类别

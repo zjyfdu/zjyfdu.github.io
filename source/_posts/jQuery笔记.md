@@ -24,6 +24,7 @@ $('ul.lang li:nth-child(2)'); // 选出第N个元素，N从1开始
 $('ul.lang li:nth-child(even)'); // 选出序号为偶数的元素
 $('ul.lang li:nth-child(odd)'); // 选出序号为奇数的元素
 ```
+css selector, `element element`是后代就可以，`element>element`必须是父子
 4. ajax jsonp
 ```
     $.ajax({
