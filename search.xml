@@ -25,6 +25,33 @@
     
     
     <entry>
+      <title>服务器端口记录</title>
+      <link href="/2020/02/21/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%8F%A3%E8%AE%B0%E5%BD%95/"/>
+      <url>/2020/02/21/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%8F%A3%E8%AE%B0%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<div class="table-container"><table><thead><tr><th>端口</th><th>内容</th></tr></thead><tbody><tr><td><a href="http://122.51.137.82:8080/" target="_blank" rel="noopener">http://122.51.137.82:8080/</a></td><td>个人网盘，用于向服务器传文件</td></tr><tr><td><a href="http://122.51.137.82:8082/" target="_blank" rel="noopener">http://122.51.137.82:8082/</a></td><td>用vue做的<a href="https://github.com/zjyfdu/geo_game" target="_blank" rel="noopener">地图游戏</a></td></tr><tr><td><a href="http://122.51.137.82:8085/" target="_blank" rel="noopener">http://122.51.137.82:8085/</a></td><td>b站橙卡的giligili教学<del>半成品</del>残次品</td></tr><tr><td><a href="http://122.51.137.82:8086/" target="_blank" rel="noopener">http://122.51.137.82:8086/</a></td><td>《go web编程》的gitbook</td></tr></tbody></table></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> cpp </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> caffe </tag>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>百度真香啊</title>
       <link href="/2019/12/15/%E7%99%BE%E5%BA%A6%E7%9C%9F%E9%A6%99/"/>
       <url>/2019/12/15/%E7%99%BE%E5%BA%A6%E7%9C%9F%E9%A6%99/</url>
