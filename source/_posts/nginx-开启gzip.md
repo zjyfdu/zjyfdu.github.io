@@ -37,5 +37,3 @@ http {
 百度统计的测试结果，从12s提高到6s
 
 ![](/images/94641900.jpg "-6s, excited!") 
-
-![è¿éåå¾çæè¿°](/assets/SouthEast.png)
