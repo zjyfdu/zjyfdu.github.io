@@ -281,6 +281,154 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/01/30/application-x-www-form-urlencoded和multipart-form-data/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="翟大翟">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/11989810.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力～奋斗～">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/30/application-x-www-form-urlencoded和multipart-form-data/" itemprop="url">application/x-www-form-urlencoded和multipart/form-data</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-30T14:17:47+08:00">
+                2018-01-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/flask网站总结/" itemprop="url" rel="index">
+                    <span itemprop="name">flask网站总结</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://www.cnblogs.com/taoys/archive/2010/12/30/1922186.html" target="_blank" rel="noopener">抄自这里</a></p>
+<blockquote>
+<p>form的enctype属性为编码方式，常用有两种：<code>application/x-www-form-urlencoded</code>和<code>multipart/form-data</code>。</p>
+<p>默认为<code>application/x-www-form-urlencoded</code>。 当action为get时候，浏览器用x-www-form-urlencoded的编码方式把form数据转换成一个字串（name1=value1&amp;name2=value2…），然后把这个字串append到url后面，用?分割，加载这个新的url。 当action为post时候，浏览器把form数据封装到http body中，然后发送到server。 </p>
+<p>如果没有type=file的控件，用默认的<code>application/x-www-form-urlencoded</code>就可以了。 但是如果有type=file的话，就要用到<code>multipart/form-data</code>了。浏览器会把整个表单以控件为单位分割，并为每个部分加上Content-Disposition(form-data或者file),Content-Type(默认为text/plain),name(控件name)等信息，并加上分割符(boundary)。</p>
+</blockquote>
+<p><a href="http://blog.csdn.net/xiaojianpitt/article/details/6856536" target="_blank" rel="noopener">更详细的</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/01/22/sqlite-常用命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1128,7 +1276,6 @@
             <h2 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    ...</span><br><span class="line">    gzip on;</span><br><span class="line">    </span><br><span class="line">    gzip_min_length 1k;</span><br><span class="line">    # 启用gzip压缩的最小文件，小于设置值的文件将不会压缩</span><br><span class="line"></span><br><span class="line">    gzip_buffers 16 64k;</span><br><span class="line"></span><br><span class="line">    gzip_http_version 1.1;</span><br><span class="line"></span><br><span class="line">    gzip_comp_level 6;</span><br><span class="line">    # gzip 压缩级别，1-10，数字越大压缩的越好，也越占用CPU时间</span><br><span class="line">    </span><br><span class="line">    gzip_types text/plain application/x-javascript text/css application/xml application/javascript application/json;</span><br><span class="line">    # 进行压缩的文件类型。</span><br><span class="line"></span><br><span class="line">    gzip_vary on;</span><br><span class="line">    # 是否在http header中添加Vary: Accept-Encoding</span><br><span class="line"></span><br><span class="line">    gzip_disable &quot;MSIE [1-6]\.&quot;;</span><br><span class="line">    # 禁用IE 6 gzip</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="效果拔群"><a href="#效果拔群" class="headerlink" title="效果拔群"></a>效果拔群</h2><p>百度统计的测试结果，从12s提高到6s</p>
 <p><img src="/images/94641900.jpg" alt title="-6s, excited!"> </p>
-<p><img src="/assets/SouthEast.png" alt="è¿éåå¾çæè¿°"></p>
 
           
         
@@ -1556,7 +1703,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1578,7 +1725,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1595,12 +1742,6 @@
                     <a href="https://github.com/zjyfdu" target="_blank" title="Github">
                       
                         <i class="fa fa-fw fa-github"></i>Github</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://stackoverflow.com/users/5393730/zjyfdu" target="_blank" title="StackOverflow">
-                      
-                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
                   </span>
                 
             </div>
@@ -1631,7 +1772,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

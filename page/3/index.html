@@ -281,6 +281,184 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2019/01/27/GAN总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="翟大翟">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/11989810.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力～奋斗～">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/27/GAN总结/" itemprop="url">GAN总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-27T18:32:57+08:00">
+                2019-01-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GAN/" itemprop="url" rel="index">
+                    <span itemprop="name">GAN</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="GAN原理"><a href="#GAN原理" class="headerlink" title="GAN原理"></a>GAN原理</h1><ul>
+<li>GAN的终极目的，其实是用$P_G(x)$拟合真实的$P_{data}(x)$，最直接的想法是用MLE来做，MLE实际上和最小化KL距离是等同的，证明见下张图</li>
+</ul>
+<p><img src="/images/mle_equals_kl.jpg" alt></p>
+<ul>
+<li><p>机器之心的<a href="https://www.jiqizhixin.com/articles/2017-10-1-1" target="_blank" rel="noopener">这篇</a>，基本就是照着李宏毅对课件写的，可以主要看一下为什么说判别器可以衡量两个分布指尖的JS散度</p>
+</li>
+<li><p>GAN的过程</p>
+</li>
+</ul>
+<p><img src="/images/origin_gan.jpg" alt></p>
+<ul>
+<li>Goodfellow说上面这种形式的判别器不好收敛，就搞成了下面这种，据李宏毅说，这个修改没啥乱用，只是Goodfellow偷懒而已</li>
+</ul>
+<p><img src="/images/origin_gan2.jpg" alt></p>
+<h1 id="conditional-GAN"><a href="#conditional-GAN" class="headerlink" title="conditional GAN"></a>conditional GAN</h1><ul>
+<li>除了图片是否真实外，判别器还要区分生成的图片类别对不对</li>
+</ul>
+<p><img src="/images/cgan.jpg" alt></p>
+<ul>
+<li>这种结构的判别器会好一点</li>
+</ul>
+<p><img src="/images/cgan_d.jpg" alt></p>
+<ul>
+<li>stack_GAN，GAN直接生成大图的话会比较模糊，所以用两阶段的方法</li>
+</ul>
+<p><img src="/images/stack_gan.jpg" alt></p>
+<ul>
+<li>语音增强和image2image也都可以看作是cGAN</li>
+</ul>
+<p><img src="/images/speach.jpg" alt><br><img src="/images/img2img.jpg" alt></p>
+<h1 id="unsupervised-conditional-GAN"><a href="#unsupervised-conditional-GAN" class="headerlink" title="unsupervised conditional GAN"></a>unsupervised conditional GAN</h1><ul>
+<li>问题：没有监督之后，generator可能会生成很真实，但不满足条件的图片</li>
+<li>办法1，直接忽略这个问题，因为如果generator不是太深的话，生成图片和输入图片还是相关的</li>
+<li>还有一些加入consistency</li>
+</ul>
+<p><img src="/images/direct_trans.jpg" alt><br><img src="/images/direct_trans2.jpg" alt><br><img src="/images/cycle_gan.jpg" alt><br><img src="/images/star_gan.jpg" alt></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2019/01/23/一些shell命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1743,167 +1921,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zjyfdu.coding.me/2018/07/16/write-a-shell-in-c/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="翟大翟">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/11989810.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力～奋斗～">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/16/write-a-shell-in-c/" itemprop="url">write a shell in c</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-16T15:06:39+08:00">
-                2018-07-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/cpp/" itemprop="url" rel="index">
-                    <span itemprop="name">cpp</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>源文章标题取得很大，<a href="https://brennan.io/2015/01/16/write-a-shell-in-c/" target="_blank" rel="noopener">write a shell in c</a>。相关的内容总结如下。</p>
-<ul>
-<li><p>fork(), exec() and waitpid() are defined by the POSIX standard, and Windows is not POSIX-compliant. In order to have POSIX compliance under Windows, you should compile under Cygwin.</p>
-</li>
-<li><p>fork, exec, chdir are in unistd.h(unix std); execvp is in stdlib</p>
-</li>
-<li><p>system命令相当于 fork + exec + waitpid</p>
-</li>
-<li><p>windows也提供了一个chdir函数，叫_chdir，在direct.h里</p>
-</li>
-<li><p>cc来自于Unix的c语言编译器，是 c compiler 的缩写。gcc来自Linux世界，是GNU compiler collection 的缩写，注意这是一个编译器集合，不仅仅是c或c++</p>
-</li>
-<li><p>strtok()</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> sentence[]=<span class="string">"192.168...9...14"</span>;</span><br><span class="line"><span class="keyword">char</span> *token=strtok(sentence,<span class="string">"."</span>);</span><br><span class="line"><span class="keyword">while</span>(token!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">  <span class="built_in">cout</span>&lt;&lt;token&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">  token=strtok(<span class="literal">NULL</span>,<span class="string">"."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在gcc编译器中，对标准库进行了扩展，加入了一个getline函数。会自动malloc, realloc，所以用的话，需要自己手动free，好像没啥人用，参考<a href="https://www.cnblogs.com/xkfz007/archive/2012/08/01/2618366.html" target="_blank" rel="noopener">这里</a></p>
-</li>
-<li><p>我用system代替了fork等，于是有了<a href="https://github.com/zjyfdu/lsh/blob/master/src/%E6%BA%90.cpp" target="_blank" rel="noopener">window版</a></p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1956,7 +1973,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1978,7 +1995,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1995,12 +2012,6 @@
                     <a href="https://github.com/zjyfdu" target="_blank" title="Github">
                       
                         <i class="fa fa-fw fa-github"></i>Github</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://stackoverflow.com/users/5393730/zjyfdu" target="_blank" title="StackOverflow">
-                      
-                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
                   </span>
                 
             </div>
@@ -2031,7 +2042,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
