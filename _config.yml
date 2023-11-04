@@ -78,10 +78,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  # repo: git@github.com:zjyfdu/zjyfdu.github.io.
-  repo: https://github.com/zjyfdu/zjyfdu.github.io.git
-  # repo: https://git.coding.net/zjyfdu/zjyfdu.coding.me.git
-  # branch: master
+  repo: git@github.com:zjyfdu/zjyfdu.github.io.git
 
 search:
   path: search.xml
@@ -90,7 +87,7 @@ search:
   limit: 1000
 
 live2d:
-  enable: true
+  enable: false
   scriptFrom: local
   pluginRootPath: live2dw/
   pluginJsPath: lib/
@@ -107,3 +104,8 @@ live2d:
     vOffset: -100
   mobile:
     show: false
+
+
+
+    # ssh-keygen -t ed25519 -C "15210720098@fudan.edu.cn"
+    # pbcopy < ~/.ssh/id_ed25519.pub
