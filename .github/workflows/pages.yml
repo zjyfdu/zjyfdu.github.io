@@ -1,0 +1,64 @@
+name: Deploy Hexo Site to Master Branch
+
+on:
+  push:
+    branches:
+      - hexo2 # Trigger on push to hexo2 branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: recursive
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-npm-cache
+          restore-keys: |
+            ${{ runner.OS }}-npm-cache
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Hexo site
+        run: npm run build # This should generate files in ./public
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4 # Using upload-artifact for general purpose artifact
+        with:
+          name: hexo-public
+          path: ./public
+          retention-days: 1
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to push to the master branch
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: hexo-public
+          # path: ./ # Artifacts are downloaded to the GITHUB_WORKSPACE by default
+
+      - name: Deploy to master branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./ # The artifact was downloaded to the root of GITHUB_WORKSPACE, containing the content of 'public'
+          publish_branch: master # Deploy to the master branch
+          force_orphan: true # Optional: Creates a new commit history for the master branch
+          # user_name: 'github-actions[bot]' # Optional: Custom committer name
+          # user_email: 'github-actions[bot]@users.noreply.github.com' # Optional: Custom committer email
+          # commit_message: 'Deploy Hexo site to master from hexo2 branch' # Optional: Custom commit message
