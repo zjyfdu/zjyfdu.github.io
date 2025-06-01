@@ -9,7 +9,9 @@
 # See: https://theme-next.js.org/docs/theme-settings/
 # ---------------------------------------------------------------
 
-language: zh-CN
+language:
+  - zh-CN
+  - en
 
 # Allow to cache content generation.
 cache:
@@ -196,9 +198,6 @@ toc:
 # Footer Settings
 # See: https://theme-next.js.org/docs/theme-settings/footer
 # ---------------------------------------------------------------
-
-# Show multilingual switcher in footer.
-language_switcher: false
 
 footer:
   # Specify the year when the site was setup. If not defined, current year will be used.
