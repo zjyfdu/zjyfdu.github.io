@@ -1,4 +1,4 @@
-name: Deploy Hexo Site to Master Branch
+name: deploy_from_hexo2
 
 on:
   push:

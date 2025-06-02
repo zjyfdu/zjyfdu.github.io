@@ -86,6 +86,7 @@ int main() {
 ![test2](/images/test2.png)
 
 <center>原始图片</center>
+
 ![Y](/images/Y.jpg)
 
 ![V](/images/V.jpg)
@@ -93,6 +94,7 @@ int main() {
 ![U](/images/U.jpg)
 
 <center>分别是YVU分量</center>
+
 ![rotY](/images/rotY.jpg)
 
 ![rotV](/images/rotV.jpg)
@@ -100,6 +102,7 @@ int main() {
 ![rotU](/images/rotU.jpg)
 
 <center>分别是旋转后的YVU分量</center>
+
 ![rotImageBGR](/images/rotImageBGR.jpg)
 
 <center>最后拼接完的效果</center>

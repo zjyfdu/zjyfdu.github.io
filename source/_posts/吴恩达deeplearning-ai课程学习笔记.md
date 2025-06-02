@@ -13,7 +13,7 @@ categories: caffe
 
 [视频可以直接在网易上看](https://mooc.study.163.com/smartSpec/detail/1001319001.htm)
 
-### 1. 神经网络前馈和后馈
+### 1. 神经网络前馈和后馈
 
 ![](/images/89948814.jpg "前馈")
 ![](/images/41005456.jpg "后馈")
@@ -24,7 +24,7 @@ categories: caffe
 
 L2正则化相当于是w权重减小， weight decay
 ![](/images/69146591.jpg)
-后面等这些是用在mini-batch中的，当训练数据量太大，需要对训练数据分割为mini-batch。但这样会造成收敛方向波动，为了减小这种波动，引入Adam优化算法。
+后面等这些是用在mini-batch中的，当训练数据量太大，需要对训练数据分割为mini-batch。但这样会造成收敛方向波动，为了减小这种波动，引入Adam优化算法。
 ![](/images/27110293.jpg "指数加权平均")
 ![](/images/27110293.jpg)
 ![](/images/47657351.jpg)
