@@ -93,7 +93,7 @@ RLHF-PPO的训练过程
 - 把prompt+responses喂给Critic/Reward/Reference模型，让它生成用于计算actor/critic loss的数据，这些数据称为经验（experiences）。
 - 根据这些经验，实际计算出actor/critic loss，然后更新Actor和Critic模型
 
-![img](/_posts/images/v2-5b0028cc73d9f2aa599b256df24bda83_r.jpg)
+![img](/images/v2-5b0028cc73d9f2aa599b256df24bda83_r.jpg)
 
 在强化学习中，收集一个batch的经验是非常耗时的。对应RLHF，收集一次经验，它要等四个模型做完推理才可以，因此，一个batch的经验，计算ppo-epochs次loss，更新ppo-epochs次Actor和Critic模型。
 

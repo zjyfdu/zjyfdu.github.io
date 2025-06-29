@@ -52,20 +52,39 @@ $$
 
 如果把所有的样本都作为负例，对正样本加权，就不会有近似了，直接是无偏的。
 
-LR概率模型分析
+**LR概率模型分析**
 
-- 常见的LR：假设数据服从伯努利分布，发生概率为p，不发生为1-p，odds为几率比
+- 常见的LR：假设数据服从伯努利分布，发生概率为$p$，不发生为$1-p$，$odds=p/(1-p)$为几率比
 - weighted LR：假设数据服从几何分布，假设用户看单位时长的概率为p，期望为$\frac{1}{1-p}-1=e^{wz}$（-1是因为几何概率一般是从1开始，我们这里是从0开始）
 
 ## 回归转分类
 
 把连续值分桶，softmax预测在每个桶的概率，不需要对label有啥分布的假设。
 
-可以有级联的loss：softmax loss，每个桶内的连续loss。参考快手[TPM](https://zhuanlan.zhihu.com/p/682817867)采用此方法。
+可以对label做软化，默认分桶是01 hard label，可以类似知识蒸馏，对标签做软化，但实际上我们没有teacher model，可以依赖一些先验假设，比如高斯分布。
 
-可以对label做软化，
+### [TPM](https://arxiv.org/pdf/2306.03392)
 
-[Ordinal regression](https://en.wikipedia.org/wiki/Ordinal_regression)，
+可以有级联的loss：softmax loss，每个桶内的连续loss。参考KDD23快手的TPM，Tree based Progressive Regression Model。
+
+每个叶子节点是最后的分类，也对应了一条路径，每个叶子节点的概率是多层概率的乘积。
+
+![img](/images/v2-9dd5a641dae8bcbe5d821337c956025f_1440w.jpg)
+
+### [Ordinal regression](https://en.wikipedia.org/wiki/Ordinal_regression)
+
+把学习目标送PDF改为CDF，也是把连续值分成$K$个桶。预测的不是属于某个桶的概率，而是小于等于某个桶的概率。
+$$
+F(k)=P(f(x_i)\le t_k)=\sigma(t_k-f(x_i))
+$$
+
+$$
+f(k)=F(k)-F(k-1)
+$$
+
+但这里对分布有假设，$\sigma$是一个CDF，可以是sigmoid函数，或者高斯分布的CDF$\Phi$。
+
+还有一种方法，是变成$K$个二分类。
 
 ## ZILN loss
 
