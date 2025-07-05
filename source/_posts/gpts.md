@@ -10,14 +10,17 @@ typora-root-url: ../../source
 date: 2024-03-15 12:05:02
 ---
 
-# GPT1
-
 | 模型        | 发布时间 | 层数 | 头数 | 词向量长度 | 参数量 | 预训练数据量 |
 | ----------- | -------- | ---- | ---- | ---------- | ------ | ------------ |
 | GPT-1       | 2018     | 12   | 12   | 768        | 117M   | 约 5GB       |
 | GPT-2       | 2019     | 48   | -    | 1600       | 1.5B   | 40GB         |
 | GPT-3       | 2020     | 96   | 96   | 12888      | 175B   | 45TB         |
 | instructGPT | 2022     | 96   | 96   | 12888      | 175B   |              |
+
+<!-- more -->
+
+
+# GPT1
 
 数据集：BooksCorpus数据集包含7000本没有发布的书籍。选这个数据集的原因有二：1. 数据集拥有更长的上下文依赖关系，使得模型能学得更长期的依赖关系；2. 这些书籍因为没有发布，所以很难在下游数据集上见到，更能验证模型的泛化能力。
 
@@ -136,3 +139,39 @@ $$
 其中，$V_t$是Critic对t时刻的总收益的预估，这个总收益包含即时和未来的概念（预估收益），
 $R_t+\gamma*V_{t+1}$是Reward计算出的即时收益$R_t$，Critic预测出的$t+1$及之后时候的收益的折现$V_{t+1}$，这是比 
 $V_t$更接近t时刻真值总收益的一个值（实际收益）
+
+### 一个小注意点
+
+
+
+最大化目标函数$J(\theta)=\mathbb{E}_{\tau \sim \pi_{\theta}}[R(\tau)]$。根据期望的定义，它可以写成：
+
+$$
+J(\theta)=\sum_{\tau} P(\tau \mid \theta) R(\tau) \tag{6}
+$$
+
+其中 $P(\tau \mid \theta)$ 表示参数 $\theta$ 下某条轨迹 $\tau$ 发生的概率，$R(\tau)$ 表示这条轨迹的总回报。
+
+
+对它求梯度：
+
+
+$$
+\nabla_{\theta} J(\theta)=\nabla_{\theta} \sum_{\tau} P(\tau \mid \theta) R(\tau)=\sum_{\tau}\left(\nabla_{\theta} P(\tau \mid \theta)\right) R(\tau) \tag{7}
+$$
+
+这个形式不是一个期望，我们无法通过蒙特卡洛采样来估计它。而 $\tau$ 有无限种，我们无法穷举。
+
+> 形如 $\mathbb{E}[f(X)]=\sum_{x} P(x) f(x)$ 的式子，我们可以通过从 $P(X)$ 中采样 $x_i$，然后用 $\frac{1}{N} \sum_{i} f(x_i)$ 来近似。
+
+可以利用log导数的性质$\nabla_{\theta} P(\tau \mid \theta)=P(\tau \mid \theta) \nabla_{\theta} \log P(\tau \mid \theta)$
+
+$$
+\nabla_{\theta} J(\theta) = \sum_{\tau}\left(\nabla_{\theta} P(\tau \mid \theta)\right) R(\tau) \\
+
+=\sum_{\tau} P(\tau \mid \theta)\left[\left(\nabla_{\theta} \log P(\tau \mid \theta)\right) R(\tau)\right] \\
+
+= \mathbb{E}_{\tau \sim \theta}\left[\left(\nabla_{\theta} \log P(\tau \mid \theta)\right) R(\tau)\right]
+$$
+
+进一步可以证明，$\nabla_{\theta} \log P(\tau \mid \theta)=\sum_{t=0}^{T} \nabla_{\theta} \log \pi_{\theta}\left(a_t \mid s_t\right)$，这就是我们熟悉的策略梯度定理了。
