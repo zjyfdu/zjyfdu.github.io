@@ -12,7 +12,7 @@ date: 2019-01-27 18:32:57
 
 ![](/images/mle_equals_kl.jpg)
 
-- 机器之心的[这篇](https://www.jiqizhixin.com/articles/2017-10-1-1)，基本就是照着李宏毅对课件写的，可以主要看一下为什么说判别器可以衡量两个分布指尖的JS散度
+- 机器之心的[这篇](https://www.jiqizhixin.com/articles/2017-10-1-1)，基本就是照着李宏毅对课件写的，可以主要看一下为什么说判别器可以衡量两个分布之间的JS散度
 
 - GAN的过程
 
