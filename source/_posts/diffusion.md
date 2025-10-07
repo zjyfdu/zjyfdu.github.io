@@ -53,6 +53,38 @@ VAE存在一个固有问题，是用L2距离来衡量$\hat{X}$ 与 $X$ 的相似
 
 ## GAN（生成对抗网络）
 
+GAN的思路是reconstruction loss不好衡量，我就用个模型来代替，多加了一个discriminator来判断图片是生成的还是真实的。训练过程是generator和discriminator交替进行。
+
+
+我以前也写过{% post_link GAN总结 GAN %}，当时GAN还很火。
+
+
+$$
+\min_G \max_D V(D,G) = E_{x \sim p_{\text{data}}(x)}[\log D(x)] + E_{z \sim p_{z}(z)}[\log(1 - D(G(z)))]
+$$
+
+
+这是**生成对抗网络（GAN）**的**价值函数（Value Function）**或**目标函数（Objective Function）**。
+
+* **$G$** 代表**生成器（Generator）**，其目标是**最小化**这个函数（$\min_G$）。
+* **$D$** 代表**判别器（Discriminator）**，其目标是**最大化**这个函数（$\max_D$）。
+* **$V(D, G)$** 是判别器 $D$ 和生成器 $G$ 之间的**二人极小极大博弈**的值。
+
+**公式组成部分：**
+
+1.  **$E_{x \sim p_{\text{data}}(x)}[\log D(x)]$**:
+    * 这是判别器**正确判断真实数据** $x$ 为真的期望。
+    * $p_{\text{data}}(x)$ 是真实数据分布。
+    * $D(x)$ 是判别器将真实数据 $x$ 判为真的概率。
+    * 判别器 $D$ 想要最大化这一项，使其接近 $1$（$\log(1)=0$）。
+
+2.  **$E_{z \sim p_{z}(z)}[\log(1 - D(G(z)))]$**:
+    * 这是判别器**正确判断生成数据** $G(z)$ 为假的期望。
+    * $p_{z}(z)$ 是噪声输入 $z$ 的先验分布。
+    * $G(z)$ 是生成器 $G$ 生成的假样本。
+    * $D(G(z))$ 是判别器将假样本 $G(z)$ 判为真的概率。
+    * 判别器 $D$ 想要最大化这一项，即使 $D(G(z))$ 接近 $0$（$\log(1-0)=\log(1)=0$）。
+    * 生成器 $G$ 想要**最小化**这一项，即使 $D(G(z))$ 接近 $1$，从而骗过判别器。
 
 
 ## Diffusion（扩散模型）
@@ -82,14 +114,13 @@ $$
 
 训练时，通常用一个神经网络（如 U-Net）预测噪声或数据的均值。
 
----
 
 ### Diffusion 模型的训练
 
 Diffusion 模型的训练目标是让模型学会在每一步准确地去噪。常见的训练方式是让模型预测每一步加到数据上的噪声 $\epsilon$，损失函数为：
 
 $$
-L_{simple} = \mathbb{E}_{x_0, \epsilon, t} \left[ \| \epsilon - \epsilon_\theta(x_t, t) \|^2 \right]
+L_{simple} = E_{x_0, \epsilon, t} \left[ \| \epsilon - \epsilon_\theta(x_t, t) \|^2 \right]
 $$
 
 其中 $x_t$ 是在 $t$ 时刻加噪后的数据，$\epsilon$ 是实际加的噪声，$\epsilon_\theta$ 是模型预测的噪声。
@@ -102,7 +133,6 @@ $$
 4. 用神经网络输入 $x_t$ 和 $t$，预测噪声 $\epsilon_\theta$。
 5. 计算损失并反向传播，更新模型参数。
 
----
 
 ### Diffusion 模型的推理（采样）
 
