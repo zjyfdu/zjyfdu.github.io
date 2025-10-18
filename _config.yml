@@ -116,7 +116,7 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 ## hexo deploy是把public目录下的文件推送到master分支，不会影响源码分支hexo2
-## 所以别用hexo deploy了，直接push hexo2，github会自动编译
+## 所以别用hexo deploy了，直接push hexo2，github会自动编译 git push origin main:hexo2
 deploy:
   type: git
   repo: git@github.com:zjyfdu/zjyfdu.github.io.git

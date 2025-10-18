@@ -18,7 +18,13 @@ date: 2019-01-27 18:32:57
 
 ![](/images/origin_gan.jpg)
 
-- Goodfellow说上面这种形式的判别器不好收敛，就搞成了下面这种，据李宏毅说，这个修改没啥乱用，只是Goodfellow偷懒而已
+- Goodfellow说上面这种形式的判别器$min \ log(1 − D(G(z)))$不好收敛，就搞成了$max \ log(D(G(z)))$，据李宏毅说，这个修改没啥用，只是Goodfellow偷懒而已。但论文里还是挺有道理的。
+
+> In practice, equation 1 may not provide sufficient gradient for G to learn well. Early in learning,
+when G is poor, D can reject samples with high confidence because they are clearly different from
+the training data. In this case, log(1 − D(G(z))) saturates. Rather than training G to minimize
+log(1 − D(G(z))) we can train G to maximize log D(G(z)). This objective function results in the
+same fixed point of the dynamics of G and D
 
 ![](/images/origin_gan2.jpg)
 
