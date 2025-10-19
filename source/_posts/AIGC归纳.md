@@ -86,6 +86,7 @@ comfyUI也不用自己搭，有很多平台能用，阿里、LibLib、runninghub
 
 对做视频比较好用的几个模型
 - [wan2.2-animate](https://wan.video/blog/wan2.2-animate)，能做吴京视频。
+  
   > Wan-Animate  supports two modes: (1) Animation mode, which generates high-fidelity character animation videos by precisely replicating the facial expressions and body movements from the reference video; (2) Replacement mode, which seamlessly integrates the character into the reference video, replacing the original character while reproducing the scene’s lighting and color style to achieve natural environmental blending.
 - [humo](https://zhuanlan.zhihu.com/p/1949456021010510998)，可以做数字人。
 
@@ -113,3 +114,9 @@ tts我没有配置。
 还是不能忘记学习，https://stanford-cs336.github.io/spring2025/，
 
 https://www.bilibili.com/video/BV1YKhhzBE1M/?vd\_source=d4d45a41db226393d3b605dd30e2ffa8
+
+
+
+![image-20251019112152102](/images/image-20251019112152102.png)
+
+![image-20251019112549872](/images/image-20251019112549872.png)
