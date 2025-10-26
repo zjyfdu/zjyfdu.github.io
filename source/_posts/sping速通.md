@@ -7,13 +7,6 @@ typora-root-url: ../../source
 date: 2025-10-19 22:32:24
 ---
 
-好的，既然要写入博客，我们来创建一个更详细、结构更清晰的总结，突出 Java、Spring Boot 和 Gradle 的关键概念和“速通”技巧，以便于你的读者快速理解。
-
------
-
-# Java、Spring Boot 与 Gradle 速通指南：献给多语言背景的开发者
-
-本文面向熟悉 C++/Python/Go 等语言的开发者，旨在快速掌握现代 Java 后端开发的核心技术栈：Java、Spring Boot 和 Gradle。
 
 ## 一、 Java 基础：从 Go/Python 到 JVM
 

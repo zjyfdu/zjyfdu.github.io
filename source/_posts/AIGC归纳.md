@@ -116,6 +116,8 @@ tts我没有配置。
 https://www.bilibili.com/video/BV1YKhhzBE1M/?vd\_source=d4d45a41db226393d3b605dd30e2ffa8
 
 
+# gemini的gem
+[Veo Visionary | Text-to-Video Generator](https://gemini.google.com/gem/9c3b6882ff67?ref=jeffsu.org)
 
 ![image-20251019112152102](/images/image-20251019112152102.png)
 
